@@ -107,16 +107,7 @@
 
 
 <!-- Use Font Awesome icon and Animate.css animation -->
-<style>
-  #backToTop {
-    bottom: 20px;
-    background-color: #2D7874;
-   </style>
-
-   <div id="backToTop">
-     <a href="#" aria-label="{{ _('Back to top') }}">{{ icon_small('chevron-up-outline') }}</a>
-   </div>
-
+<style> #backToTop a svg path { fill: #ffffff; } </style> <div id="backToTop" style="bottom: 20px; background-color: #2c9d8a;"> <a href="#" aria-label="{{ _('Back to top') }}">{{ icon_small('chevron-up-outline') }}</a> </div>
 
     {% if paging %}
     <nav id="pagination" role="navigation">
