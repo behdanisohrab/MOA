@@ -101,10 +101,23 @@
     {% if not results and not answers %}
         {% include 'simple/messages/no_results.html' %}
     {% endif %}
-    </div>
-    <div id="backToTop">
-      <a href="#" aria-label="{{ _('Back to top') }}">{{ icon_small('chevron-up-outline') }}</a>
-    </div>
+  <!-- Include Font Awesome and Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-9lZ6wqy4D1L5IIzZ5jDZ5lX/sLNU6A6aX5LI8ZFX1B3JbKpOzn6/uJ7LXa9Eu6yqN5FvC9Jv5zMk+tg8l/5+gg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-mlA9t6ceBZ2YtJbK3BZ2quKjz0cm6eHh4WP+9E0Qm01l6kVv9Jh2fXN1f9w+G5m7O3dGw0FJfFQnlw1YJXvGmg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<!-- Use Font Awesome icon and Animate.css animation -->
+<style>
+  #backToTop {
+    bottom: 20px;
+    background-color: #2D7874;
+   </style>
+
+   <div id="backToTop">
+     <a href="#" aria-label="{{ _('Back to top') }}">{{ icon_small('chevron-up-outline') }}</a>
+   </div>
+
+
     {% if paging %}
     <nav id="pagination" role="navigation">
         {% if pageno > 1 %}

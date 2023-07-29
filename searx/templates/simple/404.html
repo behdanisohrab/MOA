@@ -1,9 +1,61 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page not found</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      h1 {
+        font-size: 48px;
+        margin-bottom: 40px;
+      }
+      p {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div>
+
+
 {% extends "simple/base.html" %}
 {% block content %}
 <div class="center">
     <h1>{{ _('Page not found') }}</h1>
+    <pre>
+
+
+
+
+<pre>
     {% autoescape false %}
     <p>{{ _('Go to %(search_page)s.', search_page='<a href="{}">{}</a>'.format(url_for('index'), _('search page'))) }}</p>
     {% endautoescape %}
 </div>
 {% endblock %}
+
+      </div>
+    </div>
+  </body>
+</html>
+
+
