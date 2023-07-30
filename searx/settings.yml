@@ -1188,38 +1188,7 @@ engines:
       require_api_key: false
       results: HTML
 
-  - name: qwant
-    qwant_categ: web
-    engine: qwant
-    shortcut: qw
-    categories: [general, web]
-    additional_tests:
-    rosebud: *test_rosebud
-    disabled: true
 
-  - name: qwant news
-    qwant_categ: news
-    engine: qwant
-    shortcut: qwn
-    categories: news
-    network: qwant
-    disabled: true
-
-  - name: qwant images
-    qwant_categ: images
-    engine: qwant
-    shortcut: qwi
-    categories: [images, web]
-    network: qwant
-    disabled: true
-
-  - name: qwant videos
-    qwant_categ: videos
-    engine: qwant
-    shortcut: qwv
-    categories: [videos, web]
-    network: qwant
-    disabled: true
 
   # - name: library
   #   engine: recoll
