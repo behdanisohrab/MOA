@@ -1,180 +1,286 @@
-{% extends "simple/base.html" %}
-{% from 'simple/icons.html' import icon, icon_big, icon_small %}
-{% macro engine_data_form(engine_data) -%}
-    {% for engine_name, kv_data in engine_data.items() %}
-        {% for k, v in kv_data.items() %}
-            <input type="hidden" name="engine_data-{{ engine_name }}-{{ k|e }}" value="{{ v|e }}" />
-        {% endfor %}
-    {% endfor %}
-{%- endmacro %}
-{% block title %}{% if query_in_title %}{{- q|e }} - {% endif %}{% endblock %}
-{% block meta %}<link rel="alternate" type="application/rss+xml" title="Searx search: {{ q|e }}" href="{{ url_for('search', _external=True) }}?q={{ q|urlencode }}&amp;categories={{ selected_categories|join(",") | replace(' ','+') }}&amp;pageno={{ pageno }}&amp;time_range={{ time_range }}&amp;language={{ current_language }}&amp;safesearch={{ safesearch }}&amp;format=rss">{% endblock %}
-{% block content %}
-{% include 'simple/search.html' %}
-
-{% if results and results|map(attribute='template')|unique|list|count == 1 %}
-  {% set only_template = 'only_template_' + results[0]['template']|default('default')|replace('.html', '') %}
-{% else %}
-  {% set only_template = '' %}
-{% endif %}
+{% extends "simple/base.html" %} {% from 'simple/icons.html' import icon,
+icon_big, icon_small %} {% macro engine_data_form(engine_data) -%} {% for
+engine_name, kv_data in engine_data.items() %} {% for k, v in kv_data.items() %}
+<input
+    type="hidden"
+    name="engine_data-{{ engine_name }}-{{ k|e }}"
+    value="{{ v|e }}"
+/>
+{% endfor %} {% endfor %} {%- endmacro %} {% block title %}{% if query_in_title
+%}{{- q|e }} - {% endif %}{% endblock %} {% block meta %}<link rel="alternate"
+type="application/rss+xml" title="Searx search: {{ q|e }}" href="{{
+url_for('search', _external=True) }}?q={{ q|urlencode }}&amp;categories={{
+selected_categories|join(",") | replace(' ','+') }}&amp;pageno={{ pageno
+}}&amp;time_range={{ time_range }}&amp;language={{ current_language
+}}&amp;safesearch={{ safesearch }}&amp;format=rss">{% endblock %} {% block
+content %} {% include 'simple/search.html' %} {% if results and
+results|map(attribute='template')|unique|list|count == 1 %} {% set only_template
+= 'only_template_' + results[0]['template']|default('default')|replace('.html',
+'') %} {% else %} {% set only_template = '' %} {% endif %}
 
 <div id="results" class="{{ only_template }}">
     {% if answers -%}
-    <div id="answers" role="complementary" aria-labelledby="answers-title"><h4 class="title" id="answers-title">{{ _('Answers') }} : </h4>
+    <div id="answers" role="complementary" aria-labelledby="answers-title">
+        <h4 class="title" id="answers-title">{{ _('Answers') }} :</h4>
         {%- for answer in answers.values() -%}
         <div class="answer">
-              {% if answer.url %}
-                <a href="{{ answer.url }}">{{ answer.answer }}</a>
-              {% else %}
-                <span>{{ answer.answer }}</span>
-              {% endif %}
+            {% if answer.url %}
+            <a href="{{ answer.url }}">{{ answer.answer }}</a>
+            {% else %}
+            <span>{{ answer.answer }}</span>
+            {% endif %}
         </div>
         {%- endfor -%}
     </div>
     {%- endif %}
 
     <div id="sidebar">
-
         {%- if number_of_results != '0' -%}
-        <p id="result_count"><small>{{ _('Number of results') }}: {{ number_of_results }}</small></p>
-        {%- endif -%}
-
-        {%- if infoboxes -%}
-          <div id="infoboxes">
-            <details open class="sidebar-collapsable">
-              <summary class="title">{{ _('Info') }}</summary>
-              {%- for infobox in infoboxes -%}
-                {%- include 'simple/elements/infobox.html' -%}
-              {%- endfor -%}
-            </details>
-          </div>
-        {%- endif -%}
-
-        {%- if suggestions -%}
-          {%- include 'simple/elements/suggestions.html' -%}
-        {%- endif -%}
-
-        {%- if method == 'POST' -%}
-          {%- include 'simple/elements/search_url.html' -%}
-        {%- endif -%}
-
-        {%- if unresponsive_engines -%}
-          {%- include 'simple/elements/engines_msg.html' -%}
-	{%- endif -%}
-
-        {%- if search_formats -%}
-          {%- include 'simple/elements/apis.html' -%}
-        {%- endif -%}
+        <p id="result_count">
+            <small>{{ _('Number of results') }}: {{ number_of_results }}</small>
+        </p>
+        {%- endif -%} {%- if infoboxes -%}
+        <div id="infoboxes">
+            <div open class="sidebar-collapsable">
+                <!-- <summary class="title">{{ _('Info') }}</summary> -->
+                {%- for infobox in infoboxes -%} {%- include
+                'simple/elements/infobox.html' -%} {%- endfor -%}
+            </div>
+        </div>
+        {%- endif -%} {%- if method == 'POST' -%} {%- include
+        'simple/elements/search_url.html' -%} {%- endif -%} {%- if
+        unresponsive_engines -%} {%- include 'simple/elements/engines_msg.html'
+        -%} {%- endif -%} {%- if search_formats -%} {%- include
+        'simple/elements/apis.html' -%} {%- endif -%}
 
         <div id="sidebar-end-collapsable"></div>
     </div>
 
     {% if corrections %}
-    <div id="corrections" role="complementary" aria-labelledby="corrections-title">
-      <h4 id="corrections-title">{{ _('Try searching for:') }}</h4>
-      {% for correction in corrections %}
-      <div class="left">
-	      <form method="{{ method or 'POST' }}" action="{{ url_for('search') }}" role="navigation">
-          {% for category in selected_categories %}
-          <input type="hidden" name="category_{{ category }}" value="1">
-          {% endfor %}
-          <input type="hidden" name="q" value="{{ correction.url }}">
-          <input type="hidden" name="language" value="{{ current_language }}">
-          <input type="hidden" name="time_range" value="{{ time_range }}">
-          <input type="hidden" name="safesearch" value="{{ safesearch }}">
-          <input type="hidden" name="theme" value="{{ theme }}">
-          {% if timeout_limit %}<input type="hidden" name="timeout_limit" value="{{ timeout_limit }}" >{% endif %}
-          <input type="submit" role="link" value="{{ correction.title }}">
-	      </form>
-      </div>
-      {% endfor %}
+    <div
+        id="corrections"
+        role="complementary"
+        aria-labelledby="corrections-title"
+    >
+        <h4 id="corrections-title">{{ _('Try searching for:') }}</h4>
+        {% for correction in corrections %}
+        <div class="left">
+            <form
+                method="{{ method or 'POST' }}"
+                action="{{ url_for('search') }}"
+                role="navigation"
+            >
+                {% for category in selected_categories %}
+                <input type="hidden" name="category_{{ category }}" value="1" />
+                {% endfor %}
+                <input type="hidden" name="q" value="{{ correction.url }}" />
+                <input
+                    type="hidden"
+                    name="language"
+                    value="{{ current_language }}"
+                />
+                <input
+                    type="hidden"
+                    name="time_range"
+                    value="{{ time_range }}"
+                />
+                <input
+                    type="hidden"
+                    name="safesearch"
+                    value="{{ safesearch }}"
+                />
+                <input type="hidden" name="theme" value="{{ theme }}" />
+                {% if timeout_limit %}<input
+                    type="hidden"
+                    name="timeout_limit"
+                    value="{{ timeout_limit }}"
+                />{% endif %}
+                <input
+                    type="submit"
+                    role="link"
+                    value="{{ correction.title }}"
+                />
+            </form>
+        </div>
+        {% endfor %}
     </div>
     {% endif %}
 
     <div id="urls" role="main">
-    {% for result in results %}
-        {% if result.open_group and not only_template %}<div class="template_group_{{ result['template']|replace('.html', '') }}">{% endif %}
-        {% set index = loop.index %}
-        {% include get_result_template('simple', result['template']) %}
-        {% if result.close_group and not only_template %}</div>{% endif %}
-    {% endfor %}
-    {% if not results and not answers %}
-        {% include 'simple/messages/no_results.html' %}
-    {% endif %}
-  <!-- Include Font Awesome and Animate.css -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-9lZ6wqy4D1L5IIzZ5jDZ5lX/sLNU6A6aX5LI8ZFX1B3JbKpOzn6/uJ7LXa9Eu6yqN5FvC9Jv5zMk+tg8l/5+gg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-mlA9t6ceBZ2YtJbK3BZ2quKjz0cm6eHh4WP+9E0Qm01l6kVv9Jh2fXN1f9w+G5m7O3dGw0FJfFQnlw1YJXvGmg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        {% for result in results %}{% if result.open_group and not only_template
+        %}
+        <div
+            class="template_group_{{ result['template']|replace('.html', '') }}"
+        >
+            {% endif %} {% set index = loop.index %} {% if index == 5 %} {%- if
+            suggestions -%} {%- include 'simple/elements/suggestions.html' -%}
+            {%- endif -%} {% endif %}{% include get_result_template('simple',
+            result['template']) %} {% if result.close_group and not
+            only_template %}
+        </div>
+        {% endif %} {% endfor %} {% if not results and not answers %} {% include
+        'simple/messages/no_results.html' %} {% endif %}
+        <!-- Include Font Awesome and Animate.css -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-9lZ6wqy4D1L5IIzZ5jDZ5lX/sLNU6A6aX5LI8ZFX1B3JbKpOzn6/uJ7LXa9Eu6yqN5FvC9Jv5zMk+tg8l/5+gg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            integrity="sha512-mlA9t6ceBZ2YtJbK3BZ2quKjz0cm6eHh4WP+9E0Qm01l6kVv9Jh2fXN1f9w+G5m7O3dGw0FJfFQnlw1YJXvGmg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
 
+        <!-- Use Font Awesome icon and Animate.css animation -->
+        <style>
+            #backToTop a svg path {
+                fill: #ffffff;
+            }
+        </style>
+        <div id="backToTop" style="bottom: 20px; background-color: #2c9d8a">
+            <a href="#" aria-label="{{ _('Back to top') }}"
+                >{{ icon_small('chevron-up-outline') }}</a
+            >
+        </div>
 
-<!-- Use Font Awesome icon and Animate.css animation -->
-<style> #backToTop a svg path { fill: #ffffff; } </style> <div id="backToTop" style="bottom: 20px; background-color: #2c9d8a;"> <a href="#" aria-label="{{ _('Back to top') }}">{{ icon_small('chevron-up-outline') }}</a> </div>
-
-    {% if paging %}
+        {% if paging %}
+    </div>
     <nav id="pagination" role="navigation">
         {% if pageno > 1 %}
-            <form method="{{ method or 'POST' }}" action="{{ url_for('search') }}" class="previous_page">
-                <div class="{% if rtl %}right{% else %}left{% endif %}">
-                  <input type="hidden" name="q" value="{{ q|e }}" >
-                  {% for category in selected_categories %}
-                  <input type="hidden" name="category_{{ category }}" value="1" >
-                  {% endfor %}
-                  <input type="hidden" name="pageno" value="{{ pageno-1 }}" >
-                  <input type="hidden" name="language" value="{{ current_language }}" >
-                  <input type="hidden" name="time_range" value="{{ time_range }}" >
-                  <input type="hidden" name="safesearch" value="{{ safesearch }}" >
-                  <input type="hidden" name="theme" value="{{ theme }}" >
-                  {% if timeout_limit %}<input type="hidden" name="timeout_limit" value="{{ timeout_limit|e }}" >{% endif %}
-                  {{- engine_data_form(engine_data) -}}
-                  <button role="link" type="submit">{{ icon_small('chevron-left') }} {{ _('Previous page') }}</button>
-                </div>
-            </form>
-        {% endif %}
-        <form method="{{ method or 'POST' }}" action="{{ url_for('search') }}" class="next_page">
-            <div class="{% if rtl %}left{% else %}right{% endif %}">
-              <input type="hidden" name="q" value="{{ q|e }}" >
-              {% for category in selected_categories %}
-              <input type="hidden" name="category_{{ category }}" value="1" >
-              {% endfor %}
-              <input type="hidden" name="pageno" value="{{ pageno+1 }}" >
-              <input type="hidden" name="language" value="{{ current_language }}" >
-              <input type="hidden" name="time_range" value="{{ time_range }}" >
-              <input type="hidden" name="safesearch" value="{{ safesearch }}" >
-              <input type="hidden" name="theme" value="{{ theme }}" >
-              {% if timeout_limit %}<input type="hidden" name="timeout_limit" value="{{ timeout_limit|e }}" >{% endif %}
-              {{- engine_data_form(engine_data) -}}
-              <button role="link"  type="submit">{{ _('Next page') }} {{ icon_small('chevron-right') }}</button>
+        <form
+            method="{{ method or 'POST' }}"
+            action="{{ url_for('search') }}"
+            class="previous_page"
+        >
+            <div class="{% if rtl %}right{% else %}left{% endif %}">
+                <input type="hidden" name="q" value="{{ q|e }}" />
+                {% for category in selected_categories %}
+                <input type="hidden" name="category_{{ category }}" value="1" />
+                {% endfor %}
+                <input type="hidden" name="pageno" value="{{ pageno-1 }}" />
+                <input
+                    type="hidden"
+                    name="language"
+                    value="{{ current_language }}"
+                />
+                <input
+                    type="hidden"
+                    name="time_range"
+                    value="{{ time_range }}"
+                />
+                <input
+                    type="hidden"
+                    name="safesearch"
+                    value="{{ safesearch }}"
+                />
+                <input type="hidden" name="theme" value="{{ theme }}" />
+                {% if timeout_limit %}<input
+                    type="hidden"
+                    name="timeout_limit"
+                    value="{{ timeout_limit|e }}"
+                />{% endif %} {{- engine_data_form(engine_data) -}}
+                <button role="link" type="submit">
+                    {{ icon_small('chevron-left') }} {{ _('Previous page') }}
+                </button>
             </div>
         </form>
-        {% set pstart = 1 %}
-        {% set pend = 11 %}
-        {% if pageno > 5 %}
-            {% set pstart = pageno - 4 %}
-            {% set pend = pageno + 6 %}
         {% endif %}
+        <form
+            method="{{ method or 'POST' }}"
+            action="{{ url_for('search') }}"
+            class="next_page"
+        >
+            <div class="{% if rtl %}left{% else %}right{% endif %}">
+                <input type="hidden" name="q" value="{{ q|e }}" />
+                {% for category in selected_categories %}
+                <input type="hidden" name="category_{{ category }}" value="1" />
+                {% endfor %}
+                <input type="hidden" name="pageno" value="{{ pageno+1 }}" />
+                <input
+                    type="hidden"
+                    name="language"
+                    value="{{ current_language }}"
+                />
+                <input
+                    type="hidden"
+                    name="time_range"
+                    value="{{ time_range }}"
+                />
+                <input
+                    type="hidden"
+                    name="safesearch"
+                    value="{{ safesearch }}"
+                />
+                <input type="hidden" name="theme" value="{{ theme }}" />
+                {% if timeout_limit %}<input
+                    type="hidden"
+                    name="timeout_limit"
+                    value="{{ timeout_limit|e }}"
+                />{% endif %} {{- engine_data_form(engine_data) -}}
+                <button role="link" type="submit">
+                    {{ _('Next page') }} {{ icon_small('chevron-right') }}
+                </button>
+            </div>
+        </form>
+        {% set pstart = 1 %} {% set pend = 11 %} {% if pageno > 5 %} {% set
+        pstart = pageno - 4 %} {% set pend = pageno + 6 %} {% endif %}
 
         <div class="numbered_pagination">
-        {% for x in range(pstart, pend) %}
-            <form method="{{ method or 'POST' }}" action="{{ url_for('search') }}" class="page_number">
-                <input type="hidden" name="q" value="{{ q|e }}" >
+            {% for x in range(pstart, pend) %}
+            <form
+                method="{{ method or 'POST' }}"
+                action="{{ url_for('search') }}"
+                class="page_number"
+            >
+                <input type="hidden" name="q" value="{{ q|e }}" />
                 {% for category in selected_categories %}
-                <input type="hidden" name="category_{{ category }}" value="1" >
+                <input type="hidden" name="category_{{ category }}" value="1" />
                 {% endfor %}
-                <input type="hidden" name="pageno" value="{{ x }}" >
-                <input type="hidden" name="language" value="{{ current_language }}" >
-                <input type="hidden" name="time_range" value="{{ time_range }}" >
-                <input type="hidden" name="safesearch" value="{{ safesearch }}" >
-                <input type="hidden" name="theme" value="{{ theme }}" >
-                {% if timeout_limit %}<input type="hidden" name="timeout_limit" value="{{ timeout_limit|e }}" >{% endif %}
-                {{- engine_data_form(engine_data) -}}
-                {% if pageno == x %}
-                <input role="link" class="page_number_current" type="button" value="{{ x }}">
+                <input type="hidden" name="pageno" value="{{ x }}" />
+                <input
+                    type="hidden"
+                    name="language"
+                    value="{{ current_language }}"
+                />
+                <input
+                    type="hidden"
+                    name="time_range"
+                    value="{{ time_range }}"
+                />
+                <input
+                    type="hidden"
+                    name="safesearch"
+                    value="{{ safesearch }}"
+                />
+                <input type="hidden" name="theme" value="{{ theme }}" />
+                {% if timeout_limit %}<input
+                    type="hidden"
+                    name="timeout_limit"
+                    value="{{ timeout_limit|e }}"
+                />{% endif %} {{- engine_data_form(engine_data) -}} {% if pageno
+                == x %}
+                <input
+                    role="link"
+                    class="page_number_current"
+                    type="button"
+                    value="{{ x }}"
+                />
                 {% else %}
-                <input role="link" class="page_number" type="submit" value="{{ x }}">
+                <input
+                    role="link"
+                    class="page_number"
+                    type="submit"
+                    value="{{ x }}"
+                />
                 {% endif %}
             </form>
-        {% endfor %}
+            {% endfor %}
         </div>
     </nav>
-    {% endif %}
+    {% endif %} {% endblock %}
 </div>
-{% endblock %}
