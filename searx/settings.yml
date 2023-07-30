@@ -314,12 +314,12 @@ engines:
     engine: apkmirror
     timeout: 4.0
     shortcut: apkm
-    disabled: true
+
 
   - name: apple app store
     engine: apple_app_store
     shortcut: aps
-    disabled: true
+
 
   # Requires Tor
   - name: ahmia
@@ -370,6 +370,7 @@ engines:
     engine: bandcamp
     shortcut: bc
     categories: music
+    disabled: true
 
   - name: wikipedia
     engine: wikipedia
@@ -512,11 +513,11 @@ engines:
     engine: currency_convert
     categories: general
     shortcut: cc
+    disabled: true
 
   - name: deezer
     engine: deezer
     shortcut: dz
-    disabled: true
 
   - name: deviantart
     engine: deviantart
@@ -586,22 +587,20 @@ engines:
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
+    disabled: true
 
   - name: duckduckgo images
     engine: duckduckgo_images
     shortcut: ddi
     timeout: 3.0
-    disabled: true
 
   - name: duckduckgo weather
     engine: duckduckgo_weather
     shortcut: ddw
-    disabled: true
 
   - name: apple maps
     engine: apple_maps
     shortcut: apm
-    disabled: true
     timeout: 5.0
 
   - name: emojipedia
@@ -645,16 +644,16 @@ engines:
     engine: www1x
     shortcut: 1x
     timeout: 3.0
-    disabled: true
 
   - name: fdroid
     engine: fdroid
     shortcut: fd
-    disabled: true
+
 
   - name: flickr
     categories: images
     shortcut: fl
+    disabled: true
     # You can use the engine using the official stable API, but you need an API
     # key, see: https://www.flickr.com/services/apps/create/
     # engine: flickr
@@ -674,7 +673,6 @@ engines:
     # * nearmatch - nearmatch in title
     search_type: title
     timeout: 5.0
-    disabled: true
     about:
       website: https://directory.fsf.org/
       wikidata_id: Q2470288
@@ -690,7 +688,6 @@ engines:
   - name: frinkiac
     engine: frinkiac
     shortcut: frk
-    disabled: true
 
   - name: genius
     engine: genius
@@ -700,6 +697,9 @@ engines:
     engine: gentoo
     shortcut: ge
     timeout: 10.0
+    disabled: true
+
+
 
   - name: gitlab
     engine: json_engine
@@ -712,7 +712,6 @@ engines:
     categories: [it, repos]
     shortcut: gl
     timeout: 10.0
-    disabled: true
     about:
       website: https://about.gitlab.com/
       wikidata_id: Q16639197
@@ -737,7 +736,6 @@ engines:
     content_query: description
     categories: [it, repos]
     shortcut: cb
-    disabled: true
     about:
       website: https://codeberg.org/
       wikidata_id:
@@ -767,6 +765,8 @@ engines:
   - name: google news
     engine: google_news
     shortcut: gon
+    disabled: true
+
     # additional_tests:
     #   android: *test_android
 
@@ -785,14 +785,12 @@ engines:
     categories: [files, apps]
     shortcut: gpa
     play_categ: apps
-    disabled: true
 
   - name: google play movies
     engine: google_play
     categories: videos
     shortcut: gpm
     play_categ: movies
-    disabled: true
 
   - name: gpodder
     engine: json_engine
@@ -823,7 +821,6 @@ engines:
     content_xpath: //article[contains(@class, "post")]//div[contains(@class, "post__text")]
     categories: it
     timeout: 4.0
-    disabled: true
     shortcut: habr
     about:
       website: https://habr.com/
@@ -862,7 +859,6 @@ engines:
     engine: ina
     shortcut: in
     timeout: 6.0
-    disabled: true
 
   - name: invidious
     engine: invidious
@@ -876,7 +872,6 @@ engines:
       - https://inv.riverside.rocks
     shortcut: iv
     timeout: 3.0
-    disabled: true
 
   - name: jisho
     engine: jisho
@@ -935,7 +930,6 @@ engines:
     categories: it
     shortcut: lo
     timeout: 5.0
-    disabled: true
     about:
       website: https://lobste.rs/
       wikidata_id: Q60762874
@@ -948,7 +942,6 @@ engines:
     shortcut: lyrics
     engine: xpath
     timeout: 4.0
-    disabled: true
     categories: [music, lyrics]
     paging: true
     search_url: https://search.azlyrics.com/search.php?q={query}&w=lyrics&p={pageno}
@@ -966,7 +959,6 @@ engines:
   - name: metacpan
     engine: metacpan
     shortcut: cpan
-    disabled: true
     number_of_results: 20
 
   # - name: meilisearch
@@ -1005,7 +997,6 @@ engines:
     content_query: package/description
     page_size: 25
     categories: [it, packages]
-    disabled: true
     timeout: 5.0
     shortcut: npm
     about:
@@ -1164,7 +1155,6 @@ engines:
     content_xpath: ./p[@class="packages-description"]
     categories: [packages, it]
     timeout: 3.0
-    disabled: true
     first_page_num: 1
     about:
       website: https://pub.dev/
@@ -1204,7 +1194,8 @@ engines:
     shortcut: qw
     categories: [general, web]
     additional_tests:
-      rosebud: *test_rosebud
+    rosebud: *test_rosebud
+    disabled: true
 
   - name: qwant news
     qwant_categ: news
@@ -1212,6 +1203,7 @@ engines:
     shortcut: qwn
     categories: news
     network: qwant
+    disabled: true
 
   - name: qwant images
     qwant_categ: images
@@ -1219,6 +1211,7 @@ engines:
     shortcut: qwi
     categories: [images, web]
     network: qwant
+    disabled: true
 
   - name: qwant videos
     qwant_categ: videos
@@ -1226,6 +1219,7 @@ engines:
     shortcut: qwv
     categories: [videos, web]
     network: qwant
+    disabled: true
 
   # - name: library
   #   engine: recoll
@@ -1274,6 +1268,7 @@ engines:
   - name: sepiasearch
     engine: sepiasearch
     shortcut: sep
+    disabled: true
 
   - name: soundcloud
     engine: soundcloud
@@ -1353,6 +1348,7 @@ engines:
     disabled: true
     additional_tests:
       rosebud: *test_rosebud
+      disabled: true
 
   - name: tokyotoshokan
     engine: tokyotoshokan
@@ -1424,7 +1420,6 @@ engines:
   - name: twitter
     shortcut: tw
     engine: twitter
-    disabled: true
 
   # maybe in a fun category
   #  - name: uncyclopedia
@@ -1525,7 +1520,6 @@ engines:
     base_url: "https://{language}.wikinews.org/"
     number_of_results: 5
     search_type: text
-    disabled: true
     about:
       website: https://www.wikinews.org/
       wikidata_id: Q964
@@ -1707,7 +1701,6 @@ engines:
     suggestion_xpath: /html/body/main/div/div[@class="search__suggestions"]/p/a
     first_page_num: 1
     categories: [it, packages]
-    disabled: true
     about:
       website: https://rubygems.org/
       wikidata_id: Q1853420
@@ -1723,7 +1716,6 @@ engines:
     # alternatives see: https://instances.joinpeertube.org/instances
     # base_url: https://tube.4aem.com
     categories: videos
-    disabled: true
     timeout: 6.0
 
   - name: mediathekviewweb
@@ -1746,7 +1738,6 @@ engines:
     base_url: https://rumble.com/
     paging: true
     categories: videos
-    disabled: true
 
   - name: wordnik
     engine: wordnik
@@ -1808,6 +1799,7 @@ engines:
 
   - name: brave
     shortcut: brave
+    disabled: true
     engine: xpath
     paging: true
     time_range_support: true
@@ -1870,7 +1862,6 @@ engines:
     title_xpath: ./div[@class="h"]/h4
     content_xpath: ./div[@class="h"]/p
     categories: [it, packages]
-    disabled: true
     about:
       website: https://lib.rs
       wikidata_id: Q113486010
