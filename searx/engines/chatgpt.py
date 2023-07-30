@@ -312,7 +312,7 @@ def request(query, params):
 
 def response(resp):
     """parse response"""
-    token = get_authorization_token("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")
+    token = get_authorization_token("")
     try:
         content = send_request(resp.search_params['query'], token)
     except:
