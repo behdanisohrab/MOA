@@ -583,6 +583,7 @@ engines:
     timeout: 3.0
     weight: 2
     tests: *tests_infobox
+    disabled: true
 
   - name: duckduckgo
     engine: duckduckgo
@@ -917,6 +918,7 @@ engines:
   - name: lingva
     engine: lingva
     shortcut: lv
+    disabled: true
     # set lingva instance in url, by default it will use the official instance
     # url: https://lingva.ml
 
@@ -1570,6 +1572,7 @@ engines:
   - name: dictzone
     engine: dictzone
     shortcut: dc
+    disabled: true
 
   - name: mymemory translated
     engine: translated
