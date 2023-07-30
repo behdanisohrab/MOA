@@ -1641,6 +1641,18 @@ engines:
     engine: seznam
     disabled: true
 
+
+
+  - name: chatgpt
+    engine: chatgpt
+    shortcut: cgpt
+    timeout: 20.0
+    disabled: false
+
+
+
+
+
   # - name: deepl
   #   engine: deepl
   #   shortcut: dpl
