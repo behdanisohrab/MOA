@@ -55,7 +55,7 @@
 
 // Main LESS-Code
 html {
-  font-family: sans-serif;
+  font-family: 'Vazirmatn' ,system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 0.9em;
   .text-size-adjust;
 
@@ -136,7 +136,7 @@ a {
 article[data-vim-selected] {
   background: var(--color-result-vim-selected);
   .ltr-border-left(0.2rem solid var(--color-result-vim-arrow));
-  .ltr-rounded-right-corners(10px);
+  border-radius: 10px;
 }
 
 article.result-images[data-vim-selected] {
@@ -291,7 +291,9 @@ article[data-vim-selected].category-social {
       padding-top: 0.6rem;
       .ltr-padding-right(1rem);
       width: 7rem;
+      max-width: 12rem;
       max-height: 7rem;
+      border-radius: .2rem;
       object-fit: scale-down;
       object-position: right top;
     }
@@ -525,7 +527,9 @@ article[data-vim-selected].category-social {
 }
 
 #urls {
-  padding: 0;
+  background-color: var(--color-urls-background);
+  padding: 1rem .5rem;
+  border-radius: 1rem;
   grid-area: urls;
 }
 
@@ -534,14 +538,21 @@ article[data-vim-selected].category-social {
 }
 
 #suggestions {
+  background-color: var(--color-base-background);
+  outline: 1rem var(--color-base-background) solid;
+  margin: 2rem 0rem;
+  padding: 1rem 2rem;
   .wrapper {
     display: flex;
-    flex-flow: column;
-    justify-content: flex-end;
-
+    flex-wrap: wrap;
+    align-items: baseline;
     form {
-      display: inline-block;
-      flex: 1 1 50%;
+      height: min-content;
+      border: 1px solid #555;
+      border-radius: 1rem;
+      margin: .2rem .25rem ;
+      padding: .4rem;
+      display: inline;
     }
   }
 }
@@ -608,12 +619,12 @@ summary.title {
 }
 
 .sidebar-collapsable {
-  border-top: 1px solid var(--color-sidebar-border);
+  // border-top: 1px solid var(--color-sidebar-border);
   padding-bottom: 0.5em;
 }
 
 #sidebar-end-collapsable {
-  border-bottom: 1px solid var(--color-sidebar-border);
+  // border-bottom: 1px solid var(--color-sidebar-border);
   width: 100%;
 }
 
@@ -755,6 +766,7 @@ summary.title {
 
 #pagination {
   grid-area: pagination;
+  padding: 1.5rem 2rem;
 
   br {
     clear: both;
@@ -1032,6 +1044,7 @@ summary.title {
   .result {
     background: var(--color-result-background);
     margin: 1rem 0;
+    border-radius: 1.5rem;
   }
 
   .result-images {
@@ -1090,4 +1103,16 @@ summary.title {
 
 pre code {
   white-space: pre-wrap;
+}
+
+
+// Persian fonts
+
+@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css");
+
+@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-code-font@v1.1.2/dist/font-face.css");
+
+// Set code font ( and suggestion )
+pre, code, #suggestions form {
+  font-family: 'Vazir Code', 'Vazir Code Hack', monospaced;
 }
