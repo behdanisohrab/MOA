@@ -771,6 +771,7 @@ summary.title {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row-reverse;
+  align-items: center;
 
   br {
     clear: both;
@@ -783,22 +784,24 @@ summary.title {
 .numbered_pagination {
   display: inline-flex;
   flex-direction: row;
-  margin: 0 auto;
-  border: 1px solid var(--color-suggestions-border);
+  border: 1px solid var(--color-btn-background);
+  .rounded-corners;
   align-items: center;
   overflow: hidden;
+  padding: .1rem .5rem;
 }
 
 .page_number {
   background: transparent !important;
   color: var(--color-result-link-font) !important;
-  text-decoration: underline;
 }
 
 .page_number_current {
   background: transparent;
   color: var(--color-result-link-visited-font);
   border: none;
+  border-bottom: 3px solid var(--color-result-link-font);
+  border-radius: 5px;
 }
 
 #backToTop {
@@ -1125,6 +1128,6 @@ pre code {
 @import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-code-font@v1.1.2/dist/font-face.css");
 
 // Set code font ( and suggestion )
-pre, code, #suggestions form {
+pre, code, #suggestions form, #pagination .numbered_pagination, .result .url_wrapper {
   font-family: 'Vazir Code', 'Vazir Code Hack', monospaced;
 }
