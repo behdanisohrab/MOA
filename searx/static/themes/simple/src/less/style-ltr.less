@@ -30,14 +30,6 @@
   padding-left: @offset;
 }
 
-.ltr-float-left() {
-  float: left;
-}
-
-.ltr-float-right() {
-  float: right;
-}
-
 .ltr-text-align-right() {
   text-align: right;
 }
@@ -80,6 +72,10 @@
 
 .ltr-transform() {
   transform: scale(1, 1);
+}
+
+.ltr-float(@offset) {
+  float: @offset;
 }
 
 @import "style.less";
