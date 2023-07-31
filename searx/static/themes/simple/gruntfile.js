@@ -28,7 +28,7 @@ module.exports = function (grunt) {
           'uglify',
           'less',
           'image',
-          'svg2png',
+          // 'svg2png',
           'svg2jinja'
         ]
       }
