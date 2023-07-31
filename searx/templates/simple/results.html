@@ -112,11 +112,11 @@ results|map(attribute='template')|unique|list|count == 1 %} {% set only_template
         <div
             class="template_group_{{ result['template']|replace('.html', '') }}"
         >
-            {% endif %} {% set index = loop.index %} {% if index == 5 %} {%- if
-            suggestions -%} {%- include 'simple/elements/suggestions.html' -%}
-            {%- endif -%} {% endif %}{% include get_result_template('simple',
-            result['template']) %} {% if result.close_group and not
-            only_template %}
+            {% endif %} {% set index = loop.index %} {% if index == range(4, 8)
+            | random %} {%- if suggestions -%} {%- include
+            'simple/elements/suggestions.html' -%} {%- endif -%} {% endif %}{%
+            include get_result_template('simple', result['template']) %} {% if
+            result.close_group and not only_template %}
         </div>
         {% endif %} {% endfor %} {% if not results and not answers %} {% include
         'simple/messages/no_results.html' %} {% endif %}
