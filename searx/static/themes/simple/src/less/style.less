@@ -527,7 +527,7 @@ article[data-vim-selected].category-social {
 }
 
 #urls {
-  background-color: var(--color-urls-background);
+  background-color: var(--color-urls-background) !important;
   padding: 1rem .5rem;
   .rounded-corners;
   grid-area: urls;
@@ -768,30 +768,40 @@ summary.title {
 #pagination {
   grid-area: pagination;
   padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row-reverse;
+  align-items: center;
 
   br {
     clear: both;
   }
+  .previous_page {
+    order: 3;
+  }
 }
 
 .numbered_pagination {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
-  justify-content: center;
+  border: 1px solid var(--color-btn-background);
+  .rounded-corners;
   align-items: center;
   overflow: hidden;
+  padding: .1rem .5rem;
 }
 
 .page_number {
   background: transparent !important;
   color: var(--color-result-link-font) !important;
-  text-decoration: underline;
 }
 
 .page_number_current {
   background: transparent;
   color: var(--color-result-link-visited-font);
   border: none;
+  border-bottom: 3px solid var(--color-result-link-font);
+  border-radius: 5px;
 }
 
 #backToTop {
@@ -802,7 +812,7 @@ summary.title {
   background: var(--color-backtotop-background);
   position: fixed;
   bottom: 8rem;
-  .ltr-left(1rem);
+  .ltr-left(3rem);
   transition: opacity 0.5s;
   opacity: 0;
   pointer-events: none;
@@ -1029,6 +1039,10 @@ summary.title {
     .ltr-right(0.5rem);
   }
 
+  #urls {
+    background-color: var(--color-base-background-mobile) !important;
+  }
+
   #results {
     margin: 0;
     padding: 0;
@@ -1114,6 +1128,6 @@ pre code {
 @import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-code-font@v1.1.2/dist/font-face.css");
 
 // Set code font ( and suggestion )
-pre, code, #suggestions form {
+pre, code, #suggestions form, #pagination .numbered_pagination, .result .url_wrapper {
   font-family: 'Vazir Code', 'Vazir Code Hack', monospaced;
 }
