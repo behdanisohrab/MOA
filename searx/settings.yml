@@ -340,7 +340,6 @@ engines:
     content_xpath: //div[@class="TEXT-BLOCK"]/ul/li
     categories: general
     timeout: 7.0
-    disabled: true
     shortcut: ai
     soft_max_redirects: 1
     about:
@@ -513,7 +512,6 @@ engines:
     engine: currency_convert
     categories: general
     shortcut: cc
-    disabled: true
 
   - name: deezer
     engine: deezer
@@ -528,7 +526,6 @@ engines:
     engine: duckduckgo_definitions
     shortcut: ddd
     weight: 2
-    disabled: true
     tests: *tests_infobox
 
   # cloudflare protected
@@ -614,7 +611,6 @@ engines:
     engine: tineye
     shortcut: tin
     timeout: 9.0
-    disabled: true
 
   - name: etymonline
     engine: xpath
@@ -652,9 +648,9 @@ engines:
 
 
   - name: flickr
+    disabled: true
     categories: images
     shortcut: fl
-    disabled: true
     # You can use the engine using the official stable API, but you need an API
     # key, see: https://www.flickr.com/services/apps/create/
     # engine: flickr
@@ -918,7 +914,6 @@ engines:
   - name: lingva
     engine: lingva
     shortcut: lv
-    disabled: true
     # set lingva instance in url, by default it will use the official instance
     # url: https://lingva.ml
 
@@ -1316,10 +1311,8 @@ engines:
     engine: startpage
     shortcut: sp
     timeout: 6.0
-    disabled: true
     additional_tests:
       rosebud: *test_rosebud
-      disabled: true
 
   - name: tokyotoshokan
     engine: tokyotoshokan
@@ -1415,7 +1408,6 @@ engines:
   - name: yahoo
     engine: yahoo
     shortcut: yh
-    disabled: true
 
   - name: yahoo news
     engine: yahoo_news
@@ -1449,7 +1441,6 @@ engines:
     content_query: Snippet
     categories: [general, web]
     shortcut: wib
-    disabled: true
     about:
       website: https://wiby.me/
 
@@ -1502,7 +1493,6 @@ engines:
     base_url: "https://{language}.wikiquote.org/"
     number_of_results: 5
     search_type: text
-    disabled: true
     additional_tests:
       rosebud: *test_rosebud
     about:
@@ -1572,7 +1562,6 @@ engines:
   - name: dictzone
     engine: dictzone
     shortcut: dc
-    disabled: true
 
   - name: mymemory translated
     engine: translated
@@ -1605,7 +1594,6 @@ engines:
   - name: seznam
     shortcut: szn
     engine: seznam
-    disabled: true
 
 
   # - name: deepl
@@ -1630,7 +1618,6 @@ engines:
     suggestion_xpath: //div[@class="top-info"]/p[@class="top-info spell"]/em/a
     first_page_num: 0
     page_size: 10
-    disabled: true
     about:
       website: https://www.mojeek.com/
       wikidata_id: Q60747299
@@ -1650,7 +1637,6 @@ engines:
     content_xpath: //a[@class="total_dsc"]/div
     first_page_num: 1
     page_size: 10
-    disabled: true
     about:
       website: https://www.naver.com/
       wikidata_id: Q485639
@@ -1755,7 +1741,6 @@ engines:
     title_xpath: //li//div[@class="mw-search-result-heading"]/a
     content_xpath: //li/div[@class="searchresult"]
     categories: general
-    disabled: true
     about:
       website: https://wikimini.org/
       wikidata_id: Q3568032
@@ -1771,7 +1756,6 @@ engines:
 
   - name: brave
     shortcut: brave
-    disabled: true
     engine: xpath
     paging: true
     time_range_support: true
@@ -1807,7 +1791,6 @@ engines:
     title_xpath: //div[@class='title-name']
     content_xpath: //div[@class='webpage-text']
     first_page_num: 1
-    disabled: true
     headers:
       User-Agent: Mozilla/5.0 (Linux; Android 7.0;) \
         AppleWebKit/537.36 (KHTML, like Gecko) \
@@ -1871,7 +1854,6 @@ engines:
     content_xpath: //p[contains(@class,'url fsM')]/following-sibling::p
     first_page_num: 0
     categories: [general, web]
-    disabled: true
     timeout: 4.0
     about:
       website: https://search.goo.ne.jp
