@@ -5,9 +5,11 @@
  */
 
 /// MOA Color platte
+@primary-color: #865DFF;
+@secondary-color: #b984ff;
 @light-background-primary: #efeff9;
 @dark-background-primary: #212127;
-@light-background-secondary: #fff;
+@light-background-secondary: #f5eff9;
 @dark-background-secondary: #262930;
 
 /// Light Theme
@@ -23,17 +25,17 @@
   --color-header-background: @light-background-primary;
   --color-header-border: #ddd;
   /// Footer Colors
-  --color-footer-background: #fdfbff;
+  --color-footer-background: @light-background-secondary;
   --color-footer-border: #ddd;
   /// Sidebar Colors
   --color-sidebar-font: #000;
   --color-sidebar-background: @light-background-secondary;
   /// BackToTop Colors
-  --color-backtotop-font: #444;
+  --color-backtotop-font: @primary-color;
   --color-backtotop-border: #ddd;
-  --color-backtotop-background: #fff;
+  --color-backtotop-background: @light-background-secondary;
   /// Button Colors
-  --color-btn-background: #3050ff;
+  --color-btn-background: @secondary-color;
   --color-btn-font: #fff;
   --color-show-btn-background: #bbb;
   --color-show-btn-font: #000;
@@ -51,8 +53,8 @@
   --color-success: #42db34;
   --color-success-background: lighten(#42db34, 40%);
   /// Categories Colors
-  --color-categories-item-selected-font: #3050ff;
-  --color-categories-item-border-selected: #3050ff;
+  --color-categories-item-selected-font: @primary-color;
+  --color-categories-item-border-selected: @primary-color;
   /// Autocomplete Colors
   --color-autocomplete-font: #000;
   --color-autocomplete-border: #bbb;
@@ -138,17 +140,17 @@
   --color-header-background: @dark-background-primary;
   --color-header-border: #333;
   /// Footer Colors
-  --color-footer-background: #1e1e22;
+  --color-footer-background: @dark-background-secondary;
   --color-footer-border: #333;
   /// Sidebar Colors
   --color-sidebar-font: #fff;
   --color-sidebar-background: @dark-background-secondary;
   /// BackToTop Colors
-  --color-backtotop-font: #bbb;
+  --color-backtotop-font: @primary-color;
   --color-backtotop-border: #333;
-  --color-backtotop-background: #2b2e36;
+  --color-backtotop-background: @dark-background-secondary;
   /// Button Colors
-  --color-btn-background: #58f;
+  --color-btn-background: @secondary-color;
   --color-btn-font: #222;
   --color-show-btn-background: #555;
   --color-show-btn-font: #fff;
@@ -166,8 +168,8 @@
   --color-success: #79f56e;
   --color-success-background: darken(#42db34, 40%);
   /// Categories Colors
-  --color-categories-item-selected-font: #58f;
-  --color-categories-item-border-selected: #58f;
+  --color-categories-item-selected-font: @primary-color;
+  --color-categories-item-border-selected: @primary-color;
   /// Autocomplete Colors
   --color-autocomplete-font: #fff;
   --color-autocomplete-border: #555;
