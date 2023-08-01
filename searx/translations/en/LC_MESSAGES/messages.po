@@ -370,7 +370,8 @@ msgid ""
 "This plugin checks if the address of the request is a Tor exit-node, and "
 "informs the user if it is; like check.torproject.org, but from SearXNG."
 msgstr ""
-
+"This plugin checks if the address of the request is a Tor exit-node, and "
+"informs the user if it is; like check.torproject.org, but from MOA."
 #: searx/plugins/tor_check.py:62
 msgid ""
 "Could not download the list of Tor exit-nodes from: "
@@ -880,10 +881,11 @@ msgid ""
 "This is the list of cookies and their values SearXNG is storing on your "
 "computer."
 msgstr ""
-
+"This is the list of cookies and their values MOA is storing on your "
+"computer."
 #: searx/templates/simple/preferences/cookies.html:3
 msgid "With that list, you can assess SearXNG transparency."
-msgstr ""
+msgstr "With that list, you can assess MOA transparency."
 
 #: searx/templates/simple/preferences/cookies.html:9
 msgid "Cookie name"
@@ -979,7 +981,7 @@ msgstr ""
 
 #: searx/templates/simple/preferences/image_proxy.html:10
 msgid "Proxying image results through SearXNG"
-msgstr ""
+msgstr "Proxying image results through MOA"
 
 #: searx/templates/simple/preferences/infinite_scroll.html:2
 msgid "Infinite scroll"
@@ -995,7 +997,7 @@ msgstr ""
 
 #: searx/templates/simple/preferences/language.html:25
 msgid "Choose Auto-detect to let SearXNG detect the language of your query."
-msgstr ""
+msgstr "Choose Auto-detect to let MOA detect the language of your query."
 
 #: searx/templates/simple/preferences/method.html:2
 msgid "HTTP Method"
@@ -1033,7 +1035,7 @@ msgstr ""
 
 #: searx/templates/simple/preferences/theme.html:14
 msgid "Change SearXNG layout"
-msgstr ""
+msgstr "Change MOA layout"
 
 #: searx/templates/simple/preferences/theme.html:19
 msgid "Theme style"
@@ -1409,7 +1411,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "It look like you are using SearXNG first time."
-#~ msgstr ""
+#~ msgstr "It look like you are using MOA first time."
 
 #~ msgid "Well done!"
 #~ msgstr ""
@@ -1467,6 +1469,11 @@ msgstr ""
 #~ " is, like check.torproject.org but from "
 #~ "searxng."
 #~ msgstr ""
+#~ "This plugin checks if the address "
+#~ "of the request is a TOR exit "
+#~ "node, and informs the user if it"
+#~ " is, like check.torproject.org but from "
+#~ "MOA."
 
 #~ msgid ""
 #~ "The TOR exit node list "
@@ -1526,7 +1533,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Please, try again later or find another SearXNG instance."
-#~ msgstr ""
+#~ msgstr "Please, try again later or find another MOA instance."
 
 #~ msgid ""
 #~ "Redirect to open-access versions of "
