@@ -55,10 +55,10 @@
 
 // Main LESS-Code
 html {
-  font-family: 'Vazirmatn', Arial, Helvetica, -apple-system, Roboto, Oxygen, Ubuntu, 'Open Sans', sans-serif;
+  font-family: 'Vazirmatn', sans-serif;
   font-size: 0.9em;
   .text-size-adjust;
-
+  line-height: normal;
   color: var(--color-base-font);
   background-color: var(--color-base-background);
   padding: 0;
@@ -97,6 +97,9 @@ footer {
   text-align: center;
   background-color: var(--color-footer-background);
   border-top: 1px solid var(--color-footer-border);
+  border-top-left-radius: 10rem;
+  border-top-right-radius: 10rem;
+  box-shadow: var(--color-footer-background) 0 -3px 1em;
   overflow: hidden;
 
   p {
@@ -545,6 +548,7 @@ article[data-vim-selected].category-social {
   .wrapper {
     display: flex;
     flex-wrap: wrap;
+    .ltr-flex-dir(row);
     align-items: baseline;
     form {
       height: min-content;
@@ -656,6 +660,8 @@ summary.title {
   grid-area: sidebar;
   word-wrap: break-word;
   color: var(--color-sidebar-font);
+  max-width: 35rem;
+  min-width: 30rem;
 
   .infobox {
     margin: 10px 0 10px;
@@ -666,6 +672,7 @@ summary.title {
 
     h1 {
       margin: 0 0 0.5em 0;
+      text-transform: capitalize;
     }
 
     img {
@@ -675,6 +682,10 @@ summary.title {
       .ltr-margin-left(1rem);
       margin-bottom: 1rem;
       border-radius: .5rem;
+    }
+
+    p {
+      text-align: justify;
     }
 
     dt {
@@ -800,7 +811,7 @@ summary.title {
   background: transparent;
   color: var(--color-result-link-visited-font);
   border: none;
-  border-bottom: 3px solid var(--color-result-link-font);
+  border-bottom: 3px solid var(--color-btn-background);
   border-radius: 5px;
 }
 
@@ -862,7 +873,8 @@ summary.title {
 
       img {
         .ltr-float(left);
-        max-width: 10em;
+        max-height: 20vh;
+        max-width: 70%;
         margin-top: 0.5em;
         .ltr-margin-right(1em);
         .ltr-margin-left(0);
@@ -878,6 +890,7 @@ summary.title {
     float: none;
     border: none;
     width: auto;
+    max-width: none;
 
     input {
       border: 0;
@@ -1071,6 +1084,11 @@ summary.title {
 
   .infobox {
     border: none !important;
+
+    img {
+      max-height: none !important;
+      max-width: none !important;
+    }
   }
 
   .numbered_pagination {
@@ -1123,7 +1141,15 @@ pre code {
 
 // Persian fonts
 
-@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css");
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn[wght].woff2') format('woff2 supports variations'),
+       url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+060x, U+061x, U+062x, U+063x, U+064x, U+065x, U+066x, U+067x, U+068x, U+069x, U+06Ax, U+06Bx, U+06Cx, U+06Dx, U+06Ex, U+06Fx
+}
 
 @import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-code-font@v1.1.2/dist/font-face.css");
 

@@ -83,6 +83,15 @@
   }
 }
 
+.ltr-flex-dir(@offset) {
+  & when (@offset = row) {
+    flex-direction: row-reverse
+  }
+  & when (@offset = row-reverse) {
+    flex-direction: row
+  }
+}
+
 @import "style.less";
 
 #q,

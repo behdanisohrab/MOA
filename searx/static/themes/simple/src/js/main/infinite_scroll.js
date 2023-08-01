@@ -74,12 +74,14 @@ searxng.ready(function () {
     const intersectionObserveOptions = {
       rootMargin: "20rem",
     };
-    const observedSelector = 'article.result:last-child';
+    const observedSelector = '#urls :last-child';
     const observer = new IntersectionObserver(entries => {
       const paginationEntry = entries[0];
       if (paginationEntry.isIntersecting) {
         observer.unobserve(paginationEntry.target);
-        loadNextPage(() => observer.observe(d.querySelector(observedSelector), intersectionObserveOptions));
+        loadNextPage(() => {
+          observer.observe(d.querySelectorAll('.result')[d.querySelectorAll('.result').length - 1], intersectionObserveOptions)
+        });
       }
     });
     observer.observe(d.querySelector(observedSelector), intersectionObserveOptions);
