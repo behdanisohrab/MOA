@@ -55,10 +55,10 @@
 
 // Main LESS-Code
 html {
-  font-family: 'Vazirmatn', Arial, Helvetica, -apple-system, Roboto, Oxygen, Ubuntu, 'Open Sans', sans-serif;
+  font-family: 'Vazirmatn', sans-serif;
   font-size: 0.9em;
   .text-size-adjust;
-
+  line-height: normal;
   color: var(--color-base-font);
   background-color: var(--color-base-background);
   padding: 0;
@@ -656,6 +656,8 @@ summary.title {
   grid-area: sidebar;
   word-wrap: break-word;
   color: var(--color-sidebar-font);
+  max-width: 35rem;
+  min-width: 30rem;
 
   .infobox {
     margin: 10px 0 10px;
@@ -666,6 +668,7 @@ summary.title {
 
     h1 {
       margin: 0 0 0.5em 0;
+      text-transform: capitalize;
     }
 
     img {
@@ -675,6 +678,10 @@ summary.title {
       .ltr-margin-left(1rem);
       margin-bottom: 1rem;
       border-radius: .5rem;
+    }
+
+    p {
+      text-align: justify;
     }
 
     dt {
@@ -862,7 +869,8 @@ summary.title {
 
       img {
         .ltr-float(left);
-        max-width: 10em;
+        max-height: 20vh;
+        max-width: 70%;
         margin-top: 0.5em;
         .ltr-margin-right(1em);
         .ltr-margin-left(0);
@@ -878,6 +886,7 @@ summary.title {
     float: none;
     border: none;
     width: auto;
+    max-width: none;
 
     input {
       border: 0;
@@ -1071,6 +1080,11 @@ summary.title {
 
   .infobox {
     border: none !important;
+
+    img {
+      max-height: none !important;
+      max-width: none !important;
+    }
   }
 
   .numbered_pagination {
@@ -1123,7 +1137,15 @@ pre code {
 
 // Persian fonts
 
-@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css");
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn[wght].woff2') format('woff2 supports variations'),
+       url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0627, U+0624, U+0626, U+0623, U+0621, U+0628, U+067E, U+062A, U+062B, U+062C, U+0686, U+062D, U+062E, U+062F, U+0630, U+0631, U+0632, U+0698, U+0633, U+0634, U+0635, U+0636, U+0637, U+0638, U+0639, U+063A, U+0641, U+0642, U+06A9, U+06AF, U+0644, U+0645, U+0646, U+0648, U+0647, U+06CC;
+}
 
 @import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-code-font@v1.1.2/dist/font-face.css");
 
