@@ -1629,6 +1629,7 @@ engines:
 
   - name: naver
     shortcut: nvr
+    disabled: ture
     categories: [general, web]
     engine: xpath
     paging: true
