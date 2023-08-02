@@ -24,7 +24,7 @@ paging = True
 time_range_support = True
 
 # base_url can be overwritten by a list of URLs in the settings.yml
-base_url = 'https://vid.puffyan.us'
+base_url = 'https://invidious.slipfox.xyz'
 
 
 def request(query, params):

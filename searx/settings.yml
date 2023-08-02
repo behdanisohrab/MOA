@@ -647,16 +647,16 @@ engines:
     shortcut: fd
 
 
-  - name: flickr
-    disabled: true
-    categories: images
-    shortcut: fl
+ # - name: flickr
+    #disabled: true
+    #categories: images
+   # shortcut: fl
     # You can use the engine using the official stable API, but you need an API
     # key, see: https://www.flickr.com/services/apps/create/
     # engine: flickr
     # api_key: 'apikey' # required!
     # Or you can use the html non-stable engine, activated by default
-    engine: flickr_noapi
+  #engine: flickr_noapi
 
   - name: free software directory
     engine: mediawiki
