@@ -7,8 +7,13 @@ MOA
 
 Moa is a free search engine that respects your privacy
 
+Testing
+===========
+git clone git@github.com:mehr32/MOA.git
 
+cd MOA
 
+./manage webapp.run
 
 
 
