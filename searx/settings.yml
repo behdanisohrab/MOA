@@ -1412,6 +1412,7 @@ engines:
   - name: yahoo news
     engine: yahoo_news
     shortcut: yhn
+    disabled: true
 
   - name: youtube
     shortcut: yt

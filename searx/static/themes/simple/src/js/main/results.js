@@ -98,6 +98,7 @@
       }
     }, true);
 
+    d.querySelector('small a[data-target="#result-map-1"]').click();
   });
 
 })(window, document, window.searxng);
