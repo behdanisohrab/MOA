@@ -291,14 +291,13 @@ article[data-vim-selected].category-social {
 
     &.image {
       .ltr-float(left);
-      padding-top: 0.6rem;
-      .ltr-padding-right(1rem);
+      margin-top: 0.6rem;
+      .ltr-margin-right(1rem);
       width: 7rem;
       max-width: 12rem;
       max-height: 7rem;
-      border-radius: .2rem;
-      object-fit: scale-down;
-      object-position: right top;
+      border-radius: .5rem;
+      object-fit: cover;
     }
   }
 
@@ -502,6 +501,17 @@ article[data-vim-selected].category-social {
       .ltr-text-align-left();
     }
   }
+
+  &:first-child {
+
+    small {
+      display: none;
+    }
+
+    img.image {
+      height: 150px;
+    }
+  }
 }
 
 .hidden {
@@ -525,7 +535,7 @@ article[data-vim-selected].category-social {
 }
 
 #results #sidebar *:first-child,
-#results #urls *:first-child {
+#results #urls *:first-child:not( img.image ) {
   margin-top: 0;
 }
 

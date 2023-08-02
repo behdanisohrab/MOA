@@ -1412,6 +1412,7 @@ engines:
   - name: yahoo news
     engine: yahoo_news
     shortcut: yhn
+    disabled: true
 
   - name: youtube
     shortcut: yt
@@ -1628,6 +1629,7 @@ engines:
 
   - name: naver
     shortcut: nvr
+    disabled: ture
     categories: [general, web]
     engine: xpath
     paging: true
