@@ -5,7 +5,7 @@ MOA
    :alt: Picture
 
 
-
+Moa is a free search engine that respects your privacy
 
 
 
