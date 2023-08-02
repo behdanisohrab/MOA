@@ -91,9 +91,12 @@ main {
 
 footer {
   clear: both;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   min-height: 4rem;
-  padding: 1rem 0;
-  width: 100%;
+  padding: 0 5rem;
+  width: calc(100% - 10rem);
   text-align: center;
   background-color: var(--color-footer-background);
   border-top: 1px solid var(--color-footer-border);
@@ -965,6 +968,14 @@ summary.title {
       "urls"
       "pagination";
   }
+
+  footer {
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding: .5rem .1rem;
+    width: calc(100% - .2rem);
+    display: block;
+  }
 }
 
 @media screen and (max-width: calc(@tablet - 0.5px)) {
@@ -1047,6 +1058,10 @@ summary.title {
     background-color: var(--color-base-background-mobile);
   }
 
+  #sidebar {
+    min-width: min-content !important;
+  }
+
   #main_results div#results {
     grid-template-columns: 100%;
     margin: 1rem 0 0 0;
@@ -1097,7 +1112,7 @@ summary.title {
 
     img {
       max-height: none !important;
-      max-width: none !important;
+      max-width: 100% !important;
     }
   }
 
@@ -1141,6 +1156,13 @@ summary.title {
     .content {
       overflow: inherit;
     }
+  }
+
+  footer {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: .1rem .2rem;
+    width: calc(100% - .4rem);
   }
 }
 
