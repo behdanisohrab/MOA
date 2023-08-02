@@ -438,7 +438,7 @@ msgstr ""
 
 #: searx/templates/simple/base.html:67
 msgid "a privacy-respecting, open metasearch engine"
-msgstr ""
+msgstr "Based on SearXNG, an open source metasearch engine that respects privacy"
 
 #: searx/templates/simple/base.html:68
 msgid "Source code"

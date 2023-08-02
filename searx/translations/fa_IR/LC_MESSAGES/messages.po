@@ -453,11 +453,11 @@ msgstr "پیش‌فرض‌ها"
 
 #: searx/templates/simple/base.html:67
 msgid "Powered by"
-msgstr "بر پایه<br>"
+msgstr "‌"
 
 #: searx/templates/simple/base.html:67
 msgid "a privacy-respecting, open metasearch engine"
-msgstr "یک موتور فراجستجوی آزاد که به حریم خصوصی احترام می گذارد"
+msgstr "بر پایه SearXNG، موتور فراجستجو آزاد که به حریم خصوصی احترام می‌گذارد "
 
 #: searx/templates/simple/base.html:68
 msgid "Source code"
