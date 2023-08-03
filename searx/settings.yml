@@ -1410,6 +1410,7 @@ engines:
   - name: yahoo
     engine: yahoo
     shortcut: yh
+    disabled: true
 
   - name: yahoo news
     engine: yahoo_news
@@ -1446,6 +1447,8 @@ engines:
     shortcut: wib
     about:
       website: https://wiby.me/
+    disabled: true
+    
 
   - name: alexandria
     engine: json_engine
