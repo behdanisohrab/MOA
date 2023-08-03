@@ -69,7 +69,7 @@
   --color-result-border: #ddd;
   --color-result-url-font: #000;
   --color-result-vim-selected: #f7f7f7;
-  --color-result-vim-arrow: #000bbb;
+  --color-result-vim-arrow: @secondary-color;
   --color-result-description-highlight-font: #000;
   --color-result-link-font: #000bbb;
   --color-result-link-font-highlight: #000bbb;
@@ -89,11 +89,11 @@
   --color-settings-engine-description-font: #545454;
   --color-settings-engine-group-background: #0001;
   /// Detail modal
-  --color-result-detail-font: #fff;
-  --color-result-detail-label-font: lightgray;
-  --color-result-detail-background: #242424;
+  --color-result-detail-font: #000;
+  --color-result-detail-label-font: #141414;
+  --color-result-detail-background: #d8c6ea;
   --color-result-detail-hr: #555;
-  --color-result-detail-link: #8af;
+  --color-result-detail-link: #4a64a5;
   --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
   --color-result-detail-loader-borderleft: rgba(0, 0, 0, 0);
   /// Toolkit Colors
@@ -184,7 +184,7 @@
   --color-result-border: #333;
   --color-result-url-font: #fff;
   --color-result-vim-selected: #1f1f23cc;
-  --color-result-vim-arrow: #8af;
+  --color-result-vim-arrow: @primary-color;
   --color-result-description-highlight-font: #fff;
   --color-result-link-font: #8af;
   --color-result-link-font-highlight: #8af;
@@ -198,7 +198,7 @@
   /// Detail modal : same as the light version
   --color-result-detail-font: #fff;
   --color-result-detail-label-font: lightgray;
-  --color-result-detail-background: #1a1a1c;
+  --color-result-detail-background: @dark-background-secondary;
   --color-result-detail-hr: #555;
   --color-result-detail-link: #8af;
   --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
@@ -258,7 +258,7 @@
 /// General Size
 @results-width: 45rem;
 @results-sidebar-width: 1fr;
-@results-offset: 10rem;
+@results-offset: 8rem;
 @results-tablet-offset: 0.5rem;
 @results-gap: 5rem;
 @results-margin: 0.125rem;
@@ -267,7 +267,7 @@
 @results-image-row-height-phone: 6rem;
 @search-width: 44rem;
 // heigh of #search, see detail.less
-@search-height: 7.6rem;
+@search-height: 8rem;
 
 /// Device Size
 /// @desktop > @tablet
