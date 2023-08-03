@@ -441,6 +441,7 @@ engines:
     engine: openverse
     categories: images
     shortcut: opv
+    disabled: true
 
   # - name: core.ac.uk
   #   engine: core
@@ -685,6 +686,7 @@ engines:
   - name: frinkiac
     engine: frinkiac
     shortcut: frk
+    disabled: true
 
   - name: genius
     engine: genius
