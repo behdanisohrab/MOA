@@ -7,7 +7,7 @@
 .. code:: yaml
 
    brand:
-     issue_url: https://github.com/searxng/searxng/issues
+     issue_url: https://github.com/mehr32/MOA/pulls
      docs_url: https://docs.searxng.org
      public_instances: https://searx.space
      wiki_url: https://github.com/searxng/searxng/wiki

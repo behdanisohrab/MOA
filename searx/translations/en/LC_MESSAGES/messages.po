@@ -81,7 +81,7 @@ msgstr ""
 #. CATEGORY_NAMES['SCIENCE']
 #: searx/searxng.msg
 msgid "science"
-msgstr ""
+msgstr "papers"
 
 #. CATEGORY_GROUPS['APPS']
 #: searx/searxng.msg
