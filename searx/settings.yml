@@ -441,6 +441,7 @@ engines:
     engine: openverse
     categories: images
     shortcut: opv
+    disabled: true
 
   # - name: core.ac.uk
   #   engine: core
@@ -685,6 +686,7 @@ engines:
   - name: frinkiac
     engine: frinkiac
     shortcut: frk
+    disabled: true
 
   - name: genius
     engine: genius
@@ -1408,6 +1410,7 @@ engines:
   - name: yahoo
     engine: yahoo
     shortcut: yh
+    disabled: true
 
   - name: yahoo news
     engine: yahoo_news
@@ -1444,6 +1447,8 @@ engines:
     shortcut: wib
     about:
       website: https://wiby.me/
+    disabled: true
+    
 
   - name: alexandria
     engine: json_engine
