@@ -1,9 +1,9 @@
 #main_results #results.image-detail-open.only_template_images {
-  width: min(98%, 59.25rem) !important;
+  width: min(98%, 64.25rem) !important;
 }
 
 #main_results #results.only_template_images.image-detail-open #backToTop {
-  .ltr-left(56.75rem) !important;
+  .ltr-left(61.75rem) !important;
   .ltr-right(inherit);
 }
 
@@ -15,7 +15,7 @@ article.result-images .detail {
   display: flex;
   flex-direction: column;
   position: fixed;
-  .ltr-left(60rem);
+  .ltr-left(65rem);
   .ltr-right(0);
   top: @search-height;
   transition: top 0.064s ease-in 0s;
@@ -28,7 +28,7 @@ article.result-images .detail {
   a.result-images-source {
     display: block;
     flex: 1;
-    text-align: left;
+    // text-align: left;
     width: 100%;
     border: none;
     text-decoration: none;
@@ -37,13 +37,19 @@ article.result-images .detail {
       padding: 0;
       margin: 0;
       border: none;
-      object-fit: contain;
+      border-radius: 1rem;
+      object-fit: scale-down;
       width: inherit;
       height: inherit;
       max-width: 100%;
       min-height: inherit;
       max-height: calc(100vh - 25rem - 7rem);
       background: inherit;
+      
+      &.transparent-image {
+        background-image: url('../img/noBackground.png');
+        background-size: 2rem;
+      }
     }
   }
 
@@ -58,16 +64,17 @@ article.result-images .detail {
     }
 
     h4 {
-      height: 2rem;
+      height: fit-content;
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 0.9rem;
+      margin: 0;
     }
 
     p {
       color: var(--color-result-detail-label-font);
       font-size: 0.9rem;
-
+      
       span {
         display: inline-block;
         width: 12rem;
@@ -81,22 +88,38 @@ article.result-images .detail {
     }
 
     p.result-content {
-      height: 2rem;
+      height: fit-content;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin: .2rem 0 2rem 0;
     }
 
-    p.result-url {
-      white-space: nowrap;
-      overflow-x: hidden;
-      text-overflow: ellipsis;
-    }
+    
+    .result-detail{
+      background-color: var(--color-search-background);
+      display: flex;
+      max-width: calc(100% - 5rem);
+      flex-direction: column;
+      justify-content: space-evenly;
+      .rounded-corners;
+      padding: 1.5rem 2rem;
 
+      p {
+        margin: 0;
+
+        &.result-url {
+          white-space: nowrap;
+          overflow-x: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    
     p.result-content:hover,
-    p.result-url:hover {
+    .result-detail p.result-url:hover {
       position: relative;
       overflow: inherit !important;
-      background: var(--color-result-detail-background);
+      // background: var(--color-result-detail-background);
       text-overflow: inherit !important;
     }
 
@@ -119,8 +142,8 @@ article.result-images .detail {
   }
 
   a.result-detail-previous {
-    top: 1rem;
-    .ltr-right(6rem);
+    bottom: 1rem;
+    .ltr-right(calc(50%  + 2rem));
     // center the icon by moving it slightly on the left
     padding-top: 0.4rem;
     .ltr-padding-right(0.5rem);
@@ -129,8 +152,8 @@ article.result-images .detail {
   }
 
   a.result-detail-next {
-    top: 1rem;
-    .ltr-right(2rem);
+    bottom: 1rem;
+    .ltr-right(calc(50%));
     padding: 0.4rem;
   }
 
@@ -175,7 +198,6 @@ article.result-images .detail {
   a.result-detail-next:active {
     color: var(--color-result-detail-font);
     background: var(--color-result-detail-background);
-    border: 1px solid var(--color-result-detail-font);
   }
 
   a.result-detail-close:focus,
@@ -207,6 +229,10 @@ article.result-images .detail {
 }
 
 @media screen and (max-width: @tablet) {
+  #main_results #results.image-detail-open.only_template_images {
+    width: calc(100% - 5rem) !important;
+  }
+  
   #results.image-detail-open article.result-images[data-vim-selected] .detail {
     top: 0;
     .ltr-left(0);
@@ -222,8 +248,8 @@ article.result-images .detail {
       }
     }
 
-    a.result-detail-next {
-      .ltr-right(1rem);
+    .result-detail {
+      max-width: none;
     }
   }
 }

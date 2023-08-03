@@ -171,10 +171,10 @@ module.exports = function (grunt) {
       all: {
         src: {
           'warning': 'node_modules/ionicons/dist/svg/alert-outline.svg',
-          'close': 'node_modules/ionicons/dist/svg/close-outline.svg',
+          'arrow-forward': 'node_modules/ionicons/dist/svg/arrow-forward-outline.svg',
           'chevron-up-outline': 'node_modules/ionicons/dist/svg/chevron-up-outline.svg',
-          'chevron-right': 'node_modules/ionicons/dist/svg/chevron-forward-outline.svg',
-          'chevron-left': 'node_modules/ionicons/dist/svg/chevron-back-outline.svg',
+          'chevron-right': 'node_modules/ionicons/dist/svg/chevron-forward-circle-outline.svg',
+          'chevron-left': 'node_modules/ionicons/dist/svg/chevron-back-circle-outline.svg',
           'menu-outline': 'node_modules/ionicons/dist/svg/settings-outline.svg',
           'ellipsis-vertical-outline': 'node_modules/ionicons/dist/svg/ellipsis-vertical-outline.svg',
           'magnet-outline': 'node_modules/ionicons/dist/svg/magnet-outline.svg',
