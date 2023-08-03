@@ -61,7 +61,7 @@
                 src=""
                 data-src="{{ image_proxify(result.img_src) }}"
                 alt="{{ result.title|striptags }}"
-                class="{%- if 'png' in result.img_format or 'svg' in result.img_format %} transparent-image {% endif -%}"
+                class="{%- if result.img_format and 'png' in result.img_format or result.img_format and 'svg' in result.img_format %} transparent-image {% endif -%}"
             />{{- "" -}} </a
         >{{- "" -}}
         <a class="result-detail-previous" href="#">{{ icon('chevron-left') }}</a
