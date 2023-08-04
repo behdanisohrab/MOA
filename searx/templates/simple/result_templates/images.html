@@ -64,10 +64,14 @@
                 class="{%- if result.img_format and 'png' in result.img_format or result.img_format and 'svg' in result.img_format %} transparent-image {% endif -%}"
             />{{- "" -}} </a
         >{{- "" -}}
-        <a class="result-detail-previous" href="#">{{ icon('chevron-left') }}</a
-        >{{- "" -}}
-        <a class="result-detail-next" href="#">{{ icon('chevron-right') }}</a
-        >{{- "" -}}
+        <div class="result-detail-change-image">
+            <a class="result-detail-previous" href="#"
+                >{{ icon('chevron-left') }}</a
+            >{{- "" -}}
+            <a class="result-detail-next" href="#"
+                >{{ icon('chevron-right') }}</a
+            >{{- "" -}}
+        </div>
         <div class="result-images-labels">
             {{- "" -}}
             <h4>
