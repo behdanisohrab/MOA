@@ -170,6 +170,7 @@ module.exports = function (grunt) {
     svg2jinja: {
       all: {
         src: {
+          'funnel-outline': 'node_modules/ionicons/dist/svg/funnel-outline.svg',
           'warning': 'node_modules/ionicons/dist/svg/alert-outline.svg',
           'arrow-forward': 'node_modules/ionicons/dist/svg/arrow-forward-outline.svg',
           'chevron-up-outline': 'node_modules/ionicons/dist/svg/chevron-up-outline.svg',

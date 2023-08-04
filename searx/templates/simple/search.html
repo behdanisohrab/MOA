@@ -51,8 +51,11 @@
             </div>
         </div>
         {% set display_tooltip = true %} {% include 'simple/categories.html' %}
+        <span id="filters-btn" class="filters-btn"
+            >{{ icon('funnel-outline') }}</span
+        >
     </div>
-    <div class="search_filters">
+    <div class="search_filters invisible">
         {% include 'simple/filters/languages.html' %} {% include
         'simple/filters/time_range.html' %} {% include
         'simple/filters/safesearch.html' %}
