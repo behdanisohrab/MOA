@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-07-07 19:41+0000\n"
-"PO-Revision-Date: 2023-07-25 10:20+0000\n"
+"PO-Revision-Date: 2023-08-04 07:07+0000\n"
 "Last-Translator: return42 <markus.heiser@darmarit.de>\n"
 "Language-Team: Persian (Iran)\n"
 "Language: fa-IR\n"
@@ -407,7 +407,7 @@ msgstr "شما از Tor استفاده نمی کنید و این آدرس IP خ�
 
 #: searx/plugins/tracker_url_remover.py:29
 msgid "Tracker URL remover"
-msgstr "از بین برنده ی آدرس ردیاب ها<br>"
+msgstr "حذف‌کننده‌ی URL ردیاب‌ها"
 
 #: searx/plugins/tracker_url_remover.py:30
 msgid "Remove trackers arguments from the returned URL"
