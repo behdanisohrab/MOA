@@ -7,7 +7,7 @@ engine_name, kv_data in engine_data.items() %} {% for k, v in kv_data.items() %}
     value="{{ v|e }}"
 />
 {% endfor %} {% endfor %} {%- endmacro %} {% block title %}{% if query_in_title
-%}{{- q|e }} - {% endif %}{% endblock %} {% block meta %}<link rel="alternate"
+%} » {{- q|e }} {% endif %}{% endblock %} {% block meta %}<link rel="alternate"
 type="application/rss+xml" title="Searx search: {{ q|e }}" href="{{
 url_for('search', _external=True) }}?q={{ q|urlencode }}&amp;categories={{
 selected_categories|join(",") | replace(' ','+') }}&amp;pageno={{ pageno
