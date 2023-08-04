@@ -665,11 +665,6 @@ engines:
     shortcut: fsd
     categories: [it, software wikis]
     base_url: https://directory.fsf.org/
-    number_of_results: 5
-    # what part of a page matches the query string: title, text, nearmatch
-    # * title     - query matches title
-    # * text      - query matches the text of page
-    # * nearmatch - nearmatch in title
     search_type: title
     timeout: 5.0
     about:
@@ -1126,6 +1121,29 @@ engines:
     engine: photon
     shortcut: ph
 
+  - name: piped
+    engine: piped
+    shortcut: ppd
+    categories: videos
+    piped_filter: videos
+    timeout: 3.0
+
+    # URL to use as link and for embeds
+    frontend_url: https://srv.piped.video
+    # Instance will be selected randomly, for more see https://piped-instances.kavin.rocks/
+    backend_url:
+      - https://pipedapi.kavin.rocks
+      - https://pipedapi-libre.kavin.rocks
+      - https://pipedapi.adminforge.de
+
+  - name: piped.music
+    engine: piped
+    network: piped
+    shortcut: ppdm
+    categories: music
+    piped_filter: music_songs
+    timeout: 3.0
+
   - name: piratebay
     engine: piratebay
     shortcut: tpb
@@ -1388,13 +1406,6 @@ engines:
     shortcut: tw
     engine: twitter
 
-  # maybe in a fun category
-  #  - name: uncyclopedia
-  #    engine: mediawiki
-  #    shortcut: unc
-  #    base_url: https://uncyclopedia.wikia.com/
-  #    number_of_results: 5
-
   # tmp suspended - too slow, too many errors
   #  - name: urbandictionary
   #    engine      : xpath
@@ -1473,11 +1484,9 @@ engines:
   - name: wikibooks
     engine: mediawiki
     shortcut: wb
-    categories: general
+    categories: [general, wikimedia]
     base_url: "https://{language}.wikibooks.org/"
-    number_of_results: 5
     search_type: text
-    disabled: true
     about:
       website: https://www.wikibooks.org/
       wikidata_id: Q367
@@ -1485,10 +1494,10 @@ engines:
   - name: wikinews
     engine: mediawiki
     shortcut: wn
-    categories: news
+    categories: [news, wikimedia]
     base_url: "https://{language}.wikinews.org/"
-    number_of_results: 5
     search_type: text
+    srsort: create_timestamp_desc
     about:
       website: https://www.wikinews.org/
       wikidata_id: Q964
@@ -1496,10 +1505,9 @@ engines:
   - name: wikiquote
     engine: mediawiki
     shortcut: wq
-    disabled: true
-    categories: general
+    categories: [general, wikimedia]
     base_url: "https://{language}.wikiquote.org/"
-    number_of_results: 5
+    disabled: true
     search_type: text
     additional_tests:
       rosebud: *test_rosebud
@@ -1510,21 +1518,28 @@ engines:
   - name: wikisource
     engine: mediawiki
     shortcut: ws
-    categories: general
+    categories: [general, wikimedia]
     base_url: "https://{language}.wikisource.org/"
-    number_of_results: 5
     search_type: text
-    disabled: true
     about:
       website: https://www.wikisource.org/
       wikidata_id: Q263
 
+  - name: wikipecies
+    engine: mediawiki
+    shortcut: wsp
+    categories: [general, science, wikimedia]
+    base_url: "https://species.wikimedia.org/"
+    search_type: text
+    about:
+      website: https://species.wikimedia.org/
+      wikidata_id: Q13679
+
   - name: wiktionary
     engine: mediawiki
     shortcut: wt
-    categories: [dictionaries]
+    categories: [dictionaries, wikimedia]
     base_url: "https://{language}.wiktionary.org/"
-    number_of_results: 5
     search_type: text
     about:
       website: https://www.wiktionary.org/
@@ -1533,11 +1548,9 @@ engines:
   - name: wikiversity
     engine: mediawiki
     shortcut: wv
-    categories: general
+    categories: [general, wikimedia]
     base_url: "https://{language}.wikiversity.org/"
-    number_of_results: 5
     search_type: text
-    disabled: true
     about:
       website: https://www.wikiversity.org/
       wikidata_id: Q370
@@ -1545,11 +1558,9 @@ engines:
   - name: wikivoyage
     engine: mediawiki
     shortcut: wy
-    categories: general
+    categories: [general, wikimedia]
     base_url: "https://{language}.wikivoyage.org/"
-    number_of_results: 5
     search_type: text
-    disabled: true
     about:
       website: https://www.wikivoyage.org/
       wikidata_id: Q373
@@ -1694,10 +1705,11 @@ engines:
   #   engine: yacy
   #   shortcut: ya
   #   base_url: http://localhost:8090
-  # required if you aren't using HTTPS for your local yacy instance'
+  #   # required if you aren't using HTTPS for your local yacy instance'
   #   enable_http: true
-  #   number_of_results: 5
   #   timeout: 3.0
+  #   # Yacy search mode. 'global' or 'local'.
+  #   search_mode: 'global'
 
   - name: rumble
     engine: rumble
