@@ -334,6 +334,7 @@ engines:
 
   - name: archive is
     engine: xpath
+    disabled: true
     search_url: https://archive.is/search/?q={query}
     url_xpath: (//div[@class="TEXT-BLOCK"]/a)/@href
     title_xpath: (//div[@class="TEXT-BLOCK"]/a)
@@ -1547,6 +1548,7 @@ engines:
 
   - name: wikiversity
     engine: mediawiki
+    disabled: true
     shortcut: wv
     categories: [general, wikimedia]
     base_url: "https://{language}.wikiversity.org/"
@@ -1626,6 +1628,7 @@ engines:
 
   - name: mojeek
     shortcut: mjk
+    disabled: true
     engine: xpath
     paging: true
     categories: [general, web]
@@ -1806,6 +1809,7 @@ engines:
   - name: petalsearch
     shortcut: pts
     engine: xpath
+    disabled: true
     paging: true
     search_url: https://petalsearch.com/search?query={query}&pn={pageno}
     url_xpath: //div[@class='card-source']
