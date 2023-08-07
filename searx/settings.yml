@@ -417,6 +417,7 @@ engines:
   - name: btdigg
     engine: btdigg
     shortcut: bt
+    disabled: true
 
   - name: ccc-tv
     engine: xpath
@@ -1165,6 +1166,7 @@ engines:
 
   - name: pub.dev
     engine: xpath
+    disabled: true
     shortcut: pd
     search_url: https://pub.dev/packages?q={query}&page={pageno}
     paging: true
