@@ -1,7 +1,8 @@
 <div id="suggestions" role="complementary" aria-labelledby="suggestions-title">
     <h4 class="title" id="suggestions-title">{{ _('Suggestions') }}</h4>
     <div class="wrapper">
-        {% for suggestion in suggestions %}
+        {% set suggestNumber = range(5, 15) | random %}{% for suggestion in
+        suggestions %}
         <form method="{{ method or 'POST' }}" action="{{ url_for('search') }}">
             <input type="hidden" name="q" value="{{ suggestion.url }}" />
             {% for category in selected_categories %}
@@ -29,6 +30,7 @@
                 value="{{ suggestion.title }}"
             />
         </form>
-        {% endfor %}
+        {% if loop.index == suggestNumber %} {% break %} {% endif %} {% endfor
+        %}
     </div>
 </div>
