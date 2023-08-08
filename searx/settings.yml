@@ -1528,7 +1528,7 @@ engines:
       website: https://www.wikisource.org/
       wikidata_id: Q263
 
-  - name: wikipecies
+  - name: wikispecies
     engine: mediawiki
     shortcut: wsp
     categories: [general, science, wikimedia]
@@ -1889,6 +1889,10 @@ engines:
       require_api_key: false
       results: HTML
       language: ja
+
+  - name: bt4g
+    engine: bt4g
+    shortcut: bt4g
 
 # Doku engine lets you access to any Doku wiki instance:
 # A public one or a privete/corporate one.
