@@ -33,7 +33,7 @@ engine_type = 'online_url_search'
 
 categories = ['general']
 paging = True
-safesearch = False
+safesearch = True
 base_url = 'https://tineye.com'
 search_string = '/result_json/?page={page}&{query}'
 
