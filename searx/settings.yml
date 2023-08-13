@@ -1443,6 +1443,10 @@ engines:
     # Or you can use the html non-stable engine, activated by default
     engine: youtube_noapi
 
+  - name: aparat
+    shortcut: apt
+    engine: aparat
+
   - name: dailymotion
     engine: dailymotion
     shortcut: dm
