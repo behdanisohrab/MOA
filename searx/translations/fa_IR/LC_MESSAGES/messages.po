@@ -1,18 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: searx\n"
+"Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-07 19:41+0000\n"
+"POT-Creation-Date: 2023-08-10 08:55+0000\n"
 "PO-Revision-Date: 2023-08-04 07:07+0000\n"
 "Last-Translator: return42 <markus.heiser@darmarit.de>\n"
-"Language-Team: Persian (Iran)\n"
-"Language: fa-IR\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"Language-Team: Persian <https://translate.codeberg.org/projects/searxng/"
+"searxng/fa/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Loco-Source-Locale: fa_IR\n"
-"X-Generator: Loco https://localise.biz/\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.1\n"
 "Generated-By: Babel 2.12.1\n"
 "\n"
 "X-Loco-Parser: loco_parse_po"
@@ -663,12 +663,12 @@ msgstr "نمره‌ها"
 msgid "Result count"
 msgstr "شمار نتایج"
 
-#: searx/templates/simple/preferences/engines.html:24
+#: searx/templates/simple/preferences/engines.html:25
 #: searx/templates/simple/stats.html:28
 msgid "Response time"
 msgstr "زمان پاسخ"
 
-#: searx/templates/simple/preferences/engines.html:28
+#: searx/templates/simple/preferences/engines.html:29
 #: searx/templates/simple/stats.html:29
 msgid "Reliability"
 msgstr "اعتمادپذیری"
@@ -965,7 +965,11 @@ msgstr ""
 msgid "Supports selected language"
 msgstr "زبان انتخاب شده را پشتیبانی می‌کند"
 
-#: searx/templates/simple/preferences/engines.html:26
+#: searx/templates/simple/preferences/engines.html:23
+msgid "Weight"
+msgstr ""
+
+#: searx/templates/simple/preferences/engines.html:27
 msgid "Max time"
 msgstr "حداکثر زمان"
 
@@ -1227,3 +1231,376 @@ msgstr "نمایش ویدئو"
 #: searx/templates/simple/result_templates/videos.html:6
 msgid "hide video"
 msgstr "پنهان‌سازی ویدئو"
+
+#~ msgid "Engine time (sec)"
+#~ msgstr "زمان موتور(ثانیه)<br>"
+
+#~ msgid "Page loads (sec)"
+#~ msgstr "زمان بارگذاری صفحه (ثانیه)"
+
+#~ msgid "Errors"
+#~ msgstr "خطاها"
+
+#~ msgid "CAPTCHA required"
+#~ msgstr ""
+
+#~ msgid "Rewrite HTTP links to HTTPS if possible"
+#~ msgstr "تغییر پیوند های HTTP به HTTPS در صورت امکان"
+
+#~ msgid ""
+#~ "Results are opened in the same "
+#~ "window by default. This plugin "
+#~ "overwrites the default behaviour to open"
+#~ " links on new tabs/windows. (JavaScript "
+#~ "required)"
+#~ msgstr ""
+#~ "به طور پیش‌فرض، نتایج در پنجره ی"
+#~ " کنونی باز می‌شوند. این افزونه، رفتار"
+#~ " پیش‌فرض را برای بازشدن پیوند در "
+#~ "پنجره/برگه جدید تغییر می‌دهد. (نیازمند "
+#~ "جاوااسکریپت)"
+
+#~ msgid "Color"
+#~ msgstr "رنگ"
+
+#~ msgid "Blue (default)"
+#~ msgstr "آبی (پیش‌فرض)"
+
+#~ msgid "Violet"
+#~ msgstr "بنفش"
+
+#~ msgid "Green"
+#~ msgstr "سبز<br>"
+
+#~ msgid "Cyan"
+#~ msgstr "فیروزه‌ای"
+
+#~ msgid "Orange"
+#~ msgstr "نارنجی"
+
+#~ msgid "Red"
+#~ msgstr "قرمز"
+
+#~ msgid "Category"
+#~ msgstr "دسته"
+
+#~ msgid "Block"
+#~ msgstr "انسداد<br>"
+
+#~ msgid "original context"
+#~ msgstr "متن اصلی<br>"
+
+#~ msgid "Plugins"
+#~ msgstr "افزونه ها"
+
+#~ msgid "Answerers"
+#~ msgstr "پاسخگو ها<br>"
+
+#~ msgid "Avg. time"
+#~ msgstr "زمان میانگین"
+
+#~ msgid "show details"
+#~ msgstr "نمایش جزئیات"
+
+#~ msgid "hide details"
+#~ msgstr "پنهان‌سازی جزئیات"
+
+#~ msgid "Load more..."
+#~ msgstr "بیشتر…<br>"
+
+#~ msgid "Loading..."
+#~ msgstr ""
+
+#~ msgid "Change searx layout"
+#~ msgstr "رابط کاربری searx را تغییر دهید<br>"
+
+#~ msgid "Proxying image results through searx"
+#~ msgstr "پراکسی کردن نتایج تصویری از طریق searx<br>"
+
+#~ msgid "This is the list of searx's instant answering modules."
+#~ msgstr "این، فهرست ماژول‌های پاسخ بلادرنگ searx است."
+
+#~ msgid ""
+#~ "This is the list of cookies and"
+#~ " their values searx is storing on "
+#~ "your computer."
+#~ msgstr "این، لیست کوکی‌ها و مقادیری است که searx روی دستگاه شما ذخیره می‌کند."
+
+#~ msgid "With that list, you can assess searx transparency."
+#~ msgstr "با آن لیست، می‌توانید شفافیت searx را ارزیابی کنید."
+
+#~ msgid "It look like you are using searx first time."
+#~ msgstr "به نظر می‌رسد اولین باری است که از searx استفاده می‌کنید."
+
+#~ msgid "Please, try again later or find another searx instance."
+#~ msgstr ""
+#~ "لطفا بعدا دوباره تلاش کنید و یا"
+#~ " به دنبال نمونه‌ای دیگری از searx "
+#~ "بگردید."
+
+#~ msgid "Themes"
+#~ msgstr "تم ها<br>"
+
+#~ msgid "Reliablity"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When enabled, the result page's title"
+#~ " contains your query. Your browser "
+#~ "can record this title."
+#~ msgstr ""
+
+#~ msgid "Method"
+#~ msgstr "روش"
+
+#~ msgid ""
+#~ "This tab does not show up for "
+#~ "search results but you can search "
+#~ "the engines listed here via bangs."
+#~ msgstr ""
+
+#~ msgid "Advanced settings"
+#~ msgstr "تنظیمات پیشرفته"
+
+#~ msgid "Close"
+#~ msgstr "بستن"
+
+#~ msgid "Language"
+#~ msgstr "زبان"
+
+#~ msgid "broken"
+#~ msgstr "خراب"
+
+#~ msgid "supported"
+#~ msgstr "پشتیبانی شده"
+
+#~ msgid "not supported"
+#~ msgstr "پشتیبانی نشده"
+
+#~ msgid "about"
+#~ msgstr "درباره"
+
+#~ msgid "Avg."
+#~ msgstr "فارسی"
+
+#~ msgid "User Interface"
+#~ msgstr "رابط کاربری"
+
+#~ msgid "Choose style for this theme"
+#~ msgstr "شیوه این پوسته را انتخاب کنید"
+
+#~ msgid "Style"
+#~ msgstr "شیوه"
+
+#~ msgid "Show advanced settings"
+#~ msgstr "نمایش تنظیمات پیشرفته"
+
+#~ msgid "Show advanced settings panel in the home page by default"
+#~ msgstr "نمایش تختهٔ تنظیمات پیشرفته در صفحهٔ خانه به‌صورت پیش‌فرض"
+
+#~ msgid "Allow all"
+#~ msgstr "اجازه به همه"
+
+#~ msgid "Disable all"
+#~ msgstr "غیرفعال‌سازی همه"
+
+#~ msgid "Selected language"
+#~ msgstr "زبان انتخابی"
+
+#~ msgid "Query"
+#~ msgstr "پرس و جو"
+
+#~ msgid "save"
+#~ msgstr "ذخیره"
+
+#~ msgid "back"
+#~ msgstr "قبلی"
+
+#~ msgid "Links"
+#~ msgstr "پیوندها"
+
+#~ msgid "RSS subscription"
+#~ msgstr "اشتراک RSS"
+
+#~ msgid "Search results"
+#~ msgstr "نتایج جست‌وجو"
+
+#~ msgid "next page"
+#~ msgstr "صفحهٔ بعدی"
+
+#~ msgid "previous page"
+#~ msgstr "صحهٔ پیشین"
+
+#~ msgid "Start search"
+#~ msgstr "آغاز جست‌وجو"
+
+#~ msgid "Clear search"
+#~ msgstr "پاک‌سازی جست‌وجو"
+
+#~ msgid "Clear"
+#~ msgstr "پاک‌سازی"
+
+#~ msgid "stats"
+#~ msgstr "آمار"
+
+#~ msgid "Heads up!"
+#~ msgstr "بالأخره!"
+
+#~ msgid "It look like you are using SearXNG first time."
+#~ msgstr "به‌نظر می‌رسید برای نخستین بار از SearXNG استفاده می‌کنید."
+
+#~ msgid "Well done!"
+#~ msgstr "آفرین!"
+
+#~ msgid "Settings saved successfully."
+#~ msgstr "تنظیمات با موفقیت ذخیره شد."
+
+#~ msgid "Oh snap!"
+#~ msgstr "گندش بزنن!"
+
+#~ msgid "Something went wrong."
+#~ msgstr "یک چیزی کار نکرد."
+
+#~ msgid "Date"
+#~ msgstr "تاریخ"
+
+#~ msgid "Type"
+#~ msgstr "گونه"
+
+#~ msgid "Get image"
+#~ msgstr "دریافت تصویر"
+
+#~ msgid "Center Alignment"
+#~ msgstr ""
+
+#~ msgid "Displays results in the center of the page (Oscar layout)."
+#~ msgstr ""
+
+#~ msgid "preferences"
+#~ msgstr "پیش‌فرض‌ها"
+
+#~ msgid "Scores per result"
+#~ msgstr "نمره‌های هر نتیجهٔ"
+
+#~ msgid "a privacy-respecting, hackable metasearch engine"
+#~ msgstr "یک ابرموتور جست‌وجوی حافظ حریم شخصی"
+
+#~ msgid "No abstract is available for this publication."
+#~ msgstr "هیچ چکیده‌ای برای این انتشار در دسترس نیست."
+
+#~ msgid "Self Informations"
+#~ msgstr "اطلاعات خوداظهاری"
+
+#~ msgid ""
+#~ "Change how forms are submited, <a "
+#~ "href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
+#~ " rel=\"external\">learn more about request "
+#~ "methods</a>"
+#~ msgstr ""
+#~ "تغییر در چگونگی ارسال فرم‌ها، <a "
+#~ "href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
+#~ " rel=\"external\">راجع به شیوه‌های درخواست "
+#~ "بیشتر بیاموزید.</a>"
+
+#~ msgid ""
+#~ "This plugin checks if the address "
+#~ "of the request is a TOR exit "
+#~ "node, and informs the user if it"
+#~ " is, like check.torproject.org but from "
+#~ "searxng."
+#~ msgstr ""
+#~ "این افزونه بررسی می‌کند که آیا "
+#~ "آدرس درخواست یک node خروجی TOR است"
+#~ " یا خیر، و به کاربر اطلاع "
+#~ "می‌دهد مانند check.torproject.org اما از "
+#~ "searxng."
+
+#~ msgid ""
+#~ "The TOR exit node list "
+#~ "(https://check.torproject.org/exit-addresses) is "
+#~ "unreachable."
+#~ msgstr "لیست گره خروجی TOR، غیر قابل دسترسی است."
+
+#~ msgid "You are using TOR. Your IP address seems to be: {ip_address}."
+#~ msgstr ""
+#~ "شما از TOR استفاده می کنید. به "
+#~ "نظر می رسد آدرس IP شما این "
+#~ "است: {ip_address}."
+
+#~ msgid "You are not using TOR. Your IP address seems to be: {ip_address}."
+#~ msgstr ""
+#~ "شما از TOR استفاده نمی کنید. به"
+#~ " نظر می رسد آدرس IP شما این "
+#~ "است: {ip_address}."
+
+#~ msgid ""
+#~ "The could not download the list of"
+#~ " Tor exit-nodes from "
+#~ "https://check.torproject.org/exit-addresses."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You are using Tor. It looks like"
+#~ " you have this external IP address:"
+#~ " {ip_address}."
+#~ msgstr ""
+
+#~ msgid "You are not using Tor. You have this external IP address: {ip_address}."
+#~ msgstr ""
+
+#~ msgid "Autodetect search language"
+#~ msgstr "تشخصیص خودکار زبان جستجو"
+
+#~ msgid "Automatically detect the query search language and switch to it."
+#~ msgstr "تشخیص خودکار زبان کوئری جستجو و انتخاب کردن آن."
+
+#~ msgid "others"
+#~ msgstr "دیگر"
+
+#~ msgid ""
+#~ "This tab does not show up for "
+#~ "search results, but you can search "
+#~ "the engines listed here via bangs."
+#~ msgstr ""
+#~ "این برگه برای نتایج جستجو نمایش "
+#~ "داده نمی شود، اما می توانید "
+#~ "موتورهای فهرست شده در اینجا را از"
+#~ " طریق bangs جستجو کنید."
+
+#~ msgid "Shortcut"
+#~ msgstr "میان‌بر"
+
+#~ msgid "!bang"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This tab dues not exists in the"
+#~ " user interface, but you can search"
+#~ " in these engines by its !bangs."
+#~ msgstr ""
+
+#~ msgid "Engines cannot retrieve results."
+#~ msgstr "موتورها نمی‌توانند نتایج را دریافت کنند."
+
+#~ msgid "Please, try again later or find another SearXNG instance."
+#~ msgstr "لطفاً دوباره تلاش کنید یا شاهد SearXNG دیگری را بیابید."
+
+#~ msgid ""
+#~ "Redirect to open-access versions of "
+#~ "publications when available (plugin required)"
+#~ msgstr "هدایت به نسخه‌های دسترسی آزاد انشارات در صورت امکان (نیازمند افزونه)"
+
+#~ msgid "Bang"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Change how forms are submitted, <a "
+#~ "href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
+#~ " rel=\"external\">learn more about request "
+#~ "methods</a>"
+#~ msgstr ""
+#~ "نحوه ارسال فرم ها را تغییر دهید،"
+#~ " <a "
+#~ "href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
+#~ " rel=\"external\"> در مورد روش های "
+#~ "درخواست بیشتر بیاموزید </a>"

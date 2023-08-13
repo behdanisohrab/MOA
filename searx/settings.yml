@@ -113,7 +113,7 @@ ui:
   default_theme: simple
   # center the results ?
   center_alignment: false
-  # URL prefix of the internet archive, don't forgett trailing slash (if needed).
+  # URL prefix of the internet archive, don't forget trailing slash (if needed).
   # cache_url: "https://webcache.googleusercontent.com/search?q=cache:"
   # Default interface locale - leave blank to detect from browser information or
   # use codes from the 'locales' config section
@@ -327,6 +327,20 @@ engines:
     categories: onions
     enable_http: true
     shortcut: ah
+
+  - name: anaconda
+    engine: xpath
+    paging: true
+    first_page_num: 0
+    search_url: https://anaconda.org/search?q={query}&page={pageno}
+    results_xpath: //tbody/tr
+    url_xpath: ./td/h5/a[last()]/@href
+    title_xpath: ./td/h5
+    content_xpath: ./td[h5]/text()
+    categories: it
+    timeout: 6.0
+    shortcut: conda
+    disabled: true
 
   - name: arch linux wiki
     engine: archlinux
@@ -882,6 +896,29 @@ engines:
     timeout: 4.0
     disabled: true
 
+  - name: lemmy communities
+    engine: lemmy
+    lemmy_type: Communities
+    shortcut: leco
+
+  - name: lemmy users
+    engine: lemmy
+    network: lemmy communities
+    lemmy_type: Users
+    shortcut: leus
+
+  - name: lemmy posts
+    engine: lemmy
+    network: lemmy communities
+    lemmy_type: Posts
+    shortcut: lepo
+
+  - name: lemmy comments
+    engine: lemmy
+    network: lemmy communities
+    lemmy_type: Comments
+    shortcut: lecom
+
   - name: library genesis
     engine: xpath
     search_url: https://libgen.fun/search.php?req={query}
@@ -1373,6 +1410,11 @@ engines:
   #      WHERE title LIKE :wildcard OR description LIKE :wildcard
   #      ORDER BY duration DESC
 
+  - name: tagesschau
+    engine: tagesschau
+    shortcut: ts
+    disabled: true
+
   # Requires Tor
   - name: torch
     engine: xpath
@@ -1584,7 +1626,8 @@ engines:
     # Or you can use the html non-stable engine, activated by default
     engine: wolframalpha_noapi
     timeout: 6.0
-    categories: []
+    categories: general
+    disabled: true
 
   - name: dictzone
     engine: dictzone
@@ -1785,9 +1828,8 @@ engines:
     timeout: 9.0
 
   - name: brave
-    shortcut: brave
-    engine: xpath
-    paging: true
+    engine: brave
+    shortcut: br
     time_range_support: true
     first_page_num: 0
     time_range_url: "&tf={time_range_val}"
@@ -1833,11 +1875,26 @@ engines:
       require_api_key: false
       results: HTML
 
-  - name: petalsearch images
-    engine: petal_images
-    shortcut: ptsi
-    disabled: true
-    timeout: 3.0
+  - name: brave.images
+    engine: brave
+    network: brave
+    shortcut: brimg
+    categories: [images, web]
+    brave_category: images
+
+  - name: brave.videos
+    engine: brave
+    network: brave
+    shortcut: brvid
+    categories: [videos, web]
+    brave_category: videos
+
+  - name: brave.news
+    engine: brave
+    network: brave
+    shortcut: brnews
+    categories: news
+    brave_category: news
 
   - name: lib.rs
     shortcut: lrs
