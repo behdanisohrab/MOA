@@ -1,73 +1,72 @@
-# Tentang SearXNG
+# Tentang MOA
 
-SearXNG adalah sebuah [mesin pencari meta], yang mendapatkan hasil dari
-{{link('mesin pencari', 'preferences')}} lainnya sambil tidak melacak
-penggunanya.
+MOA adalah [meta search engine] berbasis SearXNG yang menarik hasil darinya
+{{link(' search engine', 'preferences')}} tidak lagi dilacak
+pengguna
 
-Proyek SearXNG diarahkan oleh sebuah komunitas terbuka, bergabung dengan kami di
-Matrix jika Anda memiliki pertanyaan atau ingin mengobrol tentang SearXNG di
+Proyek MOA didorong oleh komunitas terbuka, bergabunglah dengan kami
+Matrix jika Anda memiliki pertanyaan atau ingin mengobrol tentang SearXNG
 [#searxng:matrix.org]
 
-Buat SearXNG lebih baik.
+Jadikan SearXNG lebih baik.
 
-- Anda dapat membuat terjemahan SearXNG lebih baik di [Weblate], atau...
-- Lacak pengembangan, kirim kontribusi, dan laporkan masalah di [sumber
-  SearXNG].
-- Untuk mendapatkan informasi lanjut, kunjungi dokumentasi proyek SearXNG di
-  [dokumentasi SearXNG].
+- Anda dapat meningkatkan terjemahan SearXNG di [Weblate], atau...
+- Lacak pengembangan, poskan kontribusi, dan laporkan masalah di [sumber].
+    SearXNG].
+- Untuk informasi lebih lanjut, lihat dokumentasi proyek SearXNG di
+    [dokumentasi SearXNG].
 
-## Kenapa menggunakan SearXNG?
+## Mengapa menggunakan MOA?
 
-- SearXNG mungkin tidak menawarkan Anda hasil yang dipersonalisasikan seperti
-  Google, tetapi tidak membuat sebuah profil tentang Anda.
-- SearXNG tidak peduli apa yang Anda cari, tidak akan membagikan apa pun dengan
-  pihak ketiga, dan tidak dapat digunakan untuk mengkompromikan Anda.
-- SearXNG adalah perangkat lunak bebas, kodenya 100% terbuka, dan semuanya
-  dipersilakan untuk membuatnya lebih baik.
+- MOA mungkin tidak memberi Anda hasil yang dipersonalisasi seperti itu
+    Namun, Google tidak membuat profil tentang Anda.
+- MOA tidak membagikan apa pun yang Anda cari
+    pihak ketiga, dan tidak dapat digunakan untuk berkompromi dengan Anda.
+- MOA adalah perangkat lunak gratis, 100% open source, dan semuanya
+    Selamat datang untuk membuatnya lebih baik.
 
-Jika Anda peduli dengan privasi, ingin menjadi pengguna yang sadar, ataupun
-percaya dalam kebebasan digital, buat SearXNG sebagai mesin pencari bawaan atau
-jalankan di server Anda sendiri!
+Jika Anda peduli dengan privasi, Anda ingin menjadi pengguna yang terinformasi atau
+Percayalah pada kebebasan digital, jadikan MOA sebagai mesin telusur default Anda atau
+Jalankan di server Anda!
 
-## Bagaimana saya dapat membuat SearXNG sebagai mesin pencari bawaan?
+## Bagaimana cara menjadikan MOA sebagai mesin telusur default saya?
 
-SearXNG mendukung [OpenSearch].  Untuk informasi lanjut tentang mengubah mesin
-pencari bawaan Anda, lihat dokumentasi peramban Anda:
+MOA mendukung [OpenSearch]. Untuk informasi lebih lanjut tentang penggantian perangkat
+Mesin pencari default Anda, lihat dokumentasi browser Anda:
 
 - [Firefox]
-- [Microsoft Edge] - Dibalik tautan, Anda juga akan menemukan beberapa instruksi
-  berguna untuk Chrome dan Safari.
-- Peramban berbasis [Chromium] hanya menambahkan situs web yang dikunjungi oleh
-  pengguna tanpa sebuah jalur.
+- [Microsoft Edge] - Di balik tautan, Anda juga akan menemukan petunjuk
+    Berguna untuk Chrome dan Safari.
+- Browser berbasis [Chromium] hanya menambahkan situs web yang dikunjungi
+    Pengguna tanpa jalur
 
-Apabila menambahkan mesin pencari, tidak boleh ada duplikat dengan nama yang
-sama.  Jika Anda menemukan masalah di mana Anda tidak bisa menambahkan mesin
-pencari, Anda bisa:
+Saat menambahkan mesin telusur, tidak boleh ada duplikat dengan nama yang sama
+demikian juga. Jika Anda mengalami masalah di mana Anda tidak dapat menambahkan mobil
+Penelusur, Anda dapat:
 
-- menghapus duplikat (nama default: SearXNG) atau
-- menghubungi pemilik untuk memberikan nama yang berbeda dari nama default.
+- Hapus duplikat (nama default: MOA) atau
+- Menghubungi pemilik untuk memberikan nama yang berbeda dari default.
 
-## Bagaimana caranya SearXNG bekerja?
+## Bagaimana cara kerja MOA?
 
-SearXNG adalah sebuah *fork* dari [mesin pencari meta] [searx] yang banyak
-dikenal yang diinspirasi oleh [proyek Seeks].  SearXNG menyediakan privasi dasar
-dengan mencampur kueri Anda dengan pencarian pada *platform* lainnya tanpa
-menyimpan data pencarian.  SearXNG dapat ditambahkan ke bilah pencarian peramban
-Anda; lain lagi, SearXNG dapat diatur sebagai mesin pencarian bawaan.
+MOA adalah *garpu* dari SearXNG, yang juga berasal dari [meta mesin telusur] [searx].
+Dikenal terinspirasi oleh [Project Seeks]. MOA memberikan privasi dasar
+Dengan menggabungkan kueri Anda dengan penelusuran dari *platform* lain, no
+Penyimpanan data pencarian SearXNG dapat ditambahkan ke bilah pencarian browser
+Anda; Hal lain, SearXNG dapat diatur sebagai mesin pencari default.
 
-{{link('Laman statistik', 'stats')}} berisi beberapa statistik penggunaan anonim
-berguna tentang mesin pencarian yang digunakan.
+{{link('Statistics page', 'stats')}} berisi beberapa statistik penggunaan anonim
+Informasi berguna tentang mesin pencari yang digunakan
 
-## Bagaimana caranya untuk membuat SearXNG milik saya?
+## Bagaimana cara membangun SearXNG saya sendiri?
 
-SearXNG menghargai kekhawatiran Anda tentang pencatatan (*log*), jadi ambil
-kodenya dari [sumber SearXNG] dan jalankan sendiri!
+SearXNG menghargai perhatian Anda tentang logging (*log*), jadi terimalah
+Kode ini dari [sumber SearXNG] dan dieksekusi sendiri!
 
-Tambahkan instansi Anda ke [daftar instansi
-publik]({{get_setting('brand.public_instances')}}) ini untuk membantu orang lain
-mendapatkan kembali privasi mereka dan membuat internet lebih bebas.  Lebih
-terdesentralisasinya internet, lebih banyak kebebasan yang kita punya!
-
+Tambahkan agensi Anda ke [daftar agensi
+public]({{get_setting('brand.public_instances')}}) Ini untuk membantu orang lain
+Kembalikan privasi mereka dan jadikan internet lebih bebas. Lagi
+Semakin terdesentralisasi Internet, semakin banyak kebebasan yang kita miliki!
 
 [sumber SearXNG]: {{GIT_URL}}
 [#searxng:matrix.org]: https://matrix.to/#/#searxng:matrix.org

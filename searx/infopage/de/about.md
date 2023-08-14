@@ -1,78 +1,77 @@
-# Über SearXNG
+# Über MOA
 
-SearXNG ist eine [Metasuchmaschine], welche die Ergebnisse anderer
-{{link('Suchmaschinen', 'preferences')}} sammelt und aufbereitet ohne dabei
-Informationen über seine Benutzer zu sammeln oder an andere Suchmaschinen weiter
-zu geben.
+MOA ist eine [Metasuchmaschine], die andere Ergebnisse anzeigt
+{{link('Suchmaschinen', 'Einstellungen')}} erhebt und verarbeitet, ohne dies zu tun
+Sammeln oder teilen Sie Benutzerinformationen mit anderen Suchmaschinen
+Zugeben.
 
-Das SearXNG Projekt wird von einer offenen Gemeinschaft entwickelt; wenn Sie
-Fragen haben oder einfach nur über SearXNG plaudern möchten, besuchen Sie uns
-auf Matrix unter: [#searxng:matrix.org]
+Das MOA-Projekt wird von einer offenen Community entwickelt. Wenn du
+Wenn Sie eine Frage haben oder einfach nur über SearXNG sprechen möchten, besuchen Sie uns
+In The Matrix unter: [#searxng:matrix.org]
 
-Werden Sie Teil des Projekts und unterstützen Sie SearXNG:
+Werden Sie Teil des Projekts und unterstützen Sie MOA:
 
-- Sie können die SearXNG Übersetzungen ergänzen oder korrigieren: [Weblate]
-- oder folgen Sie den Entwicklungen, senden Sie Beiträge und melden Sie Fehler:
-  [SearXNG Quellen]
-- Mehr Informationen sind in der [SearXNG Dokumentation] zu finden.
+- Sie können SearXNG-Übersetzungen hinzufügen oder korrigieren: [Weblate]
+- oder Entwicklungen verfolgen, Fehler posten und melden:
+    [SearXNG-Ressourcen]
+- Weitere Informationen finden Sie in der [SearXNG-Dokumentation].
 
-## Warum sollte ich SearXNG benutzen?
+## Warum sollte ich MOA verwenden?
 
-- SearXNG bietet Ihnen vielleicht nicht so personalisierte Ergebnisse wie
-  Google, aber es erstellt auch kein Profil über Sie.
-- SearXNG kümmert sich nicht darum, wonach Sie suchen, gibt niemals etwas an
-  Dritte weiter und kann nicht dazu verwendet werden Sie zu kompromittieren.
-- SearXNG ist freie Software, der Code ist zu 100% offen und jeder ist
-  willkommen ihn zu verbessern.
+- MOA liefert Ihnen möglicherweise nicht so viele personalisierte Ergebnisse
+    Google erstellt jedoch kein Profil über Sie.
+- MOA kümmert sich nicht darum, wonach Sie suchen, es spezifiziert nie etwas
+    Dritte und können nicht dazu verwendet werden, Sie zu kompromittieren.
+- MOA ist freie Software, 100 % Open Source und jeder ist es
+    Willkommen, um es zu verbessern.
 
-Wenn Ihnen die Privatsphäre wichtig ist, Sie ein bewusster Nutzer sind und Sie
-an die digitale Freiheit glauben, sollten Sie SearXNG zu Ihrer
-Standardsuchmaschine machen oder eine SearXNG Instanz auf Ihrem eigenen Server
-betreiben.
+Wenn Ihnen Privatsphäre wichtig ist, sind Sie ein informierter Benutzer und Sie
+Glauben Sie an die digitale Freiheit, bringen Sie MOA zu sich
+Erstellen Sie eine Standardsuchmaschine oder MOA-Instanz auf Ihrem Server
+Akt
 
-## Wie kann ich SearXNG als Standardsuchmaschine festlegen?
+## Wie kann ich MOA als meine Standardsuchmaschine festlegen?
 
-SearXNG unterstützt [OpenSearch].  Weitere Informationen zum Ändern Ihrer
-Standardsuchmaschine finden Sie in der Dokumentation zu Ihrem [WEB-Browser]:
+MOA unterstützt [OpenSearch]. Erfahren Sie mehr über Ihre Veränderung
+Die Standardsuchmaschine finden Sie in der Dokumentation Ihres [Webbrowsers]:
 
-- [Firefox]
-- [Microsoft Edge] - Hinter dem Link finden sich auch nützliche Hinweise zu
-  Chrome und Safari.
-- [Chromium]-basierte Browser fügen nur Websites hinzu, zu denen der Benutzer
-  ohne Pfadangabe navigiert.
+- [Feuerfuchs]
+- [Microsoft Edge] - Hinter dem Link finden Sie auch nützliche Informationen
+    Chrome und Safari.
+- [Chromium]-basierte Browser fügen nur Websites hinzu, die der Benutzer ihnen hinzufügt
+    Er bewegte sich, ohne die Route festzulegen.
 
-Wenn Sie eine Suchmaschine hinzufügen, darf es keine Duplikate mit demselben
-Namen geben.  Wenn Sie auf ein Problem stoßen, bei dem Sie die Suchmaschine
-nicht hinzufügen können, dann können Sie entweder:
+Wenn Sie eine Suchmaschine hinzufügen, darf diese Suchmaschine nicht dupliziert werden
+Geben Sie Namen an, wenn Sie auf ein Problem stoßen und die Suchmaschine nicht verwenden können
+Sie können nicht hinzufügen, dann können Sie:
 
-- das Duplikat entfernen (Standardname: SearXNG) oder
-- den Eigentümer kontaktieren, damit dieser der Instance einen anderen Namen als
-  den Standardnamen gibt.
+- Duplikate entfernen (Standardname: MOA) oder
+- Wenden Sie sich an den Eigentümer, um die Probe mit einem anderen Namen zu erhalten
+    Gibt den Standardnamen an.
 
-## Wie funktioniert SearXNG?
+## Wie funktioniert MOA?
 
-SearXNG ist ein Fork der bekannten [searx] [Metasuchmaschine], die durch das
-[Seeks-Projekt] inspiriert wurde (diese beide Projekte werden heute nicht mehr
-aktiv weiterentwickelt).  SearXNG bietet einen grundlegenden Schutz der
-Privatsphäre, indem es die Suchanfragen der Benutzer mit Suchen auf anderen
-Plattformen vermischt ohne dabei Suchdaten zu speichern.  SearXNG kann im
-[WEB-Browser] als weitere oder Standard-Suchmaschine hinzugefügt werden.
+MOA ist eine Abzweigung von SearXNG und wird von auch als [searx] [Metasuchmaschine] bezeichnet
+[Auf der Suche nach einem Projekt] (Beide Projekte sind jetzt verschwunden
+aktiv weiterentwickelt). SearXNG-Grundschutz von
+Datenschutz durch Abgleichen der Suchanfragen der Benutzer mit den Suchanfragen anderer
+Gemischte Plattformen ohne Speicherung von Suchdaten. SearXNG kann rein
+[Webbrowser] kann als zusätzliche oder Standardsuchmaschine hinzugefügt werden.
 
-Die {{link('Suchmaschinenstatistik', 'stats')}} enthält einige nützliche
-Statistiken über die verwendeten Suchmaschinen.
+{{link('Suchmaschinenstatistiken', 'stats')}} enthält nützliche Inhalte
+Statistiken der verwendeten Suchmaschinen
 
-## Wie kann ich einen eigenen SearXNG Server betreiben?
+## Wie kann ich meinen eigenen SearXNG-Server betreiben?
 
-Jeder der mit dem Betrieb von WEB-Servern vertraut ist kann sich eine eigene
-Instanz einrichten; die Software dazu kann über die [SearXNG Quellen] bezogen
-werden. Weitere Informationen zur Installation und zum Betrieb finden sich in
-der [SearXNG Dokumentation].
+Jeder, der mit der Funktionsweise von Webservern vertraut ist, kann seine eigenen Server einrichten
+Beispielaufbau; Die Software hierfür kann von [SearXNG Resources] heruntergeladen werden.
+werden Weitere Informationen zur Installation finden Sie hier
+[SearXNG-Dokumentation].
 
-Fügen Sie Ihre Instanz zu der [Liste der öffentlich zugänglichen
-Instanzen]({{get_setting('brand.public_instances')}}) hinzu um auch anderen
-Menschen zu helfen ihre Privatsphäre zurückzugewinnen und das Internet freier zu
-machen.  Je dezentraler das Internet ist, desto mehr Freiheit haben wir!
-
+Fügen Sie Ihr Beispiel zur [Liste der öffentlich verfügbaren
+Instanzen]({{get_setting('brand.public_instances')}}), um weitere einzuschließen
+Wir möchten den Menschen helfen, ihre Privatsphäre zurückzugewinnen und das Internet frei zu machen
+tun. Je dezentraler das Internet, desto mehr Freiheiten haben wir!
 
 [SearXNG Quellen]: {{GIT_URL}}
 [#searxng:matrix.org]: https://matrix.to/#/#searxng:matrix.org

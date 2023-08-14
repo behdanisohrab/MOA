@@ -1,6 +1,6 @@
 # Suchbegriffe
 
-SearXNG verfügt über eine Syntax mit der in einer Suchanfrage die Kategorien,
+MOA verfügt über eine Syntax mit der in einer Suchanfrage die Kategorien,
 Suchmaschinen, Sprachen und mehr geändert werden können.  In den
 {{link('Eigenschaften','preferences')}} sind die Kategorien, Suchmaschinen und
 Sprachen zu finden, die zur Verfügung stehen.
@@ -39,7 +39,7 @@ einfaches Beispiel zu geben:
 
 ## `!!` external bangs
 
-SearXNG unterstützt die _external bangs_ von [ddg].  Das Präfix `!!` kann
+MOA unterstützt die _external bangs_ von [ddg].  Das Präfix `!!` kann
 verwendet werden um direkt zu einer externen Suchseite zu springen.  Um ein
 Beispiel zu geben:
 
@@ -48,7 +48,7 @@ Beispiel zu geben:
   - {{search('!!wde Wau Holland')}}
 
 Bitte beachten; die Suche wird direkt in der externen Suchmaschine durchgeführt.
-SearXNG kann die Privatsphäre des Benutzers in diesem Fall nur eingeschränkt
+MOA kann die Privatsphäre des Benutzers in diesem Fall nur eingeschränkt
 schützen, dennoch wird diese Funktion von manchen Benutzern als sehr nützlich
 empfunden.
 
