@@ -290,6 +290,15 @@ categories_as_tabs:
   science:
   files:
   social media:
+  apps:
+  other:
+  dictionaries:
+  packages:
+  q&a:
+  repos:
+  software wikis:
+  web:
+  scientific publications:
 
 engines:
   - name: 9gag
