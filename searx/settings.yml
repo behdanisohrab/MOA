@@ -290,15 +290,10 @@ categories_as_tabs:
   science:
   files:
   social media:
-  apps:
   other:
   dictionaries:
   packages:
   q&a:
-  repos:
-  software wikis:
-  web:
-  scientific publications:
 
 engines:
   - name: 9gag
@@ -323,12 +318,14 @@ engines:
     engine: apkmirror
     timeout: 4.0
     shortcut: apkm
+    categories: files
+
 
 
   - name: apple app store
     engine: apple_app_store
     shortcut: aps
-
+    categories: files
 
   # Requires Tor
   - name: ahmia
@@ -354,6 +351,7 @@ engines:
   - name: arch linux wiki
     engine: archlinux
     shortcut: al
+    categories: it
 
   - name: archive is
     engine: xpath
@@ -382,6 +380,7 @@ engines:
   - name: arxiv
     engine: arxiv
     shortcut: arx
+    categories: science
     timeout: 4.0
 
   # tmp suspended:  dh key too small
@@ -425,7 +424,7 @@ engines:
     url_xpath: //article[@class="repo-summary"]//a[@class="repo-link"]/@href
     title_xpath: //article[@class="repo-summary"]//a[@class="repo-link"]
     content_xpath: //article[@class="repo-summary"]/p
-    categories: [it, repos]
+    categories: [it, packages]
     timeout: 4.0
     disabled: true
     shortcut: bb
@@ -481,6 +480,7 @@ engines:
     shortcut: cr
     timeout: 30
     disabled: true
+    categories: science
 
   - name: crowdview
     engine: json_engine
@@ -672,6 +672,7 @@ engines:
   - name: fdroid
     engine: fdroid
     shortcut: fd
+    categories: files
 
 
  # - name: flickr
@@ -688,7 +689,7 @@ engines:
   - name: free software directory
     engine: mediawiki
     shortcut: fsd
-    categories: [it, software wikis]
+    categories: it
     base_url: https://directory.fsf.org/
     search_type: title
     timeout: 5.0
@@ -715,6 +716,7 @@ engines:
 
   - name: gentoo
     engine: gentoo
+    categories: it
     shortcut: ge
     timeout: 10.0
     disabled: true
@@ -729,7 +731,7 @@ engines:
     title_query: name_with_namespace
     content_query: description
     page_size: 20
-    categories: [it, repos]
+    categories: [it, packages]
     shortcut: gl
     timeout: 10.0
     about:
@@ -743,7 +745,7 @@ engines:
   - name: github
     engine: github
     shortcut: gh
-
+    categories: packages
     # This a Gitea service. If you would like to use a different instance,
     # change codeberg.org to URL of the desired Gitea host. Or you can create a
     # new engine by copying this and changing the name, shortcut and search_url.
@@ -754,7 +756,7 @@ engines:
     url_query: html_url
     title_query: name
     content_query: description
-    categories: [it, repos]
+    categories: [it, packages]
     shortcut: cb
     about:
       website: https://codeberg.org/
@@ -799,12 +801,14 @@ engines:
   - name: google scholar
     engine: google_scholar
     shortcut: gos
+    categories: science
 
   - name: google play apps
     engine: google_play
-    categories: [files, apps]
+    categories: files
     shortcut: gpa
     play_categ: apps
+
 
   - name: google play movies
     engine: google_play
@@ -1234,6 +1238,7 @@ engines:
     engine: pubmed
     shortcut: pub
     timeout: 3.0
+    categories: science
 
   - name: pypi
     shortcut: pypi
@@ -1350,6 +1355,7 @@ engines:
     engine: semantic_scholar
     disabled: true
     shortcut: se
+    categories: science
 
   # Spotify needs API credentials
   # - name: spotify
@@ -1931,7 +1937,7 @@ engines:
     title_xpath: ./h4/a[2]
     content_xpath: ./p
     first_page_num: 1
-    categories: [it, repos]
+    categories: [it, packages]
     disabled: true
     about:
       website: https://sr.ht
