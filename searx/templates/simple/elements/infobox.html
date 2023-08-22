@@ -8,8 +8,8 @@
         <bdi><nobr>{{ infobox.infobox }}</nobr></bdi>
     </h1>
     <p><bdi>{{ infobox.content | safe }}</bdi></p>
+    {%- if infobox.attributes -%}
     <div class="infobox-more">
-        {%- if infobox.attributes -%}
         <div class="attributes">
             {%- for attribute in infobox.attributes -%}
             <dl>

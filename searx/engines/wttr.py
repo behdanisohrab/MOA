@@ -102,11 +102,14 @@ def response(resp):
 
     title = f"{location['areaName'][0]['value']}, {location['region'][0]['value']}"
 
+
     infobox = f"<h3>{gettext('Current condition')}</h3><table><tbody>"
 
     infobox += generate_condition_table(current, resp.search_params['language'], True)
 
     infobox += "</tbody></table>"
+    
+    infobox += '<div class="infobox-more">'
 
     for day in result["weather"]:
         infobox += f"<h3>{day['date']}</h3>"
@@ -125,6 +128,8 @@ def response(resp):
             infobox += generate_condition_table(day['hourly'][time[0]], resp.search_params['language'])
 
         infobox += "</tbody></table>"
+
+    infobox += "</div>"
 
     results.append(
         {
