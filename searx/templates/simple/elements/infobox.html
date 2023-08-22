@@ -8,51 +8,57 @@
         <bdi><nobr>{{ infobox.infobox }}</nobr></bdi>
     </h1>
     <p><bdi>{{ infobox.content | safe }}</bdi></p>
-    {%- if infobox.attributes -%}
-    <div class="attributes">
-        {%- for attribute in infobox.attributes -%}
-        <dl>
-            <dt><bdi>{{ attribute.label }} :</bdi></dt>
-            {%- if attribute.image -%}
-            <dd>
-                <img
-                    src="{{ image_proxify(attribute.image.src) }}"
-                    alt="{{ attribute.image.alt }}"
-                />
-            </dd>
-            {%- else -%}
-            <dd><bdi>{{ attribute.value }}</bdi></dd>
-            {%- endif -%}
-        </dl>
-        {%- endfor -%}
-    </div>
-    {%- endif -%} {%- if infobox.urls -%}
-    <div class="urls">
-        <ul>
-            {%- for url in infobox.urls -%}
-            <li class="url">
-                <bdi
-                    ><a
-                        href="{{ url.url }}"
-                        {%-
-                        if
-                        results_on_new_tab
-                        -%}target="_blank"
-                        rel="noopener noreferrer"
-                        {%-
-                        else
-                        -%}rel="noreferrer"
-                        {%-
-                        endif
-                        -%}
-                        >{{ url.title }}</a
-                    ></bdi
-                >
-            </li>
+    <div class="infobox-more">
+        {%- if infobox.attributes -%}
+        <div class="attributes">
+            {%- for attribute in infobox.attributes -%}
+            <dl>
+                <dt><bdi>{{ attribute.label }} :</bdi></dt>
+                {%- if attribute.image -%}
+                <dd>
+                    <img
+                        src="{{ image_proxify(attribute.image.src) }}"
+                        alt="{{ attribute.image.alt }}"
+                    />
+                </dd>
+                {%- else -%}
+                <dd><bdi>{{ attribute.value }}</bdi></dd>
+                {%- endif -%}
+            </dl>
             {%- endfor -%}
-        </ul>
+        </div>
+        {%- endif -%} {%- if infobox.urls -%}
+        <div class="urls">
+            <ul>
+                {%- for url in infobox.urls -%}
+                <li class="url">
+                    <bdi
+                        ><a
+                            href="{{ url.url }}"
+                            {%-
+                            if
+                            results_on_new_tab
+                            -%}target="_blank"
+                            rel="noopener noreferrer"
+                            {%-
+                            else
+                            -%}rel="noreferrer"
+                            {%-
+                            endif
+                            -%}
+                            >{{ url.title }}</a
+                        ></bdi
+                    >
+                </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+        {%- endif -%}
     </div>
-    {%- endif -%} {%- if infobox.relatedTopics -%}
+    <div class="infobox-more-btn" id="infobox-btn">
+        <span class="btn">{{ icon('chevron-up-outline') }}</span>
+    </div>
+    {%- if infobox.relatedTopics -%}
     <div class="relatedTopics">
         {%- for topic in infobox.relatedTopics -%}
         <div>

@@ -41,6 +41,7 @@ on the /search URL and when the "center alignment" preference is enabled.
 
     #sidebar {
       .ltr-margin-right(1rem);
+      min-width: auto;
     }
 
     #backToTop {
@@ -81,7 +82,7 @@ on the /search URL and when the "center alignment" preference is enabled.
       .ltr-margin-right(2rem);
       .ltr-margin-left(@results-offset);
       //
-
+      
       &.only_template_images,
       &.image-detail-open {
         // * grid-template-columns and .ltr-margin-left are set in style.less
@@ -93,9 +94,8 @@ on the /search URL and when the "center alignment" preference is enabled.
 
       &:not(.only_template_images):not(.image-detail-open) {
         // the gap is set in style.less
-        .ltr-margin-left(1.5rem);
-        grid-template-columns: calc(var(--center-page-width) - @results-gap - @results-sidebar-width) @results-sidebar-width;
-
+        .ltr-margin-left(1.5rem);;
+        
         #backToTop {
           .ltr-left(calc(50% - @results-sidebar-width - @results-gap + 1rem + var(--center-page-width) / 2));
         }

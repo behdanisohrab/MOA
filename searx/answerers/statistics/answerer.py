@@ -1,10 +1,10 @@
 from functools import reduce
-from operator import mul
+from operator import mul, sub, truediv
 
 from flask_babel import gettext
 
 
-keywords = ('min', 'max', 'avg', 'sum', 'prod')
+keywords = ('min', 'max', 'avg', 'sum', 'prod', 'sub', 'div', 'کمینه', 'حداقل', 'بیشینه', 'حداکثر', 'میانگین', 'جمع', 'ضرب', 'تفریق', 'تقسیم')
 
 
 # required answerer function
@@ -21,19 +21,25 @@ def answer(query):
         return []
 
     func = parts[0]
-    answer = None
 
-    if func == 'min':
-        answer = min(args)
-    elif func == 'max':
-        answer = max(args)
-    elif func == 'avg':
-        answer = sum(args) / len(args)
-    elif func == 'sum':
-        answer = sum(args)
-    elif func == 'prod':
-        answer = reduce(mul, args, 1)
-
+    match func:
+        case 'min' | 'حداقل' | 'کمینه':
+            answer = min(args)
+        case 'max' | 'بیشینه' | 'حداکثر':
+            answer = max(args)
+        case 'svg' | 'میانگین':
+            answer = sum(args) / len(args)
+        case 'sum' | 'جمع':
+            answer = sum(args)
+        case 'prod' | 'ضرب':
+            answer = reduce(mul, args)
+        case 'sub' | 'تفریق':
+            answer = reduce(sub, args)
+        case 'div' | 'تقسیم':
+            answer = reduce(truediv, args)
+        case _:
+            answer = None
+        
     if answer is None:
         return []
 
