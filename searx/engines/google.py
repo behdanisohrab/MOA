@@ -199,7 +199,8 @@ def get_google_info(params, eng_traits):
     #   https://developers.google.com/custom-search/docs/xml_results#crsp
 
     ret_val['params']['cr'] = 'country' + country
-    ret_val['params']['cr'] = ''
+    if sxng_locale == 'all':
+        ret_val['params']['cr'] = ''
 
     # gl parameter: (mandatory by Geeogle News)
     #   The gl parameter value is a two-letter country code. For WebSearch
