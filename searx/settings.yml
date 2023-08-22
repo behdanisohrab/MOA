@@ -1547,6 +1547,7 @@ engines:
 
   - name: wikibooks
     engine: mediawiki
+    disabled: true
     shortcut: wb
     categories: [general, wikimedia]
     base_url: "https://{language}.wikibooks.org/"
