@@ -638,6 +638,7 @@ engines:
     engine: tineye
     shortcut: tin
     timeout: 9.0
+    disabled: true
 
   - name: etymonline
     engine: xpath
@@ -1386,6 +1387,7 @@ engines:
   - name: startpage
     engine: startpage
     shortcut: sp
+    disabled: true
     timeout: 6.0
     additional_tests:
       rosebud: *test_rosebud
