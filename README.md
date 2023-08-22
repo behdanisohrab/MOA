@@ -32,9 +32,9 @@ To install and use MOA, follow these steps:
 ===
 Here are some screenshots of the application:
 
-![MOA Logo](./src/screenshots/Screenshot1.png)
-![MOA Logo](./src/screenshots/Screenshot3.png)
-![MOA Logo](./src/screenshots/Screenshot2.png)
+![screenshots](./src/screenshots/Screenshot1.png)
+![screenshots](./src/screenshots/Screenshot3.png)
+![screenshots](./src/screenshots/Screenshot2.png)
 
 
 
@@ -44,3 +44,6 @@ Here are some screenshots of the application:
 
 Please note that MOA is licensed under AGPL. If you would like to contribute, please send a message to @jmehr32 on Telegram. 
 
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/mehr32/test-fils/a9f4eac6d1f8defc6ef529570dd2b1e9e0f99a09/gray0_ctp_on_line.svg" alt="cat">
+</h1>
