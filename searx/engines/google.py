@@ -189,18 +189,15 @@ def get_google_info(params, eng_traits):
     # By example: &lr=lang_zh-TW%7Clang_de selects articles written in
     # traditional chinese OR german language.
 
-    ret_val['params']['lr'] = eng_lang
-    if sxng_locale == 'all':
-        ret_val['params']['lr'] = ''
+    ret_val['params']['lr'] = ''
 
     # cr parameter:
     #   The cr parameter restricts search results to documents originating in a
     #   particular country.
     #   https://developers.google.com/custom-search/docs/xml_results#crsp
 
-    ret_val['params']['cr'] = 'country' + country
-    if sxng_locale == 'all':
-        ret_val['params']['cr'] = ''
+
+    ret_val['params']['cr'] = ''
 
     # gl parameter: (mandatory by Geeogle News)
     #   The gl parameter value is a two-letter country code. For WebSearch
