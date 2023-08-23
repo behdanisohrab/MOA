@@ -12,7 +12,7 @@ To install and use MOA, follow these steps:
 
 1. Clone the repository by running the following command:
    ```
-   git clone git@github.com:mehr32/MOA.git
+   git clone git@github.com:moa-engine/MOA
    ```
 
 3. Navigate to the MOA directory:
