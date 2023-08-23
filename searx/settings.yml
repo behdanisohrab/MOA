@@ -1034,6 +1034,12 @@ engines:
   #   collection: 'reviews'  # name of the db collection
   #   key: 'name'  # key in the collection to search for
 
+  - name: mwmbl
+    engine: mwmbl
+    # api_url: https://api.mwmbl.org
+    shortcut: mwm
+    disabled: true
+
   - name: npm
     engine: json_engine
     paging: true
@@ -1571,6 +1577,7 @@ engines:
 
   - name: wikiquote
     engine: mediawiki
+    weight: 0.5
     shortcut: wq
     categories: [general, wikimedia]
     base_url: "https://{language}.wikiquote.org/"
@@ -1584,6 +1591,7 @@ engines:
 
   - name: wikisource
     engine: mediawiki
+    weight: 0.5
     shortcut: ws
     categories: [general, wikimedia]
     base_url: "https://{language}.wikisource.org/"
@@ -1598,6 +1606,7 @@ engines:
     categories: [general, science, wikimedia]
     base_url: "https://species.wikimedia.org/"
     search_type: text
+    disabled: true
     about:
       website: https://species.wikimedia.org/
       wikidata_id: Q13679
@@ -1615,6 +1624,7 @@ engines:
   - name: wikiversity
     engine: mediawiki
     disabled: true
+    weight: 0.5
     shortcut: wv
     categories: [general, wikimedia]
     base_url: "https://{language}.wikiversity.org/"
@@ -1625,10 +1635,12 @@ engines:
 
   - name: wikivoyage
     engine: mediawiki
+    weight: 0.5
     shortcut: wy
     categories: [general, wikimedia]
     base_url: "https://{language}.wikivoyage.org/"
     search_type: text
+    disabled: true
     about:
       website: https://www.wikivoyage.org/
       wikidata_id: Q373
@@ -1995,6 +2007,23 @@ engines:
   - name: bt4g
     engine: bt4g
     shortcut: bt4g
+
+  - name: pkg.go.dev
+    engine: xpath
+    shortcut: pgo
+    search_url: https://pkg.go.dev/search?limit=100&m=package&q={query}
+    results_xpath: /html/body/main/div[contains(@class,"SearchResults")]/div[not(@class)]/div[@class="SearchSnippet"]
+    url_xpath: ./div[@class="SearchSnippet-headerContainer"]/h2/a/@href
+    title_xpath: ./div[@class="SearchSnippet-headerContainer"]/h2/a
+    content_xpath: ./p[@class="SearchSnippet-synopsis"]
+    categories: [packages, it]
+    timeout: 3.0
+    disabled: true
+    about:
+      website: https://pkg.go.dev/
+      use_official_api: false
+      require_api_key: false
+      results: HTML
 
 # Doku engine lets you access to any Doku wiki instance:
 # A public one or a privete/corporate one.
