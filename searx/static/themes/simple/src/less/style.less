@@ -661,6 +661,18 @@ summary.title {
   span {
     overflow-wrap: anywhere;
   }
+
+  .answer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .answer-url {
+    margin-left: auto;
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 #infoboxes {
@@ -680,10 +692,14 @@ summary.title {
     margin: 10px 0 10px;
     background-color: var(--color-sidebar-background);
     position: relative;
-    padding: 1.5rem 2rem 3rem 2rem;
+    padding: 1.5rem 2rem;
     overflow: hidden;
     font-size: 0.9em;
     .rounded-corners;
+
+    &:has(.infobox-more) {
+      padding: 1.5rem 2rem 3rem 2rem;
+    }
 
     h1 {
       margin: 0 0 0.5em 0;
