@@ -7,6 +7,7 @@ from searx.engines import categories, engines
 from searx.search import SearchQuery, EngineRef
 from searx.preferences import Preferences, is_locked
 from searx.utils import detect_language
+from langdetect import detect
 
 
 # remove duplicate queries.
@@ -260,8 +261,8 @@ def get_search_query_from_webapp(
     selected_locale = query_lang
 
     if query_lang == 'auto':
-        query_lang = detect_language(query, threshold=0.8, only_search_languages=True)
-        query_lang = query_lang or preferences.client.locale_tag or 'all'
+        query_lang = detect(query)
+        query_lang = query_lang or detect_language(query, only_search_languages=True) or 'all'
 
     if not is_locked('categories') and raw_text_query.specific:
         # if engines are calculated from query,
