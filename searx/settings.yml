@@ -296,6 +296,11 @@ categories_as_tabs:
   q&a:
 
 engines:
+  - name: openlibrary
+    engine: openlibrary
+    shortcut: ol
+    categories: science
+
   - name: 9gag
     engine: 9gag
     shortcut: 9g
