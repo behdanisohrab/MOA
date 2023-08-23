@@ -54,10 +54,10 @@
             </ul>
         </div>
         {%- endif -%}
-    </div>
+    {%- if infobox.attributes -%} </div>
     <div class="infobox-more-btn" id="infobox-btn">
         <span class="btn">{{ icon('chevron-up-outline') }}</span>
-    </div>
+    </div> {%- endif -%}
     {%- if infobox.relatedTopics -%}
     <div class="relatedTopics">
         {%- for topic in infobox.relatedTopics -%}
