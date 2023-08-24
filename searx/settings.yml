@@ -897,7 +897,7 @@ engines:
     base_url:
       - https://invidious.snopyta.org
       - https://vid.puffyan.us
-      # - https://invidious.kavin.rocks  # Error 1020 // Access denied by Cloudflare
+      - https://invidious.kavin.rocks  # Error 1020 // Access denied by Cloudflare
       - https://invidio.xamh.de
       - https://inv.riverside.rocks
     shortcut: iv
