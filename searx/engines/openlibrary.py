@@ -33,6 +33,7 @@ def request(query, params):
 
     return params
 
+
 site_url = 'https://openlibrary.org'
 # get response from search-request
 def response(resp):
@@ -55,9 +56,7 @@ def response(resp):
             content = ''
 
         # append result
-        results.append({'url': url,
-                        'title': title,
-                        'content': content})
+        results.append({'url': url, 'title': title, 'content': content})
 
     # return results
     return results

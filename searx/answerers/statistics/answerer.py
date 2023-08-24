@@ -4,7 +4,24 @@ from operator import mul, sub, truediv
 from flask_babel import gettext
 
 
-keywords = ('min', 'max', 'avg', 'sum', 'prod', 'sub', 'div', 'کمینه', 'حداقل', 'بیشینه', 'حداکثر', 'میانگین', 'جمع', 'ضرب', 'تفریق', 'تقسیم')
+keywords = (
+    'min',
+    'max',
+    'avg',
+    'sum',
+    'prod',
+    'sub',
+    'div',
+    'کمینه',
+    'حداقل',
+    'بیشینه',
+    'حداکثر',
+    'میانگین',
+    'جمع',
+    'ضرب',
+    'تفریق',
+    'تقسیم',
+)
 
 
 # required answerer function
@@ -39,7 +56,7 @@ def answer(query):
             answer = reduce(truediv, args)
         case _:
             answer = None
-        
+
     if answer is None:
         return []
 

@@ -196,7 +196,6 @@ def get_google_info(params, eng_traits):
     #   particular country.
     #   https://developers.google.com/custom-search/docs/xml_results#crsp
 
-
     ret_val['params']['cr'] = ''
 
     # gl parameter: (mandatory by Geeogle News)

@@ -5,6 +5,7 @@
 import time
 from json import loads
 from dateutil import parser
+
 # from urllib.parse import urlencode
 # from searx.exceptions import SearxEngineAPIException
 from urllib.parse import quote_plus
@@ -37,7 +38,7 @@ base_aparat_url = 'https://www.aparat.com/v/'
 
 # do search-request
 def request(query, params):
-    pageno = params["pageno"] * ( number_of_results - 1 )
+    pageno = params["pageno"] * (number_of_results - 1)
     params['url'] = search_url.format(query=quote_plus(query), number_of_results=number_of_results, page=pageno)
 
     return params
@@ -56,7 +57,7 @@ def response(resp):
     # parse results
     for result in search_results.get('videobysearch', {}):
         videoid = result['uid']
-        
+
         thumbnail = ''
 
         pubdate = result['create_date']
