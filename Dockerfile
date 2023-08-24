@@ -1,23 +1,23 @@
 FROM alpine:3.18
-ENTRYPOINT ["/sbin/tini","--","/usr/local/searxng/dockerfiles/docker-entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini","--","/usr/local/MOA/dockerfiles/docker-entrypoint.sh"]
 EXPOSE 8080
-VOLUME /etc/searxng
+VOLUME /etc/MOA
 
 ARG SEARXNG_GID=977
 ARG SEARXNG_UID=977
 
 RUN addgroup -g ${SEARXNG_GID} searxng && \
-    adduser -u ${SEARXNG_UID} -D -h /usr/local/searxng -s /bin/sh -G searxng searxng
+    adduser -u ${SEARXNG_UID} -D -h /usr/local/MOA -s /bin/sh -G searxng searxng
 
-ENV INSTANCE_NAME=searxng \
+ENV INSTANCE_NAME=MOA \
     AUTOCOMPLETE= \
     BASE_URL= \
     MORTY_KEY= \
     MORTY_URL= \
-    SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml \
-    UWSGI_SETTINGS_PATH=/etc/searxng/uwsgi.ini
+    SEARXNG_SETTINGS_PATH=/etc/MOA/settings.yml \
+    UWSGI_SETTINGS_PATH=/etc/MOA/uwsgi.ini
 
-WORKDIR /usr/local/searxng
+WORKDIR /usr/local/MOA
 
 COPY requirements.txt ./requirements.txt
 
@@ -47,8 +47,8 @@ RUN apk add --no-cache -t build-dependencies \
  && apk del build-dependencies \
  && rm -rf /root/.cache
 
-COPY --chown=searxng:searxng dockerfiles ./dockerfiles
-COPY --chown=searxng:searxng searx ./searx
+COPY --chown=MOA:MOA dockerfiles ./dockerfiles
+COPY --chown=MOA:MOA searx ./searx
 
 ARG TIMESTAMP_SETTINGS=0
 ARG TIMESTAMP_UWSGI=0
@@ -57,7 +57,7 @@ ARG VERSION_GITCOMMIT=unknown
 RUN su searxng -c "/usr/bin/python3 -m compileall -q searx" \
  && touch -c --date=@${TIMESTAMP_SETTINGS} searx/settings.yml \
  && touch -c --date=@${TIMESTAMP_UWSGI} dockerfiles/uwsgi.ini \
- && find /usr/local/searxng/searx/static -a \( -name '*.html' -o -name '*.css' -o -name '*.js' \
+ && find /usr/local/MOA/searx/static -a \( -name '*.html' -o -name '*.css' -o -name '*.js' \
     -o -name '*.svg' -o -name '*.ttf' -o -name '*.eot' \) \
     -type f -exec gzip -9 -k {} \+ -exec brotli --best {} \+
 
