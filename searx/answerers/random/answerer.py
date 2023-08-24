@@ -37,6 +37,9 @@ def random_sha256():
 def random_uuid():
     return str(uuid.uuid4())
 
+def random_color():
+    color = "%06x" % random.randint(0, 0xFFFFFF)
+    return f"#{color.upper()}"
 
 random_types = {
     'string': random_string,
@@ -44,6 +47,7 @@ random_types = {
     'float': random_float,
     'sha256': random_sha256,
     'uuid': random_uuid,
+    'color': random_color,
 }
 
 
