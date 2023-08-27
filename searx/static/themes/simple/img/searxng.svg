@@ -2,14 +2,13 @@
 <svg
    data-v-6805eed4=""
    version="1.0"
-   width="100%"
-   height="100%"
-   viewBox="0 0 340.000000 250.000000"
-   preserveAspectRatio="xMidYMid meet"
+   width="290"
+   height="100"
+   viewBox="0 0 290 100"
+   preserveAspectRatio="xMidYMid"
    color-interpolation-filters="sRGB"
-   style="margin: auto;"
    id="svg86"
-   sodipodi:docname="کامل-بدون-متن.svg"
+   sodipodi:docname="searxng.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -26,8 +25,8 @@
      inkscape:deskcolor="#505050"
      showgrid="false"
      inkscape:zoom="2.1755509"
-     inkscape:cx="130.54165"
-     inkscape:cy="130.54165"
+     inkscape:cx="178.34563"
+     inkscape:cy="64.351517"
      inkscape:window-width="1366"
      inkscape:window-height="739"
      inkscape:window-x="0"
@@ -38,20 +37,18 @@
      data-v-6805eed4=""
      fill="#e69b41"
      class="iconlettersvg-g iconlettersvg"
-     transform="translate(26.228988647460938,66.12767791748047)"
+     transform="translate(1.4076897,1.3165073)"
      id="g82">
     <g
        id="g68">
       <g
          class="tp-name"
-         id="g66"
-         transform="translate(0,0)">
+         id="g66">
         <g
-           transform="scale(1.9600000000000009)"
+           transform="scale(1.96)"
            id="g64">
           <g
-             id="g24"
-             transform="translate(0, 0)">
+             id="g24">
             <g
                class="name-imagesvg"
                id="g22">
@@ -63,39 +60,41 @@
                    stroke-width="2"
                    x="0"
                    y="0"
-                   width="49.88229635671274"
+                   width="49.882298"
                    height="50"
                    class="image-rect"
                    id="rect6" />
                 <svg
                    x="0"
                    y="0"
-                   width="49.88229635671274"
+                   width="49.882298"
                    height="50"
                    filtersec="colorsb7657958153"
                    class="image-svg-svg primary"
-                   style="overflow: visible;"
+                   style="overflow:visible"
                    version="1.1"
                    id="svg18">
                   <svg
                      viewBox="0 0 127.14 127.44"
                      version="1.1"
-                     id="svg16">
+                     id="svg16"
+                     width="100%"
+                     height="100%">
                     <title
                        id="title8">资源 14</title>
                     <path
                        fill="#fdf3eb"
-                       d="M127.14 127.44L63.56 63.87 0 127.44h127.14z"
+                       d="M 127.14,127.44 63.56,63.87 0,127.44 Z"
                        id="path10"
                        style="fill:#f5eff9;fill-opacity:1" />
                     <path
                        fill="#e69b41"
-                       d="M127.14 127.44V0L63.56 63.87l63.58 63.57z"
+                       d="M 127.14,127.44 V 0 L 63.56,63.87 Z"
                        id="path12"
                        style="fill:#262930;fill-opacity:1" />
                     <path
                        fill="#fdf3eb"
-                       d="M0 0v127.44l63.56-63.57L0 0z"
+                       d="M 0,0 V 127.44 L 63.56,63.87 Z"
                        id="path14"
                        style="fill:#865dff;fill-opacity:1" />
                   </svg>
@@ -105,7 +104,7 @@
             </g>
           </g>
           <g
-             transform="translate(44.88229635671274, 0)"
+             transform="translate(44.882296)"
              id="g42">
             <g
                class="name-imagesvg"
@@ -129,22 +128,24 @@
                    height="50"
                    filtersec="colorsb4757034354"
                    class="image-svg-svg primary"
-                   style="overflow: visible;"
+                   style="overflow:visible"
                    version="1.1"
                    id="svg36">
                   <svg
                      viewBox="0 0 131.94 131.94"
                      version="1.1"
-                     id="svg34">
+                     id="svg34"
+                     width="100%"
+                     height="100%">
                     <title
                        id="title28">资源 25</title>
                     <path
-                       d="M66 0A66 66 0 1 1 0 66 66 66 0 0 1 66 0z"
+                       d="M 66,0 A 66,66 0 1 1 0,66 66,66 0 0 1 66,0 Z"
                        fill="#fdf3eb"
                        id="path30"
                        style="fill:#865dff;fill-opacity:1" />
                     <path
-                       d="M66 0a65.95 65.95 0 0 1 46.48 112.75L19.19 19.19A67 67 0 0 1 66 0z"
+                       d="m 66,0 a 65.95,65.95 0 0 1 46.48,112.75 L 19.19,19.19 A 67,67 0 0 1 66,0 Z"
                        fill="#e69b41"
                        id="path32"
                        style="fill:#262930;fill-opacity:1" />
@@ -155,7 +156,7 @@
             </g>
           </g>
           <g
-             transform="translate(89.88229635671274, 0)"
+             transform="translate(89.882296)"
              id="g62">
             <g
                class="name-imagesvg"
@@ -168,41 +169,43 @@
                    stroke-width="2"
                    x="0"
                    y="0"
-                   width="56.82281821112014"
+                   width="56.822819"
                    height="50"
                    class="image-rect"
                    id="rect44" />
                 <svg
                    x="0"
                    y="0"
-                   width="56.82281821112014"
+                   width="56.822819"
                    height="50"
                    filtersec="colorsb9114772040"
                    class="image-svg-svg primary"
-                   style="overflow: visible;"
+                   style="overflow:visible"
                    version="1.1"
                    id="svg56">
                   <svg
                      viewBox="0 0 144.83 127.44"
                      version="1.1"
-                     id="svg54">
+                     id="svg54"
+                     width="100%"
+                     height="100%">
                     <title
                        id="title46">资源 3</title>
                     <path
                        fill="#fdf3eb"
-                       d="M0 127.44h50.38l47.07-83.06L72.27 0 0 127.44z"
+                       d="M 0,127.44 H 50.38 L 97.45,44.38 72.27,0 Z"
                        id="path48"
                        style="fill:#865dff;fill-opacity:1" />
                     <path
                        fill="#e69b41"
-                       d="M144.83 127.44H94.45L47.08 44.38 72.27 0l72.56 127.44z"
+                       d="M 144.83,127.44 H 94.45 L 47.08,44.38 72.27,0 Z"
                        id="path50"
                        style="fill:#262930;fill-opacity:1" />
                     <path
                        fill="#e69b41"
                        d="M 72.27,88.76 97.45,44.38 72.27,0 47.08,44.38 Z"
                        id="path52"
-                       style="image-rendering:auto;fill:#f5eff9;fill-opacity:1"
+                       style="fill:#f5eff9;fill-opacity:1;image-rendering:auto"
                        inkscape:highlight-color="#ffffff" />
                   </svg>
                 </svg>
