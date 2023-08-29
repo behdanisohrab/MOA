@@ -961,6 +961,7 @@ engines:
     shortcut: zlib
     categories: files
     timeout: 7.0
+    categories: science
 
   - name: library of congress
     engine: loc
@@ -1442,6 +1443,7 @@ engines:
     engine: tagesschau
     shortcut: ts
     disabled: true
+    categories: other
 
   # Requires Tor
   - name: torch
@@ -1562,7 +1564,7 @@ engines:
     engine: mediawiki
     disabled: true
     shortcut: wb
-    categories: [general, wikimedia]
+    categories: [science, wikimedia]
     base_url: "https://{language}.wikibooks.org/"
     search_type: text
     about:
@@ -1584,7 +1586,7 @@ engines:
     engine: mediawiki
     weight: 0.5
     shortcut: wq
-    categories: [general, wikimedia]
+    categories: [science, wikimedia]
     base_url: "https://{language}.wikiquote.org/"
     disabled: true
     search_type: text
@@ -1599,7 +1601,7 @@ engines:
     disabled: true
     weight: 0.5
     shortcut: ws
-    categories: [general, wikimedia]
+    categories: [science, wikimedia]
     base_url: "https://{language}.wikisource.org/"
     search_type: text
     about:
@@ -1668,6 +1670,7 @@ engines:
   - name: dictzone
     engine: dictzone
     shortcut: dc
+    categories: other
 
   - name: mymemory translated
     engine: translated
@@ -1700,7 +1703,8 @@ engines:
   - name: seznam
     shortcut: szn
     engine: seznam
-
+    disabled: true
+    categories: other
 
   # - name: deepl
   #   engine: deepl
@@ -1868,6 +1872,7 @@ engines:
   - name: wikimini
     engine: xpath
     shortcut: wkmn
+    categories: other
     search_url: https://fr.wikimini.org/w/index.php?search={query}&title=Sp%C3%A9cial%3ASearch&fulltext=Search
     url_xpath: //li/div[@class="mw-search-result-heading"]/a/@href
     title_xpath: //li//div[@class="mw-search-result-heading"]/a
