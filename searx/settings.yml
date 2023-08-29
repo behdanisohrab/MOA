@@ -1596,6 +1596,7 @@ engines:
 
   - name: wikisource
     engine: mediawiki
+    disabled: true
     weight: 0.5
     shortcut: ws
     categories: [general, wikimedia]
