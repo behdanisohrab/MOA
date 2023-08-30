@@ -961,7 +961,6 @@ engines:
     shortcut: zlib
     categories: files
     timeout: 7.0
-    categories: science
 
   - name: library of congress
     engine: loc
@@ -1877,7 +1876,6 @@ engines:
     url_xpath: //li/div[@class="mw-search-result-heading"]/a/@href
     title_xpath: //li//div[@class="mw-search-result-heading"]/a
     content_xpath: //li/div[@class="searchresult"]
-    categories: general
     about:
       website: https://wikimini.org/
       wikidata_id: Q3568032
