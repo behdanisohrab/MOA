@@ -41,6 +41,11 @@ def random_color():
     color = "%06x" % random.randint(0, 0xFFFFFF)
     return f"#{color.upper()}"
 
+def random_color():
+    color = "%06x" % random.randint(0, 0xFFFFFF)
+    return f"#{color.upper()}"
+
+
 random_types = {
     'string': random_string,
     'int': random_int,
