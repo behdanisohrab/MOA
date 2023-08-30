@@ -120,7 +120,10 @@ input[type="submit"],
   display: inline-block;
   background: var(--color-btn-background);
   color: var(--color-btn-font);
-  .rounded-corners;
+
+  &:not(#infoboxes input[type=submit]) {
+    .rounded-corners;
+  }
 
   border: 0;
   cursor: pointer;

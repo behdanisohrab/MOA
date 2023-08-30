@@ -119,14 +119,7 @@ results|map(attribute='template')|unique|list|count == 1 %} {% set only_template
         </div>
         {% endif %} {% endfor %} {% if not results and not answers %} {% include
         'simple/messages/no_results.html' %} {% endif %}
-        <!-- Include Font Awesome and Animate.css -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-            integrity="sha512-9lZ6wqy4D1L5IIzZ5jDZ5lX/sLNU6A6aX5LI8ZFX1B3JbKpOzn6/uJ7LXa9Eu6yqN5FvC9Jv5zMk+tg8l/5+gg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
+        <!-- Include Animate.css -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -135,7 +128,7 @@ results|map(attribute='template')|unique|list|count == 1 %} {% set only_template
             referrerpolicy="no-referrer"
         />
 
-        <!-- Use Font Awesome icon and Animate.css animation -->
+        <!-- Use Animate.css animation -->
         <div id="backToTop">
             <a href="#" aria-label="{{ _('Back to top') }}"
                 >{{ icon_small('chevron-up-outline') }}</a
