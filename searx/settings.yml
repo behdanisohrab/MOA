@@ -627,6 +627,7 @@ engines:
   - name: duckduckgo weather
     engine: duckduckgo_weather
     shortcut: ddw
+    disabled: true
 
   - name: apple maps
     engine: apple_maps
@@ -1888,6 +1889,7 @@ engines:
     engine: wttr
     shortcut: wttr
     timeout: 9.0
+    disabled: true
 
   - name: brave
     engine: brave
