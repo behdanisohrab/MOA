@@ -4,7 +4,7 @@
 
 .index {
   text-align: center;
-
+  
   .title {
     background: url('../img/searxng.png') no-repeat;
     min-height: 4rem;
@@ -12,12 +12,12 @@
     background-position: center;
     background-size: contain;
   }
-
+  
   h1 {
     font-size: 4em;
     visibility: hidden;
   }
-
+  
   #search,
   #search_header {
     margin: 0 auto;
@@ -27,15 +27,23 @@
     padding: 0;
     display: block;
   }
-
+  
   .search_filters {
     display: block;
     margin: 1em 0;
   }
-
+  
   .category label {
     padding: 6px 10px;
     border-bottom: initial !important;
+  }
+  
+  #links_on_top {
+    position: absolute;
+    .ltr-right(1.8rem);
+    .ltr-text-align-right();
+    top: 2.2rem;
+    z-index: 3;
   }
 }
 
@@ -45,7 +53,7 @@
       font-size: 1em;
     }
   }
-
+  
   #main_index {
     margin-top: 6em;
   }

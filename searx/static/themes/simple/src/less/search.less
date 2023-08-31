@@ -19,10 +19,10 @@
   display: grid;
   column-gap: 1.2rem;
   row-gap: 1rem;
-  grid-template-columns: 3rem 1fr;
+  grid-template-columns: 3rem 1fr 0;
   grid-template-areas:
-    "logo search"
-    "spacer categories";
+    "logo search links"
+    "spacer categories spacer2";
 }
 
 .category {
@@ -65,8 +65,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  svg {
+  
+  span svg {
     flex: 1;
     width: 30px;
     height: 30px;
@@ -76,11 +76,11 @@
 
 .search_categories {
   grid-area: categories;
-
+  
   .help {
     display: none;
   }
-
+  
   &:hover .help {
     display: block;
     position: absolute;
@@ -118,11 +118,11 @@
   color: var(--color-search-font);
   font-size: 1.1rem;
   z-index: 10000;
-
+  
   &:hover {
     color: var(--color-search-background-hover);
   }
-
+  
   &.empty * {
     display: none;
   }
@@ -159,7 +159,7 @@ html.no-js #clear_search.hide_if_nojs {
 
 #send_search {
   .ltr-rounded-right-corners(0.8rem);
-
+  
   &:hover {
     cursor: pointer;
     background-color: var(--color-search-background-hover);
@@ -183,13 +183,13 @@ html.no-js #clear_search.hide_if_nojs {
   bottom: -1.25rem;
   width: 1.5rem;
   padding: .5rem;
-
+  
   svg {
     opacity: .5;
     width: 1.25rem;
     margin-bottom: .125rem;
   }
-
+  
   &.filters-visible {
     background-color: var(--color-base-background);
   }
@@ -206,15 +206,46 @@ html.no-js #clear_search.hide_if_nojs {
 
   select {
     background-color: inherit;
-
+    
     &:hover,
     &:focus {
       color: var(--color-base-font);
     }
   }
-
+  
   &.invisible {
     display: none;
+  }
+}
+
+
+#links_on_top {
+  grid-area: links;
+  translate: -14em;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: var(--color-search-font);
+
+  a {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+
+    svg {
+      font-size: 1.2em;
+      .ltr-margin-right(0.125em);
+    }
+  }
+
+  a,
+  a:link *,
+  a:hover *,
+  a:visited *,
+  a:active * {
+    color: var(--color-search-font);
   }
 }
 
@@ -223,11 +254,11 @@ html.no-js #clear_search.hide_if_nojs {
     padding: 1.5em @results-tablet-offset 0 @results-tablet-offset;
     column-gap: @results-tablet-offset;
   }
-
+  
   .filters-btn {
     display: none;
   }
-
+  
   .filters-btn-tablet{
     width: 1.5rem;
 
@@ -237,7 +268,7 @@ html.no-js #clear_search.hide_if_nojs {
       vertical-align: middle;
       margin-bottom: .5rem;
     }
-
+    
     &.filters-visible {
       color: var(--color-categories-item-selected-font);
     }
@@ -249,7 +280,7 @@ html.no-js #clear_search.hide_if_nojs {
     margin-bottom: 0;
     .ltr-margin-left(@results-tablet-offset + 3rem);
   }
-
+  
   #categories {
     font-size: 90%;
     clear: both;
@@ -281,6 +312,10 @@ html.no-js #clear_search.hide_if_nojs {
       -webkit-overflow-scrolling: touch;
     }
   }
+
+  #links_on_top {
+    translate: -6em;
+  }
 }
 
 @media screen and (max-width: @phone) {
@@ -290,8 +325,10 @@ html.no-js #clear_search.hide_if_nojs {
     padding: 0.1rem 0 0 0;
     column-gap: 0;
     row-gap: 0;
+    grid-template-columns: 1fr 7rem;
     grid-template-areas:
-      "logo search"
+      "logo links"
+      "search search"
       "categories categories";
   }
 
@@ -334,9 +371,13 @@ html.no-js #clear_search.hide_if_nojs {
       .category_name {
         display: none;
       }
+      
+      svg {
+        padding-right: 0;
+      }
     }
   }
-
+  
   #search_view:focus-within {
     display: block;
     background-color: var(--color-search-background);
@@ -345,7 +386,7 @@ html.no-js #clear_search.hide_if_nojs {
     height: 100%;
     width: 100%;
     z-index: 10000;
-
+    
     .search_box {
       border-bottom: 1px solid var(--color-search-border);
       width: 100%;
@@ -355,7 +396,7 @@ html.no-js #clear_search.hide_if_nojs {
       #send_search {
         .ltr-margin-right(0) !important; // Delete when send_search button is disabled on mobile.
       }
-
+      
       * {
         border: none;
         border-radius: 0;
@@ -363,18 +404,37 @@ html.no-js #clear_search.hide_if_nojs {
       }
     }
   }
-
+  
   #main_results #q:placeholder-shown ~ #send_search {
     .ltr-margin-right(2.6rem);
     transition: margin 0.1s;
+  }
+
+  #links_on_top {
+    translate: 0;
+  }
+
+  #search_logo {
+    span {
+      display: none !important;
+    }
+
+    span.mobile-only {
+      display: flex !important;
+
+      svg {
+        width: auto;
+        height: 35px;
+      }
+    }
   }
 }
 
 @media screen and (max-width: @ultra-small-phone) {
   #search_header {
     grid-template-areas:
-      "search search"
-      "categories categories";
+    "search search"
+    "categories categories";
   }
 
   #search_logo {

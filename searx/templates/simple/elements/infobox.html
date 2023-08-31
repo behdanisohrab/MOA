@@ -1,4 +1,4 @@
-<aside class="infobox" aria-label="{{ infobox.infobox }}">
+<aside class="infobox {% if answers -%}mobile{% endif %}" aria-label="{{ infobox.infobox }}">
     {%- if infobox.img_src -%}<img
         src="{{ image_proxify(infobox.img_src) }}"
         title="{{ infobox.infobox|striptags }}"
