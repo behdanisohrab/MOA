@@ -415,6 +415,8 @@ html.no-js #clear_search.hide_if_nojs {
   }
 
   #search_logo {
+    padding: .5rem 0;
+
     span {
       display: none !important;
     }
@@ -433,11 +435,15 @@ html.no-js #clear_search.hide_if_nojs {
 @media screen and (max-width: @ultra-small-phone) {
   #search_header {
     grid-template-areas:
-    "search search"
-    "categories categories";
+    "search search search"
+    "categories categories categories";
   }
 
   #search_logo {
+    display: none;
+  }
+
+  #links_on_top {
     display: none;
   }
 }
