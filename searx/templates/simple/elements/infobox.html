@@ -55,7 +55,7 @@
         </div>
         {%- endif -%}
     {%- if infobox.attributes -%} </div>
-    <div class="infobox-more-btn" id="infobox-btn">
+    <div class="infobox-more-btn" onclick="toggleBtn(this, false, '.infobox', 'collapse-open')">
         <span class="btn">{{ icon('chevron-up-outline') }}</span>
     </div> {%- endif -%}
     {%- if infobox.relatedTopics -%}

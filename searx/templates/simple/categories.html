@@ -33,7 +33,7 @@
             </label>
         </div>
         {%- endfor -%} {%- if display_tooltip %}
-        <span id="filters-btn" class="category filters-btn-tablet"
+        <span id="filters-btn" class="category filters-btn-tablet" onclick="toggleBtn(this, 'filters-visible', '.search_filters', 'invisible')"
             >{{ icon('funnel-outline') }}</span
         >
         <div class="help">

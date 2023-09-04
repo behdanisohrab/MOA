@@ -172,18 +172,6 @@
       searxng.on(d.getElementById('time_range'), 'change', submitIfQuery);
       searxng.on(d.getElementById('language'), 'change', submitIfQuery);
     }
-
-    const filterBtn = d.querySelectorAll('#filters-btn')
-    filterBtn.forEach((e) => {
-      e.addEventListener('click', () => {
-        d.getElementsByClassName('search_filters')[0].classList.toggle('invisible');
-        e.classList.toggle('filters-visible')
-      })
-    })
-
-    d.getElementById('infobox-btn').addEventListener('click', () =>{
-      d.getElementsByClassName('infobox')[0].classList.toggle('collapse-open');
-    })
   });
 
 })(window, document, window.searxng);

@@ -128,7 +128,7 @@ def response(resp):
 
         infobox += "</tbody></table>"
 
-    infobox += "</div><div class=\"infobox-more-btn\" id=\"infobox-btn\"><span class=\"btn\"><svg class=\"ion-icon\" viewBox=\"0 0 512 512\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"48\" d=\"M112 328l144-144 144 144\"></path></svg></span></div>"
+    infobox += "</div><div class=\"infobox-more-btn\" onclick=\"toggleBtn(this, false, '.infobox', 'collapse-open')\"><span class=\"btn\"><svg class=\"ion-icon\" viewBox=\"0 0 512 512\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"48\" d=\"M112 328l144-144 144 144\"></path></svg></span></div>"
 
     results.append(
         {

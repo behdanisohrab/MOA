@@ -108,7 +108,8 @@ module.exports = function (grunt) {
           'js/searxng.min.js': [
             'src/js/main/*.js',
             './node_modules/autocomplete-js/dist/autocomplete.js'
-          ]
+          ],
+          'js/searxng.reactivity.min.js': ['src/js/reactivity.js']
         }
       }
     },
@@ -173,11 +174,13 @@ module.exports = function (grunt) {
           'funnel-outline': 'node_modules/ionicons/dist/svg/funnel-outline.svg',
           'warning': 'node_modules/ionicons/dist/svg/alert-outline.svg',
           'arrow-forward': 'node_modules/ionicons/dist/svg/arrow-forward-outline.svg',
+          'close': 'node_modules/ionicons/dist/svg/close-outline.svg',
           'chevron-up-outline': 'node_modules/ionicons/dist/svg/chevron-up-outline.svg',
+          'chevron-down-outline': 'node_modules/ionicons/dist/svg/chevron-down-outline.svg',
           'chevron-right': 'node_modules/ionicons/dist/svg/chevron-forward-circle-outline.svg',
           'chevron-left': 'node_modules/ionicons/dist/svg/chevron-back-circle-outline.svg',
           'menu-outline': 'node_modules/ionicons/dist/svg/settings-outline.svg',
-          'ellipsis-vertical-outline': 'node_modules/ionicons/dist/svg/ellipsis-vertical-outline.svg',
+          'archive-outline': 'node_modules/ionicons/dist/svg/archive-outline.svg',
           'magnet-outline': 'node_modules/ionicons/dist/svg/magnet-outline.svg',
           'globe-outline': 'node_modules/ionicons/dist/svg/globe-outline.svg',
           'search-outline': 'node_modules/ionicons/dist/svg/search-outline.svg',

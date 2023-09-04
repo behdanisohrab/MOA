@@ -187,7 +187,6 @@ html.no-js #clear_search.hide_if_nojs {
   svg {
     opacity: .5;
     width: 1.25rem;
-    margin-bottom: .125rem;
   }
   
   &.filters-visible {
@@ -415,7 +414,7 @@ html.no-js #clear_search.hide_if_nojs {
   }
 
   #links_on_top {
-    translate: 0;
+    translate: 0 !important;
   }
 
   #search_logo {
@@ -465,4 +464,8 @@ html.no-js #clear_search.hide_if_nojs {
   display: flex;
   align-items: center;
   position: relative;
+}
+
+.preferences_endpoint #categories_container {
+  flex-wrap: wrap;
 }
