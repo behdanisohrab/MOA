@@ -7,26 +7,55 @@ MOA is a free and open source search engine based on the searxng project. This p
 
 🚀 install
 ===
-
 To install and use MOA, follow these steps:
+
+**with script:**
 
 1. Clone the repository by running the following command:
    ```
    git clone git@github.com:moa-engine/MOA
    ```
 
-3. Navigate to the MOA directory:
+2. Navigate to the MOA directory:
 
    ```
    cd MOA
    ```
 
-4. Run the web application using the following command:
+3. Run the web application using the following command:
 
       ```
       ./manage webapp.run
       ```
+
+
+ **with Docker:**
+1. Clone the repository by running the following command:
+   ```
+   git clone git@github.com:moa-engine/MOA
+   ```
+2. Navigate to the MOA directory:
+
+   ```
+   cd MOA
+   ```
    
+3. install docker : (Debian Base Linuxs) 
+   ```
+   sudo apt  install docker.io
+   ```
+   
+4. Build from docker file :
+   ```
+   docker build - < Dockerfile -t moa
+   ```
+   
+5. Run the Docker image
+   ```
+   docker run -p 8080:8080 moa
+   ```
+   
+Now you can see MOA in your browser: https://localhost:8080
 
 🏞️ Screenshots
 ===
