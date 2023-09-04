@@ -111,7 +111,7 @@ results|map(attribute='template')|unique|list|count == 1 %} {% set only_template
         {% set suggestionPlace = range(4, 8) | random %} {% for result in
         results %}{% if result.open_group and not only_template %}
         <div
-            class="template_group_{{ result['template']|replace('.html', '') }}{% if result['template'] == 'images.html' or result['template'] == 'videos.html' %} preview{% endif %}"
+            class="template_group_{{ result['template']|replace('.html', '') }}{% if result['template'] == 'images.html' %} preview-images{% endif %}"
         >
             {% if result['template'] == 'images.html' or result['template'] ==
             'videos.html' %}
@@ -126,7 +126,14 @@ results|map(attribute='template')|unique|list|count == 1 %} {% set only_template
                 result['template'] == 'images.html' or result['template'] ==
                 'videos.html' %}
             </div>
-            <div class="media-more-btn" onclick="resultsPreview('.preview')">
+            <div
+                class="media-more-btn"
+                {% if result['template'] == 'images.html' %}
+                onclick="imagesPreview()"
+                {% elif result['template'] == 'videos.html' %}
+                onclick="videosPreview()"
+                {% endif %}
+            >
                 <button class="btn" role="link" type="submit">
                     <span class="chevron"
                         >{{ icon_small('chevron-down-outline') }}</span

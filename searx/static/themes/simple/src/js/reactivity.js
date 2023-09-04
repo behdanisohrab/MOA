@@ -23,9 +23,14 @@ function removeBtn(thisEl, activeClass, targetSelector, targetClass) {
     $(targetSelector).classList.remove(targetClass);
 }
 
-function resultsPreview(target) {
-    $(target).classList.add("collapse-open");
-    $(target).addEventListener("click", () => {
+function imagesPreview() {
+    $(".preview-images").classList.add("collapse-open");
+    $(".media-more-btn").addEventListener("click", () => {
         $("#checkbox_images").checked = true;
     });
+    $(".media-more-btn").onclick = null;
+}
+
+function videosPreview() {
+    $("#checkbox_videos").checked = true;
 }

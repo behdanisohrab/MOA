@@ -358,7 +358,7 @@ article[data-vim-selected].category-social {
 
 :is(.template_group_videos, .template_group_images) {
   background-color: var(--color-base-background);
-  outline: 1rem var(--color-base-background) solid;
+  outline: 1.5rem var(--color-base-background) solid;
   margin: 2rem 0;
 }
 
@@ -1110,8 +1110,12 @@ tablet layout
       "urls"
       "pagination";
 
-    &.only_template_images #urls{
-      padding: 1rem;
+    &.only_template_images {
+      margin: 0;
+
+      #urls{
+        padding: 1rem;
+      }
     }
   }
 
