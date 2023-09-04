@@ -20,6 +20,7 @@ ENV INSTANCE_NAME=MOA \
 WORKDIR /usr/local/searxng
 
 COPY requirements.txt ./requirements.txt
+# for download packages in iran we must use proxy
 ENV HTTPS_PROXY="http://fodev.org:8118"
 RUN apk add --no-cache -t build-dependencies \
     build-base \
