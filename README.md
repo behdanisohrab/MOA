@@ -43,7 +43,7 @@ To install and use MOA, follow these steps:
    
 3. install docker : (Debian Base Linuxs) 
    ```
-   sudo apt  install docker.io
+   sudo apt install docker.io
    ```
    
 4. Build from docker file :
