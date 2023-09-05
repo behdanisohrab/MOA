@@ -28,7 +28,7 @@ To install and use MOA, follow these steps:
       ```
       ./manage webapp.run
       ```
-
+Now you can see MOA in your browser: https://localhost:8888
 
  **with Docker:**
 1. Clone the repository by running the following command:
