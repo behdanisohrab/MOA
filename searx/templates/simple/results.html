@@ -24,10 +24,12 @@ results|map(attribute='template')|unique|list|count == 1 %} {% set only_template
         <h4 class="title" id="answers-title">{{ _('Answers') }} :</h4>
         {%- for answer in answers.values() -%}
         <div class="answer">
-        <span>{{ answer.answer }}</span>
-          {% if answer.url -%}
-          <a href="{{ answer.url }}" class="answer-url">{{ urlparse(answer.url).hostname }}</a>
-          {% endif -%}
+            <span>{{ answer.answer }}</span>
+            {% if answer.url -%}
+            <a href="{{ answer.url }}" class="answer-url"
+                >{{ urlparse(answer.url).hostname }}</a
+            >
+            {% endif -%}
         </div>
         {%- endfor -%}
     </div>
@@ -109,13 +111,37 @@ results|map(attribute='template')|unique|list|count == 1 %} {% set only_template
         {% set suggestionPlace = range(4, 8) | random %} {% for result in
         results %}{% if result.open_group and not only_template %}
         <div
-            class="template_group_{{ result['template']|replace('.html', '') }}"
+            class="template_group_{{ result['template']|replace('.html', '') }}{% if result['template'] == 'images.html' %} preview-images{% endif %}"
         >
-            {% endif %} {% set index = loop.index %} {% if index ==
-            suggestionPlace %} {%- if suggestions -%} {%- include
-            'simple/elements/suggestions.html' -%} {%- endif -%} {% endif %}{%
-            include get_result_template('simple', result['template']) %} {% if
-            result.close_group and not only_template %}
+            {% if result['template'] == 'images.html' or result['template'] ==
+            'videos.html' %}
+            <div class="results">
+                {% endif %} {% endif %} {% set index = loop.index %} {% if index
+                == suggestionPlace %} {%- if suggestions and not
+                result['template'] == 'images.html' or result['template'] ==
+                'videos.html' %} {%- include 'simple/elements/suggestions.html'
+                -%} {%- endif -%} {% endif %}{% include
+                get_result_template('simple', result['template']) %} {% if
+                result.close_group and not only_template %} {% if
+                result['template'] == 'images.html' or result['template'] ==
+                'videos.html' %}
+            </div>
+            <div
+                class="media-more-btn"
+                {% if result['template'] == 'images.html' %}
+                onclick="imagesPreview()"
+                {% elif result['template'] == 'videos.html' %}
+                onclick="videosPreview()"
+                {% endif %}
+            >
+                <button class="btn" role="link" type="submit">
+                    <span class="chevron"
+                        >{{ icon_small('chevron-down-outline') }}</span
+                    >
+                    <span class="text"> See More </span>
+                </button>
+            </div>
+            {% endif %}
         </div>
         {% endif %} {% endfor %} {% if not results and not answers %} {% include
         'simple/messages/no_results.html' %} {% endif %}
