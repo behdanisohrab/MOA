@@ -14,16 +14,9 @@ description = gettext(
 )
 
 preference_section = 'query'
-
 query_keywords = [ 'فارسی', 'انگلیسی', 'مترجم', 'ترجمه', 'معنی']
-
 query_examples = 'ترجمه hi'
-
 parser_re = re.compile('(انگلیسی|فارسی|ترجمه|مترجم) (.*)', re.I)
-
-
-
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -34,9 +27,6 @@ def index():
 
 if __name__ == '__main__':
     app.run()
-
-
-
 
 def spellcheck(wrong_spelling):
     query_lang = detect_language(wrong_spelling, threshold=0, only_search_languages= False)
@@ -73,29 +63,3 @@ def post_search(request, search):
         }
 
     return True
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
