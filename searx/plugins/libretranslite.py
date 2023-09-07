@@ -2,8 +2,7 @@ from translate import Translator
 from flask_babel import gettext
 import re
 from searx.utils import detect_language
-
-
+from flask import Flask, request
 # import logging
 
 # logger: logging.Logger
@@ -23,10 +22,26 @@ query_examples = 'ترجمه hi'
 parser_re = re.compile('(انگلیسی|فارسی|ترجمه|مترجم) (.*)', re.I)
 
 
+
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    user_languages = request.accept_languages
+    preferred_language = user_languages.best_match([ "fa-IR", "en", "ar", "az", "ca", "zh", "cs", "da", "nl", "eo", "fi", "fr", "de", "el", "he", "hu", "id", "ga", "it", "ja", "ko", "fa", "pl", "pt", "ru", "sk", "es", "sv", "tr", "uk"])
+    return preferred_language
+
+if __name__ == '__main__':
+    app.run()
+
+
+
+
 def spellcheck(wrong_spelling):
     query_lang = detect_language(wrong_spelling, threshold=0, only_search_languages= False)
     if query_lang != "None":
-        translator = Translator(from_lang=query_lang, to_lang='fa')
+        translator = Translator(from_lang=query_lang, to_lang=index())
         translated_text = translator.translate(wrong_spelling)
         if translated_text:
             return str(f"ترجمه: {translated_text}")
@@ -34,7 +49,6 @@ def spellcheck(wrong_spelling):
             return str("خطا در ترجمه")
     else:
         return str("خطا در ترجمه")
-
 
 
 def post_search(request, search):
@@ -59,3 +73,29 @@ def post_search(request, search):
         }
 
     return True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
