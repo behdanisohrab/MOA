@@ -20,11 +20,13 @@
 <!-- Draw result header -->
 {% macro result_header(result, favicons, image_proxify) -%}
 <article class="result {% if result['template'] %}result-{{ result.template|replace('.html', '') }}{% else %}result-default{% endif %} {% if result['category'] %}category-{{ result['category'] }}{% endif %}{% for e in result.engines %} {{ e }}{% endfor %}">
-  {{- result_open_link(result.url, "url_wrapper") -}}
-  {%- for part in get_pretty_url(result.parsed_url) -%}
-  <span class="url_o{{loop.index}}"><span class="url_i{{loop.index}}">{{- part -}}</span></span>
-  {%- endfor %}
-  {{- result_close_link() -}}
+  <div class="url_box">
+    {%- if result.parsed_url -%}<img src="{{result.parsed_url.scheme}}://{{result.parsed_url.netloc}}/favicon.ico">{%- endif -%}
+    {{- result_open_link(result.url, "url_wrapper") -}} 
+    {%- for part in get_pretty_url(result.parsed_url) -%}{% if loop.index > 1 and part|length > 20 %}{% set part = part[:20] + "…" %}{% endif %}
+    <span class="url_o{{loop.index}}"><span class="url_i{{loop.index}}">{{- part|replace('https://', '')|replace('http://', '') -}}</span></span>
+    {%- endfor %}{{- result_close_link() -}}
+  </div>
 
 
 {%- if result.img_src %}{{ result_open_link(result.url) }}<img class="image" src="{{ image_proxify(result.img_src) }}" title="{{ result.title|striptags }}" loading="lazy" width="200" height="200">{{ result_close_link() }}{% endif -%}

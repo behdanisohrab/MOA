@@ -63,6 +63,7 @@ results_xpath = './/div[contains(@jscontroller, "SC7lYd")]'
 title_xpath = './/a/h3[1]'
 href_xpath = './/a[h3]/@href'
 content_xpath = './/div[@data-sncf]'
+correction_xpath = './/a[contains(@class, "gL9Hy")]'
 
 # Suggestions are links placed in a *card-section*, we extract only the text
 # from the links not the links itself.
@@ -383,6 +384,10 @@ def response(resp):
     for suggestion in eval_xpath_list(dom, suggestion_xpath):
         # append suggestion
         results.append({'suggestion': extract_text(suggestion)})
+
+    # parse correction
+    for correction in eval_xpath_list(dom, correction_xpath):
+        results.append({'correction': extract_text(correction)})
 
     # return results
     return results

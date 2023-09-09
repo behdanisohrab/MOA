@@ -121,7 +121,7 @@ input[type="submit"],
   background: var(--color-btn-background);
   color: var(--color-btn-font);
 
-  &:not(#infoboxes input[type=submit]) {
+  &:not(#infoboxes input[type=submit], .suggestion) {
     .rounded-corners;
   }
 
@@ -238,37 +238,48 @@ article[data-vim-selected].category-social {
     }
   }
 
-  .url_wrapper {
+  .url_box {
     display: flex;
-    font-size: 1rem;
-    color: var(--color-result-url-font);
-    flex-wrap: nowrap;
-    overflow: hidden;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
+    align-items: center;
 
-    .url_o1 {
-      white-space: nowrap;
-      flex-shrink: 1;
+    img {
+      height: 14px;
+      border-radius: 2px;
+      .ltr-margin-right(.5rem);
     }
 
-    .url_o1::after {
-      content: " ";
-      width: 1ch;
-      display: inline-block;
-    }
-
-    .url_o2 {
+    .url_wrapper {
+      display: flex;
+      font-size: 1rem;
+      color: var(--color-result-url-font);
+      flex-wrap: nowrap;
       overflow: hidden;
-      white-space: nowrap;
-      flex-basis: content;
-      flex-grow: 0;
-      flex-shrink: 1;
-      text-align: right;
-
-      .url_i2 {
-        float: right;
+      flex-direction: row;
+      margin: 0;
+      padding: 0;
+  
+      .url_o1 {
+        white-space: nowrap;
+        flex-shrink: 1;
+      }
+  
+      .url_o1::after {
+        content: " ";
+        width: 1ch;
+        display: inline-block;
+      }
+  
+      .url_o2 {
+        overflow: hidden;
+        white-space: nowrap;
+        flex-basis: content;
+        flex-grow: 0;
+        flex-shrink: 1;
+        text-align: right;
+  
+        .url_i2 {
+          float: right;
+        }
       }
     }
   }
@@ -708,17 +719,27 @@ article[data-vim-selected].category-social {
   grid-area: corrections;
   display: flex;
   flex-flow: row wrap;
-  margin: 0 0 1em 0;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, var(--color-backtotop-font), transparent 60%) 1;
   
   h4,
   input[type="submit"] {
     display: inline-block;
-    padding: 0.5rem;
-    margin: 0.5rem;
   }
   
+  h4 {
+    padding: .5rem 0;
+    margin: .5rem;
+  }
+
   input[type="submit"] {
-    font-size: 0.8rem;
+    font-size: .8rem;
+    padding: .5rem;
+    background: transparent;
+    color: var(--color-answer-font);
+    border: 1px solid #adadad;
     .rounded-corners-tiny;
   }
 }
@@ -1337,6 +1358,6 @@ pre code {
 @import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-code-font@v1.1.2/dist/font-face.css");
 
 // Set code font ( and suggestion )
-pre, code, #suggestions form, #pagination .numbered_pagination, .result .url_wrapper, #backToTop {
+pre, code, #pagination .numbered_pagination, .result .url_wrapper, #backToTop {
   font-family: 'Vazir Code', 'Vazir Code Hack', monospaced;
 }
