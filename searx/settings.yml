@@ -304,6 +304,7 @@ engines:
   - name: openlibrary
     engine: openlibrary
     shortcut: ol
+    timeout: 6.0
     categories: science
 
   - name: 9gag

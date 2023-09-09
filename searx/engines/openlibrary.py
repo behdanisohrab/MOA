@@ -34,29 +34,20 @@ def request(query, params):
     return params
 
 
+
+
 site_url = 'https://openlibrary.org'
 # get response from search-request
 def response(resp):
     results = []
-
-    search_res = loads(resp.text)
-
-    # check if items are received
-    if 'docs' not in search_res:
-        return []
-
-    # parse results
-    for res in search_res['docs']:
-        title = res['title']
-        url = site_url + res['key']
-
-        if res['description']:
-            content = res['description'][:500]
-        else:
-            content = ''
-
-        # append result
-        results.append({'url': url, 'title': title, 'content': content})
-
+    book_info = []
+    data = resp.json()
+    results = data.get('docs', [])
+    for result in results:
+        book_info.append({'key': result.get('key', ''), 'title': result.get('title', '')})
+    url_k = "https://openlibrary.org"
+    content = ""
+    for info in book_info:
+        results.append({'url': url_k + info['key'], 'title': info['title'], 'content': content})
     # return results
     return results
