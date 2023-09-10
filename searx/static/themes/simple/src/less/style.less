@@ -736,7 +736,7 @@ article[data-vim-selected].category-social {
 
   input[type="submit"] {
     font-size: .8rem;
-    padding: .5rem;
+    padding: .3rem .5rem;
     background: transparent;
     color: var(--color-answer-font);
     border: 1px solid #adadad;
@@ -1147,6 +1147,10 @@ tablet layout
     width: calc(100% - .2rem);
     display: block;
   }
+
+  #corrections {
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (max-width: calc(@tablet - 0.5px)) {
@@ -1271,6 +1275,7 @@ phone layout
   
   .infobox {
     border: none !important;
+    padding: 1rem 1.5rem !important;
     
     img {
       max-height: none !important;
@@ -1312,6 +1317,10 @@ phone layout
     &.collapse-open .results{
       height: 32rem;
     }
+  }
+
+  #corrections {
+    border-bottom: none;
   }
 }
 
