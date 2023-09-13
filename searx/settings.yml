@@ -306,6 +306,7 @@ engines:
     shortcut : bd
     timeout : 2.0
     categories: general
+    disabled: true
 
   - name: openlibrary
     engine: openlibrary
