@@ -13,8 +13,6 @@ general:
   # record stats
   enable_metrics: true
 
-
-
 brand:
   # Both favicon and logo are relative to SearXNG's root path unless they are absolute paths
   favicon: static/themes/simple/img/favicon.png
@@ -77,13 +75,13 @@ server:
   bind_address: "127.0.0.1"
   # public URL of the instance, to ensure correct inbound links. Is overwritten
   # by ${SEARXNG_URL}.
-  base_url: false  # "http://example.com/location"
-  limiter: false  # rate limit the number of request on the instance, block some bots
+  base_url: false # "http://example.com/location"
+  limiter: false # rate limit the number of request on the instance, block some bots
 
   # If your instance owns a /etc/searxng/settings.yml file, then set the following
   # values there.
 
-  secret_key: "ultrasecretkey"  # Is overwritten by ${SEARXNG_SECRET}
+  secret_key: "ultrasecretkey" # Is overwritten by ${SEARXNG_SECRET}
   # Proxying image results through searx
   image_proxy: false
   # 1.0 and 1.1 are supported
@@ -261,17 +259,17 @@ checker:
         lang: en
       result_container:
         - not_empty
-        - ['one_title_contains', 'citizen kane']
+        - ["one_title_contains", "citizen kane"]
       test:
         - unique_results
 
     android: &test_android
       matrix:
-        query: ['android']
-        lang: ['en', 'de', 'fr', 'zh-CN']
+        query: ["android"]
+        lang: ["en", "de", "fr", "zh-CN"]
       result_container:
         - not_empty
-        - ['one_title_contains', 'google']
+        - ["one_title_contains", "google"]
       test:
         - unique_results
 
@@ -302,9 +300,9 @@ categories_as_tabs:
 
 engines:
   - name: baidu
-    engine : baidu
-    shortcut : bd
-    timeout : 2.0
+    engine: baidu
+    shortcut: bd
+    timeout: 2.0
     categories: general
     disabled: true
 
@@ -328,7 +326,7 @@ engines:
   # - name: annas articles
   #   engine: annas_archive
   #   shortcut: aaa
-  #   # https://docs.searxng.org/src/searx.engines.annas_archive.html
+  #   # https://docs.searxng.org/dev/engines/online/annas_archive.html
   #   aa_content: 'journal_article' # book_any .. magazine, standards_document
   #   aa_ext: 'pdf'  # pdf, epub, ..
   #   aa_sort: 'newest'  # newest, oldest, largest, smallest
@@ -338,8 +336,6 @@ engines:
     timeout: 4.0
     shortcut: apkm
     categories: files
-
-
 
   - name: apple app store
     engine: apple_app_store
@@ -416,7 +412,12 @@ engines:
   - name: wikipedia
     engine: wikipedia
     shortcut: wp
-    base_url: 'https://{language}.wikipedia.org/'
+    base_url: "https://{language}.wikipedia.org/"
+
+  - name: bilibili
+    engine: bilibili
+    shortcut: bil
+    disabled: true
 
   - name: bing
     engine: bing
@@ -539,7 +540,7 @@ engines:
     categories: general
     disabled: true
     paging: true
-    lang_all: ''
+    lang_all: ""
     search_url: https://curlie.org/search?q={query}&lang={lang}&start={pageno}&stime=92452189
     page_size: 20
     results_xpath: //div[@id="site-list-content"]/div[@class="site-item"]
@@ -694,16 +695,15 @@ engines:
     shortcut: fd
     categories: files
 
-
- # - name: flickr
-    #disabled: true
-    #categories: images
-   # shortcut: fl
-    # You can use the engine using the official stable API, but you need an API
-    # key, see: https://www.flickr.com/services/apps/create/
-    # engine: flickr
-    # api_key: 'apikey' # required!
-    # Or you can use the html non-stable engine, activated by default
+  # - name: flickr
+  #disabled: true
+  #categories: images
+  # shortcut: fl
+  # You can use the engine using the official stable API, but you need an API
+  # key, see: https://www.flickr.com/services/apps/create/
+  # engine: flickr
+  # api_key: 'apikey' # required!
+  # Or you can use the html non-stable engine, activated by default
   #engine: flickr_noapi
 
   - name: free software directory
@@ -740,8 +740,6 @@ engines:
     shortcut: ge
     timeout: 10.0
     disabled: true
-
-
 
   - name: gitlab
     engine: json_engine
@@ -829,7 +827,6 @@ engines:
     shortcut: gpa
     play_categ: apps
 
-
   - name: google play movies
     engine: google_play
     categories: videos
@@ -859,10 +856,11 @@ engines:
   - name: habrahabr
     engine: xpath
     paging: true
-    search_url: https://habrahabr.ru/search/page{pageno}/?q={query}
-    url_xpath: //article[contains(@class, "post")]//a[@class="post__title_link"]/@href
-    title_xpath: //article[contains(@class, "post")]//a[@class="post__title_link"]
-    content_xpath: //article[contains(@class, "post")]//div[contains(@class, "post__text")]
+    search_url: https://habr.com/en/search/page{pageno}/?q={query}
+    results_xpath: //article[contains(@class, "tm-articles-list__item")]
+    url_xpath: .//a[@class="tm-title__link"]/@href
+    title_xpath: .//a[@class="tm-title__link"]
+    content_xpath: .//div[contains(@class, "article-formatted-body")]
     categories: it
     timeout: 4.0
     shortcut: habr
@@ -909,11 +907,17 @@ engines:
     # Instanes will be selected randomly, see https://api.invidious.io/ for
     # instances that are stable (good uptime) and close to you.
     base_url:
-      - https://invidious.snopyta.org
+      - https://invidious.io.lol
+      - https://invidious.fdn.fr
+      - https://yt.artemislena.eu
+      - https://invidious.tiekoetter.com
+      - https://invidious.flokinet.to
       - https://vid.puffyan.us
-      - https://invidious.kavin.rocks  # Error 1020 // Access denied by Cloudflare
+      - https://invidious.kavin.rocks # Error 1020 // Access denied by Cloudflare
       - https://invidio.xamh.de
       - https://inv.riverside.rocks
+      - https://invidious.privacydev.net
+      - https://inv.tux.pizza
     shortcut: iv
     timeout: 3.0
 
@@ -1101,6 +1105,11 @@ engines:
       require_api_key: false
       results: JSON
 
+  - name: odysee
+    engine: odysee
+    shortcut: od
+    disabled: true
+
   - name: openairedatasets
     engine: json_engine
     paging: true
@@ -1246,10 +1255,10 @@ engines:
     shortcut: pd
     search_url: https://pub.dev/packages?q={query}&page={pageno}
     paging: true
-    results_xpath: /html/body/main/div/div[@class="search-results"]/div[@class="packages"]/div
+    results_xpath: //div[contains(@class,"packages-item")]
     url_xpath: ./div/h3/a/@href
     title_xpath: ./div/h3/a
-    content_xpath: ./p[@class="packages-description"]
+    content_xpath: ./div/div/div[contains(@class,"packages-description")]/span
     categories: [packages, it]
     timeout: 3.0
     first_page_num: 1
@@ -1270,7 +1279,7 @@ engines:
     shortcut: pypi
     engine: xpath
     paging: true
-    search_url: https://pypi.org/search?q={query}&page={pageno}
+    search_url: https://pypi.org/search/?q={query}&page={pageno}
     results_xpath: /html/body/main/div/div/div/form/div/ul/li/a[@class="package-snippet"]
     url_xpath: ./@href
     title_xpath: ./h3/span[@class="package-snippet__name"]
@@ -1285,8 +1294,6 @@ engines:
       use_official_api: false
       require_api_key: false
       results: HTML
-
-
 
   # - name: library
   #   engine: recoll
@@ -1344,19 +1351,19 @@ engines:
   - name: stackoverflow
     engine: stackexchange
     shortcut: st
-    api_site: 'stackoverflow'
+    api_site: "stackoverflow"
     categories: [it, q&a]
 
   - name: askubuntu
     engine: stackexchange
     shortcut: ubuntu
-    api_site: 'askubuntu'
+    api_site: "askubuntu"
     categories: [it, q&a]
 
   - name: superuser
     engine: stackexchange
     shortcut: su
-    api_site: 'superuser'
+    api_site: "superuser"
     categories: [it, q&a]
 
   - name: searchcode code
@@ -1428,8 +1435,6 @@ engines:
     shortcut: solid
     timeout: 4.0
     base_url:
-      - https://solidtorrents.net
-      - https://solidtorrents.eu
       - https://solidtorrents.to
       - https://bitsearch.to
 
@@ -1462,8 +1467,7 @@ engines:
   - name: torch
     engine: xpath
     paging: true
-    search_url:
-      http://xmh57jrknzkhv6y3ls3ubitzfqnkrwxhopf5aygthi7d6rplyvk3noyd.onion/cgi-bin/omega/omega?P={query}&DEFAULTOP=and
+    search_url: http://xmh57jrknzkhv6y3ls3ubitzfqnkrwxhopf5aygthi7d6rplyvk3noyd.onion/cgi-bin/omega/omega?P={query}&DEFAULTOP=and
     results_xpath: //table//tr
     url_xpath: ./td[2]/a
     title_xpath: ./td[2]/b
@@ -1475,7 +1479,7 @@ engines:
   # torznab engine lets you query any torznab compatible indexer.  Using this
   # engine in combination with Jackett opens the possibility to query a lot of
   # public and private indexers directly from SearXNG. More details at:
-  # https://docs.searxng.org/src/searx.engines.torznab.html
+  # https://docs.searxng.org/dev/engines/online/torznab.html
   #
   # - name: Torznab EZTV
   #   engine: torznab
@@ -1552,7 +1556,6 @@ engines:
     about:
       website: https://wiby.me/
     disabled: true
-
 
   - name: alexandria
     engine: json_engine
@@ -1666,6 +1669,12 @@ engines:
       website: https://www.wikivoyage.org/
       wikidata_id: Q373
 
+  - name: wikicommons.images
+    engine: wikicommons
+    shortcut: wc
+    categories: images
+    number_of_results: 10
+
   - name: wolframalpha
     shortcut: wa
     # You can use the engine using the official stable API, but you need an API
@@ -1771,7 +1780,6 @@ engines:
       results: HTML
       language: ko
 
-
   - name: rubygems
     shortcut: rbg
     engine: xpath
@@ -1843,7 +1851,7 @@ engines:
     no_result_for_http_status: [404]
     about:
       website: https://www.woxikon.de/
-      wikidata_id:  # No Wikidata ID
+      wikidata_id: # No Wikidata ID
       use_official_api: false
       require_api_key: false
       results: HTML
@@ -1879,6 +1887,12 @@ engines:
     timeout: 5.0
     disabled: true
 
+  - name: svgrepo
+    engine: svgrepo
+    shortcut: svg
+    timeout: 10.0
+    disabled: true
+
     # wikimini: online encyclopedia for children
     # The fulltext and title parameter is necessary for Wikimini because
     # sometimes it will not show the results and redirect instead
@@ -1904,6 +1918,11 @@ engines:
     timeout: 9.0
     disabled: true
 
+  - name: yummly
+    engine: yummly
+    shortcut: yum
+    disabled: true
+
   - name: brave
     engine: brave
     shortcut: br
@@ -1916,10 +1935,10 @@ engines:
     content_xpath: //p[1][@class="snippet-description"]
     suggestion_xpath: //div[@class="text-gray h6"]/a
     time_range_map:
-      day: 'pd'
-      week: 'pw'
-      month: 'pm'
-      year: 'py'
+      day: "pd"
+      week: "pw"
+      month: "pm"
+      year: "py"
     categories: [general, web]
     disabled: true
     headers:
@@ -2128,11 +2147,11 @@ engines:
 #        keys: ['line']
 
 doi_resolvers:
-  oadoi.org: 'https://oadoi.org/'
-  doi.org: 'https://doi.org/'
-  doai.io: 'https://dissem.in/'
-  sci-hub.se: 'https://sci-hub.se/'
-  sci-hub.st: 'https://sci-hub.st/'
-  sci-hub.ru: 'https://sci-hub.ru/'
+  oadoi.org: "https://oadoi.org/"
+  doi.org: "https://doi.org/"
+  doai.io: "https://dissem.in/"
+  sci-hub.se: "https://sci-hub.se/"
+  sci-hub.st: "https://sci-hub.st/"
+  sci-hub.ru: "https://sci-hub.ru/"
 
-default_doi_resolver: 'oadoi.org'
+default_doi_resolver: "oadoi.org"

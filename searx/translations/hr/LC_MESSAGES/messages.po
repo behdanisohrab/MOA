@@ -13,19 +13,20 @@
 # return42 <markus.heiser@darmarit.de>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version:  searx\n"
+"Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-08-15 14:23+0000\n"
-"PO-Revision-Date: 2023-07-09 15:34+0000\n"
+"POT-Creation-Date: 2023-09-11 10:31+0000\n"
+"PO-Revision-Date: 2023-09-12 14:53+0000\n"
 "Last-Translator: return42 <markus.heiser@darmarit.de>\n"
+"Language-Team: Croatian <https://translate.codeberg.org/projects/searxng/"
+"searxng/hr/>\n"
 "Language: hr\n"
-"Language-Team: Croatian "
-"<https://translate.codeberg.org/projects/searxng/searxng/hr/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.0.1\n"
 "Generated-By: Babel 2.12.1\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
@@ -166,15 +167,15 @@ msgstr "Izvor"
 msgid "Error loading the next page"
 msgstr "Greška u učitavnju sljedeće stranice"
 
-#: searx/webapp.py:488 searx/webapp.py:880
+#: searx/webapp.py:489 searx/webapp.py:881
 msgid "Invalid settings, please edit your preferences"
 msgstr "Nevažeće postavke, molimo uredite svoje postavke"
 
-#: searx/webapp.py:504
+#: searx/webapp.py:505
 msgid "Invalid settings"
 msgstr "Nevažeće postavke"
 
-#: searx/webapp.py:581 searx/webapp.py:663
+#: searx/webapp.py:582 searx/webapp.py:664
 msgid "search error"
 msgstr "greška u pretraživanju"
 
@@ -242,11 +243,11 @@ msgstr "prije {minutes} minut(u,e,a)"
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "prije {hours} sat(i) i {minutes} minut(u,e,a)"
 
-#: searx/answerers/random/answerer.py:67
+#: searx/answerers/random/answerer.py:73
 msgid "Random value generator"
 msgstr "Generator vrijednosti nasumice"
 
-#: searx/answerers/random/answerer.py:68
+#: searx/answerers/random/answerer.py:74
 msgid "Generate different random values"
 msgstr "Generirajte različite slučajne vrijednosti"
 
@@ -609,27 +610,27 @@ msgstr "Kolačići"
 msgid "Answers"
 msgstr "Odgovori"
 
-#: searx/templates/simple/results.html:39
+#: searx/templates/simple/results.html:38
 msgid "Number of results"
 msgstr "Broj rezultata"
 
-#: searx/templates/simple/results.html:45
+#: searx/templates/simple/results.html:44
 msgid "Info"
-msgstr ""
+msgstr "Informacije"
 
-#: searx/templates/simple/results.html:74
+#: searx/templates/simple/results.html:73
 msgid "Try searching for:"
 msgstr "Pokušajte tražiti sljedeće:"
 
-#: searx/templates/simple/results.html:106
+#: searx/templates/simple/results.html:105
 msgid "Back to top"
 msgstr "Natrag na vrh"
 
-#: searx/templates/simple/results.html:124
+#: searx/templates/simple/results.html:123
 msgid "Previous page"
 msgstr "Prethodna stranica"
 
-#: searx/templates/simple/results.html:141
+#: searx/templates/simple/results.html:140
 msgid "Next page"
 msgstr "Sljedeća stranica"
 
@@ -872,7 +873,7 @@ msgstr "Primjeri"
 msgid "This is the list of SearXNG's instant answering modules."
 msgstr "Ovo je popis SearXNG-ovih modula za trenutno javljanje."
 
-#: searx/templates/simple/preferences/answerers.html:28
+#: searx/templates/simple/preferences/answerers.html:29
 msgid "This is the list of plugins."
 msgstr "Ovo je popis dodataka."
 
@@ -888,19 +889,7 @@ msgstr "Pronađite stvari prilikom upisivanja"
 msgid "Center Alignment"
 msgstr "Središnje poravnanje"
 
-#: searx/templates/simple/preferences/center_alignment.html:5
-#: searx/templates/simple/preferences/infinite_scroll.html:5
-#: searx/templates/simple/preferences/results_on_new_tab.html:5
-msgid "On"
-msgstr "Uključeno"
-
-#: searx/templates/simple/preferences/center_alignment.html:6
-#: searx/templates/simple/preferences/infinite_scroll.html:6
-#: searx/templates/simple/preferences/results_on_new_tab.html:6
-msgid "Off"
-msgstr "Isključeno"
-
-#: searx/templates/simple/preferences/center_alignment.html:10
+#: searx/templates/simple/preferences/center_alignment.html:14
 msgid "Displays results in the center of the page (Oscar layout)."
 msgstr "Prikazuje rezultate u sredini stranice (Oscar raspored)."
 
@@ -1011,17 +1000,7 @@ msgstr "Natrag"
 msgid "Image proxy"
 msgstr "Proxy slike"
 
-#: searx/templates/simple/preferences/image_proxy.html:5
-#: searx/templates/simple/preferences/query_in_title.html:5
-msgid "Enabled"
-msgstr "Omogućeno"
-
-#: searx/templates/simple/preferences/image_proxy.html:6
-#: searx/templates/simple/preferences/query_in_title.html:6
-msgid "Disabled"
-msgstr "Onemogućeno"
-
-#: searx/templates/simple/preferences/image_proxy.html:10
+#: searx/templates/simple/preferences/image_proxy.html:14
 msgid "Proxying image results through SearXNG"
 msgstr "Proxy slikovni rezultati putem SearXNG-a"
 
@@ -1029,7 +1008,7 @@ msgstr "Proxy slikovni rezultati putem SearXNG-a"
 msgid "Infinite scroll"
 msgstr "Beskonačno pomicanje"
 
-#: searx/templates/simple/preferences/infinite_scroll.html:10
+#: searx/templates/simple/preferences/infinite_scroll.html:14
 msgid "Automatically load next page when scrolling to bottom of current page"
 msgstr ""
 "Automatski učitajte sljedeću stranicu kada se pomaknete do dna trenutne "
@@ -1055,7 +1034,7 @@ msgstr ""
 msgid "Query in the page's title"
 msgstr "Upit u naslovu stranice"
 
-#: searx/templates/simple/preferences/query_in_title.html:10
+#: searx/templates/simple/preferences/query_in_title.html:14
 msgid ""
 "When enabled, the result page's title contains your query. Your browser "
 "can record this title"
@@ -1067,7 +1046,7 @@ msgstr ""
 msgid "Results on new tabs"
 msgstr "Rezultati u novim karticama"
 
-#: searx/templates/simple/preferences/results_on_new_tab.html:10
+#: searx/templates/simple/preferences/results_on_new_tab.html:14
 msgid "Open result links on new browser tabs"
 msgstr "Otvorite veze rezultata na novim karticama preglednika"
 
@@ -1106,6 +1085,10 @@ msgstr "Jezik sučelja"
 #: searx/templates/simple/preferences/ui_locale.html:14
 msgid "Change the language of the layout"
 msgstr "Promijenite jezik prikaza"
+
+#: searx/templates/simple/result_templates/code.html:13
+msgid "repo"
+msgstr "repozitoriji"
 
 #: searx/templates/simple/result_templates/default.html:6
 msgid "show media"
@@ -1613,3 +1596,14 @@ msgstr "sakrij video"
 #~ " rel=\"external\">saznajte više o metodama "
 #~ "zahtjeva</a>"
 
+#~ msgid "On"
+#~ msgstr "Uključeno"
+
+#~ msgid "Off"
+#~ msgstr "Isključeno"
+
+#~ msgid "Enabled"
+#~ msgstr "Omogućeno"
+
+#~ msgid "Disabled"
+#~ msgstr "Onemogućeno"

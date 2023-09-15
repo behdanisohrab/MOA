@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version:  searx\n"
+"Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-08-15 14:23+0000\n"
-"PO-Revision-Date: 2023-08-04 07:07+0000\n"
+"POT-Creation-Date: 2023-09-11 10:31+0000\n"
+"PO-Revision-Date: 2023-09-12 14:53+0000\n"
 "Last-Translator: return42 <markus.heiser@darmarit.de>\n"
 "Language-Team: Persian <https://translate.codeberg.org/projects/searxng/"
 "searxng/fa/>\n"
@@ -90,7 +90,11 @@ msgstr "برنامه ها"
 #. CATEGORY_GROUPS['DICTIONARIES']
 #: searx/searxng.msg
 msgid "dictionaries"
+<<<<<<< HEAD
 msgstr "فرهنگ لغت ها"
+=======
+msgstr "لغت نامه ها"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #. CATEGORY_GROUPS['LYRICS']
 #: searx/searxng.msg
@@ -155,21 +159,25 @@ msgstr "منبع"
 msgid "Error loading the next page"
 msgstr "خطا در بارگزاری صفحه جدید"
 
-#: searx/webapp.py:488 searx/webapp.py:880
+#: searx/webapp.py:489 searx/webapp.py:881
 msgid "Invalid settings, please edit your preferences"
 msgstr "تنظیمات نادرست است، لطفا تنظیمات جستجو را تغییر دهید"
 
-#: searx/webapp.py:504
+#: searx/webapp.py:505
 msgid "Invalid settings"
 msgstr "تنظیمات نادرست"
 
-#: searx/webapp.py:581 searx/webapp.py:663
+#: searx/webapp.py:582 searx/webapp.py:664
 msgid "search error"
 msgstr "خطای جست‌وجو"
 
 #: searx/webutils.py:34
 msgid "timeout"
+<<<<<<< HEAD
 msgstr "زمان پاسخ‌دهی به پایان رسید"
+=======
+msgstr "مهلت پاسخ‌دهی به پایان رسید"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/webutils.py:35
 msgid "parsing error"
@@ -231,11 +239,11 @@ msgstr "{minutes} دقیقه پیش"
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{hours} ساعت و {minutes} دقیقه پیش"
 
-#: searx/answerers/random/answerer.py:67
+#: searx/answerers/random/answerer.py:73
 msgid "Random value generator"
 msgstr "ایجادگر مقدار تصادفی"
 
-#: searx/answerers/random/answerer.py:68
+#: searx/answerers/random/answerer.py:74
 msgid "Generate different random values"
 msgstr "ایجاد مقادیر تصادفی متفاوت"
 
@@ -245,7 +253,11 @@ msgstr "توابع آماری"
 
 #: searx/answerers/statistics/answerer.py:48
 msgid "Compute {functions} of the arguments"
+<<<<<<< HEAD
 msgstr "{functions} آرگومان ها را محاسبه کنید"
+=======
+msgstr "پردازش {functions} از آرگومان ها"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/engines/openstreetmap.py:160
 msgid "Get directions"
@@ -253,7 +265,7 @@ msgstr "دستورهای دریافت"
 
 #: searx/engines/pdbe.py:96
 msgid "{title} (OBSOLETE)"
-msgstr "{title} (OBSOLETE)"
+msgstr "{title} (منسوخ شده)"
 
 #: searx/engines/pdbe.py:103
 msgid "This entry has been superseded by"
@@ -280,17 +292,28 @@ msgid ""
 "Could not read that image url. This may be due to an unsupported file format."
 " TinEye only supports images that are JPEG, PNG, GIF, BMP, TIFF or WebP."
 msgstr ""
+<<<<<<< HEAD
 "نمی توان آدرسِ تصویر را خواند. این ممکن است به دلیل فرمت فایل پشتیبانی نشده "
 "باشد. TinEye فقط تصویر های با فرمت JPEG، PNG، GIF، BMP، TIFF یا WebP را "
 "پشتیبانی می‌کند."
+=======
+"نمی‌توان آدرسِ تصویر را خواند. این ممکن است به دلیل فرمت فایل پشتیبانی "
+"نشده باشد. TinEye فقط تصویر های با فرمت JPEG، PNG، GIF، BMP، TIFF یا WebP"
+" را پشتیبانی می‌کند."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/engines/tineye.py:46
 msgid ""
 "The image is too simple to find matches. TinEye requires a basic level of "
 "visual detail to successfully identify matches."
 msgstr ""
+<<<<<<< HEAD
 "تصویر برای یافتن موارد منطبق بسیار ساده است. TinEye برای شناسایی موفقیت آمیز "
 "به جزئیاتِ بصری سده تر نیاز دارد."
+=======
+"تصویر برای یافتن موارد منطبق بسیار ساده است. TinEye برای شناسایی موفق به "
+"سطح اولیه جزئیات بصری نیاز دارد."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/engines/tineye.py:52
 msgid "The image could not be downloaded."
@@ -314,7 +337,11 @@ msgstr "شب"
 
 #: searx/engines/zlibrary.py:130
 msgid "Book rating"
+<<<<<<< HEAD
 msgstr "رتبه‌بندی کتاب"
+=======
+msgstr "رتبه بندی کتاب"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/engines/zlibrary.py:131
 msgid "File quality"
@@ -338,15 +365,20 @@ msgstr "نام میزبان نتایج را بازنویسی کنید یا نت�
 
 #: searx/plugins/oa_doi_rewrite.py:9
 msgid "Open Access DOI rewrite"
-msgstr "بازنویسی Open Access DOI<br>"
+msgstr "بازنویسی DOI Access را باز کنید"
 
 #: searx/plugins/oa_doi_rewrite.py:10
 msgid ""
 "Avoid paywalls by redirecting to open-access versions of publications when "
 "available"
 msgstr ""
+<<<<<<< HEAD
 "خودداری از منابع پرداختی با تغییر مسیر به نسخه‌های متن‌باز نشریات در صورت "
 "دسترسی"
+=======
+"با هدایت مجدد به نسخه‌های دسترسی آزاد انتشارات در صورت وجود، از دیوارهای "
+"پرداخت اجتناب کنید"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/plugins/search_on_category_select.py:19
 msgid "Search on category select"
@@ -357,8 +389,13 @@ msgid ""
 "Perform search immediately if a category selected. Disable to select "
 "multiple categories. (JavaScript required)"
 msgstr ""
+<<<<<<< HEAD
 "به محض انتخاب دسته جستجو کنید. برای انتخاب چندین دسته این گزینه "
 "را غیرفعال کنید. (نیازمند جاواسکریپت)"
+=======
+"در صورت انتخاب یک دسته فورا جستجو را انجام دهید. برای انتخاب چندین دسته "
+"غیرفعال کنید. (جاوا اسکریپت مورد نیاز است)"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/plugins/self_info.py:10
 msgid "Self Information"
@@ -369,20 +406,31 @@ msgid ""
 "Displays your IP if the query is \"ip\" and your user agent if the query "
 "contains \"user agent\"."
 msgstr ""
+<<<<<<< HEAD
 "نمایش آی‌پی شما، اگر ورودی «ip» باشد و نمایش عامل کاربر شما در صورتی که حاوی "
 "«user agent» باشد."
+=======
+"اگر پرس و جو \"ip\" باشد IP شما و اگر پرس و جو حاوی \"عامل کاربر\" باشد، "
+"عامل کاربری شما را نشان می دهد."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/plugins/tor_check.py:25
 msgid "Tor check plugin"
-msgstr "پلاگین بررسی Tor"
+msgstr "افزونه بررسی Tor"
 
 #: searx/plugins/tor_check.py:28
 msgid ""
 "This plugin checks if the address of the request is a Tor exit-node, and "
 "informs the user if it is; like check.torproject.org, but from SearXNG."
 msgstr ""
+<<<<<<< HEAD
 "این افزونه بررسی می‌کند که آیا آدرس درخواست یک node خروجی TOR است یا خیر، و "
 "به کاربر اطلاع می‌دهد مانند check.torproject.org اما از موآ."
+=======
+"این افزونه بررسی می کند که آیا آدرس درخواست یک گره خروجی Tor است یا خیر، "
+"و در صورت وجود آن به کاربر اطلاع می دهد. مانند check.torproject.org، اما "
+"از SearXNG."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/plugins/tor_check.py:62
 msgid ""
@@ -401,29 +449,46 @@ msgstr ""
 "{ip_address}"
 
 #: searx/plugins/tor_check.py:86
+<<<<<<< HEAD
 msgid ""
 "You are not using Tor and you have this external IP address: {ip_address}"
+=======
+msgid "You are not using Tor and you have this external IP address: {ip_address}"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 msgstr "شما از Tor استفاده نمی کنید و این آدرس IP خارجی را دارید: {ip_address}"
 
 #: searx/plugins/tracker_url_remover.py:29
 msgid "Tracker URL remover"
-msgstr "حذف‌کننده‌ی URL ردیاب‌ها"
+msgstr "حذف کننده URL ردیاب"
 
 #: searx/plugins/tracker_url_remover.py:30
 msgid "Remove trackers arguments from the returned URL"
+<<<<<<< HEAD
 msgstr "حذف آرگومان های ردیاب ها از URL برگشتی"
 
 #: searx/plugins/vim_hotkeys.py:3
 msgid "Vim-like hotkeys"
 msgstr "کلید های میانبر مانند vim"
+=======
+msgstr "آرگومان های ردیاب ها را از URL برگشتی حذف کنید"
+
+#: searx/plugins/vim_hotkeys.py:3
+msgid "Vim-like hotkeys"
+msgstr "کلیدهای میانبر مانند vim"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/plugins/vim_hotkeys.py:4
 msgid ""
 "Navigate search results with Vim-like hotkeys (JavaScript required). Press "
 "\"h\" key on main or result page to get help."
 msgstr ""
+<<<<<<< HEAD
 "جابجایی در نتایج با کلیدهای میان‌بر مشابه Vim (نیازمند جاوااسکریپت). در صفحه "
 "اصلی و یا صفحه نتیجه، دکمه h را برای نمایش راهنما بفشارید."
+=======
+"جابجایی در نتایج با کلیدهای میان‌بر مشابه Vim (نیازمند جاوااسکریپت). در "
+"صفحه اصلی و یا صفحه نتیجه، دکمه h را برای نمایش راهنما فشار دهید."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/404.html:4
 msgid "Page not found"
@@ -457,7 +522,11 @@ msgstr "‌قدرت گرفته از"
 
 #: searx/templates/simple/base.html:67
 msgid "a privacy-respecting, open metasearch engine"
+<<<<<<< HEAD
 msgstr "موآ، فراجستجوگری مبنی بر SearXNG و آزاد که به حریم خصوصی شما احترام می‌گذارد "
+=======
+msgstr "یک موتور فراجستجوی آزاد که به حریم خصوصی احترام می گذارد"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/base.html:68
 msgid "Source code"
@@ -481,7 +550,11 @@ msgstr "سیاست حفظ حریم خصوصی"
 
 #: searx/templates/simple/base.html:78
 msgid "Contact instance maintainer"
+<<<<<<< HEAD
 msgstr "تماس با ما"
+=======
+msgstr "تماس با نگهدارنده نمونه"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/categories.html:24
 msgid "Click on the magnifier to perform search"
@@ -511,12 +584,17 @@ msgstr "شروع ارائه ی یک مشکل در گیتهاب"
 
 #: searx/templates/simple/new_issue.html:66
 msgid "Please check for existing bugs about this engine on GitHub"
-msgstr "لطفاً اشکالات موجود در مورد این موتور جستجو را در GitHub بررسی کنید"
+msgstr "لطفاً اشکالات موجود در مورد این موتور جستجو را در گیت‌هاب بررسی کنید"
 
 #: searx/templates/simple/new_issue.html:69
 msgid "I confirm there is no existing bug about the issue I encounter"
 msgstr ""
+<<<<<<< HEAD
 "من تأیید می کنم که هیچ اشکال مشابهی در مورد مشکلی که با آن روبرو هستم وجود ندارد"
+=======
+"من تأیید می کنم که هیچ اشکال گزارش شده مشابه مشکلی که با آن روبرو هستم "
+"وجود ندارد"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/new_issue.html:71
 msgid "If this is a public instance, please specify the URL in the bug report"
@@ -538,11 +616,19 @@ msgstr "مشاهدهٔ رخدادهای خطا و ثبت یک گزارش اشک�
 
 #: searx/templates/simple/preferences.html:74
 msgid "!bang for this engine"
+<<<<<<< HEAD
 msgstr "!bang برای این موتور"
 
 #: searx/templates/simple/preferences.html:80
 msgid "!bang for its categories"
 msgstr "!bang برای دسته های آن"
+=======
+msgstr "!بنگ برای این موتور"
+
+#: searx/templates/simple/preferences.html:80
+msgid "!bang for its categories"
+msgstr "!بنگ برای دسته های آن"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/preferences.html:102
 #: searx/templates/simple/stats.html:64
@@ -589,7 +675,7 @@ msgstr "موتورها"
 
 #: searx/templates/simple/preferences.html:219
 msgid "Currently used search engines"
-msgstr "موتورهای جستجوی در حال استفاده"
+msgstr "موتور جستجو های در حال استفاده"
 
 #: searx/templates/simple/preferences.html:227
 msgid "Special Queries"
@@ -603,27 +689,27 @@ msgstr "کوکی ها"
 msgid "Answers"
 msgstr "پاسخ‌ها"
 
-#: searx/templates/simple/results.html:39
+#: searx/templates/simple/results.html:38
 msgid "Number of results"
 msgstr "تعداد نتایج"
 
-#: searx/templates/simple/results.html:45
+#: searx/templates/simple/results.html:44
 msgid "Info"
 msgstr "اطلاعات"
 
-#: searx/templates/simple/results.html:74
+#: searx/templates/simple/results.html:73
 msgid "Try searching for:"
 msgstr "برای این جست‌وجو تلاش کنید:"
 
-#: searx/templates/simple/results.html:106
+#: searx/templates/simple/results.html:105
 msgid "Back to top"
 msgstr "برگشتن با بالا"
 
-#: searx/templates/simple/results.html:124
+#: searx/templates/simple/results.html:123
 msgid "Previous page"
 msgstr "صفحهٔ پیشین"
 
-#: searx/templates/simple/results.html:141
+#: searx/templates/simple/results.html:140
 msgid "Next page"
 msgstr "صفحهٔ بعدی"
 
@@ -661,12 +747,12 @@ msgstr "نمره‌ها"
 
 #: searx/templates/simple/stats.html:27
 msgid "Result count"
-msgstr "شمار نتایج"
+msgstr "تعداد نتیجه ها"
 
 #: searx/templates/simple/preferences/engines.html:25
 #: searx/templates/simple/stats.html:28
 msgid "Response time"
-msgstr "زمان پاسخ"
+msgstr "زمان پاسخ‌دهی"
 
 #: searx/templates/simple/preferences/engines.html:29
 #: searx/templates/simple/stats.html:29
@@ -691,11 +777,11 @@ msgstr "اخطارها"
 
 #: searx/templates/simple/stats.html:99
 msgid "Errors and exceptions"
-msgstr "خطاها و استثنائات"
+msgstr "خطاها و استثناها"
 
 #: searx/templates/simple/stats.html:105
 msgid "Exception"
-msgstr "استثناء"
+msgstr "استثنا"
 
 #: searx/templates/simple/stats.html:107
 msgid "Message"
@@ -727,7 +813,7 @@ msgstr "بررسی‌گر"
 
 #: searx/templates/simple/stats.html:131
 msgid "Failed test"
-msgstr "آزمایش شکست‌خورده"
+msgstr "آزمایش ناموفق"
 
 #: searx/templates/simple/stats.html:132
 msgid "Comment(s)"
@@ -735,11 +821,15 @@ msgstr "نظر(ها)"
 
 #: searx/templates/simple/elements/apis.html:3
 msgid "Download results"
-msgstr "نتایج دانلود"
+msgstr "نتایج بارگیری"
 
 #: searx/templates/simple/elements/engines_msg.html:3
 msgid "Messages from the search engines"
+<<<<<<< HEAD
 msgstr "پیام های موتورهای جستجو"
+=======
+msgstr "پیام های موتور جستجوها"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/elements/engines_msg.html:8
 msgid "Error!"
@@ -770,7 +860,11 @@ msgstr "زبان پیش‌گزیده"
 #: searx/templates/simple/filters/languages.html:4
 #: searx/templates/simple/preferences/language.html:11
 msgid "Auto-detect"
+<<<<<<< HEAD
 msgstr "تشخیص خودکار"
+=======
+msgstr "انتخاب خودکار"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/filters/safesearch.html:1
 #: searx/templates/simple/filters/safesearch.html:2
@@ -827,19 +921,24 @@ msgstr "دانستنی‌ها!"
 
 #: searx/templates/simple/messages/no_cookies.html:4
 msgid "currently, there are no cookies defined."
-msgstr "در حال حاضر کوکی‌ای تعریف نشده است."
+msgstr "در حال حاضر کلوچکی تعریف نشده است."
 
 #: searx/templates/simple/messages/no_results.html:3
 msgid "Sorry!"
-msgstr "ببخشید!"
+msgstr "متاسف!"
 
 #: searx/templates/simple/messages/no_results.html:4
 msgid ""
 "we didn't find any results. Please use another query or search in more "
 "categories."
 msgstr ""
+<<<<<<< HEAD
 "چیزی پیدا نشد. لطفً ورودی دیگری را بیازمایید یا در دسته‌‌های بیش‌تری جست‌وجو "
 "کنید."
+=======
+"چیزی پیدا نشد. لطفاً ورودی دیگری را بیازمایید یا در دسته‌‌های بیش‌تری "
+"جست‌وجو کنید."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/preferences/answerers.html:4
 #: searx/templates/simple/preferences/engines.html:17
@@ -866,7 +965,7 @@ msgstr "مثال‌ها"
 msgid "This is the list of SearXNG's instant answering modules."
 msgstr "این فهرست ماژول‌های پاسخ‌گوی فوری موآ است."
 
-#: searx/templates/simple/preferences/answerers.html:28
+#: searx/templates/simple/preferences/answerers.html:29
 msgid "This is the list of plugins."
 msgstr "این فهرست افزونه‌هاست."
 
@@ -876,12 +975,13 @@ msgstr "تکمیل خودکار"
 
 #: searx/templates/simple/preferences/autocomplete.html:15
 msgid "Find stuff as you type"
-msgstr "یافتن مطالب هنگام نوشتنتان"
+msgstr "یافتن مطالب هنگام نوشتن"
 
 #: searx/templates/simple/preferences/center_alignment.html:2
 msgid "Center Alignment"
 msgstr "وسط چین"
 
+<<<<<<< HEAD
 #: searx/templates/simple/preferences/center_alignment.html:5
 #: searx/templates/simple/preferences/infinite_scroll.html:5
 #: searx/templates/simple/preferences/results_on_new_tab.html:5
@@ -895,8 +995,11 @@ msgid "Off"
 msgstr "خاموش"
 
 #: searx/templates/simple/preferences/center_alignment.html:10
+=======
+#: searx/templates/simple/preferences/center_alignment.html:14
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 msgid "Displays results in the center of the page (Oscar layout)."
-msgstr "نمایش نتایج در مرکز صفحه(چیدمان Oscar)."
+msgstr "نمایش نتایج در مرکز صفحه(طرح بندی اسکار)."
 
 #: searx/templates/simple/preferences/cookies.html:2
 msgid ""
@@ -926,8 +1029,13 @@ msgid ""
 "Note: specifying custom settings in the search URL can reduce privacy by "
 "leaking data to the clicked result sites."
 msgstr ""
+<<<<<<< HEAD
 "هشدار: تعیین تنظیمات شخصی در URL جست‌وجو می‌تواند حریم شخصی شما را با درز "
 "دادن داده‌ها به سایت‌های نتایج کلیک‌شده به خطر اندازد."
+=======
+"توجه: تعیین تنظیمات سفارشی در URL جستجو می‌تواند حریم خصوصی را با نشت "
+"داده‌ها به سایت‌های نتیجه کلیک شده کاهش دهد."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/preferences/cookies.html:35
 msgid "URL to restore your preferences in another browser"
@@ -954,8 +1062,13 @@ msgid ""
 "This tab does not exists in the user interface, but you can search in these "
 "engines by its !bangs."
 msgstr ""
+<<<<<<< HEAD
 "این برگه در رابط کاربری وجود ندارد، اما می توانید در این موتورها با !بنگ های "
 "آن."
+=======
+"این تب در رابط کاربری وجود ندارد، اما می توانید در این موتورها با !بنگ "
+"های آن جستجو کنید."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/preferences/engines.html:19
 msgid "!bang"
@@ -963,7 +1076,7 @@ msgstr "!بنگ"
 
 #: searx/templates/simple/preferences/engines.html:20
 msgid "Supports selected language"
-msgstr "زبان انتخاب شده را پشتیبانی می‌کند"
+msgstr "پشتیبانی از زبان انتخاب شده"
 
 #: searx/templates/simple/preferences/engines.html:23
 msgid "Weight"
@@ -978,8 +1091,13 @@ msgid ""
 "These settings are stored in your cookies, this allows us not to store this "
 "data about you."
 msgstr ""
+<<<<<<< HEAD
 "این تنظیمات در کوکی‌های شما ذخیره می‌شوند و به ما توانایی ذخیرهٔ این دادهٔ "
 "مربوط به شما را نمی‌دهد."
+=======
+"این تنظیمات در کلوچک‌های شما ذخیره می‌شوند و به ما توانایی ذخیرهٔ این "
+"دادهٔ مربوط به شما را نداریم."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/preferences/footer.html:3
 msgid ""
@@ -1005,17 +1123,7 @@ msgstr "بازگشت"
 msgid "Image proxy"
 msgstr "پروکسی تصویر"
 
-#: searx/templates/simple/preferences/image_proxy.html:5
-#: searx/templates/simple/preferences/query_in_title.html:5
-msgid "Enabled"
-msgstr "فعال"
-
-#: searx/templates/simple/preferences/image_proxy.html:6
-#: searx/templates/simple/preferences/query_in_title.html:6
-msgid "Disabled"
-msgstr "غیرفعال"
-
-#: searx/templates/simple/preferences/image_proxy.html:10
+#: searx/templates/simple/preferences/image_proxy.html:14
 msgid "Proxying image results through SearXNG"
 msgstr "گذر تصویر از پروکسی به‌وسیلهٔ موآ"
 
@@ -1023,9 +1131,9 @@ msgstr "گذر تصویر از پروکسی به‌وسیلهٔ موآ"
 msgid "Infinite scroll"
 msgstr "پایین رفتن بی‌پایان"
 
-#: searx/templates/simple/preferences/infinite_scroll.html:10
+#: searx/templates/simple/preferences/infinite_scroll.html:14
 msgid "Automatically load next page when scrolling to bottom of current page"
-msgstr "بارگذاری خودکار صفحه بعد در صورت پیمایش تا پایین صفحه کنونی"
+msgstr "هنگام پیمایش به پایین صفحه فعلی، صفحه بعدی به صورت خودکار بارگیری می شود"
 
 #: searx/templates/simple/preferences/language.html:24
 msgid "What language do you prefer for search?"
@@ -1033,7 +1141,11 @@ msgstr "چه زبانی را برای جست‌وجو می‌پسندید؟"
 
 #: searx/templates/simple/preferences/language.html:25
 msgid "Choose Auto-detect to let SearXNG detect the language of your query."
+<<<<<<< HEAD
 msgstr "تشخیص خودکار را انتخاب کنید تا موآ زبان درخواست شما را تشخیص دهد."
+=======
+msgstr "تشخیص خودکار را انتخاب کنید تا SearXNG زبان شما را تشخیص دهد."
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/preferences/method.html:2
 msgid "HTTP Method"
@@ -1047,21 +1159,26 @@ msgstr "نحوه ارسال فرم ها را تغییر دهید"
 msgid "Query in the page's title"
 msgstr "ورودی در عنوان صفحه"
 
-#: searx/templates/simple/preferences/query_in_title.html:10
+#: searx/templates/simple/preferences/query_in_title.html:14
 msgid ""
 "When enabled, the result page's title contains your query. Your browser can "
 "record this title"
 msgstr ""
+<<<<<<< HEAD
 "هنگام فعال بودن، عنوان صفحهٔ نتیجه، ورودی شما را در بر می‌گیرد. مرورگر شما "
 "می‌تواند این عنوان را ضبط کند"
+=======
+"هنگام فعال بودن، عنوان صفحهٔ نتیجه، ورودی شما را در بر می‌گیرد. مرورگر "
+"شما می‌تواند این عنوان را ذخیره کند"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/templates/simple/preferences/results_on_new_tab.html:2
 msgid "Results on new tabs"
 msgstr "نتایج در برگه‌های جدید"
 
-#: searx/templates/simple/preferences/results_on_new_tab.html:10
+#: searx/templates/simple/preferences/results_on_new_tab.html:14
 msgid "Open result links on new browser tabs"
-msgstr "بازکردن پیوندهای نتیجه در برگه‌های جدید مرورگر"
+msgstr "بازکردن پیوندهای نتیجه در زبانه‌های جدید مرورگر"
 
 #: searx/templates/simple/preferences/safesearch.html:20
 msgid "Filter content"
@@ -1098,6 +1215,10 @@ msgstr "زبان رابط کاربری"
 #: searx/templates/simple/preferences/ui_locale.html:14
 msgid "Change the language of the layout"
 msgstr "تغییر زبان رابط کاربری"
+
+#: searx/templates/simple/result_templates/code.html:13
+msgid "repo"
+msgstr "مخازن"
 
 #: searx/templates/simple/result_templates/default.html:6
 msgid "show media"
@@ -1600,3 +1721,18 @@ msgstr "پنهان‌سازی ویدئو"
 #~ "href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
 #~ " rel=\"external\"> در مورد روش های "
 #~ "درخواست بیشتر بیاموزید </a>"
+<<<<<<< HEAD
+=======
+
+#~ msgid "On"
+#~ msgstr "روشن"
+
+#~ msgid "Off"
+#~ msgstr "خاموش"
+
+#~ msgid "Enabled"
+#~ msgstr "فعال"
+
+#~ msgid "Disabled"
+#~ msgstr "غیرفعال"
+>>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d

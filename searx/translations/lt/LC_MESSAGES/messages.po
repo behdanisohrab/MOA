@@ -7,28 +7,30 @@
 # John Doe <cryptiox@protonmail.com>, 2022.
 # Mooo <moose@mail.ru>, 2023.
 # return42 <markus.heiser@darmarit.de>, 2023.
+# Archfiend <romkutisarch3@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version:  searx\n"
+"Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-08-15 14:23+0000\n"
-"PO-Revision-Date: 2023-07-09 15:34+0000\n"
+"POT-Creation-Date: 2023-09-11 10:31+0000\n"
+"PO-Revision-Date: 2023-09-12 14:53+0000\n"
 "Last-Translator: return42 <markus.heiser@darmarit.de>\n"
+"Language-Team: Lithuanian <https://translate.codeberg.org/projects/searxng/"
+"searxng/lt/>\n"
 "Language: lt\n"
-"Language-Team: Lithuanian "
-"<https://translate.codeberg.org/projects/searxng/searxng/lt/>\n"
-"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100"
-" < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < "
-"11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 :"
+" n % 1 != 0 ? 2: 3);\n"
+"X-Generator: Weblate 5.0.1\n"
 "Generated-By: Babel 2.12.1\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
 #: searx/searxng.msg
 msgid "without further subgrouping"
-msgstr ""
+msgstr "be tolesnio pogrupio"
 
 #. CONSTANT_NAMES['DEFAULT_CATEGORY']
 #: searx/searxng.msg
@@ -163,15 +165,15 @@ msgstr "Šaltinis"
 msgid "Error loading the next page"
 msgstr "Klaida keliant kitą puslapį"
 
-#: searx/webapp.py:488 searx/webapp.py:880
+#: searx/webapp.py:489 searx/webapp.py:881
 msgid "Invalid settings, please edit your preferences"
 msgstr "Neteisingi nustatymai, pakeiskite savo nuostatas"
 
-#: searx/webapp.py:504
+#: searx/webapp.py:505
 msgid "Invalid settings"
 msgstr "Neteisingi nustatymai"
 
-#: searx/webapp.py:581 searx/webapp.py:663
+#: searx/webapp.py:582 searx/webapp.py:664
 msgid "search error"
 msgstr "paieškos klaida"
 
@@ -239,11 +241,11 @@ msgstr "prieš {minutes} min"
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "prieš {hours} val., {minutes} min"
 
-#: searx/answerers/random/answerer.py:67
+#: searx/answerers/random/answerer.py:73
 msgid "Random value generator"
 msgstr "Atsitiktinių skaičiu generatorius"
 
-#: searx/answerers/random/answerer.py:68
+#: searx/answerers/random/answerer.py:74
 msgid "Generate different random values"
 msgstr "Generuoja įvairias atsitiktinius skaičius"
 
@@ -280,6 +282,8 @@ msgid ""
 "{numCitations} citations from the year {firstCitationVelocityYear} to "
 "{lastCitationVelocityYear}"
 msgstr ""
+"{numCitations} citatos iš metų{firstCitationVelocityYear} to "
+"{lastCitationVelocityYear}"
 
 #: searx/engines/tineye.py:40
 msgid ""
@@ -287,16 +291,21 @@ msgid ""
 "format. TinEye only supports images that are JPEG, PNG, GIF, BMP, TIFF or"
 " WebP."
 msgstr ""
+"Nepavyko perskaityti šio vaizdo URL. Taip gali būti dėl nepalaikomo failo"
+" formato. TinEye palaiko tik JPEG, PNG, GIF, BMP, TIFF arba WebP vaizdus."
 
 #: searx/engines/tineye.py:46
 msgid ""
 "The image is too simple to find matches. TinEye requires a basic level of"
 " visual detail to successfully identify matches."
 msgstr ""
+"Vaizdas per paprastas, kad būtų galima rasti atitikmenų. Norint sėkmingai"
+" nustatyti atitikmenis, „TinEye“ reikalingas pagrindinis vizualinių "
+"detalių lygis."
 
 #: searx/engines/tineye.py:52
 msgid "The image could not be downloaded."
-msgstr ""
+msgstr "Nepavyko atsisiųsti vaizdo."
 
 #: searx/engines/wttr.py:101
 msgid "Morning"
@@ -316,11 +325,11 @@ msgstr "Naktis"
 
 #: searx/engines/zlibrary.py:130
 msgid "Book rating"
-msgstr ""
+msgstr "Knygos įvertinimas"
 
 #: searx/engines/zlibrary.py:131
 msgid "File quality"
-msgstr ""
+msgstr "Failo kokybė"
 
 #: searx/plugins/hash_plugin.py:24
 msgid "Converts strings to different hash digests."
@@ -366,7 +375,7 @@ msgstr ""
 
 #: searx/plugins/self_info.py:10
 msgid "Self Information"
-msgstr ""
+msgstr "Savęs informacija"
 
 #: searx/plugins/self_info.py:11
 msgid ""
@@ -378,29 +387,34 @@ msgstr ""
 
 #: searx/plugins/tor_check.py:25
 msgid "Tor check plugin"
-msgstr ""
+msgstr "„Tor check“ papildinys"
 
 #: searx/plugins/tor_check.py:28
 msgid ""
 "This plugin checks if the address of the request is a Tor exit-node, and "
 "informs the user if it is; like check.torproject.org, but from SearXNG."
 msgstr ""
+"Šis papildinys patikrina, ar užklausos adresas yra Tor išėjimo mazgas, ir"
+" informuoja vartotoją, jei taip yra; kaip check.torproject.org, bet iš "
+"SearXNG."
 
 #: searx/plugins/tor_check.py:62
 msgid ""
 "Could not download the list of Tor exit-nodes from: "
 "https://check.torproject.org/exit-addresses"
 msgstr ""
+"Nepavyko atsisiųsti „Tor“ išėjimo mazgų sąrašo iš: "
+"https://check.torproject.org/exit-addresses"
 
 #: searx/plugins/tor_check.py:78
 msgid ""
 "You are using Tor and it looks like you have this external IP address: "
 "{ip_address}"
-msgstr ""
+msgstr "Naudojate Tor ir atrodo, kad turite šį išorinį IP adresą: {ip_address}"
 
 #: searx/plugins/tor_check.py:86
 msgid "You are not using Tor and you have this external IP address: {ip_address}"
-msgstr ""
+msgstr "Jūs nenaudojate Tor ir turite šį išorinį IP adresą: {ip_address}"
 
 #: searx/plugins/tracker_url_remover.py:29
 msgid "Tracker URL remover"
@@ -455,7 +469,7 @@ msgstr "Veikia su"
 
 #: searx/templates/simple/base.html:67
 msgid "a privacy-respecting, open metasearch engine"
-msgstr ""
+msgstr "privatumą gerbiantis atviras metapaieškos variklis"
 
 #: searx/templates/simple/base.html:68
 msgid "Source code"
@@ -512,7 +526,6 @@ msgid "Please check for existing bugs about this engine on GitHub"
 msgstr "Prasome paziurėti esamas klaidas apie šią sistemą Github'e"
 
 #: searx/templates/simple/new_issue.html:69
-#, fuzzy
 msgid "I confirm there is no existing bug about the issue I encounter"
 msgstr "Aš patvirtinu, kad nera jokių esamų"
 
@@ -601,27 +614,27 @@ msgstr "Slapukai"
 msgid "Answers"
 msgstr "Atsakymai"
 
-#: searx/templates/simple/results.html:39
+#: searx/templates/simple/results.html:38
 msgid "Number of results"
 msgstr "Rezultatų skaičius"
 
-#: searx/templates/simple/results.html:45
+#: searx/templates/simple/results.html:44
 msgid "Info"
 msgstr "Informacija"
 
-#: searx/templates/simple/results.html:74
+#: searx/templates/simple/results.html:73
 msgid "Try searching for:"
 msgstr "Bandykite ieškoti:"
 
-#: searx/templates/simple/results.html:106
+#: searx/templates/simple/results.html:105
 msgid "Back to top"
 msgstr "Atgal į viršų"
 
-#: searx/templates/simple/results.html:124
+#: searx/templates/simple/results.html:123
 msgid "Previous page"
 msgstr "Praitas puslapis"
 
-#: searx/templates/simple/results.html:141
+#: searx/templates/simple/results.html:140
 msgid "Next page"
 msgstr "Kitas puslapis"
 
@@ -861,11 +874,10 @@ msgid "Examples"
 msgstr "Pavyzdžiai"
 
 #: searx/templates/simple/preferences/answerers.html:13
-#, fuzzy
 msgid "This is the list of SearXNG's instant answering modules."
 msgstr "Šis sąrašas yra SearXNG"
 
-#: searx/templates/simple/preferences/answerers.html:28
+#: searx/templates/simple/preferences/answerers.html:29
 msgid "This is the list of plugins."
 msgstr "Čia yra papildinių sąrašas."
 
@@ -881,19 +893,7 @@ msgstr "Rasti medžiagą berašant"
 msgid "Center Alignment"
 msgstr "Centro Išdėstymas"
 
-#: searx/templates/simple/preferences/center_alignment.html:5
-#: searx/templates/simple/preferences/infinite_scroll.html:5
-#: searx/templates/simple/preferences/results_on_new_tab.html:5
-msgid "On"
-msgstr "Įjungta"
-
-#: searx/templates/simple/preferences/center_alignment.html:6
-#: searx/templates/simple/preferences/infinite_scroll.html:6
-#: searx/templates/simple/preferences/results_on_new_tab.html:6
-msgid "Off"
-msgstr "Išjungta"
-
-#: searx/templates/simple/preferences/center_alignment.html:10
+#: searx/templates/simple/preferences/center_alignment.html:14
 msgid "Displays results in the center of the page (Oscar layout)."
 msgstr "Rodo rezultatus puslapio viduryje (Oskaro išdėstymas)."
 
@@ -1004,17 +1004,7 @@ msgstr "Atgal"
 msgid "Image proxy"
 msgstr "Paveikslų persiuntimas"
 
-#: searx/templates/simple/preferences/image_proxy.html:5
-#: searx/templates/simple/preferences/query_in_title.html:5
-msgid "Enabled"
-msgstr "Įjungtas"
-
-#: searx/templates/simple/preferences/image_proxy.html:6
-#: searx/templates/simple/preferences/query_in_title.html:6
-msgid "Disabled"
-msgstr "Išjungtas"
-
-#: searx/templates/simple/preferences/image_proxy.html:10
+#: searx/templates/simple/preferences/image_proxy.html:14
 msgid "Proxying image results through SearXNG"
 msgstr "Persiunčiami paveikslai per SearXNG"
 
@@ -1022,7 +1012,7 @@ msgstr "Persiunčiami paveikslai per SearXNG"
 msgid "Infinite scroll"
 msgstr "Begalinis slinkimas"
 
-#: searx/templates/simple/preferences/infinite_scroll.html:10
+#: searx/templates/simple/preferences/infinite_scroll.html:14
 msgid "Automatically load next page when scrolling to bottom of current page"
 msgstr "Automatiškai įkelti kitą puslapį, kai nuslenkama į esamo puslapio apačią"
 
@@ -1046,7 +1036,7 @@ msgstr ""
 msgid "Query in the page's title"
 msgstr "Užklausa puslapio pavadinime"
 
-#: searx/templates/simple/preferences/query_in_title.html:10
+#: searx/templates/simple/preferences/query_in_title.html:14
 msgid ""
 "When enabled, the result page's title contains your query. Your browser "
 "can record this title"
@@ -1058,7 +1048,7 @@ msgstr ""
 msgid "Results on new tabs"
 msgstr "Rezultatai naujose skirtukuose"
 
-#: searx/templates/simple/preferences/results_on_new_tab.html:10
+#: searx/templates/simple/preferences/results_on_new_tab.html:14
 msgid "Open result links on new browser tabs"
 msgstr "Atverti rezultatų nuorodas naujose naršyklės skirtukuose"
 
@@ -1097,6 +1087,10 @@ msgstr "Sąsajos kalba"
 #: searx/templates/simple/preferences/ui_locale.html:14
 msgid "Change the language of the layout"
 msgstr "Keisti išdėstymo kalbą"
+
+#: searx/templates/simple/result_templates/code.html:13
+msgid "repo"
+msgstr "saugyklos"
 
 #: searx/templates/simple/result_templates/default.html:6
 msgid "show media"
@@ -1591,3 +1585,14 @@ msgstr "slėpti vaizdo įrašą"
 #~ "methods</a>"
 #~ msgstr ""
 
+#~ msgid "On"
+#~ msgstr "Įjungta"
+
+#~ msgid "Off"
+#~ msgstr "Išjungta"
+
+#~ msgid "Enabled"
+#~ msgstr "Įjungtas"
+
+#~ msgid "Disabled"
+#~ msgstr "Išjungtas"

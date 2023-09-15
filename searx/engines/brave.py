@@ -104,7 +104,6 @@ from urllib.parse import (
     parse_qs,
 )
 
-import chompjs
 from lxml import html
 
 from searx import locales
@@ -112,6 +111,7 @@ from searx.utils import (
     extract_text,
     eval_xpath_list,
     eval_xpath_getindex,
+    js_variable_to_python,
 )
 from searx.enginelib.traits import EngineTraits
 
@@ -215,7 +215,7 @@ def response(resp):
             datastr = line.replace("const data = ", "").strip()[:-1]
             break
 
-    json_data = chompjs.parse_js_object(datastr)
+    json_data = js_variable_to_python(datastr)
     json_resp = json_data[1]['data']['body']['response']
 
     if brave_category == 'news':
@@ -241,17 +241,17 @@ def _parse_search(resp):
         result_list.append({'answer': extract_text(answer_tag), 'url': url})
 
     # xpath_results = '//div[contains(@class, "snippet fdb") and @data-type="web"]'
-    xpath_results = '//div[contains(@class, "snippet")]'
+    xpath_results = '//div[contains(@class, "snippet ")]'
 
     for result in eval_xpath_list(dom, xpath_results):
 
-        url = eval_xpath_getindex(result, './/a[@class="result-header"]/@href', 0, default=None)
-        title_tag = eval_xpath_getindex(result, './/span[@class="snippet-title"]', 0, default=None)
-        if not (url and title_tag):
+        url = eval_xpath_getindex(result, './/a[contains(@class, "h")]/@href', 0, default=None)
+        title_tag = eval_xpath_getindex(result, './/div[contains(@class, "title")]', 0, default=None)
+        if url is None or title_tag is None:
             continue
 
-        content_tag = eval_xpath_getindex(result, './/p[@class="snippet-description"]', 0, default='')
-        img_src = eval_xpath_getindex(result, './/img[@class="thumb"]/@src', 0, default='')
+        content_tag = eval_xpath_getindex(result, './/div[@class="snippet-description"]', 0, default='')
+        img_src = eval_xpath_getindex(result, './/img[contains(@class, "thumb")]/@src', 0, default='')
 
         item = {
             'url': url,

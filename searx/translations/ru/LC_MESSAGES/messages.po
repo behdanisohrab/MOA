@@ -18,20 +18,21 @@
 # return42 <markus.heiser@darmarit.de>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version:  searx\n"
+"Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-08-15 14:23+0000\n"
-"PO-Revision-Date: 2023-08-11 07:07+0000\n"
+"POT-Creation-Date: 2023-09-11 10:31+0000\n"
+"PO-Revision-Date: 2023-09-12 14:53+0000\n"
 "Last-Translator: return42 <markus.heiser@darmarit.de>\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/searxng/"
+"searxng/ru/>\n"
 "Language: ru\n"
-"Language-Team: Russian "
-"<https://translate.codeberg.org/projects/searxng/searxng/ru/>\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) "
-"|| (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || ("
+"n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Weblate 5.0.1\n"
 "Generated-By: Babel 2.12.1\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
@@ -172,15 +173,15 @@ msgstr "Источник"
 msgid "Error loading the next page"
 msgstr "Не удалось загрузить следующую страницу"
 
-#: searx/webapp.py:488 searx/webapp.py:880
+#: searx/webapp.py:489 searx/webapp.py:881
 msgid "Invalid settings, please edit your preferences"
 msgstr "Неправильные параметры, пожалуйста измените ваши настройки"
 
-#: searx/webapp.py:504
+#: searx/webapp.py:505
 msgid "Invalid settings"
 msgstr "Неверные настройки"
 
-#: searx/webapp.py:581 searx/webapp.py:663
+#: searx/webapp.py:582 searx/webapp.py:664
 msgid "search error"
 msgstr "ошибка поиска"
 
@@ -248,11 +249,11 @@ msgstr "{minutes} минут(а) назад"
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{hours} час(ов), {minutes} минут(а) назад"
 
-#: searx/answerers/random/answerer.py:67
+#: searx/answerers/random/answerer.py:73
 msgid "Random value generator"
 msgstr "Генератор случайных значений"
 
-#: searx/answerers/random/answerer.py:68
+#: searx/answerers/random/answerer.py:74
 msgid "Generate different random values"
 msgstr "Генерирует разные случайные значения"
 
@@ -623,27 +624,27 @@ msgstr "Cookies"
 msgid "Answers"
 msgstr "Ответы"
 
-#: searx/templates/simple/results.html:39
+#: searx/templates/simple/results.html:38
 msgid "Number of results"
 msgstr "Количество результатов"
 
-#: searx/templates/simple/results.html:45
+#: searx/templates/simple/results.html:44
 msgid "Info"
 msgstr "Информация"
 
-#: searx/templates/simple/results.html:74
+#: searx/templates/simple/results.html:73
 msgid "Try searching for:"
 msgstr "Попробуйте поискать:"
 
-#: searx/templates/simple/results.html:106
+#: searx/templates/simple/results.html:105
 msgid "Back to top"
 msgstr "Наверх"
 
-#: searx/templates/simple/results.html:124
+#: searx/templates/simple/results.html:123
 msgid "Previous page"
 msgstr "Предыдущая страница"
 
-#: searx/templates/simple/results.html:141
+#: searx/templates/simple/results.html:140
 msgid "Next page"
 msgstr "Следующая страница"
 
@@ -886,7 +887,7 @@ msgstr "Пример"
 msgid "This is the list of SearXNG's instant answering modules."
 msgstr "Модули SearXNG с мгновенным ответом."
 
-#: searx/templates/simple/preferences/answerers.html:28
+#: searx/templates/simple/preferences/answerers.html:29
 msgid "This is the list of plugins."
 msgstr "Список плагинов."
 
@@ -902,19 +903,7 @@ msgstr "Показывать предложения по мере ввода з�
 msgid "Center Alignment"
 msgstr "Выравнивание по центру"
 
-#: searx/templates/simple/preferences/center_alignment.html:5
-#: searx/templates/simple/preferences/infinite_scroll.html:5
-#: searx/templates/simple/preferences/results_on_new_tab.html:5
-msgid "On"
-msgstr "Включено"
-
-#: searx/templates/simple/preferences/center_alignment.html:6
-#: searx/templates/simple/preferences/infinite_scroll.html:6
-#: searx/templates/simple/preferences/results_on_new_tab.html:6
-msgid "Off"
-msgstr "Выключено"
-
-#: searx/templates/simple/preferences/center_alignment.html:10
+#: searx/templates/simple/preferences/center_alignment.html:14
 msgid "Displays results in the center of the page (Oscar layout)."
 msgstr "Отображать результаты по центру страницы (макет Oscar)."
 
@@ -1026,17 +1015,7 @@ msgstr "Назад"
 msgid "Image proxy"
 msgstr "Прокси для картинок"
 
-#: searx/templates/simple/preferences/image_proxy.html:5
-#: searx/templates/simple/preferences/query_in_title.html:5
-msgid "Enabled"
-msgstr "Включено"
-
-#: searx/templates/simple/preferences/image_proxy.html:6
-#: searx/templates/simple/preferences/query_in_title.html:6
-msgid "Disabled"
-msgstr "Выключено"
-
-#: searx/templates/simple/preferences/image_proxy.html:10
+#: searx/templates/simple/preferences/image_proxy.html:14
 msgid "Proxying image results through SearXNG"
 msgstr "Проксировать изображения в результатах методами SearXNG"
 
@@ -1044,7 +1023,7 @@ msgstr "Проксировать изображения в результата�
 msgid "Infinite scroll"
 msgstr "Бесконечная прокрутка"
 
-#: searx/templates/simple/preferences/infinite_scroll.html:10
+#: searx/templates/simple/preferences/infinite_scroll.html:14
 msgid "Automatically load next page when scrolling to bottom of current page"
 msgstr "Автоматически загружать следующую страницу при прокрутке до конца страницы"
 
@@ -1070,7 +1049,7 @@ msgstr "Изменить содержание форм"
 msgid "Query in the page's title"
 msgstr "Поисковый запрос в заголовке страницы"
 
-#: searx/templates/simple/preferences/query_in_title.html:10
+#: searx/templates/simple/preferences/query_in_title.html:14
 msgid ""
 "When enabled, the result page's title contains your query. Your browser "
 "can record this title"
@@ -1082,7 +1061,7 @@ msgstr ""
 msgid "Results on new tabs"
 msgstr "Результаты в новых вкладках"
 
-#: searx/templates/simple/preferences/results_on_new_tab.html:10
+#: searx/templates/simple/preferences/results_on_new_tab.html:14
 msgid "Open result links on new browser tabs"
 msgstr "Открывать результаты поиска в новых вкладках"
 
@@ -1121,6 +1100,10 @@ msgstr "Язык интерфейса"
 #: searx/templates/simple/preferences/ui_locale.html:14
 msgid "Change the language of the layout"
 msgstr "Изменить язык интерфейса"
+
+#: searx/templates/simple/result_templates/code.html:13
+msgid "repo"
+msgstr "Репозитории"
 
 #: searx/templates/simple/result_templates/default.html:6
 msgid "show media"
@@ -1633,3 +1616,14 @@ msgstr "скрыть видео"
 #~ "href=\"http://ru.wikipedia.org/wiki/HTTP#Методы\" "
 #~ "rel=\"external\">Подробнее о методах HTTP</a>"
 
+#~ msgid "On"
+#~ msgstr "Включено"
+
+#~ msgid "Off"
+#~ msgstr "Выключено"
+
+#~ msgid "Enabled"
+#~ msgstr "Включено"
+
+#~ msgid "Disabled"
+#~ msgstr "Выключено"
