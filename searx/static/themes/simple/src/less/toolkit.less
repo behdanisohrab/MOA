@@ -22,7 +22,7 @@ html.js .show_if_nojs {
   float: left;
 }
 
-.invisible {
+:not(.animated):is(.invisible, .hidden) {
   display: none !important;
 
   &#result-map-1 {
