@@ -250,39 +250,39 @@ article[data-vim-selected].category-social {
       border-radius: 2px;
       .ltr-margin-right(.5rem);
     }
+  }
 
-    .url_wrapper {
-      display: flex;
-      font-size: 1rem;
-      color: var(--color-result-url-font);
-      flex-wrap: nowrap;
+  .url_wrapper {
+    display: flex;
+    font-size: 1rem;
+    color: var(--color-result-url-font);
+    flex-wrap: nowrap;
+    overflow: hidden;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+
+    .url_o1 {
+      white-space: nowrap;
+      flex-shrink: 1;
+    }
+
+    .url_o1::after {
+      content: " ";
+      width: 1ch;
+      display: inline-block;
+    }
+
+    .url_o2 {
       overflow: hidden;
-      flex-direction: row;
-      margin: 0;
-      padding: 0;
-  
-      .url_o1 {
-        white-space: nowrap;
-        flex-shrink: 1;
-      }
-  
-      .url_o1::after {
-        content: " ";
-        width: 1ch;
-        display: inline-block;
-      }
-  
-      .url_o2 {
-        overflow: hidden;
-        white-space: nowrap;
-        flex-basis: content;
-        flex-grow: 0;
-        flex-shrink: 1;
-        text-align: right;
-  
-        .url_i2 {
-          float: right;
-        }
+      white-space: nowrap;
+      flex-basis: content;
+      flex-grow: 0;
+      flex-shrink: 1;
+      text-align: right;
+
+      .url_i2 {
+        float: right;
       }
     }
   }
@@ -629,6 +629,31 @@ article[data-vim-selected].category-social {
     
     img.image {
       height: 150px;
+    }
+  }
+}
+
+.result-dictionaries {
+  
+  .word_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 25px;
+        width: 25px;
+        .rounded-corners;
+        .ltr-margin-right(.5rem);
+      }
+    }
+
+    .ipa {
+      color: var(--color-result-engines-font);
     }
   }
 }
@@ -1352,6 +1377,12 @@ small-phone layout
 
 pre code {
   white-space: pre-wrap;
+}
+
+.sepline {
+  border-bottom: 1px solid var(--color-header-border);
+  width: 100%;
+  display: inline-block;
 }
 
 

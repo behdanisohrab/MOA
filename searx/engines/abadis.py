@@ -5,9 +5,6 @@
 from searx.utils import extract_text, eval_xpath
 from lxml import html
 
-# import logging
-# logger: logging.Logger
-
 about = {
     "website": 'https://abadis.ir/',
     "wikidata_id": 'Q56690821',
@@ -21,6 +18,7 @@ categories = ['dictionaries']
 paging = False
 
 BASE_URL = 'https://abadis.ir/'
+
 
 def request(query, params):
 
@@ -55,28 +53,28 @@ def response(resp):
     for content in mainContent:
 
         # Check result language
-        if eval_xpath(content, '/div[contains(@class, "boxLtr")]'):
+        if eval_xpath(content, '//div[@id="pho"]'):
             # Get LTR Result
             WORD = eval_xpath(content, '//div[@id="boxWrd"]/div/h1')
             IPA = eval_xpath(content, '//div[@id="boxWrd"]/div[2]')
-            CONTENT = eval_xpath(content, 'div[contains(@t, "انگلیسی به انگلیسی")]/div[2]/article')
+            CONTENT = eval_xpath(
+                content, 'div[contains(@t, "انگلیسی به انگلیسی")]/div[2]/article')
         else:
             # Get RTL Result
             WORD = eval_xpath(content, '//div[@id="boxWrd"]/h1')
             IPA = eval_xpath(content, '//div[@id="boxWrd"]/div')
-            CONTENT = eval_xpath(content, 'div[contains(@t, "لغت نامه دهخدا")]/div[2]')
-
-        # Get more thing about the word
-        DETAILS = eval_xpath(content, 'div[contains(@t, "ابتدای صفحه")]/*[position()>1]')
+            CONTENT = eval_xpath(
+                content, 'div[contains(@t, "لغت نامه دهخدا")]/div[2]')
 
     # Generate Result
     results.append(
-            {
-                'url': RESULT_URL,
-                'title': extract_text(WORD), # TODO: Title in dictionaries change to Word.. 
-                'ipa': extract_text(IPA),
-                'content': extract_text(CONTENT)[:150] + "..."
-            }
-        )
+        {
+            'template': 'dictionaries.html',
+            'url': RESULT_URL,
+            'title': extract_text(WORD),
+            'ipa': extract_text(IPA),
+            'content': extract_text(CONTENT)[:150] + "..."
+        }
+    )
 
     return results

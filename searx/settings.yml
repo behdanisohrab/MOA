@@ -1642,6 +1642,7 @@ engines:
     categories: [dictionaries, wikimedia]
     base_url: "https://{language}.wiktionary.org/"
     search_type: text
+    template: dictionaries.html
     about:
       website: https://www.wiktionary.org/
       wikidata_id: Q151

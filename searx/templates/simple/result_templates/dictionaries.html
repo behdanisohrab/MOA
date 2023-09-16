@@ -1,0 +1,35 @@
+{% from 'simple/macros.html' import result_link, result_open_link, result_sub_header, result_sub_footer, result_footer with context %}
+
+<article
+    class="result {% if result['template'] %}result-{{ result.template|replace('.html', '') }}{% else %}result-default{% endif %} {% if result['category'] %}category-{{ result['category'] }}{% endif %}{% for e in result.engines %} {{ e }}{% endfor %}"
+>
+    <div class="word_box">
+      <h3 class="title">{%- if result.parsed_url -%}<img
+        src="https://icon.horse/icon/{{result.parsed_url.netloc}}"
+    />{%- endif -%}{{ result_link(result.url, result.title|safe) }}</h3>
+      <h3 class="ipa">{{ result.ipa }}</h3>
+    </div>
+    {{- result_open_link(result.url, "url_wrapper") -}} {%- for part in
+    get_pretty_url(result.parsed_url) -%}{% if loop.index > 1 and
+    part|length > 20 %}{% set part = part[:20] + "…" %}{% endif %}
+    <span class="url_o{{loop.index}}"
+        ><span class="url_i{{loop.index}}"
+            >{{- part|replace('https://', '')|replace('http://', '')
+            -}}</span
+        ></span
+    >
+    {%- endfor %} </a>
+
+    <span class="sepline"></span>
+
+    {%- if result.content %}
+    <p class="content">{{ result.content|safe }}</p>
+    {%- else %}
+    <p class="content empty_element">
+        {{ _('This site did not provide any description.')|safe }}
+    </p> {% endif -%}
+
+    {{- result_sub_header(result) -}}
+
+    {{- result_sub_footer(result, proxify) -}} {{- result_footer(result) }}
+</article>
