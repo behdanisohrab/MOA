@@ -12,7 +12,7 @@ general:
   contact_url: false
   # record stats
   enable_metrics: true
-  git_url: "https://github.com/moa-engine/moa"
+
 
 brand:
   # Both favicon and logo are relative to SearXNG's root path unless they are absolute paths
@@ -23,6 +23,7 @@ brand:
   public_instances: https://searx.space
   wiki_url: https://github.com/searxng/searxng/wiki
   issue_url: https://github.com/moa-engine/moa/issues
+  git_url: "https://github.com/moa-engine/moa"
 
 search:
   # Filter results. 0: None, 1: Moderate, 2: Strict
