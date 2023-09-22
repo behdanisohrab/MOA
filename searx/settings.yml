@@ -7,11 +7,12 @@ general:
   privacypolicy_url: false
   # use true to use your own donation page written in searx/info/en/donate.md
   # use false to disable the donation link
-  donation_url: false
+  donation_url: "https://daramet.com/MOA-Donate"
   # mailto:contact@example.com
   contact_url: false
   # record stats
   enable_metrics: true
+  git_url: "https://github.com/moa-engine/moa"
 
 brand:
   # Both favicon and logo are relative to SearXNG's root path unless they are absolute paths
