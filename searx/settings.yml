@@ -6,10 +6,9 @@ general:
   # For example: https://example.com/privacy
   privacypolicy_url: false
   # use true to use your own donation page written in searx/info/en/donate.md
-  # use false to disable the donation link
-  donation_url: "https://daramet.com/MOA-Donate"
+
   # mailto:contact@example.com
-  contact_url: false
+  contact_url: mailto:moa-engine@proton.me 
   # record stats
   enable_metrics: true
 
@@ -24,6 +23,8 @@ brand:
   wiki_url: https://github.com/searxng/searxng/wiki
   issue_url: https://github.com/moa-engine/moa/issues
   git_url: "https://github.com/moa-engine/moa"
+  # use false to disable the donation link
+  donation_url: "https://daramet.com/MOA-Donate"
 
 search:
   # Filter results. 0: None, 1: Moderate, 2: Strict
