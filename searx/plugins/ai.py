@@ -10,7 +10,7 @@ import re
 
 # logger: logging.Logger
 
-default_on = True
+default_on = False
 name = gettext("AI")
 description = gettext(
     "پاسخ سریع هوش مصنوعی"
