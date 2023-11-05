@@ -577,6 +577,7 @@ engines:
     shortcut: ddd
     weight: 2
     tests: *tests_infobox
+    disabled: true
 
   # cloudflare protected
   # - name: digbt
@@ -798,7 +799,7 @@ engines:
   - name: google images
     engine: google_images
     shortcut: goi
-    categories: [images, general]
+    categories: images
     # additional_tests:
     #   android: *test_android
     #   dali:
