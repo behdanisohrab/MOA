@@ -2041,6 +2041,7 @@ engines:
     shortcut: goo
     engine: xpath
     paging: true
+    disabled: true
     search_url: https://search.goo.ne.jp/web.jsp?MT={query}&FR={pageno}0
     url_xpath: //div[@class="result"]/p[@class='title fsL1']/a/@href
     title_xpath: //div[@class="result"]/p[@class='title fsL1']/a
