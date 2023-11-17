@@ -429,6 +429,7 @@ engines:
   - name: bing images
     engine: bing_images
     shortcut: bii
+    disabled: true
 
 
   - name: bing news
@@ -642,6 +643,7 @@ engines:
     engine: duckduckgo_images
     shortcut: ddi
     timeout: 3.0
+    disabled: true
 
   - name: duckduckgo weather
     engine: duckduckgo_weather
@@ -1682,6 +1684,7 @@ engines:
     shortcut: wc
     categories: images
     number_of_results: 10
+    disabled: true
 
   - name: wolframalpha
     shortcut: wa
@@ -1986,6 +1989,7 @@ engines:
     shortcut: brimg
     categories: [images, web]
     brave_category: images
+    disabled: true
 
   - name: brave.videos
     engine: brave
