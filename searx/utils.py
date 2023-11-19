@@ -15,6 +15,7 @@ from numbers import Number
 from os.path import splitext, join
 from random import choice
 from html.parser import HTMLParser
+from html import escape
 from urllib.parse import urljoin, urlparse
 from markdown_it import MarkdownIt
 
@@ -40,6 +41,7 @@ _ECMA_UNESCAPE2_RE = re.compile(r'%([0-9a-fA-F]{2})', re.UNICODE)
 
 _JS_QUOTE_KEYS_RE = re.compile(r'([\{\s,])(\w+)(:)')
 _JS_VOID_RE = re.compile(r'void\s+[0-9]+|void\s*\([0-9]+\)')
+_JS_DECIMAL_RE = re.compile(r":\s*\.")
 
 _STORAGE_UNIT_VALUE: Dict[str, int] = {
     'TB': 1024 * 1024 * 1024 * 1024,
@@ -87,7 +89,7 @@ class _HTMLTextExtractorException(Exception):
     """Internal exception raised when the HTML is invalid"""
 
 
-class _HTMLTextExtractor(HTMLParser):  # pylint: disable=W0223  # (see https://bugs.python.org/issue31844)
+class _HTMLTextExtractor(HTMLParser):
     """Internal class to extract text from HTML"""
 
     def __init__(self):
@@ -136,6 +138,11 @@ class _HTMLTextExtractor(HTMLParser):  # pylint: disable=W0223  # (see https://b
     def get_text(self):
         return ''.join(self.result).strip()
 
+    def error(self, message):
+        # error handle is needed in <py3.10
+        # https://github.com/python/cpython/pull/8562/files
+        raise AssertionError(message)
+
 
 def html_to_text(html_str: str) -> str:
     """Extract text from a HTML string
@@ -152,12 +159,18 @@ def html_to_text(html_str: str) -> str:
 
         >>> html_to_text('<style>.span { color: red; }</style><span>Example</span>')
         'Example'
+
+        >>> html_to_text(r'regexp: (?<![a-zA-Z]')
+        'regexp: (?<![a-zA-Z]'
     """
     html_str = html_str.replace('\n', ' ').replace('\r', ' ')
     html_str = ' '.join(html_str.split())
     s = _HTMLTextExtractor()
     try:
         s.feed(html_str)
+    except AssertionError:
+        s = _HTMLTextExtractor()
+        s.feed(escape(html_str, quote=True))
     except _HTMLTextExtractorException:
         logger.debug("HTMLTextExtractor: invalid HTML\n%s", html_str)
     return s.get_text()
@@ -542,7 +555,7 @@ def eval_xpath_list(element: ElementBase, xpath_spec: XPathSpecType, min_len: Op
 
 def eval_xpath_getindex(elements: ElementBase, xpath_spec: XPathSpecType, index: int, default=_NOTSET):
     """Call eval_xpath_list then get one element using the index parameter.
-    If the index does not exist, either aise an exception is default is not set,
+    If the index does not exist, either raise an exception is default is not set,
     other return the default value (can be None).
 
     Args:
@@ -627,7 +640,7 @@ def detect_language(text: str, threshold: float = 0.3, only_search_languages: bo
 
     b. Most of SearXNG's engines do not support all the languages from `language
        identification model`_ and there is also a discrepancy in the ISO-639-3
-       (fastext) and ISO-639-2 (SearXNG)handling.  Further more, in SearXNG the
+       (fasttext) and ISO-639-2 (SearXNG)handling.  Further more, in SearXNG the
        locales like ``zh-TH`` (``zh-CN``) are mapped to ``zh_Hant``
        (``zh_Hans``) while the `language identification model`_ reduce both to
        ``zh``.
@@ -680,7 +693,7 @@ def js_variable_to_python(js_variable):
                 # here, inside a JS string, we escape the double quote
                 parts[i] = parts[i].replace('"', r'\"')
 
-        # deal with delimieters and escape character
+        # deal with delimiters and escape character
         if not in_string and p in ('"', "'"):
             # we are not in string
             # but p is double or simple quote
@@ -699,7 +712,7 @@ def js_variable_to_python(js_variable):
             # replace simple quote by double quote
             parts[i] = '"'
             in_string = None
-        #
+
         if not in_string:
             # replace void 0 by null
             # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
@@ -709,11 +722,12 @@ def js_variable_to_python(js_variable):
         previous_p = p
     # join the string
     s = ''.join(parts)
-    # add quote arround the key
+    # add quote around the key
     # { a: 12 }
     # becomes
     # { "a": 12 }
     s = _JS_QUOTE_KEYS_RE.sub(r'\1"\2"\3', s)
+    s = _JS_DECIMAL_RE.sub(":0.", s)
     # replace the surogate character by colon
     s = s.replace(chr(1), ':')
     # load the JSON and return the result

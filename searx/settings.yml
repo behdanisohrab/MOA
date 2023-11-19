@@ -78,8 +78,14 @@ server:
   bind_address: "127.0.0.1"
   # public URL of the instance, to ensure correct inbound links. Is overwritten
   # by ${SEARXNG_URL}.
+<<<<<<< HEAD
   base_url: false # "http://example.com/location"
   limiter: false # rate limit the number of request on the instance, block some bots
+=======
+  base_url: false  # "http://example.com/location"
+  limiter: false  # rate limit the number of request on the instance, block some bots
+  public_instance: false  # enable features designed only for public instances
+>>>>>>> b3d29cb86db4cc1a4e6320016529d1361451e1f1
 
   # If your instance owns a /etc/searxng/settings.yml file, then set the following
   # values there.
@@ -101,7 +107,7 @@ server:
 
 redis:
   # URL to connect redis database. Is overwritten by ${SEARXNG_REDIS_URL}.
-  # https://redis-py.readthedocs.io/en/stable/connections.html#redis.client.Redis.from_url
+  # https://docs.searxng.org/admin/settings/settings_redis.html#settings-redis
   url: false
 
 ui:
@@ -129,6 +135,11 @@ ui:
   theme_args:
     # style of simple theme: auto, light, dark
     simple_style: auto
+  # Perform search immediately if a category selected.
+  # Disable to select multiple categories at once and start the search manually.
+  search_on_category_select: true
+  # Hotkeys: default or vim
+  hotkeys: default
 
 # Lock arbitrary settings on the preferences page.  To find the ID of the user
 # setting you want to lock, check the ID of the form on the page "preferences".
@@ -211,14 +222,12 @@ outgoing:
 # enabled_plugins:
 #   # these plugins are enabled if nothing is configured ..
 #   - 'Hash plugin'
-#   - 'Search on category select'
 #   - 'Self Information'
 #   - 'Tracker URL remover'
 #   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
 #   # these plugins are disabled if nothing is configured ..
 #   - 'Hostname replace'  # see hostname_replace configuration below
 #   - 'Open Access DOI rewrite'
-#   - 'Vim-like hotkeys'
 #   - 'Tor check plugin'
 #   # Read the docs before activate: auto-detection of the language could be
 #   # detrimental to users expectations / users can activate the plugin in the
@@ -415,7 +424,14 @@ engines:
   - name: wikipedia
     engine: wikipedia
     shortcut: wp
+<<<<<<< HEAD
     base_url: "https://{language}.wikipedia.org/"
+=======
+    # add "list" to the array to get results in the results list
+    display_type: ["infobox"]
+    base_url: 'https://{language}.wikipedia.org/'
+    categories: [general]
+>>>>>>> b3d29cb86db4cc1a4e6320016529d1361451e1f1
 
   - name: bilibili
     engine: bilibili
@@ -491,6 +507,12 @@ engines:
     categories: images
     shortcut: opv
     disabled: true
+
+  - name: chefkoch
+    engine: chefkoch
+    shortcut: chef
+    # to show premium or plus results too:
+    # skip_premium: false
 
   # - name: core.ac.uk
   #   engine: core
@@ -631,8 +653,14 @@ engines:
     shortcut: wd
     timeout: 3.0
     weight: 2
+    # add "list" to the array to get results in the results list
+    display_type: ["infobox"]
     tests: *tests_infobox
+<<<<<<< HEAD
     disabled: true
+=======
+    categories: [general]
+>>>>>>> b3d29cb86db4cc1a4e6320016529d1361451e1f1
 
   - name: duckduckgo
     engine: duckduckgo
@@ -640,9 +668,24 @@ engines:
     disabled: true
 
   - name: duckduckgo images
-    engine: duckduckgo_images
+    engine: duckduckgo_extra
+    categories: [images, web]
+    ddg_category: images
     shortcut: ddi
-    timeout: 3.0
+    disabled: true
+
+  - name: duckduckgo videos
+    engine: duckduckgo_extra
+    categories: [videos, web]
+    ddg_category: videos
+    shortcut: ddv
+    disabled: true
+
+  - name: duckduckgo news
+    engine: duckduckgo_extra
+    categories: [news, web]
+    ddg_category: news
+    shortcut: ddn
     disabled: true
 
   - name: duckduckgo weather
@@ -842,6 +885,12 @@ engines:
     shortcut: gpm
     play_categ: movies
 
+  - name: material icons
+    engine: material_icons
+    categories: images
+    shortcut: mi
+    disabled: true
+
   - name: gpodder
     engine: json_engine
     shortcut: gpod
@@ -881,6 +930,11 @@ engines:
       require_api_key: false
       results: HTML
 
+  - name: hackernews
+    engine: hackernews
+    shortcut: hn
+    disabled: true
+
   - name: hoogle
     engine: xpath
     paging: true
@@ -904,6 +958,11 @@ engines:
     engine: imdb
     shortcut: imdb
     timeout: 6.0
+    disabled: true
+
+  - name: imgur
+    engine: imgur
+    shortcut: img
     disabled: true
 
   - name: ina
@@ -938,9 +997,14 @@ engines:
 
   - name: kickass
     engine: kickass
+    base_url:
+      - https://kickasstorrents.to
+      - https://kickasstorrents.cr
+      - https://kickasstorrent.cr
+      - https://kickass.sx
+      - https://kat.am
     shortcut: kc
     timeout: 4.0
-    disabled: true
 
   - name: lemmy communities
     engine: lemmy
@@ -1035,6 +1099,25 @@ engines:
       use_official_api: false
       require_api_key: false
       results: HTML
+
+  - name: mastodon users
+    engine: mastodon
+    mastodon_type: accounts
+    base_url: https://mastodon.social
+    shortcut: mau
+
+  - name: mastodon hashtags
+    engine: mastodon
+    mastodon_type: hashtags
+    base_url: https://mastodon.social
+    shortcut: mah
+
+  # - name: matrixrooms
+  #   engine: mrs
+  #   # https://docs.searxng.org/dev/engines/online/mrs.html
+  #   # base_url: https://mrs-api-host
+  #   shortcut: mtrx
+  #   disabled: true
 
   - name: metacpan
     engine: metacpan
@@ -1217,6 +1300,10 @@ engines:
     engine: photon
     shortcut: ph
 
+  - name: pinterest
+    engine: pinterest
+    shortcut: pin
+
   - name: piped
     engine: piped
     shortcut: ppd
@@ -1326,6 +1413,10 @@ engines:
   #   categories: files
   #   disabled: true
 
+  - name: radio browser
+    engine: radio_browser
+    shortcut: rb
+
   - name: reddit
     engine: reddit
     shortcut: re
@@ -1368,6 +1459,11 @@ engines:
     shortcut: ubuntu
     api_site: "askubuntu"
     categories: [it, q&a]
+
+  - name: internetarchivescholar
+    engine: internet_archive_scholar
+    shortcut: ias
+    timeout: 5.0
 
   - name: superuser
     engine: stackexchange
@@ -1468,9 +1564,25 @@ engines:
 
   - name: tagesschau
     engine: tagesschau
+    # when set to false, display URLs from Tagesschau, and not the actual source
+    # (e.g. NDR, WDR, SWR, HR, ...)
+    use_source_url: true
     shortcut: ts
     disabled: true
     categories: other
+
+  - name: tmdb
+    engine: xpath
+    paging: true
+    categories: movies
+    search_url: https://www.themoviedb.org/search?page={pageno}&query={query}
+    results_xpath: //div[contains(@class,"movie") or contains(@class,"tv")]//div[contains(@class,"card")]
+    url_xpath: .//div[contains(@class,"poster")]/a/@href
+    thumbnail_xpath: .//img/@src
+    title_xpath: .//div[contains(@class,"title")]//h2
+    content_xpath: .//div[contains(@class,"overview")]
+    shortcut: tm
+    disabled: true
 
   # Requires Tor
   - name: torch
@@ -1503,10 +1615,13 @@ engines:
   #     - 2000
   #     - 5000
 
+<<<<<<< HEAD
   - name: twitter
     shortcut: tw
     engine: twitter
 
+=======
+>>>>>>> b3d29cb86db4cc1a4e6320016529d1361451e1f1
   # tmp suspended - too slow, too many errors
   #  - name: urbandictionary
   #    engine      : xpath
@@ -1629,6 +1744,7 @@ engines:
     categories: [science, wikimedia]
     base_url: "https://{language}.wikisource.org/"
     search_type: text
+    disabled: true
     about:
       website: https://www.wikisource.org/
       wikidata_id: Q263
@@ -1770,6 +1886,11 @@ engines:
       require_api_key: false
       results: HTML
 
+  - name: moviepilot
+    engine: moviepilot
+    shortcut: mp
+    disabled: true
+
   - name: naver
     shortcut: nvr
     disabled: ture
@@ -1825,15 +1946,26 @@ engines:
     shortcut: mvw
     disabled: true
 
-  # - name: yacy
-  #   engine: yacy
-  #   shortcut: ya
-  #   base_url: http://localhost:8090
-  #   # required if you aren't using HTTPS for your local yacy instance'
-  #   enable_http: true
-  #   timeout: 3.0
-  #   # Yacy search mode. 'global' or 'local'.
-  #   search_mode: 'global'
+  - name: yacy
+    engine: yacy
+    categories: general
+    search_type: text
+    base_url: https://yacy.searchlab.eu
+    shortcut: ya
+    disabled: true
+    # required if you aren't using HTTPS for your local yacy instance
+    # https://docs.searxng.org/dev/engines/online/yacy.html
+    # enable_http: true
+    # timeout: 3.0
+    # search_mode: 'global'
+
+  - name: yacy images
+    engine: yacy
+    categories: images
+    search_type: image
+    base_url: https://yacy.searchlab.eu
+    shortcut: yai
+    disabled: true
 
   - name: rumble
     engine: rumble
@@ -1904,6 +2036,28 @@ engines:
     shortcut: svg
     timeout: 10.0
     disabled: true
+
+  - name: tootfinder
+    engine: json_engine
+    categories: ['social media']
+    paging: false
+    search_url: https://www.tootfinder.ch/rest/api/search/{query}
+    url_query: uri
+    title_query: card/title
+    content_query: content
+    thumbnail_query: card/image
+    shortcut: toot
+    about:
+      website: https://tootfinder.ch/
+      official_api_documentation: https://wiki.tootfinder.ch/index.php?name=the-tootfinder-rest-api
+      use_official_api: true
+      require_api_key: false
+      results: 'JSON'
+
+  - name: wallhaven
+    engine: wallhaven
+    # api_key: abcdefghijklmnopqrstuvwxyz
+    shortcut: wh
 
     # wikimini: online encyclopedia for children
     # The fulltext and title parameter is necessary for Wikimini because

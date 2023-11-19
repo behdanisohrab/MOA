@@ -37,9 +37,13 @@ einfaches Beispiel zu geben:
 
   - {{search(':de !wp Wau Holland')}}
 
-## `!!` external bangs
+## `!!<bang>` external bangs
 
+<<<<<<< HEAD
 MOA unterstützt die _external bangs_ von [ddg].  Das Präfix `!!` kann
+=======
+SearXNG unterstützt die _external bangs_ von [DuckDuckGo].  Das Präfix `!!` kann
+>>>>>>> b3d29cb86db4cc1a4e6320016529d1361451e1f1
 verwendet werden um direkt zu einer externen Suchseite zu springen.  Um ein
 Beispiel zu geben:
 
@@ -52,7 +56,23 @@ MOA kann die Privatsphäre des Benutzers in diesem Fall nur eingeschränkt
 schützen, dennoch wird diese Funktion von manchen Benutzern als sehr nützlich
 empfunden.
 
-[ddg]: https://duckduckgo.com/bang
+[DuckDuckGo]: https://duckduckgo.com/bang
+
+## `!!` automatic redirect
+
+Bei der Verwendung von `!!` innerhalb der Suchanfrage (durch Leerzeichen
+getrennt), wird automatisch zum ersten Ergebnis weitergeleitet.  Dieses
+Verhalten ist vergleichbar mit der "Feeling Lucky"-Funktion von DuckDuckGo.  Um
+ein Beispiel zu geben:
+
+- Suchanfrage und direkte Weiterleitung zum ersten Ergebnis
+
+  - {{search('!! Wau Holland')}}
+
+Bitte beachten: das Ergebnis zu dem weitergeleitet wird, kann nicht auf seine
+Vertrauenswürdigkeit überprüft werden.  SearXNG kann die Privatsphäre des
+Benutzers in diesem Fall nicht schützen, dennoch wird diese Funktion von manchen
+Benutzern als sehr nützlich empfunden.
 
 ## Besondere Abfragen
 

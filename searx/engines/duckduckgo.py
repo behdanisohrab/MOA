@@ -61,15 +61,7 @@ form_data = {'v': 'l', 'api': 'd.js', 'o': 'json'}
 
 
 def cache_vqd(query, value):
-    """Caches a ``vqd`` value from a query.
-
-    The vqd value depends on the query string and is needed for the follow up
-    pages or the images loaded by a XMLHttpRequest:
-
-    - DuckDuckGo Web: `https://links.duckduckgo.com/d.js?q=...&vqd=...`
-    - DuckDuckGo Images: `https://duckduckgo.com/i.js??q=...&vqd=...`
-
-    """
+    """Caches a ``vqd`` value from a query."""
     c = redisdb.client()
     if c:
         logger.debug("cache vqd value: %s", value)
@@ -82,13 +74,43 @@ def get_vqd(query):
     (:py:obj:`cache_vqd`) the query is sent to DDG to get a vqd value from the
     response.
 
+    .. hint::
+
+       If an empty string is returned there are no results for the ``query`` and
+       therefore no ``vqd`` value.
+
+    DDG's bot detection is sensitive to the ``vqd`` value.  For some search terms
+    (such as extremely long search terms that are often sent by bots), no ``vqd``
+    value can be determined.
+
+    If SearXNG cannot determine a ``vqd`` value, then no request should go out
+    to DDG:
+
+        A request with a wrong ``vqd`` value leads to DDG temporarily putting
+        SearXNG's IP on a block list.
+
+        Requests from IPs in this block list run into timeouts.
+
+    Not sure, but it seems the block list is a sliding window: to get my IP rid
+    from the bot list I had to cool down my IP for 1h (send no requests from
+    that IP to DDG).
+
+    TL;DR; the ``vqd`` value is needed to pass DDG's bot protection and is used
+    by all request to DDG:
+
+    - DuckDuckGo Lite: ``https://lite.duckduckgo.com/lite`` (POST form data)
+    - DuckDuckGo Web: ``https://links.duckduckgo.com/d.js?q=...&vqd=...``
+    - DuckDuckGo Images: ``https://duckduckgo.com/i.js??q=...&vqd=...``
+    - DuckDuckGo Videos: ``https://duckduckgo.com/v.js??q=...&vqd=...``
+    - DuckDuckGo News: ``https://duckduckgo.com/news.js??q=...&vqd=...``
+
     """
-    value = None
+    value = ''
     c = redisdb.client()
     if c:
         key = 'SearXNG_ddg_vqd' + redislib.secret_hash(query)
         value = c.get(key)
-        if value:
+        if value or value == b'':
             value = value.decode('utf-8')
             logger.debug("re-use cached vqd value: %s", value)
             return value
@@ -96,8 +118,15 @@ def get_vqd(query):
     query_url = 'https://lite.duckduckgo.com/lite/?{args}'.format(args=urlencode({'q': query}))
     res = get(query_url)
     doc = lxml.html.fromstring(res.text)
-    value = doc.xpath("//input[@name='vqd']/@value")[0]
-    logger.debug("new vqd value: %s", value)
+    value = doc.xpath("//input[@name='vqd']/@value")
+    if value:
+        value = value[0]
+    else:
+        # Some search terms do not have results and therefore no vqd value.  If
+        # no vqd value can be determined for the search term, an empty string is
+        # chached.
+        value = ''
+    logger.debug("new vqd value: '%s'", value)
     cache_vqd(query, value)
     return value
 
@@ -105,7 +134,7 @@ def get_vqd(query):
 def get_ddg_lang(eng_traits: EngineTraits, sxng_locale, default='en_US'):
     """Get DuckDuckGo's language identifier from SearXNG's locale.
 
-    DuckDuckGo defines its lanaguages by region codes (see
+    DuckDuckGo defines its languages by region codes (see
     :py:obj:`fetch_traits`).
 
     To get region and language of a DDG service use:
@@ -197,6 +226,13 @@ ddg_lang_map = {
 
 def request(query, params):
 
+    # request needs a vqd argument
+    vqd = get_vqd(query)
+    if not vqd:
+        # some search terms do not have results and therefore no vqd value
+        params['url'] = None
+        return params
+
     # quote ddg bangs
     query_parts = []
     # for val in re.split(r'(\s+)', query):
@@ -220,7 +256,7 @@ def request(query, params):
     # link again and again ..
 
     params['headers']['Content-Type'] = 'application/x-www-form-urlencoded'
-    params['headers']['Referer'] = 'https://google.com/'
+    params['data']['vqd'] = vqd
 
     # initial page does not have an offset
     if params['pageno'] == 2:
@@ -235,9 +271,6 @@ def request(query, params):
         params['data']['s'] = offset
         params['data']['dc'] = offset + 1
 
-    # request needs a vqd argument
-    params['data']['vqd'] = get_vqd(query)
-
     # initial page does not have additional data in the input form
     if params['pageno'] > 1:
 
@@ -245,6 +278,7 @@ def request(query, params):
         params['data']['api'] = form_data.get('api', 'd.js')
         params['data']['nextParams'] = form_data.get('nextParams', '')
         params['data']['v'] = form_data.get('v', 'l')
+        params['headers']['Referer'] = 'https://lite.duckduckgo.com/'
 
     params['data']['kl'] = eng_region
     params['cookies']['kl'] = eng_region
@@ -338,7 +372,7 @@ def fetch_traits(engine_traits: EngineTraits):
     ``Accept-Language`` HTTP header.  The value in ``engine_traits.all_locale``
     is ``wt-wt`` (the region).
 
-    Beside regions DuckDuckGo also defines its lanaguages by region codes.  By
+    Beside regions DuckDuckGo also defines its languages by region codes.  By
     example these are the english languages in DuckDuckGo:
 
     - en_US

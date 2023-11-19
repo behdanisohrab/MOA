@@ -83,7 +83,7 @@ def is_suspicious(network: IPv4Network | IPv6Network, request: flask.Request, re
 
     ping_key = get_ping_key(network, request)
     if not redis_client.get(ping_key):
-        logger.warning("missing ping (IP: %s) / request: %s", network.compressed, ping_key)
+        logger.info("missing ping (IP: %s) / request: %s", network.compressed, ping_key)
         return True
 
     if renew:
@@ -99,15 +99,13 @@ def ping(request: flask.Request, token: str):
     The expire time of this ping-key is :py:obj:`PING_LIVE_TIME`.
 
     """
-    from . import limiter  # pylint: disable=import-outside-toplevel, cyclic-import
+    from . import redis_client, cfg  # pylint: disable=import-outside-toplevel, cyclic-import
 
-    redis_client = redisdb.client()
     if not redis_client:
         return
     if not token_is_valid(token):
         return
 
-    cfg = limiter.get_cfg()
     real_ip = ip_address(get_real_ip(request))
     network = get_network(real_ip, cfg)
 
