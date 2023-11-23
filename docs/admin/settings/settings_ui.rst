@@ -19,6 +19,8 @@
      default_theme: simple
      theme_args:
        simple_style: auto
+     search_on_category_select: true
+     hotkeys: default
 
 .. _static_use_hash:
 
@@ -60,3 +62,9 @@
 
 ``results_on_new_tab``:
   Open result links in a new tab by default.
+
+``search_on_category_select``:
+  Perform search immediately if a category selected. Disable to select multiple categories.
+
+``hotkeys``:
+  Hotkeys to use in the search interface: ``default``, ``vim`` (Vim-like).

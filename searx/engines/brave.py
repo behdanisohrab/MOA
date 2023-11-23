@@ -37,7 +37,7 @@ Brave regions
 =============
 
 Brave uses two-digit tags for the regions like ``ca`` while SearXNG deals with
-locales.  To get a mapping, all *officatl de-facto* languages of the Brave
+locales.  To get a mapping, all *officiat de-facto* languages of the Brave
 region are mapped to regions in SearXNG (see :py:obj:`babel
 <babel.languages.get_official_languages>`):
 
@@ -63,10 +63,10 @@ region are mapped to regions in SearXNG (see :py:obj:`babel
 Brave languages
 ===============
 
-Brave's language support is limited to the UI (menues, area local notations,
+Brave's language support is limited to the UI (menus, area local notations,
 etc).  Brave's index only seems to support a locale, but it does not seem to
 support any languages in its index.  The choice of available languages is very
-small (and its not clear to me where the differencee in UI is when switching
+small (and its not clear to me where the difference in UI is when switching
 from en-us to en-ca or en-gb).
 
 In the :py:obj:`EngineTraits object <searx.enginelib.traits.EngineTraits>` the
@@ -97,7 +97,6 @@ Implementations
 
 from typing import TYPE_CHECKING
 
-import re
 from urllib.parse import (
     urlencode,
     urlparse,
@@ -219,8 +218,7 @@ def response(resp):
     json_resp = json_data[1]['data']['body']['response']
 
     if brave_category == 'news':
-        json_resp = json_resp['news']
-        return _parse_news(json_resp)
+        return _parse_news(json_resp['news'])
 
     if brave_category == 'images':
         return _parse_images(json_resp)
@@ -246,8 +244,8 @@ def _parse_search(resp):
     for result in eval_xpath_list(dom, xpath_results):
 
         url = eval_xpath_getindex(result, './/a[contains(@class, "h")]/@href', 0, default=None)
-        title_tag = eval_xpath_getindex(result, './/div[contains(@class, "title")]', 0, default=None)
-        if url is None or title_tag is None:
+        title_tag = eval_xpath_getindex(result, './/div[contains(@class, "url")]', 0, default=None)
+        if url is None or title_tag is None or not urlparse(url).netloc:  # partial url likely means it's an ad
             continue
 
         content_tag = eval_xpath_getindex(result, './/div[@class="snippet-description"]', 0, default='')
@@ -265,7 +263,7 @@ def _parse_search(resp):
         )
         if video_tag is not None:
 
-            # In my tests a video tag in the WEB search was mostoften not a
+            # In my tests a video tag in the WEB search was most often not a
             # video, except the ones from youtube ..
 
             iframe_src = _get_iframe_src(url)
@@ -299,7 +297,7 @@ def _parse_news(json_resp):
             'title': result['title'],
             'content': result['description'],
         }
-        if result['thumbnail'] != "null":
+        if result['thumbnail'] is not None:
             item['img_src'] = result['thumbnail']['src']
         result_list.append(item)
 
@@ -339,7 +337,7 @@ def _parse_videos(json_resp):
             'duration': result['video']['duration'],
         }
 
-        if result['thumbnail'] != "null":
+        if result['thumbnail'] is not None:
             item['thumbnail'] = result['thumbnail']['src']
 
         iframe_src = _get_iframe_src(url)
@@ -355,7 +353,7 @@ def fetch_traits(engine_traits: EngineTraits):
     """Fetch :ref:`languages <brave languages>` and :ref:`regions <brave
     regions>` from Brave."""
 
-    # pylint: disable=import-outside-toplevel
+    # pylint: disable=import-outside-toplevel, too-many-branches
 
     import babel.languages
     from searx.locales import region_tag, language_tag
@@ -398,19 +396,26 @@ def fetch_traits(engine_traits: EngineTraits):
 
     # search regions of brave
 
-    engine_traits.all_locale = 'all'
+    resp = get('https://cdn.search.brave.com/serp/v2/_app/immutable/chunks/parameters.734c106a.js', headers=headers)
 
-    for country in dom.xpath('//div[@id="sidebar"]//ul/li/div[contains(@class, "country")]'):
+    if not resp.ok:  # type: ignore
+        print("ERROR: response from Brave is not OK.")
 
-        flag = country.xpath('./span[contains(@class, "flag")]')[0]
-        # country_name = extract_text(flag.xpath('./following-sibling::*')[0])
-        country_tag = re.search(r'flag-([^\s]*)\s', flag.xpath('./@class')[0]).group(1)  # type: ignore
+    country_js = resp.text[resp.text.index("options:{all") + len('options:') :]
+    country_js = country_js[: country_js.index("},k={default")]
+    country_tags = js_variable_to_python(country_js)
 
-        # add offical languages of the country ..
+    for k, v in country_tags.items():
+        if k == 'all':
+            engine_traits.all_locale = 'all'
+            continue
+        country_tag = v['value']
+
+        # add official languages of the country ..
         for lang_tag in babel.languages.get_official_languages(country_tag, de_facto=True):
             lang_tag = lang_map.get(lang_tag, lang_tag)
             sxng_tag = region_tag(babel.Locale.parse('%s_%s' % (lang_tag, country_tag.upper())))
-            # print("%-20s: %s <-- %s" % (country_name, country_tag, sxng_tag))
+            # print("%-20s: %s <-- %s" % (v['label'], country_tag, sxng_tag))
 
             conflict = engine_traits.regions.get(sxng_tag)
             if conflict:

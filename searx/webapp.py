@@ -57,6 +57,9 @@ from searx import (
 )
 
 from searx import infopage
+from searx import limiter
+from searx.botdetection import link_token
+
 from searx.data import ENGINE_DESCRIPTIONS
 from searx.results import Timing
 from searx.settings_defaults import OUTPUT_FORMATS
@@ -93,7 +96,6 @@ from searx.utils import (
 from searx.version import VERSION_STRING, GIT_URL, GIT_BRANCH
 from searx.query import RawTextQuery
 from searx.plugins import Plugin, plugins, initialize as plugin_initialize
-from searx.botdetection import link_token
 from searx.plugins.oa_doi_rewrite import get_doi_resolver
 from searx.preferences import (
     Preferences,
@@ -434,8 +436,8 @@ def get_client_settings():
         'http_method': req_pref.get_value('method'),
         'infinite_scroll': req_pref.get_value('infinite_scroll'),
         'translations': get_translations(),
-        'search_on_category_select': req_pref.plugins.choices['searx.plugins.search_on_category_select'],
-        'hotkeys': req_pref.plugins.choices['searx.plugins.vim_hotkeys'],
+        'search_on_category_select': req_pref.get_value('search_on_category_select'),
+        'hotkeys': req_pref.get_value('hotkeys'),
         'theme_static_path': custom_url_for('static', filename='themes/simple'),
     }
 
@@ -462,6 +464,8 @@ def render(template_name: str, **kwargs):
     kwargs['preferences'] = request.preferences
     kwargs['autocomplete'] = request.preferences.get_value('autocomplete')
     kwargs['infinite_scroll'] = request.preferences.get_value('infinite_scroll')
+    kwargs['search_on_category_select'] = request.preferences.get_value('search_on_category_select')
+    kwargs['hotkeys'] = request.preferences.get_value('hotkeys')
     kwargs['results_on_new_tab'] = request.preferences.get_value('results_on_new_tab')
     kwargs['advanced_search'] = request.preferences.get_value('advanced_search')
     kwargs['query_in_title'] = request.preferences.get_value('query_in_title')
@@ -768,6 +772,10 @@ def search():
     previous_result = None
 
     results = result_container.get_ordered_results()
+
+    if search_query.redirect_to_first_result and results:
+        return redirect(results[0]['url'], 302)
+
     for result in results:
         if output_format == 'html':
             if 'content' in result and result['content']:
@@ -1011,19 +1019,19 @@ def preferences():
         errors = engine_errors.get(e.name) or []
         if counter('engine', e.name, 'search', 'count', 'sent') == 0:
             # no request
-            reliablity = None
+            reliability = None
         elif checker_success and not errors:
-            reliablity = 100
+            reliability = 100
         elif 'simple' in checker_result.get('errors', {}):
-            # the basic (simple) test doesn't work: the engine is broken accoding to the checker
+            # the basic (simple) test doesn't work: the engine is broken according to the checker
             # even if there is no exception
-            reliablity = 0
+            reliability = 0
         else:
             # pylint: disable=consider-using-generator
-            reliablity = 100 - sum([error['percentage'] for error in errors if not error.get('secondary')])
+            reliability = 100 - sum([error['percentage'] for error in errors if not error.get('secondary')])
 
         reliabilities[e.name] = {
-            'reliablity': reliablity,
+            'reliability': reliability,
             'errors': [],
             'checker': checker_results.get(e.name, {}).get('errors', {}).keys(),
         }
@@ -1217,7 +1225,7 @@ def stats():
     reverse, key_name, default_value = STATS_SORT_PARAMETERS[sort_order]
 
     def get_key(engine_stat):
-        reliability = engine_reliabilities.get(engine_stat['name'], {}).get('reliablity', 0)
+        reliability = engine_reliabilities.get(engine_stat['name'], {}).get('reliability', 0)
         reliability_order = 0 if reliability else 1
         if key_name == 'reliability':
             key = reliability
@@ -1332,6 +1340,8 @@ def config():
     for _ in plugins:
         _plugins.append({'name': _.name, 'enabled': _.default_on})
 
+    _limiter_cfg = limiter.get_cfg()
+
     return jsonify(
         {
             'categories': list(categories.keys()),
@@ -1351,8 +1361,14 @@ def config():
                 'GIT_BRANCH': GIT_BRANCH,
                 'DOCS_URL': get_setting('brand.docs_url'),
             },
+            'limiter': {
+                'enabled': limiter.is_installed(),
+                'botdetection.ip_limit.link_token': _limiter_cfg.get('botdetection.ip_limit.link_token'),
+                'botdetection.ip_lists.pass_searxng_org': _limiter_cfg.get('botdetection.ip_lists.pass_searxng_org'),
+            },
             'doi_resolvers': list(settings['doi_resolvers'].keys()),
             'default_doi_resolver': settings['default_doi_resolver'],
+            'public_instance': settings['server']['public_instance'],
         }
     )
 
@@ -1380,6 +1396,7 @@ if not werkzeug_reloader or (werkzeug_reloader and os.environ.get("WERKZEUG_RUN_
     redis_initialize()
     plugin_initialize(app)
     search_initialize(enable_checker=True, check_network=True, enable_metrics=settings['general']['enable_metrics'])
+    limiter.initialize(app, settings)
 
 
 def run():

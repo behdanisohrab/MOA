@@ -13,8 +13,7 @@ and at least for a maximum of 10 minutes.
 
 The :py:obj:`.link_token` method can be used to investigate whether a request is
 *suspicious*.  To activate the :py:obj:`.link_token` method in the
-:py:obj:`.ip_limit` method add the following to your
-``/etc/searxng/limiter.toml``:
+:py:obj:`.ip_limit` method add the following configuration:
 
 .. code:: toml
 
@@ -32,7 +31,7 @@ To intercept bots that get their IPs from a range of IPs, there is a
 for a longer time.  IPs stored in this sliding window have a maximum of
 :py:obj:`SUSPICIOUS_IP_MAX` accesses before they are blocked.  As soon as the IP
 makes a request that is not suspicious, the sliding window for this IP is
-droped.
+dropped.
 
 .. _X-Forwarded-For:
    https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For
@@ -46,12 +45,12 @@ from ipaddress import (
 
 import flask
 import werkzeug
-from searx.tools import config
 
 from searx import redisdb
 from searx.redislib import incr_sliding_window, drop_counter
 
 from . import link_token
+from . import config
 from ._helpers import (
     too_many_requests,
     logger,

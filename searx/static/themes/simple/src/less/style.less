@@ -76,7 +76,7 @@ main {
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
   margin: 0;
 }
 
@@ -967,8 +967,17 @@ summary.title {
 #search_url {
   div.selectable_url {
     pre {
+      float: left;
       width: 200em;
     }
+  }
+
+  button#copy_url {
+    float: right;
+    padding: 0.4rem;
+    margin-left: 0.5rem;
+    border-radius: 0.3rem;
+    display: none;    // will be shown by JS.
   }
 }
 
@@ -1142,7 +1151,7 @@ tablet layout
   }
 
   #main_results div#results {
-    margin: 1rem auto 0 auto;
+    margin: 0 auto;
     justify-content: center;
     display: grid;
     grid-template-columns: @results-width;
@@ -1259,7 +1268,7 @@ phone layout
 
   #main_results div#results {
     grid-template-columns: 100%;
-    margin: 1rem 0 0 0;
+    margin: 0 auto;
   }
   
   #main_index #links_on_top {
@@ -1287,8 +1296,9 @@ phone layout
 
   .result {
     background: var(--color-result-background);
-    margin: 1rem 0;
-    border-radius: 1.5rem;
+    border: 1px solid var(--color-result-background);
+    margin: 1rem 10px;
+    .rounded-corners;
   }
   
   .result-images {

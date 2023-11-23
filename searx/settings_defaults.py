@@ -176,6 +176,7 @@ SCHEMA = {
         'port': SettingsValue((int, str), 8888, 'SEARXNG_PORT'),
         'bind_address': SettingsValue(str, '127.0.0.1', 'SEARXNG_BIND_ADDRESS'),
         'limiter': SettingsValue(bool, False),
+        'public_instance': SettingsValue(bool, False),
         'secret_key': SettingsValue(str, environ_name='SEARXNG_SECRET'),
         'base_url': SettingsValue((False, str), False, 'SEARXNG_BASE_URL'),
         'image_proxy': SettingsValue(bool, False),
@@ -201,6 +202,8 @@ SCHEMA = {
         'query_in_title': SettingsValue(bool, False),
         'infinite_scroll': SettingsValue(bool, False),
         'cache_url': SettingsValue(str, 'https://web.archive.org/web/'),
+        'search_on_category_select': SettingsValue(bool, True),
+        'hotkeys': SettingsValue(('default', 'vim'), 'default'),
     },
     'preferences': {
         'lock': SettingsValue(list, []),

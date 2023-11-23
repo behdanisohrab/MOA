@@ -1,21 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: searx\n"
+"Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-09-11 10:31+0000\n"
-"PO-Revision-Date: 2023-09-12 14:53+0000\n"
+"POT-Creation-Date: 2023-11-11 15:25+0000\n"
+"PO-Revision-Date: 2023-10-06 07:07+0000\n"
 "Last-Translator: return42 <markus.heiser@darmarit.de>\n"
-"Language-Team: Persian <https://translate.codeberg.org/projects/searxng/"
-"searxng/fa/>\n"
 "Language: fa_IR\n"
+"Language-Team: Persian "
+"<https://translate.codeberg.org/projects/searxng/searxng/fa/>\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18.1\n"
-"Generated-By: Babel 2.12.1\n"
-"\n"
-"X-Loco-Parser: loco_parse_po"
+"Generated-By: Babel 2.13.1\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
 #: searx/searxng.msg
@@ -90,11 +87,7 @@ msgstr "برنامه ها"
 #. CATEGORY_GROUPS['DICTIONARIES']
 #: searx/searxng.msg
 msgid "dictionaries"
-<<<<<<< HEAD
-msgstr "فرهنگ لغت ها"
-=======
 msgstr "لغت نامه ها"
->>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #. CATEGORY_GROUPS['LYRICS']
 #: searx/searxng.msg
@@ -146,38 +139,34 @@ msgstr "روشن"
 msgid "dark"
 msgstr "تاریک"
 
-#: searx/webapp.py:330
+#: searx/webapp.py:332
 msgid "No item found"
 msgstr "چیزی پیدا نشد"
 
-#: searx/engines/qwant.py:218
-#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:332
+#: searx/engines/qwant.py:280
+#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:334
 msgid "Source"
 msgstr "منبع"
 
-#: searx/webapp.py:334
+#: searx/webapp.py:336
 msgid "Error loading the next page"
 msgstr "خطا در بارگزاری صفحه جدید"
 
-#: searx/webapp.py:489 searx/webapp.py:881
+#: searx/webapp.py:493 searx/webapp.py:889
 msgid "Invalid settings, please edit your preferences"
 msgstr "تنظیمات نادرست است، لطفا تنظیمات جستجو را تغییر دهید"
 
-#: searx/webapp.py:505
+#: searx/webapp.py:509
 msgid "Invalid settings"
 msgstr "تنظیمات نادرست"
 
-#: searx/webapp.py:582 searx/webapp.py:664
+#: searx/webapp.py:586 searx/webapp.py:668
 msgid "search error"
 msgstr "خطای جست‌وجو"
 
 #: searx/webutils.py:34
 msgid "timeout"
-<<<<<<< HEAD
 msgstr "زمان پاسخ‌دهی به پایان رسید"
-=======
-msgstr "مهلت پاسخ‌دهی به پایان رسید"
->>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/webutils.py:35
 msgid "parsing error"
@@ -253,11 +242,7 @@ msgstr "توابع آماری"
 
 #: searx/answerers/statistics/answerer.py:48
 msgid "Compute {functions} of the arguments"
-<<<<<<< HEAD
 msgstr "{functions} آرگومان ها را محاسبه کنید"
-=======
-msgstr "پردازش {functions} از آرگومان ها"
->>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/engines/openstreetmap.py:160
 msgid "Get directions"
@@ -271,9 +256,25 @@ msgstr "{title} (منسوخ شده)"
 msgid "This entry has been superseded by"
 msgstr "این ورودی معلق شده است، توسط"
 
-#: searx/engines/qwant.py:220
+#: searx/engines/qwant.py:282
 msgid "Channel"
 msgstr "کانال"
+
+#: searx/engines/radio_browser.py:104
+msgid "radio"
+msgstr ""
+
+#: searx/engines/radio_browser.py:106
+msgid "bitrate"
+msgstr ""
+
+#: searx/engines/radio_browser.py:107
+msgid "votes"
+msgstr ""
+
+#: searx/engines/radio_browser.py:108
+msgid "clicks"
+msgstr ""
 
 #: searx/engines/seekr.py:194 searx/engines/zlibrary.py:129
 msgid "Language"
@@ -292,28 +293,17 @@ msgid ""
 "Could not read that image url. This may be due to an unsupported file format."
 " TinEye only supports images that are JPEG, PNG, GIF, BMP, TIFF or WebP."
 msgstr ""
-<<<<<<< HEAD
-"نمی توان آدرسِ تصویر را خواند. این ممکن است به دلیل فرمت فایل پشتیبانی نشده "
-"باشد. TinEye فقط تصویر های با فرمت JPEG، PNG، GIF، BMP، TIFF یا WebP را "
-"پشتیبانی می‌کند."
-=======
 "نمی‌توان آدرسِ تصویر را خواند. این ممکن است به دلیل فرمت فایل پشتیبانی "
 "نشده باشد. TinEye فقط تصویر های با فرمت JPEG، PNG، GIF، BMP، TIFF یا WebP"
 " را پشتیبانی می‌کند."
->>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/engines/tineye.py:46
 msgid ""
 "The image is too simple to find matches. TinEye requires a basic level of "
 "visual detail to successfully identify matches."
 msgstr ""
-<<<<<<< HEAD
-"تصویر برای یافتن موارد منطبق بسیار ساده است. TinEye برای شناسایی موفقیت آمیز "
-"به جزئیاتِ بصری سده تر نیاز دارد."
-=======
 "تصویر برای یافتن موارد منطبق بسیار ساده است. TinEye برای شناسایی موفق به "
 "سطح اولیه جزئیات بصری نیاز دارد."
->>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/engines/tineye.py:52
 msgid "The image could not be downloaded."
@@ -337,11 +327,7 @@ msgstr "شب"
 
 #: searx/engines/zlibrary.py:130
 msgid "Book rating"
-<<<<<<< HEAD
 msgstr "رتبه‌بندی کتاب"
-=======
-msgstr "رتبه بندی کتاب"
->>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/engines/zlibrary.py:131
 msgid "File quality"
@@ -372,14 +358,10 @@ msgid ""
 "Avoid paywalls by redirecting to open-access versions of publications when "
 "available"
 msgstr ""
-<<<<<<< HEAD
 "خودداری از منابع پرداختی با تغییر مسیر به نسخه‌های متن‌باز نشریات در صورت "
 "دسترسی"
-=======
-"با هدایت مجدد به نسخه‌های دسترسی آزاد انتشارات در صورت وجود، از دیوارهای "
-"پرداخت اجتناب کنید"
->>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
+<<<<<<< HEAD
 #: searx/plugins/search_on_category_select.py:19
 msgid "Search on category select"
 msgstr "جست‌وجو در دستهٔ انتخابی"
@@ -397,6 +379,8 @@ msgstr ""
 "غیرفعال کنید. (جاوا اسکریپت مورد نیاز است)"
 >>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
+=======
+>>>>>>> e99ebb3decd31019f52fdc79c1342e38a0c05358
 #: searx/plugins/self_info.py:10
 msgid "Self Information"
 msgstr "اطلاعات شخصی"
@@ -472,6 +456,7 @@ msgstr "کلید های میانبر مانند vim"
 =======
 msgstr "آرگومان های ردیاب ها را از URL برگشتی حذف کنید"
 
+<<<<<<< HEAD
 #: searx/plugins/vim_hotkeys.py:3
 msgid "Vim-like hotkeys"
 msgstr "کلیدهای میانبر مانند vim"
@@ -490,6 +475,8 @@ msgstr ""
 "صفحه اصلی و یا صفحه نتیجه، دکمه h را برای نمایش راهنما فشار دهید."
 >>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
+=======
+>>>>>>> e99ebb3decd31019f52fdc79c1342e38a0c05358
 #: searx/templates/simple/404.html:4
 msgid "Page not found"
 msgstr "صفحه پیدا نشد"
@@ -556,7 +543,7 @@ msgstr "تماس با ما"
 msgstr "تماس با نگهدارنده نمونه"
 >>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
-#: searx/templates/simple/categories.html:24
+#: searx/templates/simple/categories.html:26
 msgid "Click on the magnifier to perform search"
 msgstr "برای انجام جست‌وجو روی ذره‌بین کلیک کنید"
 
@@ -608,7 +595,7 @@ msgstr "در گیتهاب مشکل جدید را با توجه به اطلاعا
 msgid "No HTTPS"
 msgstr "بدون HTTPS"
 
-#: searx/templates/simple/elements/engines_msg.html:14
+#: searx/templates/simple/elements/engines_msg.html:18
 #: searx/templates/simple/preferences.html:69
 #: searx/templates/simple/preferences.html:70
 msgid "View error logs and submit a bug report"
@@ -665,23 +652,23 @@ msgstr "دسته‌بندی‌های پیش‌گزیده"
 msgid "User interface"
 msgstr "رابط کاربری"
 
-#: searx/templates/simple/preferences.html:204
+#: searx/templates/simple/preferences.html:208
 msgid "Privacy"
 msgstr "حریم شخصی"
 
-#: searx/templates/simple/preferences.html:217
+#: searx/templates/simple/preferences.html:221
 msgid "Engines"
 msgstr "موتورها"
 
-#: searx/templates/simple/preferences.html:219
+#: searx/templates/simple/preferences.html:223
 msgid "Currently used search engines"
 msgstr "موتور جستجو های در حال استفاده"
 
-#: searx/templates/simple/preferences.html:227
+#: searx/templates/simple/preferences.html:231
 msgid "Special Queries"
 msgstr "مقدارهای ویژه"
 
-#: searx/templates/simple/preferences.html:233
+#: searx/templates/simple/preferences.html:237
 msgid "Cookies"
 msgstr "کوکی ها"
 
@@ -823,7 +810,7 @@ msgstr "نظر(ها)"
 msgid "Download results"
 msgstr "نتایج بارگیری"
 
-#: searx/templates/simple/elements/engines_msg.html:3
+#: searx/templates/simple/elements/engines_msg.html:7
 msgid "Messages from the search engines"
 <<<<<<< HEAD
 msgstr "پیام های موتورهای جستجو"
@@ -831,17 +818,25 @@ msgstr "پیام های موتورهای جستجو"
 msgstr "پیام های موتور جستجوها"
 >>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
-#: searx/templates/simple/elements/engines_msg.html:8
+#: searx/templates/simple/elements/engines_msg.html:12
 msgid "Error!"
 msgstr "خطا!"
 
-#: searx/templates/simple/elements/engines_msg.html:9
+#: searx/templates/simple/elements/engines_msg.html:13
 msgid "Engines cannot retrieve results"
 msgstr "موتورها توانایی دریافت نتایج را ندارند"
 
 #: searx/templates/simple/elements/search_url.html:3
 msgid "Search URL"
 msgstr "URL جست‌وجو"
+
+#: searx/templates/simple/elements/search_url.html:4
+msgid "Copied"
+msgstr ""
+
+#: searx/templates/simple/elements/search_url.html:4
+msgid "Copy"
+msgstr ""
 
 #: searx/templates/simple/elements/suggestions.html:3
 msgid "Suggestions"
@@ -928,10 +923,25 @@ msgid "Sorry!"
 msgstr "متاسف!"
 
 #: searx/templates/simple/messages/no_results.html:4
-msgid ""
-"we didn't find any results. Please use another query or search in more "
-"categories."
+msgid "No results were found. You can try to:"
+msgstr "نتیجه‌ای یافت نشد. می‌توانید موارد زیر را امتحان کنید:"
+
+#: searx/templates/simple/messages/no_results.html:6
+msgid "Refresh the page."
+msgstr "صفحه را تازه کنید."
+
+#: searx/templates/simple/messages/no_results.html:7
+msgid "Search for another query or select another category (above)."
 msgstr ""
+
+#: searx/templates/simple/messages/no_results.html:8
+msgid "Change the search engine used in the preferences:"
+msgstr "موتور جست‌وجو رو در تنظیمات تغییر دهید:"
+
+#: searx/templates/simple/messages/no_results.html:9
+msgid "Switch to another instance:"
+msgstr ""
+<<<<<<< HEAD
 <<<<<<< HEAD
 "چیزی پیدا نشد. لطفً ورودی دیگری را بیازمایید یا در دسته‌‌های بیش‌تری جست‌وجو "
 "کنید."
@@ -939,6 +949,8 @@ msgstr ""
 "چیزی پیدا نشد. لطفاً ورودی دیگری را بیازمایید یا در دسته‌‌های بیش‌تری "
 "جست‌وجو کنید."
 >>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
+=======
+>>>>>>> e99ebb3decd31019f52fdc79c1342e38a0c05358
 
 #: searx/templates/simple/preferences/answerers.html:4
 #: searx/templates/simple/preferences/engines.html:17
@@ -1119,6 +1131,20 @@ msgstr "بازنشانی پیش‌فرض‌ها"
 msgid "Back"
 msgstr "بازگشت"
 
+#: searx/templates/simple/preferences/hotkeys.html:2
+msgid "Hotkeys"
+msgstr ""
+
+#: searx/templates/simple/preferences/hotkeys.html:13
+msgid "Vim-like"
+msgstr ""
+
+#: searx/templates/simple/preferences/hotkeys.html:18
+msgid ""
+"Navigate search results with hotkeys (JavaScript required). Press \"h\" "
+"key on main or result page to get help."
+msgstr ""
+
 #: searx/templates/simple/preferences/image_proxy.html:2
 msgid "Image proxy"
 msgstr "پروکسی تصویر"
@@ -1183,6 +1209,16 @@ msgstr "بازکردن پیوندهای نتیجه در زبانه‌های جد
 #: searx/templates/simple/preferences/safesearch.html:20
 msgid "Filter content"
 msgstr "فیلتر کردن محتوا"
+
+#: searx/templates/simple/preferences/search_on_category_select.html:2
+msgid "Search on category select"
+msgstr "جست‌وجو در دستهٔ انتخابی"
+
+#: searx/templates/simple/preferences/search_on_category_select.html:14
+msgid ""
+"Perform search immediately if a category selected. Disable to select "
+"multiple categories"
+msgstr ""
 
 #: searx/templates/simple/preferences/theme.html:2
 msgid "Theme"
@@ -1735,4 +1771,41 @@ msgstr "پنهان‌سازی ویدئو"
 
 #~ msgid "Disabled"
 #~ msgstr "غیرفعال"
+<<<<<<< HEAD
 >>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
+=======
+
+#~ msgid ""
+#~ "Perform search immediately if a category"
+#~ " selected. Disable to select multiple "
+#~ "categories. (JavaScript required)"
+#~ msgstr ""
+#~ "در صورت انتخاب یک دسته فورا جستجو"
+#~ " را انجام دهید. برای انتخاب چندین "
+#~ "دسته غیرفعال کنید. (جاوا اسکریپت مورد"
+#~ " نیاز است)"
+
+#~ msgid "Vim-like hotkeys"
+#~ msgstr "کلیدهای میانبر مانند vim"
+
+#~ msgid ""
+#~ "Navigate search results with Vim-like"
+#~ " hotkeys (JavaScript required). Press \"h\""
+#~ " key on main or result page to"
+#~ " get help."
+#~ msgstr ""
+#~ "جابجایی در نتایج با کلیدهای میان‌بر "
+#~ "مشابه Vim (نیازمند جاوااسکریپت). در صفحه"
+#~ " اصلی و یا صفحه نتیجه، دکمه h"
+#~ " را برای نمایش راهنما فشار دهید."
+
+#~ msgid ""
+#~ "we didn't find any results. Please "
+#~ "use another query or search in "
+#~ "more categories."
+#~ msgstr ""
+#~ "چیزی پیدا نشد. لطفاً ورودی دیگری "
+#~ "را بیازمایید یا در دسته‌‌های بیش‌تری "
+#~ "جست‌وجو کنید."
+
+>>>>>>> e99ebb3decd31019f52fdc79c1342e38a0c05358

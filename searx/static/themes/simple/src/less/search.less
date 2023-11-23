@@ -25,12 +25,15 @@
     "spacer categories spacer2";
 }
 
-.category {
+.category_checkbox,
+.category_button {
   display: inline-block;
   position: relative;
   .ltr-margin-right(1rem);
   padding: 0;
+}
 
+.category_checkbox {
   input {
     display: none;
   }
@@ -60,7 +63,37 @@
   }
 }
 
+button.category_button {
+  background-color: inherit;
+  color: var(--color-base-font);
+  cursor: pointer;
+  padding: 0.2rem 0;
+  display: inline-flex;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 0.9em;
+  border: none;
+  border-bottom: 2px solid transparent;
+
+  svg {
+    padding-right: 0.2rem;
+  }
+
+  &.selected,
+  &:active,
+  &:focus-within {
+    color: var(--color-categories-item-selected-font);
+    border-bottom: 2px solid var(--color-categories-item-border-selected);
+  }
+}
+
+#categories_container:has(button.category_button:focus-within) button.category_button.selected {
+  color: var(--color-base-font);
+  border-bottom: none;
+}
+
 #search_logo {
+  padding: 0.5rem 10px 0 10px;
   grid-area: logo;
   display: flex;
   align-items: center;
@@ -94,6 +127,7 @@
 }
 
 #search_view {
+  padding: 0.5rem 0.3rem 0 0.5rem;
   grid-area: search;
 }
 
@@ -257,7 +291,7 @@ html.no-js #clear_search.hide_if_nojs {
 }
 
 #main_results #links_on_top{
-  translate: -14em;
+  translate: -18rem;
 }
 
 @media screen and (max-width: @tablet) {
@@ -295,11 +329,6 @@ html.no-js #clear_search.hide_if_nojs {
   #categories {
     font-size: 90%;
     clear: both;
-
-    .checkbox_container {
-      margin: auto;
-      margin-top: 2px;
-    }
   }
 }
 
@@ -309,7 +338,7 @@ html.no-js #clear_search.hide_if_nojs {
     #categories_container {
       width: max-content;
 
-      .category {
+      .category_checkbox {
         display: inline-block;
         width: auto;
       }
@@ -348,9 +377,8 @@ html.no-js #clear_search.hide_if_nojs {
   }
 
   .search_box {
-    width: calc(100% - 1.5rem);
+    width: calc(100% - 1rem);
     display: flex;
-    margin: 0 auto;
   }
 
   #q {
@@ -359,7 +387,8 @@ html.no-js #clear_search.hide_if_nojs {
   }
 
   .search_filters {
-    margin: 0;
+    margin: 0 10px;
+    padding: 0.5rem 0;
   }
 
   .filters-btn-tablet {
@@ -375,6 +404,12 @@ html.no-js #clear_search.hide_if_nojs {
     width: auto;
     margin: 0;
 
+    .category_name {
+      display: none;
+    }
+  }
+
+  .category_checkbox {
     label {
       padding: 1rem !important;
       margin: 0 !important;
@@ -388,7 +423,12 @@ html.no-js #clear_search.hide_if_nojs {
       }
     }
   }
-  
+
+  .category_button {
+    padding: 1rem !important;
+    margin: 0 !important;
+  }
+
   #search_view:focus-within {
     display: block;
     background-color: var(--color-search-background);
@@ -422,7 +462,7 @@ html.no-js #clear_search.hide_if_nojs {
   }
 
   #links_on_top {
-    translate: 0 !important;
+    translate: -2rem !important;
   }
 
   #search_logo {
