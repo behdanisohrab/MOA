@@ -26,7 +26,7 @@ To install and use MOA, follow these steps:
 3. Run the web application using the following command:
 
       ```
-      ./manage webapp.run
+      make run
       ```
 Now you can see MOA in your browser: https://localhost:8888
 
