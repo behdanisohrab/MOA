@@ -31,6 +31,7 @@
   <link rel="icon" href="/favicon.ico" type="image/svg+xml">
 </head>
 <body class="{{ endpoint }}_endpoint" >
+  <script src="{{ url_for('static', filename='js/searxng.reactivity.min.js') }}"></script>
   <main id="main_{{  self._TemplateReference__context.name|replace("simple/", "")|replace(".html", "") }}" class="{{body_class}}">
     {% if errors %}
         <div class="dialog-error" role="alert">
@@ -67,7 +68,6 @@
   </footer>
   <!--[if gte IE 9]>-->
   <script src="{{ url_for('static', filename='js/searxng.min.js') }}"></script>
-  <script defer src="{{ url_for('static', filename='js/searxng.reactivity.min.js') }}"></script>
   <!--<![endif]-->
 </body>
 </html>

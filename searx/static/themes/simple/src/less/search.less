@@ -267,6 +267,8 @@ html.no-js #clear_search.hide_if_nojs {
   display: flex;
   align-items: center;
   font-size: 1em;
+  width: fit-content;
+  translate: -100%;
   color: var(--color-search-font);
 
   a {
@@ -288,10 +290,6 @@ html.no-js #clear_search.hide_if_nojs {
     color: var(--color-search-font);
   }
 
-}
-
-#main_results #links_on_top{
-  translate: -18rem;
 }
 
 @media screen and (max-width: @tablet) {
@@ -351,10 +349,6 @@ html.no-js #clear_search.hide_if_nojs {
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
     }
-  }
-
-  #main_results #links_on_top {
-    translate: -6em;
   }
 }
 
