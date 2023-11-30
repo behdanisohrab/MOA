@@ -87,7 +87,7 @@ msgstr "برنامه ها"
 #. CATEGORY_GROUPS['DICTIONARIES']
 #: searx/searxng.msg
 msgid "dictionaries"
-msgstr "لغت‌نامه ها"
+msgstr "واژه‌نامه ها"
 
 #. CATEGORY_GROUPS['LYRICS']
 #: searx/searxng.msg
