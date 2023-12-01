@@ -26,7 +26,9 @@
             {%- endfor -%}
             {{- '\n' -}}
         {%- endif -%}
+        {%- if display_tooltip -%}
         <span id="filters-btn" class="category filters-btn-tablet" onclick="toggleBtn(this, 'filters-visible', '.search_filters', 'invisible')"
-            >{{ icon('funnel-outline') }}</span>
+                >{{ icon('funnel-outline') }}</span>
+        {%- endif -%}
     </div>{{- '' -}}
 </div>
