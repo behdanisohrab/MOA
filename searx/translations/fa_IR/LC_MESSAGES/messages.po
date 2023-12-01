@@ -182,8 +182,7 @@ msgstr "خطای شبکه"
 
 #: searx/webutils.py:38
 msgid "SSL error: certificate validation has failed"
-msgstr "خطای SSL: اعتبار گواهینامه انجام نشد"
-
+msgstr "خطا SSL:اعتبار سنجی گواهی امنیتی SSL ناموفق بود"
 #: searx/webutils.py:40
 msgid "unexpected crash"
 msgstr "مشکل غیرمنتظره"
@@ -375,8 +374,7 @@ msgstr ""
 "به محض انتخاب دسته جستجو کنید. برای انتخاب چندین دسته این گزینه "
 "را غیرفعال کنید. (نیازمند جاواسکریپت)"
 =======
-"در صورت انتخاب یک دسته فورا جستجو را انجام دهید. برای انتخاب چندین دسته "
-"غیرفعال کنید. (جاوا اسکریپت مورد نیاز است)"
+
 >>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 =======
@@ -394,8 +392,7 @@ msgstr ""
 "نمایش آی‌پی شما، اگر ورودی «ip» باشد و نمایش عامل کاربر شما در صورتی که حاوی "
 "«user agent» باشد."
 =======
-"اگر پرس و جو \"ip\" باشد IP شما و اگر پرس و جو حاوی \"عامل کاربر\" باشد، "
-"عامل کاربری شما را نشان می دهد."
+
 >>>>>>> b56db4e04e0f229ba8d3dc7881382d0f1ebdeb7d
 
 #: searx/plugins/tor_check.py:25
@@ -408,8 +405,6 @@ msgid ""
 "informs the user if it is; like check.torproject.org, but from SearXNG."
 msgstr ""
 <<<<<<< HEAD
-"این افزونه بررسی می‌کند که آیا آدرس درخواست یک node خروجی TOR است یا خیر، و "
-"به کاربر اطلاع می‌دهد مانند check.torproject.org اما از موآ."
 =======
 "این افزونه بررسی می کند که آیا آدرس درخواست یک گره خروجی Tor است یا خیر، "
 "و در صورت وجود آن به کاربر اطلاع می دهد. مانند check.torproject.org، اما "
@@ -601,8 +596,7 @@ msgid "!bang for this engine"
 msgstr "!bang برای این موتور"
 
 #: searx/templates/simple/preferences.html:80
-msgid "!bang for its categories"
-msgstr "!bang برای دسته های آن"
+
 =======
 #: searx/templates/simple/preferences.html:80
 msgid "!bang for its categories"
@@ -823,11 +817,11 @@ msgstr "URL جست‌وجو"
 
 #: searx/templates/simple/elements/search_url.html:4
 msgid "Copied"
-msgstr "کپی شد"
+msgstr "رونوشت شد"
 
 #: searx/templates/simple/elements/search_url.html:4
 msgid "Copy"
-msgstr "کپی کردن"
+msgstr "رونوشت کردن"
 
 #: searx/templates/simple/elements/suggestions.html:3
 msgid "Suggestions"
