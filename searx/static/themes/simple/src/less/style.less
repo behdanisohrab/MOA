@@ -1403,15 +1403,31 @@ pre code {
 
 @font-face {
   font-family: 'Vazirmatn';
-  src: url('/static/themes/simple/fonts/Vazirmatn/Vazirmatn[wght].woff2') format('woff2 supports variations'),
-       url('/static/themes/simple/fonts/Vazirmatn/Vazirmatn[wght].woff2') format('woff2-variations');
+      src: url('../src/fonts/Vazirmatn/Vazirmatn[wght].woff2') format('woff2 supports variations'),
+           url('../src/fonts/Vazirmatn/Vazirmatn[wght].woff2') format('woff2-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
   unicode-range: U+060x, U+061x, U+062x, U+063x, U+064x, U+065x, U+066x, U+067x, U+068x, U+069x, U+06Ax, U+06Bx, U+06Cx, U+06Dx, U+06Ex, U+06Fx
 }
 
-@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-code-font@v1.1.2/dist/font-face.css");
+@font-face {
+  font-family: Vazir Code;
+  src: url('../src/fonts/Vazir-Code/Vazir-Code.eot');
+  src: url('../src/fonts/Vazir-Code/Vazir-Code.eot?#iefix') format('embedded-opentype'),
+       url('../src/fonts/Vazir-Code/Vazir-Code.woff') format('woff'),
+       url('../src/fonts/Vazir-Code/Vazir-Code.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Vazir Code Hack;
+  src: url('../src/fonts/Vazir-Code/Vazir-Code-Hack.eot');
+  src: url('../src/fonts/Vazir-Code/Vazir-Code-Hack.eot?#iefix') format('embedded-opentype'),
+       url('../src/fonts/Vazir-Code/Vazir-Code-Hack.woff') format('woff'),
+       url('../src/fonts/Vazir-Code/Vazir-Code-Hack.ttf') format('truetype');
+  font-weight: normal;
+}
 
 // Set code font ( better persian style )
 pre, code, #pagination .numbered_pagination, .result .url_wrapper, #backToTop {
