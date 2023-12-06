@@ -62,9 +62,9 @@ Now you can see MOA in your browser: https://localhost:8080
 ===
 Here are some screenshots of the application:
 
-![screenshots](./src/screenshots/Screenshot1.png)
-![screenshots](./src/screenshots/Screenshot3.png)
-![screenshots](./src/screenshots/Screenshot2.png)
+![screenshots](./src/screenshots/s1.png)
+![screenshots](./src/screenshots/s2.png)
+![screenshots](./src/screenshots/s3.png)
 
 
 
