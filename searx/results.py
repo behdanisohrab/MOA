@@ -170,6 +170,8 @@ class ResultContainer:
         'engine_data',
         'on_result',
         '_lock',
+        'Number_Images',
+        'Image_category_limiter',
     )
 
     def __init__(self):
@@ -188,7 +190,8 @@ class ResultContainer:
         self.redirect_url = None
         self.on_result = lambda _: True
         self._lock = RLock()
-
+        self.Number_Images = 16
+        self.Image_category_limiter = True
     def extend(self, engine_name, results):
         if self._closed:
             return
@@ -366,12 +369,21 @@ class ResultContainer:
         # pass 2 : group results by category and template
         gresults = []
         categoryPositions = {}
+        Zero_Value = 0
 
         for res in results:
             # FIXME : handle more than one category per engine
             engine = engines[res['engine']]
-            res['category'] = engine.categories[0] if len(engine.categories) > 0 else ''
 
+            # Limit the number of results of images category
+            if self.Image_category_limiter:
+                Categoryـstorage = engine.categories[0] if len(engine.categories) > 0 else ''
+                if Categoryـstorage == 'images' and Zero_Value < self.Number_Images:
+                    Zero_Value += 1
+                elif Categoryـstorage == 'images' and Zero_Value >= self.Number_Images:
+                    continue
+
+            res['category'] = engine.categories[0] if len(engine.categories) > 0 else ''
             # FIXME : handle more than one category per engine
             category = (
                 res['category']
