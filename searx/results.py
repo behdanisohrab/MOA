@@ -191,7 +191,7 @@ class ResultContainer:
         self.on_result = lambda _: True
         self._lock = RLock()
         self.Number_Images = 16
-        self.Image_category_limiter = True
+        self.Image_category_limiter = False
     def extend(self, engine_name, results):
         if self._closed:
             return
