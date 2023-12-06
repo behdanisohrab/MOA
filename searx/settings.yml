@@ -23,7 +23,7 @@ brand:
   public_instances: https://searx.space
   wiki_url: https://github.com/searxng/searxng/wiki
   issue_url: https://github.com/moa-engine/moa/issues
-  git_url: "https://github.com/moa-engine/moa"
+  git_url: https://github.com/moa-engine/moa
 
 
 search:
