@@ -33,9 +33,7 @@ def check_file_and_extract_type(name):
 def extract_repository_name(url):
     url_parts = url.split("/")
     repository_name = url_parts[-1]
-
     repository_name = repository_name.split(".")[0]
-
     return repository_name
 
 
@@ -63,14 +61,73 @@ def instaler(p_type, name):
             source_file = os.path.join("/mpm_cache", file)
             shutil.move(source_file, destination_file)
 
-    elif p_type == "answerer":
-        destination_file = os.path.join("/searx/answerers/", file)
+    elif p_type == "plugin":
+        destination_file = os.path.join("/searx/plugins/", file)
         files = os.listdir("/mpm_cache")
 
         for file in files:
             source_file = os.path.join("/mpm_cache", file)
             shutil.move(source_file, destination_file)
+    elif p_type == "theme":
+        destination_file = os.path.join("/searx/static/", file)
+        files = os.listdir("/mpm_cache/static")
 
+        destination_file_templates = os.path.join("/searx/static/", file)
+        files_templates = os.listdir("/mpm_cache/static")
+
+        for file in files:
+            source_file = os.path.join("/mpm_cache", file)
+            shutil.move(source_file, destination_file)
+        for file in files_templates:
+            source_file = os.path.join("/mpm_cache", file)
+            shutil.move(source_file, destination_file_templates)
+
+def lister():
+    # print engines
+    contents = os.listdir("/searx/engines/")
+    engines = ""
+    for item in contents:
+        if item == "__init__.py" or "__pycache__":
+            continue
+        engines += item + ", "
+
+    # print answerers
+    contents = os.listdir("/searx/answerers/")
+    answerers = ""
+    for item in contents:
+        if item == "__init__.py" or "__pycache__":
+            continue
+        answerers += item + ", "
+
+    # print plugins
+    contents = os.listdir("/searx/plugins/")
+    plugins = ""
+    for item in contents:
+        if item == "__init__.py" or __pycache__:
+            continue
+        plugins += item + ", "
+
+        # print themes
+    contents = os.listdir("/searx/static/themes/")
+    themes = ""
+    for item in contents:
+        themes += item + ", "
+
+    ret = f'''
+    engines:
+    {engines}
+
+    answerers:
+    {answerers}
+
+    plugins:
+    {plugins}
+
+    themes:
+    {themes}
+
+    '''
+    return ret
 text = ''' mpm MOA package manager
 To install the package:
 install <git url>
@@ -85,7 +142,7 @@ print(text)
 
 while True:
     delete_folder_cache()
-    comand = import(">>>")
+    comand = input(">>>")
     words = comand.split()
     second_word = words[1]
     first_word = words[0]
@@ -97,11 +154,11 @@ while True:
         else:
             continue
 
-
     elif first_word == "remove" or "r":
-
+        print("test")
     elif first_word == "list" or "l":
-
+        lister()
     elif first_word == "exit":
-
+        break
     else:
+        print("No such command found")
