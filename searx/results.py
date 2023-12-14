@@ -11,7 +11,8 @@ from searx.engines import engines
 from searx.metrics import histogram_observe, counter_add, count_error
 
 
-CONTENT_LEN_IGNORED_CHARS_REGEX = re.compile(r'[,;:!?\./\\\\ ()-_]', re.M | re.U)
+CONTENT_LEN_IGNORED_CHARS_REGEX = re.compile(
+    r'[,;:!?\./\\\\ ()-_]', re.M | re.U)
 WHITESPACE_REGEX = re.compile('( |\t|\n)+', re.M | re.U)
 
 
@@ -170,8 +171,7 @@ class ResultContainer:
         'engine_data',
         'on_result',
         '_lock',
-        'Number_Images',
-        'Image_category_limiter',
+        'result_merge'
     )
 
     def __init__(self):
@@ -190,8 +190,8 @@ class ResultContainer:
         self.redirect_url = None
         self.on_result = lambda _: True
         self._lock = RLock()
-        self.Number_Images = 16
-        self.Image_category_limiter = False
+        self.result_merge = True
+
     def extend(self, engine_name, results):
         if self._closed:
             return
@@ -211,7 +211,8 @@ class ResultContainer:
             elif 'number_of_results' in result and self.on_result(result):
                 self._number_of_results.append(result['number_of_results'])
             elif 'engine_data' in result and self.on_result(result):
-                self.engine_data[engine_name][result['key']] = result['engine_data']
+                self.engine_data[engine_name][result['key']
+                                              ] = result['engine_data']
             elif 'url' in result:
                 # standard result (url, title, content)
                 if not self._is_valid_url_result(result, error_msgs):
@@ -230,10 +231,12 @@ class ResultContainer:
 
         if len(error_msgs) > 0:
             for msg in error_msgs:
-                count_error(engine_name, 'some results are invalids: ' + msg, secondary=True)
+                count_error(
+                    engine_name, 'some results are invalids: ' + msg, secondary=True)
 
         if engine_name in engines:
-            histogram_observe(standard_result_count, 'engine', engine_name, 'result', 'count')
+            histogram_observe(standard_result_count, 'engine',
+                              engine_name, 'result', 'count')
 
         if not self.paging and standard_result_count > 0 and engine_name in engines and engines[engine_name].paging:
             self.paging = True
@@ -299,7 +302,8 @@ class ResultContainer:
         with self._lock:
             duplicated = self.__find_duplicated_http_result(result)
             if duplicated:
-                self.__merge_duplicated_http_result(duplicated, result, position)
+                self.__merge_duplicated_http_result(
+                    duplicated, result, position)
                 return
 
             # if there is no duplicate found, append result
@@ -358,32 +362,29 @@ class ResultContainer:
             score = result_score(result)
             result['score'] = score
             if result.get('content'):
-                result['content'] = utils.html_to_text(result['content']).strip()
+                result['content'] = utils.html_to_text(
+                    result['content']).strip()
             # removing html content and whitespace duplications
-            result['title'] = ' '.join(utils.html_to_text(result['title']).strip().split())
+            result['title'] = ' '.join(
+                utils.html_to_text(result['title']).strip().split())
             for result_engine in result['engines']:
                 counter_add(score, 'engine', result_engine, 'score')
 
-        results = sorted(self._merged_results, key=itemgetter('score'), reverse=True)
+        results = sorted(self._merged_results,
+                         key=itemgetter('score'), reverse=True)
 
         # pass 2 : group results by category and template
         gresults = []
         categoryPositions = {}
-        Zero_Value = 0
 
         for res in results:
             # FIXME : handle more than one category per engine
             engine = engines[res['engine']]
 
             # Limit the number of results of images category
-            if self.Image_category_limiter:
-                Categoryـstorage = engine.categories[0] if len(engine.categories) > 0 else ''
-                if Categoryـstorage == 'images' and Zero_Value < self.Number_Images:
-                    Zero_Value += 1
-                elif Categoryـstorage == 'images' and Zero_Value >= self.Number_Images:
-                    continue
 
-            res['category'] = engine.categories[0] if len(engine.categories) > 0 else ''
+            res['category'] = engine.categories[0] if len(
+                engine.categories) > 0 else ''
             # FIXME : handle more than one category per engine
             category = (
                 res['category']
@@ -393,7 +394,8 @@ class ResultContainer:
                 + ('img_src' if 'img_src' in res or 'thumbnail' in res else '')
             )
 
-            current = None if category not in categoryPositions else categoryPositions[category]
+            current = None if category not in categoryPositions else categoryPositions[
+                category]
 
             # group with previous results using the same category
             # if the group can accept more result and is not too far
@@ -419,7 +421,8 @@ class ResultContainer:
                 gresults.append(res)
 
                 # update categoryIndex
-                categoryPositions[category] = {'index': len(gresults), 'count': 8}
+                categoryPositions[category] = {
+                    'index': len(gresults), 'count': 8}
 
         # update _merged_results
         self._merged_results = gresults
@@ -448,10 +451,12 @@ class ResultContainer:
 
     def add_unresponsive_engine(self, engine_name: str, error_type: str, suspended: bool = False):
         if engines[engine_name].display_error_messages:
-            self.unresponsive_engines.add(UnresponsiveEngine(engine_name, error_type, suspended))
+            self.unresponsive_engines.add(
+                UnresponsiveEngine(engine_name, error_type, suspended))
 
     def add_timing(self, engine_name: str, engine_time: float, page_load_time: float):
-        self.timings.append(Timing(engine_name, total=engine_time, load=page_load_time))
+        self.timings.append(
+            Timing(engine_name, total=engine_time, load=page_load_time))
 
     def get_timings(self):
         return self.timings
