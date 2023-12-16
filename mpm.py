@@ -2,14 +2,17 @@ import git
 import os
 import shutil
 import json
-def delete_folder_cache():
-    file_list = os.listdir("mpm_cache")
+def delete_cache_in_folder(folder_path):
+    file_list = os.listdir(folder_path)
     for file_name in file_list:
-        file_path = os.path.join("mpm_cache", file_name)
+        file_path = os.path.join(folder_path, file_name)
         if os.path.isfile(file_path):
             os.remove(file_path)
         elif os.path.isdir(file_path):
-            delete_folder_cache(file_path)
+            delete_cache_in_folder(file_path)
+def delete_folder_cache():
+    cache_folder = 'mpm_cache'
+    delete_cache_in_folder(cache_folder)
 
 
 def check_file_and_extract_type(name):
@@ -83,48 +86,52 @@ def instaler(p_type, name):
             shutil.move(source_file, destination_file_templates)
 
 def lister():
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+
     # print engines
-    contents = os.listdir("/searx/engines/")
+    contents = os.listdir(current_directory + "/searx/engines/")
+    filtered_items = [item for item in contents if item != "__init__.py" and not item.endswith("pycache")]
     engines = ""
     for item in contents:
-        if item == "__init__.py" or "__pycache__":
+        if item == "__init__.py" or item.endswith("__pycache__"):
             continue
-        engines += item + ", "
+        else:
+            engines += item + "  "
 
     # print answerers
-    contents = os.listdir("/searx/answerers/")
+    contents = os.listdir(current_directory + "/searx/answerers/")
     answerers = ""
     for item in contents:
-        if item == "__init__.py" or "__pycache__":
+        if item == "__init__.py" or item.endswith("__pycache__"):
             continue
         answerers += item + ", "
 
     # print plugins
-    contents = os.listdir("/searx/plugins/")
+    contents = os.listdir(current_directory + "/searx/plugins/")
     plugins = ""
     for item in contents:
-        if item == "__init__.py" or __pycache__:
+        if item == "__init__.py" or item.endswith("__pycache__"):
             continue
         plugins += item + ", "
 
         # print themes
-    contents = os.listdir("/searx/static/themes/")
+    contents = os.listdir(current_directory + "/searx/static/themes/")
     themes = ""
     for item in contents:
         themes += item + ", "
 
     ret = f'''
-    engines:
-    {engines}
+engines:
+{engines}
 
-    answerers:
-    {answerers}
+answerers:
+{answerers}
 
-    plugins:
-    {plugins}
+plugins:
+{plugins}
 
-    themes:
-    {themes}
+themes:
+{themes}
 
     '''
     return ret
@@ -142,22 +149,27 @@ print(text)
 
 while True:
     delete_folder_cache()
-    comand = input(">>>")
-    words = comand.split()
-    second_word = words[1]
-    first_word = words[0]
-    if first_word == "install" or "i":
-        pack_name = clone_repository(second_word)
-        pack_type = check_file_and_extract_type(pack_name)
-        if pack_type:
-            instaler(pack_type, pack_name)
+    command = input(">>>")
+    words = command.split()
+    first_word = words[0] if words else ""
+
+    if first_word in ("install", "i"):
+        if len(words) >= 2:
+            second_word = words[1]
+            pack_name = clone_repository(second_word)
+            pack_type = check_file_and_extract_type(pack_name)
+            if pack_type:
+                installer(pack_type, pack_name)
+            else:
+                continue
         else:
+            print("Package name is missing.")
             continue
 
-    elif first_word == "remove" or "r":
+    elif first_word in ("remove", "r"):
         print("test")
-    elif first_word == "list" or "l":
-        lister()
+    elif first_word in ("list", "l"):
+        print(lister())
     elif first_word == "exit":
         break
     else:
