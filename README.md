@@ -31,29 +31,20 @@ To install and use MOA, follow these steps:
 Now you can see MOA in your browser: https://localhost:8888
 
  **with Docker:**
-1. Clone the repository by running the following command:
-   ```
-   git clone git@github.com:moa-engine/MOA
-   ```
-2. Navigate to the MOA directory:
-
-   ```
-   cd MOA
-   ```
-   
-3. install docker : (Debian Base Linuxs) 
+  
+1. install docker : (Debian Base Linuxs) 
    ```
    sudo apt install docker.io
    ```
    
-4. Build from docker file :
+2. Install from dockerhub :
    ```
-   docker build - < Dockerfile -t moa
+   docker pull moaengine/moa
    ```
    
 5. Run the Docker image
    ```
-   docker run -p 8080:8080 moa
+   docker run -p 8080:8080 moaengine/moa
    ```
    
 Now you can see MOA in your browser: https://localhost:8080
