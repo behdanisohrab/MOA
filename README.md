@@ -42,7 +42,7 @@ Now you can see MOA in your browser: https://localhost:8888
    docker pull moaengine/moa
    ```
    
-5. Run the Docker image
+3. Run the Docker image
    ```
    docker run -p 8080:8080 moaengine/moa
    ```
