@@ -1,23 +1,23 @@
-import math
+import math  # import math: This line imports the math module, which provides mathematical functions and constants.
 
-from searx.data import EXTERNAL_URLS
+from searx.data import EXTERNAL_URLS  # from searx.data import EXTERNAL_URLS: This line imports the EXTERNAL_URLS variable from the searx.data module.
 
 
-IMDB_PREFIX_TO_URL_ID = {
+IMDB_PREFIX_TO_URL_ID = {  # IMDB_PREFIX_TO_URL_ID = {...}: This dictionary maps IMDB item ID prefixes to URL IDs.
     'tt': 'imdb_title',
     'mn': 'imdb_name',
     'ch': 'imdb_character',
     'co': 'imdb_company',
     'ev': 'imdb_event',
-}
+}  # HTTP_WIKIMEDIA_IMAGE = 'http://commons.wikimedia.org/wiki/Special:FilePath/': This is the prefix for Wikimedia image URLs.
 HTTP_WIKIMEDIA_IMAGE = 'http://commons.wikimedia.org/wiki/Special:FilePath/'
 
-
+  # def get_imdb_url_id(imdb_item_id): This function returns the URL ID for a given IMDB item ID.
 def get_imdb_url_id(imdb_item_id):
     id_prefix = imdb_item_id[:2]
     return IMDB_PREFIX_TO_URL_ID.get(id_prefix)
 
-
+  # def get_wikimedia_image_id(url): This function returns the image ID for a given Wikimedia image URL.
 def get_wikimedia_image_id(url):
     if url.startswith(HTTP_WIKIMEDIA_IMAGE):
         return url[len(HTTP_WIKIMEDIA_IMAGE) :]
@@ -25,7 +25,7 @@ def get_wikimedia_image_id(url):
         return url[len('File:') :]
     return url
 
-
+  # def get_external_url(url_id, item_id, alternative="default"): This function returns an external URL for a given URL ID and item ID. If the URL ID is not found, it returns None.
 def get_external_url(url_id, item_id, alternative="default"):
     """Return an external URL or None if url_id is not found.
 
@@ -38,7 +38,7 @@ def get_external_url(url_id, item_id, alternative="default"):
         if url_id == 'imdb_id':
             url_id = get_imdb_url_id(item_id)
         elif url_id == 'wikimedia_image':
-            item_id = get_wikimedia_image_id(item_id)
+            item_id = get_wikimedia_image_id(item_id)  # def get_earth_coordinates_url(latitude, longitude, osm_zoom, alternative='default'): This function returns a URL for a map centered on the given latitude and longitude, with the specified OpenStreetMap zoom level.
 
     url_description = EXTERNAL_URLS.get(url_id)
     if url_description:
@@ -46,7 +46,7 @@ def get_external_url(url_id, item_id, alternative="default"):
         if url_template is not None:
             if item_id is not None:
                 return url_template.replace('$1', item_id)
-            else:
+            else:  # def area_to_osm_zoom(area): This function converts an area in square kilometers to an OpenStreetMap zoom level. The conversion is less reliable if the area is not round.
                 return url_template
     return None
 

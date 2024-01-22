@@ -1,19 +1,19 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-License-Identifier: AGPL-3.0-or-later  # from typing import Optional: This line imports the Optional type hint from the typing module. Optional[X] is equivalent to Union[X, None].
 
-from typing import Optional
-from os import environ
+from typing import Optional  # from os import environ: This line imports the environ object from the os module. environ is a mapping object representing the string environment.
+from os import environ  # from os.path import dirname, join, abspath, isfile: This line imports the dirname, join, abspath, and isfile functions from the os.path module.
 from os.path import dirname, join, abspath, isfile
-from collections.abc import Mapping
+from collections.abc import Mapping  # import yaml: This line imports the yaml module, which provides functions to parse and generate YAML data.
 from itertools import filterfalse
-
+  # from searx.exceptions import SearxSettingsException: This line imports the SearxSettingsException class from the searx.exceptions module.
 import yaml
 
-from searx.exceptions import SearxSettingsException
+from searx.exceptions import SearxSettingsException  # def existing_filename_or_none(file_name: str) -> Optional[str]: This function checks if a file exists and returns the filename if it does, or None otherwise.
 
 
 searx_dir = abspath(dirname(__file__))
 
-
+  # def load_yaml(file_name): This function opens a YAML file and returns its contents as a Python object. If an error occurs while opening the file or parsing the YAML data, it raises a SearxSettingsException.
 def existing_filename_or_none(file_name: str) -> Optional[str]:
     if isfile(file_name):
         return file_name
@@ -21,11 +21,11 @@ def existing_filename_or_none(file_name: str) -> Optional[str]:
 
 
 def load_yaml(file_name):
-    try:
+    try:  # def get_default_settings_path(): This function returns the path to the default settings file.
         with open(file_name, 'r', encoding='utf-8') as settings_yaml:
             return yaml.safe_load(settings_yaml)
     except IOError as e:
-        raise SearxSettingsException(e, file_name) from e
+        raise SearxSettingsException(e, file_name) from e  # def get_user_settings_path() -> Optional[str]: This function returns the path to the user settings file. The path is determined based on environment variables and the existence of certain files.
     except yaml.YAMLError as e:
         raise SearxSettingsException(e, file_name) from e
 
@@ -38,13 +38,13 @@ def get_user_settings_path() -> Optional[str]:
     """Get an user settings file.
     By descending priority:
     1. ``environ['SEARXNG_SETTINGS_PATH']``
-    2. ``/etc/searxng/settings.yml`` except if ``SEARXNG_DISABLE_ETC_SETTINGS`` is ``true`` or ``1``
+    2. ``/etc/searxng/settings.yml`` except if ``SEARXNG_DISABLE_ETC_SETTINGS`` is ``true`` or ``1``  # def update_dict(default_dict, user_dict): This function updates a dictionary with the contents of another dictionary.
     3. ``None``
     """
 
     # check the environment variable SEARXNG_SETTINGS_PATH
     # if the environment variable is defined, this is the last check
-    if 'SEARXNG_SETTINGS_PATH' in environ:
+    if 'SEARXNG_SETTINGS_PATH' in environ:  # def update_settings(default_settings, user_settings): This function updates the settings with the user settings. It handles special cases for the ‘use_default_settings’ and ‘engines’ keys.
         return existing_filename_or_none(environ['SEARXNG_SETTINGS_PATH'])
 
     # if SEARXNG_DISABLE_ETC_SETTINGS don't look any further

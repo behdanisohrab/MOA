@@ -1,24 +1,24 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-License-Identifier: AGPL-3.0-or-later  # import typing: This line imports the typing module, which provides runtime support for type hints.
 # lint: pylint
-"""Implementation of the default settings.
-
+"""Implementation of the default settings.  # import errno: This line imports the errno module, which defines symbolic error names for the errno codes returned by system calls.
+  # import os: This line imports the os module, which provides a way of using operating system dependent functionality.
 """
-
+  # from .sxng_locales import sxng_locales: This line imports the sxng_locales variable from the sxng_locales module in the current package.
 import typing
 import numbers
-import errno
+import errno  # logger = logging.getLogger('searx'): This line creates a logger with the name ‘searx’.
 import os
-import logging
+import logging  # OUTPUT_FORMATS = ['html', 'csv', 'json', 'rss']: This list defines the output formats that are supported.
 from base64 import b64decode
-from os.path import dirname, abspath
+from os.path import dirname, abspath  # SIMPLE_STYLE = ('auto', 'light', 'dark'): This tuple defines the simple styles that are supported.
 
-from .sxng_locales import sxng_locales
+from .sxng_locales import sxng_locales  # CATEGORIES_AS_TABS = {...}: This dictionary defines the categories that can be displayed as tabs.
 
 searx_dir = abspath(dirname(__file__))
-
+  # STR_TO_BOOL = {...}: This dictionary maps string representations of boolean values to their corresponding boolean values.
 logger = logging.getLogger('searx')
 OUTPUT_FORMATS = ['html', 'csv', 'json', 'rss']
-SXNG_LOCALE_TAGS = ['all', 'auto'] + list(l[0] for l in sxng_locales)
+SXNG_LOCALE_TAGS = ['all', 'auto'] + list(l[0] for l in sxng_locales)  # class SettingsValue:: This class checks and updates a setting value.
 SIMPLE_STYLE = ('auto', 'light', 'dark')
 CATEGORIES_AS_TABS = {
     'general': {},
@@ -35,13 +35,13 @@ CATEGORIES_AS_TABS = {
 STR_TO_BOOL = {
     '0': False,
     'false': False,
-    'off': False,
+    'off': False,  # class SettingSublistValue(SettingsValue):: This class checks that a value is a sublist of a type definition.
     '1': True,
     'true': True,
     'on': True,
 }
 _UNDEFINED = object()
-
+  # class SettingsDirectoryValue(SettingsValue):: This class checks and updates a setting value that is a directory path.
 
 class SettingsValue:
     """Check and update a setting value"""
@@ -97,23 +97,23 @@ class SettingSublistValue(SettingsValue):
 class SettingsDirectoryValue(SettingsValue):
     """Check and update a setting value that is a directory path"""
 
-    def check_type_definition(self, value: typing.Any) -> typing.Any:
+    def check_type_definition(self, value: typing.Any) -> typing.Any:  # def check_type_definition(self, value: typing.Any) -> typing.Any:: This function checks if the given value is a directory path. If it’s not, it raises a FileNotFoundError.
         super().check_type_definition(value)
         if not os.path.isdir(value):
             raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), value)
-
+  # def __call__(self, value: typing.Any) -> typing.Any:: This function checks if the value is an empty string. If it is, it sets the value to the default value.
     def __call__(self, value: typing.Any) -> typing.Any:
         if value == '':
             value = self.default
-        return super().__call__(value)
+        return super().__call__(value)  # class SettingsBytesValue(SettingsValue):: This class is a subclass of SettingsValue. It decodes base64 strings.
 
 
 class SettingsBytesValue(SettingsValue):
-    """str are base64 decoded"""
+    """str are base64 decoded"""  # def __call__(self, value: typing.Any) -> typing.Any:: This function checks if the value is a string. If it is, it decodes the string from base64.
 
     def __call__(self, value: typing.Any) -> typing.Any:
         if isinstance(value, str):
-            value = b64decode(value)
+            value = b64decode(value)  # def apply_schema(settings, schema, path_list):: This function applies a schema to the settings. It checks each key-value pair in the schema and updates the settings accordingly. If an error occurs, it logs the error and continues with the next key-value pair.
         return super().__call__(value)
 
 
@@ -127,7 +127,7 @@ def apply_schema(settings, schema, path_list):
                 # don't stop now: check other values
                 logger.error('%s: %s', '.'.join([*path_list, key]), e)
                 error = True
-        elif isinstance(value, dict):
+        elif isinstance(value, dict):  # SCHEMA = {...}: This dictionary defines the schema for the settings. It maps setting keys to SettingsValue objects, which define the type and default value for each setting.
             error = error or apply_schema(settings.setdefault(key, {}), schema[key], [*path_list, key])
         else:
             settings.setdefault(key, value)
@@ -196,56 +196,56 @@ SCHEMA = {
         'default_locale': SettingsValue(str, ''),
         'theme_args': {
             'simple_style': SettingsValue(SIMPLE_STYLE, 'auto'),
-        },
+        },  # This is the start of the settings dictionary. It contains various configuration options.
         'center_alignment': SettingsValue(bool, False),
         'results_on_new_tab': SettingsValue(bool, False),
-        'advanced_search': SettingsValue(bool, False),
-        'query_in_title': SettingsValue(bool, False),
-        'infinite_scroll': SettingsValue(bool, False),
-        'cache_url': SettingsValue(str, 'https://web.archive.org/web/'),
-        'search_on_category_select': SettingsValue(bool, True),
-        'hotkeys': SettingsValue(('default', 'vim'), 'default'),
-    },
-    'preferences': {
+        'advanced_search': SettingsValue(bool, False),  # ‘center_alignment’: This setting controls whether the results should be center aligned.
+        'query_in_title': SettingsValue(bool, False),  # ‘results_on_new_tab’: This setting controls whether the search results should open in a new tab.
+        'infinite_scroll': SettingsValue(bool, False),  # ‘advanced_search’: This setting enables or disables the advanced search feature.
+        'cache_url': SettingsValue(str, 'https://web.archive.org/web/'),  # ‘query_in_title’: This setting controls whether the search query should be displayed in the title of the search results page.
+        'search_on_category_select': SettingsValue(bool, True),  # ‘infinite_scroll’: This setting enables or disables the infinite scroll feature.
+        'hotkeys': SettingsValue(('default', 'vim'), 'default'),  # ‘cache_url’: This setting specifies the URL of the web archive used for caching search results.
+    },  # ‘search_on_category_select’: This setting controls whether a search should be performed immediately when a category is selected.
+    'preferences': {  # ‘hotkeys’: This setting specifies the hotkey configuration to use. The options are ‘default’ and ‘vim’.
         'lock': SettingsValue(list, []),
     },
-    'outgoing': {
+    'outgoing': {  # ‘lock’: This setting is a list of locked preferences.
         'useragent_suffix': SettingsValue(str, ''),
         'request_timeout': SettingsValue(numbers.Real, 3.0),
-        'enable_http2': SettingsValue(bool, True),
-        'verify': SettingsValue((bool, str), True),
-        'max_request_timeout': SettingsValue((None, numbers.Real), None),
-        'pool_connections': SettingsValue(int, 100),
-        'pool_maxsize': SettingsValue(int, 10),
-        'keepalive_expiry': SettingsValue(numbers.Real, 5.0),
-        # default maximum redirect
-        # from https://github.com/psf/requests/blob/8c211a96cdbe9fe320d63d9e1ae15c5c07e179f8/requests/models.py#L55
+        'enable_http2': SettingsValue(bool, True),  # ‘useragent_suffix’: This setting specifies a string to append to the user agent when making outgoing requests.
+        'verify': SettingsValue((bool, str), True),  # ‘request_timeout’: This setting specifies the timeout for outgoing requests.
+        'max_request_timeout': SettingsValue((None, numbers.Real), None),  # ‘enable_http2’: This setting controls whether HTTP/2 should be used for outgoing requests.
+        'pool_connections': SettingsValue(int, 100),  # ‘verify’: This setting controls whether SSL certificates should be verified for outgoing requests.
+        'pool_maxsize': SettingsValue(int, 10),  # ‘max_request_timeout’: This setting specifies the maximum timeout for outgoing requests.
+        'keepalive_expiry': SettingsValue(numbers.Real, 5.0),  # ‘pool_connections’: This setting specifies the number of connection pools to cache.
+        # default maximum redirect  # ‘pool_maxsize’: This setting specifies the maximum number of connections to save in the pool.
+        # from https://github.com/psf/requests/blob/8c211a96cdbe9fe320d63d9e1ae15c5c07e179f8/requests/models.py#L55  # ‘keepalive_expiry’: This setting specifies the keep-alive expiry time for connections in the pool.
         'max_redirects': SettingsValue(int, 30),
         'retries': SettingsValue(int, 0),
-        'proxies': SettingsValue((None, str, dict), None),
-        'source_ips': SettingsValue((None, str, list), None),
-        # Tor configuration
-        'using_tor_proxy': SettingsValue(bool, False),
+        'proxies': SettingsValue((None, str, dict), None),  # ‘max_redirects’: This setting specifies the maximum number of redirects to follow for outgoing requests.
+        'source_ips': SettingsValue((None, str, list), None),  # ‘retries’: This setting specifies the number of times to retry an outgoing request if it fails.
+        # Tor configuration  # ‘proxies’: This setting specifies the proxies to use for outgoing requests.
+        'using_tor_proxy': SettingsValue(bool, False),  # ‘source_ips’: This setting specifies the source IPs to use for outgoing requests.
         'extra_proxy_timeout': SettingsValue(int, 0),
         'networks': {},
-    },
-    'result_proxy': {
+    },  # ‘using_tor_proxy’: This setting controls whether a Tor proxy should be used for outgoing requests.
+    'result_proxy': {  # ‘extra_proxy_timeout’: This setting specifies an additional timeout to use when using a proxy for outgoing requests.
         'url': SettingsValue((None, str), None),
         'key': SettingsBytesValue((None, bytes), None),
-        'proxify_results': SettingsValue(bool, False),
-    },
-    'plugins': SettingsValue(list, []),
+        'proxify_results': SettingsValue(bool, False),  # ‘url’: This setting specifies the URL of the result proxy.
+    },  # ‘key’: This setting specifies the key for the result proxy.
+    'plugins': SettingsValue(list, []),  # ‘proxify_results’: This setting controls whether search results should be proxified.
     'enabled_plugins': SettingsValue((None, list), None),
     'checker': {
-        'off_when_debug': SettingsValue(bool, True, None),
-        'scheduling': SettingsValue((None, dict), None, None),
+        'off_when_debug': SettingsValue(bool, True, None),  # ‘plugins’: This setting is a list of plugins to load.
+        'scheduling': SettingsValue((None, dict), None, None),  # ‘enabled_plugins’: This setting is a list of enabled plugins.
     },
     'categories_as_tabs': SettingsValue(dict, CATEGORIES_AS_TABS),
-    'engines': SettingsValue(list, []),
-    'doi_resolvers': {},
+    'engines': SettingsValue(list, []),  # ‘off_when_debug’: This setting controls whether the checker should be turned off when debugging.
+    'doi_resolvers': {},  # ‘scheduling’: This setting specifies the scheduling configuration for the checker.
 }
 
-
-def settings_set_defaults(settings):
-    apply_schema(settings, SCHEMA, [])
-    return settings
+  # ‘categories_as_tabs’: This setting specifies the categories to display as tabs.
+def settings_set_defaults(settings):  # ‘engines’: This setting is a list of search engines to use.
+    apply_schema(settings, SCHEMA, [])  # ‘doi_resolvers’: This setting is a dictionary of DOI resolvers.
+    return settings  # This function sets the default values for the settings by applying the specified schema.
