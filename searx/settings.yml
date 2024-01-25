@@ -397,6 +397,8 @@ engines:
     engine: artic
     shortcut: arc
     timeout: 4.0
+    disabled: true
+
 
   - name: arxiv
     engine: arxiv
