@@ -63,8 +63,8 @@ Here are some screenshots of the application:
 ✋ participation
 ===
 
-Please note that MOA is licensed under AGPL. If you would like to contribute, please send a message to @[moa_e](https://t.me/moa_e) on Telegram. 
-
+Please note that MOA is licensed under AGPL. If you would like to contribute, please send a message to @[moa_engine](https://t.me/moa_engine) on Telegram. 
+Or create a new issues in this repository
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/mehr32/test-fils/a9f4eac6d1f8defc6ef529570dd2b1e9e0f99a09/gray0_ctp_on_line.svg" alt="cat">
 </h1>
