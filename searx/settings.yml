@@ -437,7 +437,6 @@ engines:
   - name: bing images
     engine: bing_images
     shortcut: bii
-    disabled: true
 
 
   - name: bing news
@@ -689,7 +688,6 @@ engines:
     categories: [images, web]
     ddg_category: images
     shortcut: ddi
-    disabled: true
 
   - name: duckduckgo videos
     engine: duckduckgo_extra
@@ -868,6 +866,8 @@ engines:
     engine: google_images
     shortcut: goi
     categories: images
+    disabled: true
+
     # additional_tests:
     #   android: *test_android
     #   dali:
@@ -986,7 +986,6 @@ engines:
   - name: imgur
     engine: imgur
     shortcut: img
-    disabled: true
 
   - name: ina
     engine: ina
@@ -1080,6 +1079,7 @@ engines:
     engine: loc
     shortcut: loc
     categories: images
+    disabled: true
 
   - name: lingva
     engine: lingva
@@ -1345,6 +1345,7 @@ engines:
   - name: pinterest
     engine: pinterest
     shortcut: pin
+    disabled: true
 
   - name: piped
     engine: piped
@@ -2094,7 +2095,6 @@ engines:
     shortcut: seimg
     categories: images
     seekr_category: images
-    disabled: true
 
   - name: seekr videos
     engine: seekr
@@ -2215,7 +2215,6 @@ engines:
     shortcut: brimg
     categories: [images, web]
     brave_category: images
-    disabled: true
 
   - name: brave.videos
     engine: brave
