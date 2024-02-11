@@ -193,7 +193,7 @@ outgoing:
   #
   # Extra seconds to add in order to account for the time taken by the proxy
   #
-  #  extra_proxy_timeout: 10.0
+  #  extra_proxy_timeout: 10
   #
   # uncomment below section only if you have more than one network interface
   # which can be the source of outgoing search requests
@@ -620,7 +620,6 @@ engines:
     shortcut: ddd
     weight: 2
     tests: *tests_infobox
-    disabled: true
 
   # cloudflare protected
   # - name: digbt
@@ -1086,6 +1085,7 @@ engines:
     shortcut: lv
     # set lingva instance in url, by default it will use the official instance
     # url: https://lingva.thedaviddelta.com/
+    disabled: true
 
   - name: lobste.rs
     engine: xpath
