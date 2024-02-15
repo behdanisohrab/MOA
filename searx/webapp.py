@@ -130,7 +130,7 @@ from searx.sxng_locales import sxng_locales
 from searx.search import SearchWithPlugins, initialize as search_initialize
 from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
-
+from searx.statistician import log_statistics
 logger = logger.getChild('webapp')
 
 # check secret_key
@@ -720,6 +720,7 @@ def search():
                 selected_categories=get_selected_categories(request.preferences, request.form),
                 # fmt: on
             )
+        log_statistics(False, "No query", "None")
         return index_error(output_format, 'No query'), 400
 
     # search
@@ -735,9 +736,11 @@ def search():
 
     except SearxParameterException as e:
         logger.exception('search error: SearxParameterException')
+        log_statistics(False, "search error: SearxParameterException", "None")
         return index_error(output_format, e.message), 400
     except Exception as e:  # pylint: disable=broad-except
         logger.exception(e, exc_info=True)
+        log_statistics(False, "search error", "None")
         return index_error(output_format, gettext('search error')), 500
 
     # 1. check if the result is a redirect for an external bang
@@ -835,7 +838,11 @@ def search():
             result_container.corrections,
         )
     )
-
+    # loging statistics
+    log_statistics(
+        True, grouping=search_query.categories, time_range=search_query.time_range or '',
+        number= format_decimal(result_container.number_of_results)
+        )
     # search_query.lang contains the user choice (all, auto, en, ...)
     # when the user choice is "auto", search.search_query.lang contains the detected language
     # otherwise it is equals to search_query.lang
