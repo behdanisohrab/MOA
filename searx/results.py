@@ -360,13 +360,14 @@ class ResultContainer:  # Defining a function to extend the result container. If
   # Set the result’s category to the engine’s first category if it exists
         for result in self._merged_results:
             score = result_score(result)
-            result['score'] = score  # Create a category string based on the result’s category, template, and whether it has an image source or thumbnail
-            if result.get('content'):
-                result['content'] = utils.html_to_text(
-                    result['content']).strip()  # If the category is not in the category positions, set the current position to None
+            result['score'] = score
+
             # removing html content and whitespace duplications
-            result['title'] = ' '.join(
-                utils.html_to_text(result['title']).strip().split())
+            if result.get('content'):
+                result['content'] = utils.html_to_text(result['content']).strip()
+            if result.get('title'):
+                result['title'] = ' '.join(utils.html_to_text(result['title']).strip().split())
+
             for result_engine in result['engines']:
                 counter_add(score, 'engine', result_engine, 'score')
 

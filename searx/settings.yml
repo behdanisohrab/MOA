@@ -24,7 +24,12 @@ brand:
   wiki_url: https://github.com/searxng/searxng/wiki
   issue_url: https://github.com/moa-engine/moa/issues
   git_url: https://github.com/moa-engine/moa
-
+  # custom:
+  #   maintainer: "Jon Doe"
+  #   # Custom entries in the footer: [title]: [link]
+  #   links:
+  #     Uptime: https://uptime.searxng.org/history/darmarit-org
+  #     About: "https://searxng.org"
 
 search:
   # Filter results. 0: None, 1: Moderate, 2: Strict
@@ -95,7 +100,6 @@ server:
   method: "POST"
   default_http_headers:
     X-Content-Type-Options: nosniff
-    X-XSS-Protection: 1; mode=block
     X-Download-Options: noopen
     X-Robots-Tag: noindex, nofollow
     Referrer-Policy: no-referrer
@@ -406,6 +410,11 @@ engines:
     shortcut: arx
     categories: science
     timeout: 4.0
+
+  - name: ask
+    engine: ask
+    shortcut: ask
+    disabled: true
 
   # tmp suspended:  dh key too small
   # - name: base
@@ -856,6 +865,12 @@ engines:
       require_api_key: false
       results: JSON
 
+  - name: goodreads
+    engine: goodreads
+    shortcut: good
+    timeout: 4.0
+    disabled: true
+
   - name: google
     engine: google
     shortcut: go
@@ -1053,8 +1068,9 @@ engines:
 
   - name: library genesis
     engine: xpath
-    search_url: https://libgen.fun/search.php?req={query}
-    url_xpath: //a[contains(@href,"get.php?md5")]/@href
+    # search_url: https://libgen.is/search.php?req={query}
+    search_url: https://libgen.rs/search.php?req={query}
+    url_xpath: //a[contains(@href,"book/index.php?md5")]/@href
     title_xpath: //a[contains(@href,"book/")]/text()[1]
     content_xpath: //td/a[1][contains(@href,"=author")]/text()
     categories: files
@@ -1087,6 +1103,7 @@ engines:
     # set lingva instance in url, by default it will use the official instance
     # url: https://lingva.thedaviddelta.com/
     disabled: true
+
 
   - name: lobste.rs
     engine: xpath
@@ -1716,6 +1733,13 @@ engines:
     engine: unsplash
     shortcut: us
 
+  - name: yandex music
+    engine: yandex_music
+    shortcut: ydm
+    disabled: true
+    # https://yandex.com/support/music/access.html
+    inactive: true
+
   - name: yahoo
     engine: yahoo
     shortcut: yh
@@ -2056,6 +2080,13 @@ engines:
     paging: true
     categories: videos
 
+  - name: livespace
+    engine: livespace
+    shortcut: ls
+    categories: videos
+    disabled: true
+    timeout: 5.0
+
   - name: wordnik
     engine: wordnik
     shortcut: def
@@ -2230,6 +2261,16 @@ engines:
     shortcut: brnews
     categories: news
     brave_category: news
+
+  # - name: brave.goggles
+  #   engine: brave
+  #   network: brave
+  #   shortcut: brgog
+  #   time_range_support: true
+  #   paging: true
+  #   categories: [general, web]
+  #   brave_category: goggles
+  #   Goggles: # required! This should be a URL ending in .goggle
 
   - name: lib.rs
     shortcut: lrs

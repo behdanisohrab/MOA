@@ -1,12 +1,36 @@
 # -*- coding: utf-8 -*-
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # lint: pylint
-"""Initialize :py:obj:`LOCALE_NAMES`, :py:obj:`RTL_LOCALES`.
+"""
+SearXNG’s locale data
+=====================
+
+The variables :py:obj:`RTL_LOCALES` and :py:obj:`LOCALE_NAMES` are loaded from
+:origin:`searx/data/locales.json` / see :py:obj:`locales_initialize` and
+:ref:`update_locales.py`.
+
+.. hint::
+
+   Whenever the value of :py:obj:`ADDITIONAL_TRANSLATIONS` or
+   :py:obj:`LOCALE_BEST_MATCH` is modified, the
+   :origin:`searx/data/locales.json` needs to be rebuild::
+
+     ./manage data.locales
+
+SearXNG's locale codes
+======================
+
+.. automodule:: searx.sxng_locales
+   :members:
+
+
+SearXNG’s locale implementations
+================================
 """
 
-from typing import Set, Optional, List
-import os
-import pathlib
+from __future__ import annotations
+
+from pathlib import Path
 
 import babel
 from babel.support import Translations
@@ -14,8 +38,13 @@ import babel.languages
 import babel.core
 import flask_babel
 import flask
-from flask.ctx import has_request_context  # This line saves the original get_translations function from the flask_babel module to a variable. This is done to preserve the original functionality before it gets overridden or monkey patched later in the code.
-from searx import logger
+from flask.ctx import has_request_context
+from searx import (
+    data,
+    logger,
+    searx_dir,
+)
+
 
 logger = logger.getChild('locales')  # This line initializes a dictionary for ADDITIONAL_TRANSLATIONS. This dictionary contains languages that SearXNG supports but are not supported by python-babel.
   # This line initializes a dictionary for LOCALE_BEST_MATCH. This dictionary maps locales that don’t have a translation to locales that do. For example, it uses the Taiwan version of the translation for Hong Kong.
@@ -30,7 +59,7 @@ LOCALE_NAMES = {}
 :meta hide-value:
 """
 
-RTL_LOCALES: Set[str] = set()
+RTL_LOCALES: set[str] = set()
 """List of *Right-To-Left* locales e.g. 'he' or 'fa-IR' (see
 :py:obj:`locales_initialize`)."""
 
@@ -52,7 +81,7 @@ LOCALE_BEST_MATCH = {
     "pap": "pt-BR",
 }
 """Map a locale we do not have a translations for to a locale we have a
-translation for. By example: use Taiwan version of the translation for Hong
+translation for.  By example: use Taiwan version of the translation for Hong
 Kong."""
 
 
@@ -90,74 +119,37 @@ def get_translations():
     return _flask_babel_get_translations()
 
 
-def get_locale_descr(locale, locale_name):
-    """Get locale name e.g. 'Français - fr' or 'Português (Brasil) - pt-BR'
+_TR_LOCALES: list[str] = []
 
-    :param locale: instance of :py:class:`Locale`
-    :param locale_name: name e.g. 'fr'  or 'pt_BR' (delimiter is *underscore*)
+
+def get_translation_locales() -> list[str]:
+    """Returns the list of transaltion locales (*underscore*).  The list is
+    generated from the translation folders in :origin:`searx/translations`"""
+
+    global _TR_LOCALES  # pylint:disable=global-statement
+    if _TR_LOCALES:
+        return _TR_LOCALES
+
+    tr_locales = []
+    for folder in (Path(searx_dir) / 'translations').iterdir():
+        if not folder.is_dir():
+            continue
+        if not (folder / 'LC_MESSAGES').is_dir():
+            continue
+        tr_locales.append(folder.name)
+    _TR_LOCALES = sorted(tr_locales)
+    return _TR_LOCALES
+
+
+def locales_initialize():
+    """Initialize locales environment of the SearXNG session.
+
+    - monkey patch :py:obj:`flask_babel.get_translations` by :py:obj:`get_translations`
+    - init global names :py:obj:`LOCALE_NAMES`, :py:obj:`RTL_LOCALES`
     """
-
-    native_language, native_territory = _get_locale_descr(locale, locale_name)  # This line gets the native language and territory from the locale using the _get_locale_descr function.
-    english_language, english_territory = _get_locale_descr(locale, 'en')  # This line gets the English language and territory from the locale using the _get_locale_descr function.
-  # This line checks if the native territory is the same as the English territory. If they are the same, it sets the English territory to None.
-    if native_territory == english_territory:  # This line checks if both the native territory and English territory are None.
-        english_territory = None  # If both territories are None, this line checks if the native language is the same as the English language. If they are the same, it returns the native language.
-  # If the native language and English language are not the same, it returns a string that contains both languages.
-    if not native_territory and not english_territory:  # This line constructs a string that contains the native language and territory, as well as the English language.
-        if native_language == english_language:  # This line checks if the English territory is not None.
-            return native_language  # If the English territory is not None, it returns a string that contains the native language and territory, as well as the English language and territory.
-        return native_language + ' (' + english_language + ')'  # If the English territory is None, it returns a string that contains the native language and territory, as well as the English language.
-
-    result = native_language + ', ' + native_territory + ' (' + english_language  # This line defines a function named _get_locale_descr. This function gets the language name and territory name from the locale.
-    if english_territory:  # This line gets the language name from the locale and capitalizes it.
-        return result + ', ' + english_territory + ')'  # This line checks if the first character of the language name is a lowercase letter. If it is, it capitalizes the language name.
-    return result + ')'  # This line gets the territory name from the locale.
-  # This line returns the language name and territory name.
-
-def _get_locale_descr(locale, language_code):  # This line defines a function named locales_initialize. This function initializes the locales environment of the SearXNG session.
-    language_name = locale.get_language_name(language_code).capitalize()  # This line checks if the directory parameter is None. If it is, it sets the directory to the translations directory in the same directory as this script.
-    if language_name and ('a' <= language_name[0] <= 'z'):  # This line logs a debug message that contains the directory.
-        language_name = language_name.capitalize()  # This line monkey patches the get_translations function in the flask_babel module with the get_translations function defined in this script.
-    territory_name = locale.get_territory_name(language_code)  # This line iterates over the items in the ADDITIONAL_TRANSLATIONS dictionary.
-    return language_name, territory_name  # This line parses the locale from the tag using the babel.Locale.parse function.
-  # This line adds the description to the LOCALE_NAMES dictionary with the tag as the key.
-  # This line checks if the text direction of the locale is ‘rtl’. If it is, it adds the tag to the RTL_LOCALES set.
-def locales_initialize(directory=None):  # This line iterates over the items in the LOCALE_BEST_MATCH dictionary.
-    """Initialize locales environment of the SearXNG session.  # This line gets the description from the LOCALE_NAMES dictionary using the tag as the key.
-  # This line checks if the description is None. If it is, it executes the code in the following lines.
-    - monkey patch :py:obj:`flask_babel.get_translations` by :py:obj:`get_translations`  # This line parses the locale from the tag using the babel.Locale.parse function.
-    - init global names :py:obj:`LOCALE_NAMES`, :py:obj:`RTL_LOCALES`  # This line adds the description returned by the get_locale_descr function to the LOCALE_NAMES dictionary with the tag as the key.
-    """  # This line checks if the text direction of the locale is ‘rtl’. If it is, it adds the tag to the RTL_LOCALES set.
-  # This line iterates over the sorted list of directory names in the directory.
-    directory = directory or pathlib.Path(__file__).parent / 'translations'  # This line checks if the directory is not a directory that contains LC_MESSAGES. If it is not, it continues to the next iteration.
-    logger.debug("locales_initialize: %s", directory)  # This line replaces underscores in the dirname with hyphens and assigns the result to the tag variable.
-    flask_babel.get_translations = get_translations  # This line gets the description from the LOCALE_NAMES dictionary using the tag as the key.
-  # This line checks if the description is None. If it is, it executes the code in the following lines.
-    for tag, descr in ADDITIONAL_TRANSLATIONS.items():  # This line parses the locale from the dirname using the babel.Locale.parse function.
-        locale = babel.Locale.parse(LOCALE_BEST_MATCH[tag], sep='-')  # This line adds the description returned by the get_locale_descr function to the LOCALE_NAMES dictionary with the tag as the key.
-        LOCALE_NAMES[tag] = descr  # This line checks if the text direction of the locale is ‘rtl’. If it is, it adds the tag to the RTL_LOCALES set.
-        if locale.text_direction == 'rtl':
-            RTL_LOCALES.add(tag)  # This line defines a function named region_tag. This function returns SearXNG’s region tag from the locale.
-  # This line checks if the locale does not have a territory. If it does not, it raises a ValueError.
-    for tag in LOCALE_BEST_MATCH:  # This line returns a string that contains the language and territory of the locale.
-        descr = LOCALE_NAMES.get(tag)
-        if not descr:  # This line defines a function named language_tag. This function returns SearXNG’s language tag from the locale. If the locale has a script, the tag includes the script name.
-            locale = babel.Locale.parse(tag, sep='-')  # This line assigns the language of the locale to the sxng_lang variable.
-            LOCALE_NAMES[tag] = get_locale_descr(locale, tag.replace('-', '_'))  # This line checks if the locale has a script. If it does, it adds the script to the sxng_lang variable.
-            if locale.text_direction == 'rtl':  # This line returns the sxng_lang variable.
-                RTL_LOCALES.add(tag)
-  # This line defines a function named get_locale. This function returns a babel.Locale object parsed from the locale_tag argument.
-    for dirname in sorted(os.listdir(directory)):  # This line tries to parse the locale from the locale_tag using the babel.Locale.parse function.
-        # Based on https://flask-babel.tkte.ch/_modules/flask_babel.html#Babel.list_translations  # This line returns the locale.
-        if not os.path.isdir(os.path.join(directory, dirname, 'LC_MESSAGES')):
-            continue  # This line catches a babel.core.UnknownLocaleError. If this error is raised, it executes the code in the following line.
-        tag = dirname.replace('_', '-')  # This line returns None.
-        descr = LOCALE_NAMES.get(tag)
-        if not descr:
-            locale = babel.Locale.parse(dirname)
-            LOCALE_NAMES[tag] = get_locale_descr(locale, dirname)
-            if locale.text_direction == 'rtl':
-                RTL_LOCALES.add(tag)
+    flask_babel.get_translations = get_translations
+    LOCALE_NAMES.update(data.LOCALES["LOCALE_NAMES"])
+    RTL_LOCALES.update(data.LOCALES["RTL_LOCALES"])
 
 
 def region_tag(locale: babel.Locale) -> str:
@@ -177,7 +169,7 @@ def language_tag(locale: babel.Locale) -> str:
     return sxng_lang
 
 
-def get_locale(locale_tag: str) -> Optional[babel.Locale]:
+def get_locale(locale_tag: str) -> babel.Locale | None:
     """Returns a :py:obj:`babel.Locale` object parsed from argument
     ``locale_tag``"""
     try:
@@ -190,7 +182,7 @@ def get_locale(locale_tag: str) -> Optional[babel.Locale]:
 
 def get_official_locales(
     territory: str, languages=None, regional: bool = False, de_facto: bool = True
-) -> Set[babel.Locale]:
+) -> set[babel.Locale]:
     """Returns a list of :py:obj:`babel.Locale` with languages from
     :py:obj:`babel.languages.get_official_languages`.
 
@@ -376,7 +368,7 @@ def get_engine_locale(searxng_locale, engine_locales, default=None):  # The engi
     return default
 
 
-def match_locale(searxng_locale: str, locale_tag_list: List[str], fallback: Optional[str] = None) -> Optional[str]:
+def match_locale(searxng_locale: str, locale_tag_list: list[str], fallback: str | None = None) -> str | None:
     """Return tag from ``locale_tag_list`` that best fits to ``searxng_locale``.
 
     :param str searxng_locale: SearXNG's internal representation of locale (de,
@@ -425,7 +417,7 @@ def match_locale(searxng_locale: str, locale_tag_list: List[str], fallback: Opti
     return get_engine_locale(searxng_locale, engine_locales, default=fallback)
 
 
-def build_engine_locales(tag_list: List[str]):
+def build_engine_locales(tag_list: list[str]):
     """From a list of locale tags a dictionary is build that can be passed by
     argument ``engine_locales`` to :py:obj:`get_engine_locale`.  This function
     is mainly used by :py:obj:`match_locale` and is similar to what the

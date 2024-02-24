@@ -6,16 +6,16 @@
 # Markus Heiser <markus.heiser@darmarit.de>, 2022.
 # Zaid Aiman <zaidaiman@gmail.com>, 2022.
 # chenghui-lee <chlee9926@gmail.com>, 2023.
-# return42 <markus.heiser@darmarit.de>, 2023.
+# return42 <markus.heiser@darmarit.de>, 2023, 2024.
 # alma <alma@users.noreply.translate.codeberg.org>, 2023.
 # staram <gritty.year0043@fastmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-23 08:54+0000\n"
-"PO-Revision-Date: 2023-12-29 14:09+0000\n"
-"Last-Translator: staram <gritty.year0043@fastmail.com>\n"
+"POT-Creation-Date: 2024-02-10 07:07+0000\n"
+"PO-Revision-Date: 2024-02-19 09:56+0000\n"
+"Last-Translator: return42 <markus.heiser@darmarit.de>\n"
 "Language-Team: Malay <https://translate.codeberg.org/projects/searxng/"
 "searxng/ms/>\n"
 "Language: ms\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 5.4\n"
 "Generated-By: Babel 2.14.0\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
@@ -151,6 +151,16 @@ msgstr "terang"
 msgid "dark"
 msgstr "gelap"
 
+#. BRAND_CUSTOM_LINKS['UPTIME']
+#: searx/searxng.msg
+msgid "Uptime"
+msgstr ""
+
+#. BRAND_CUSTOM_LINKS['ABOUT']
+#: searx/searxng.msg searx/templates/simple/base.html:49
+msgid "About"
+msgstr "Tentang"
+
 #: searx/webapp.py:332
 msgid "No item found"
 msgstr "barang tidak dijumpai"
@@ -232,11 +242,11 @@ msgstr "ralat API pelayan"
 msgid "Suspended"
 msgstr "Digantung"
 
-#: searx/webutils.py:317
+#: searx/webutils.py:315
 msgid "{minutes} minute(s) ago"
 msgstr "{minit} minit yang lalu"
 
-#: searx/webutils.py:318
+#: searx/webutils.py:316
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{jam} jam, {minit} minit yang lalu"
 
@@ -282,17 +292,17 @@ msgstr ""
 
 #: searx/engines/radio_browser.py:107
 msgid "votes"
-msgstr ""
+msgstr "undi"
 
 #: searx/engines/radio_browser.py:108
 msgid "clicks"
-msgstr ""
+msgstr "klik"
 
 #: searx/engines/seekr.py:194 searx/engines/zlibrary.py:129
 msgid "Language"
-msgstr ""
+msgstr "Bahasa"
 
-#: searx/engines/semantic_scholar.py:81
+#: searx/engines/semantic_scholar.py:79
 msgid ""
 "{numCitations} citations from the year {firstCitationVelocityYear} to "
 "{lastCitationVelocityYear}"
@@ -356,8 +366,7 @@ msgstr "Gantikan nama hos"
 
 #: searx/plugins/hostname_replace.py:10
 msgid "Rewrite result hostnames or remove results based on the hostname"
-msgstr ""
-"Buat semula keputusan nama hos atau buang keputusan berdasarkan nama hos"
+msgstr "Buat semula keputusan nama hos atau buang keputusan berdasarkan nama hos"
 
 #: searx/plugins/oa_doi_rewrite.py:9
 msgid "Open Access DOI rewrite"
@@ -411,8 +420,7 @@ msgstr ""
 
 #: searx/plugins/tor_check.py:86
 msgid "You are not using Tor and you have this external IP address: {ip_address}"
-msgstr ""
-"Anda tidak mengguna Tor dan ini adalah alamat IP luaran anda: {ip_address}"
+msgstr "Anda tidak mengguna Tor dan ini adalah alamat IP luaran anda: {ip_address}"
 
 #: searx/plugins/tracker_url_remover.py:29
 msgid "Tracker URL remover"
@@ -434,10 +442,6 @@ msgstr "Pergi ke %(search_page)s."
 #: searx/templates/simple/404.html:6
 msgid "search page"
 msgstr "Laman carian"
-
-#: searx/templates/simple/base.html:49
-msgid "About"
-msgstr "Tentang"
 
 #: searx/templates/simple/base.html:53
 msgid "Donate"
@@ -486,9 +490,10 @@ msgstr ""
 
 #: searx/templates/simple/macros.html:36
 msgid "Length"
-msgstr ""
+msgstr "Panjang"
 
 #: searx/templates/simple/macros.html:37
+#: searx/templates/simple/result_templates/files.html:34
 #: searx/templates/simple/result_templates/images.html:18
 #: searx/templates/simple/result_templates/paper.html:6
 msgid "Author"
@@ -496,7 +501,7 @@ msgstr "Penulis"
 
 #: searx/templates/simple/macros.html:45
 msgid "cached"
-msgstr ""
+msgstr "dicache"
 
 #: searx/templates/simple/macros.html:45
 msgid "proxied"
@@ -705,6 +710,7 @@ msgstr "Peratus"
 msgid "Parameter"
 msgstr ""
 
+#: searx/templates/simple/result_templates/files.html:36
 #: searx/templates/simple/stats.html:119
 msgid "Filename"
 msgstr "Nama fail"
@@ -750,10 +756,12 @@ msgid "Search URL"
 msgstr ""
 
 #: searx/templates/simple/elements/search_url.html:4
+#: searx/templates/simple/preferences/cookies.html:54
 msgid "Copied"
 msgstr ""
 
 #: searx/templates/simple/elements/search_url.html:4
+#: searx/templates/simple/preferences/cookies.html:54
 msgid "Copy"
 msgstr ""
 
@@ -946,10 +954,22 @@ msgstr ""
 msgid "URL to restore your preferences in another browser"
 msgstr "URL untuk memulihkan pilihan anda dalam pelayar lain"
 
-#: searx/templates/simple/preferences/cookies.html:44
+#: searx/templates/simple/preferences/cookies.html:43
 msgid ""
 "Specifying custom settings in the preferences URL can be used to sync "
 "preferences across devices."
+msgstr ""
+
+#: searx/templates/simple/preferences/cookies.html:46
+msgid "Copy preferences hash"
+msgstr ""
+
+#: searx/templates/simple/preferences/cookies.html:57
+msgid "Insert copied preferences hash (without URL) to restore"
+msgstr ""
+
+#: searx/templates/simple/preferences/cookies.html:59
+msgid "Preferences hash"
 msgstr ""
 
 #: searx/templates/simple/preferences/doi_resolver.html:2
@@ -1121,10 +1141,13 @@ msgid "repo"
 msgstr ""
 
 #: searx/templates/simple/result_templates/default.html:6
+#: searx/templates/simple/result_templates/files.html:8
+#: searx/templates/simple/result_templates/files.html:11
 msgid "show media"
 msgstr "tunjuk media"
 
 #: searx/templates/simple/result_templates/default.html:6
+#: searx/templates/simple/result_templates/files.html:8
 msgid "hide media"
 msgstr "sembunyikan media"
 
@@ -1132,6 +1155,45 @@ msgstr "sembunyikan media"
 #: searx/templates/simple/result_templates/videos.html:14
 msgid "This site did not provide any description."
 msgstr "Laman web ini tidak memberikan sebarang diskripsi."
+
+#: searx/templates/simple/result_templates/files.html:38
+#: searx/templates/simple/result_templates/torrent.html:11
+msgid "Filesize"
+msgstr "Saiz fail"
+
+#: searx/templates/simple/result_templates/files.html:39
+#: searx/templates/simple/result_templates/torrent.html:12
+msgid "Bytes"
+msgstr ""
+
+#: searx/templates/simple/result_templates/files.html:40
+#: searx/templates/simple/result_templates/torrent.html:13
+msgid "kiB"
+msgstr "kiB"
+
+#: searx/templates/simple/result_templates/files.html:41
+#: searx/templates/simple/result_templates/torrent.html:14
+msgid "MiB"
+msgstr "MiB"
+
+#: searx/templates/simple/result_templates/files.html:42
+#: searx/templates/simple/result_templates/torrent.html:15
+msgid "GiB"
+msgstr "GiB"
+
+#: searx/templates/simple/result_templates/files.html:43
+#: searx/templates/simple/result_templates/torrent.html:16
+msgid "TiB"
+msgstr "TiB"
+
+#: searx/templates/simple/result_templates/files.html:47
+msgid "Date"
+msgstr ""
+
+#: searx/templates/simple/result_templates/files.html:49
+#: searx/templates/simple/result_templates/paper.html:24
+msgid "Type"
+msgstr ""
 
 #: searx/templates/simple/result_templates/images.html:19
 msgid "Format"
@@ -1173,10 +1235,6 @@ msgstr ""
 msgid "Publisher"
 msgstr ""
 
-#: searx/templates/simple/result_templates/paper.html:24
-msgid "Type"
-msgstr ""
-
 #: searx/templates/simple/result_templates/paper.html:25
 msgid "Tags"
 msgstr "Tag"
@@ -1216,30 +1274,6 @@ msgstr ""
 #: searx/templates/simple/result_templates/torrent.html:9
 msgid "Leecher"
 msgstr ""
-
-#: searx/templates/simple/result_templates/torrent.html:11
-msgid "Filesize"
-msgstr "Saiz fail"
-
-#: searx/templates/simple/result_templates/torrent.html:12
-msgid "Bytes"
-msgstr ""
-
-#: searx/templates/simple/result_templates/torrent.html:13
-msgid "kiB"
-msgstr "kiB"
-
-#: searx/templates/simple/result_templates/torrent.html:14
-msgid "MiB"
-msgstr "MiB"
-
-#: searx/templates/simple/result_templates/torrent.html:15
-msgid "GiB"
-msgstr "GiB"
-
-#: searx/templates/simple/result_templates/torrent.html:16
-msgid "TiB"
-msgstr "TiB"
 
 #: searx/templates/simple/result_templates/torrent.html:20
 msgid "Number of Files"
