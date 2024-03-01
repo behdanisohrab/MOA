@@ -13,13 +13,14 @@
 # return42 <markus.heiser@darmarit.de>, 2023.
 # jenishngl <jenishngl+codeberg@gmail.com>, 2023.
 # sriramsekar <srirams_24@yahoo.com>, 2023.
+# Eshan-K-I <2027eiyer@tjhsst.edu>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-23 08:54+0000\n"
-"PO-Revision-Date: 2023-12-21 02:56+0000\n"
-"Last-Translator: sriramsekar <srirams_24@yahoo.com>\n"
+"POT-Creation-Date: 2024-02-10 07:07+0000\n"
+"PO-Revision-Date: 2024-01-24 12:56+0000\n"
+"Last-Translator: Eshan-K-I <2027eiyer@tjhsst.edu>\n"
 "Language: ta\n"
 "Language-Team: Tamil "
 "<https://translate.codeberg.org/projects/searxng/searxng/ta/>\n"
@@ -154,6 +155,16 @@ msgstr "ஒளி"
 msgid "dark"
 msgstr "இருள்"
 
+#. BRAND_CUSTOM_LINKS['UPTIME']
+#: searx/searxng.msg
+msgid "Uptime"
+msgstr ""
+
+#. BRAND_CUSTOM_LINKS['ABOUT']
+#: searx/searxng.msg searx/templates/simple/base.html:49
+msgid "About"
+msgstr "பற்றி"
+
 #: searx/webapp.py:332
 msgid "No item found"
 msgstr "எதுவும் கிடைக்கவில்லை"
@@ -235,11 +246,11 @@ msgstr "சேவையக API பிழை"
 msgid "Suspended"
 msgstr "இடைநிறுத்தப்பட்டது"
 
-#: searx/webutils.py:317
+#: searx/webutils.py:315
 msgid "{minutes} minute(s) ago"
 msgstr "{minutes} நிமிடங்களுக்கு முன்னால்"
 
-#: searx/webutils.py:318
+#: searx/webutils.py:316
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{hours} மணிநேரம், {minutes} நிமிடங்களுக்கு முன்னால்"
 
@@ -281,7 +292,7 @@ msgstr "வானொலி"
 
 #: searx/engines/radio_browser.py:106
 msgid "bitrate"
-msgstr ""
+msgstr "தகவல் விகிதம்"
 
 #: searx/engines/radio_browser.py:107
 msgid "votes"
@@ -296,7 +307,7 @@ msgstr "சொடுக்குகள்"
 msgid "Language"
 msgstr "மொழி"
 
-#: searx/engines/semantic_scholar.py:81
+#: searx/engines/semantic_scholar.py:79
 msgid ""
 "{numCitations} citations from the year {firstCitationVelocityYear} to "
 "{lastCitationVelocityYear}"
@@ -343,7 +354,7 @@ msgstr "இரவு"
 
 #: searx/engines/zlibrary.py:130
 msgid "Book rating"
-msgstr ""
+msgstr "புத்தகத்தின் மதிப்பீடு"
 
 #: searx/engines/zlibrary.py:131
 msgid "File quality"
@@ -440,10 +451,6 @@ msgstr "%(search_page)s-க்கு செல்."
 msgid "search page"
 msgstr "தேடல் பக்கம்"
 
-#: searx/templates/simple/base.html:49
-msgid "About"
-msgstr "பற்றி"
-
 #: searx/templates/simple/base.html:53
 msgid "Donate"
 msgstr "நன்கொடை"
@@ -494,6 +501,7 @@ msgid "Length"
 msgstr "நீளம்"
 
 #: searx/templates/simple/macros.html:37
+#: searx/templates/simple/result_templates/files.html:34
 #: searx/templates/simple/result_templates/images.html:18
 #: searx/templates/simple/result_templates/paper.html:6
 msgid "Author"
@@ -710,6 +718,7 @@ msgstr "சதவிதம்"
 msgid "Parameter"
 msgstr "அளவுரு"
 
+#: searx/templates/simple/result_templates/files.html:36
 #: searx/templates/simple/stats.html:119
 msgid "Filename"
 msgstr "கோப்பு பெயர்"
@@ -755,10 +764,12 @@ msgid "Search URL"
 msgstr "இத்தேடலின் முகவரி"
 
 #: searx/templates/simple/elements/search_url.html:4
+#: searx/templates/simple/preferences/cookies.html:54
 msgid "Copied"
 msgstr ""
 
 #: searx/templates/simple/elements/search_url.html:4
+#: searx/templates/simple/preferences/cookies.html:54
 msgid "Copy"
 msgstr ""
 
@@ -955,10 +966,22 @@ msgstr ""
 msgid "URL to restore your preferences in another browser"
 msgstr "மற்றொரு உலாவியில் உங்கள் விருப்பங்களை மீட்டமைப்பதற்கான URL"
 
-#: searx/templates/simple/preferences/cookies.html:44
+#: searx/templates/simple/preferences/cookies.html:43
 msgid ""
 "Specifying custom settings in the preferences URL can be used to sync "
 "preferences across devices."
+msgstr ""
+
+#: searx/templates/simple/preferences/cookies.html:46
+msgid "Copy preferences hash"
+msgstr ""
+
+#: searx/templates/simple/preferences/cookies.html:57
+msgid "Insert copied preferences hash (without URL) to restore"
+msgstr ""
+
+#: searx/templates/simple/preferences/cookies.html:59
+msgid "Preferences hash"
 msgstr ""
 
 #: searx/templates/simple/preferences/doi_resolver.html:2
@@ -1136,10 +1159,13 @@ msgid "repo"
 msgstr ""
 
 #: searx/templates/simple/result_templates/default.html:6
+#: searx/templates/simple/result_templates/files.html:8
+#: searx/templates/simple/result_templates/files.html:11
 msgid "show media"
 msgstr "ஊடகத்தைக் காட்டு"
 
 #: searx/templates/simple/result_templates/default.html:6
+#: searx/templates/simple/result_templates/files.html:8
 msgid "hide media"
 msgstr "ஊடகத்தை மறை"
 
@@ -1147,6 +1173,45 @@ msgstr "ஊடகத்தை மறை"
 #: searx/templates/simple/result_templates/videos.html:14
 msgid "This site did not provide any description."
 msgstr "இந்த தளம் எந்த விளக்கத்தையும் வழங்கவில்லை."
+
+#: searx/templates/simple/result_templates/files.html:38
+#: searx/templates/simple/result_templates/torrent.html:11
+msgid "Filesize"
+msgstr "கோப்பளவு"
+
+#: searx/templates/simple/result_templates/files.html:39
+#: searx/templates/simple/result_templates/torrent.html:12
+msgid "Bytes"
+msgstr "பைட்டுகள்"
+
+#: searx/templates/simple/result_templates/files.html:40
+#: searx/templates/simple/result_templates/torrent.html:13
+msgid "kiB"
+msgstr "kiB"
+
+#: searx/templates/simple/result_templates/files.html:41
+#: searx/templates/simple/result_templates/torrent.html:14
+msgid "MiB"
+msgstr "MiB"
+
+#: searx/templates/simple/result_templates/files.html:42
+#: searx/templates/simple/result_templates/torrent.html:15
+msgid "GiB"
+msgstr "GiB"
+
+#: searx/templates/simple/result_templates/files.html:43
+#: searx/templates/simple/result_templates/torrent.html:16
+msgid "TiB"
+msgstr "TiB"
+
+#: searx/templates/simple/result_templates/files.html:47
+msgid "Date"
+msgstr ""
+
+#: searx/templates/simple/result_templates/files.html:49
+#: searx/templates/simple/result_templates/paper.html:24
+msgid "Type"
+msgstr ""
 
 #: searx/templates/simple/result_templates/images.html:19
 msgid "Format"
@@ -1188,10 +1253,6 @@ msgstr ""
 msgid "Publisher"
 msgstr ""
 
-#: searx/templates/simple/result_templates/paper.html:24
-msgid "Type"
-msgstr ""
-
 #: searx/templates/simple/result_templates/paper.html:25
 msgid "Tags"
 msgstr ""
@@ -1231,30 +1292,6 @@ msgstr "பகிர்பவர்"
 #: searx/templates/simple/result_templates/torrent.html:9
 msgid "Leecher"
 msgstr "எடுப்பவர்"
-
-#: searx/templates/simple/result_templates/torrent.html:11
-msgid "Filesize"
-msgstr "கோப்பளவு"
-
-#: searx/templates/simple/result_templates/torrent.html:12
-msgid "Bytes"
-msgstr "பைட்டுகள்"
-
-#: searx/templates/simple/result_templates/torrent.html:13
-msgid "kiB"
-msgstr "kiB"
-
-#: searx/templates/simple/result_templates/torrent.html:14
-msgid "MiB"
-msgstr "MiB"
-
-#: searx/templates/simple/result_templates/torrent.html:15
-msgid "GiB"
-msgstr "GiB"
-
-#: searx/templates/simple/result_templates/torrent.html:16
-msgid "TiB"
-msgstr "TiB"
 
 #: searx/templates/simple/result_templates/torrent.html:20
 msgid "Number of Files"

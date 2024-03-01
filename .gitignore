@@ -24,3 +24,4 @@ gh-pages/
 .idea/
 
 searx/version_frozen.py
+searx/statistics.log
