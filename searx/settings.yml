@@ -347,6 +347,7 @@ engines:
     timeout: 4.0
     shortcut: apkm
     categories: files
+    disabled: true
 
   - name: apple app store
     engine: apple_app_store
@@ -378,6 +379,7 @@ engines:
     engine: archlinux
     shortcut: al
     categories: it
+    disabled: true
 
   - name: archive is
     engine: xpath
@@ -447,6 +449,7 @@ engines:
   - name: bing images
     engine: bing_images
     shortcut: bii
+    disabled: true
 
 
   - name: bing news
@@ -624,6 +627,7 @@ engines:
     engine: deviantart
     shortcut: da
     timeout: 3.0
+    disabled: true
 
   - name: ddg definitions
     engine: duckduckgo_definitions
@@ -697,6 +701,7 @@ engines:
     categories: [images, web]
     ddg_category: images
     shortcut: ddi
+    disabled: true
 
   - name: duckduckgo videos
     engine: duckduckgo_extra
@@ -764,6 +769,7 @@ engines:
     engine: www1x
     shortcut: 1x
     timeout: 3.0
+    disabled: true
 
   - name: fdroid
     engine: fdroid
@@ -881,7 +887,6 @@ engines:
     engine: google_images
     shortcut: goi
     categories: images
-    disabled: true
 
     # additional_tests:
     #   android: *test_android
@@ -1001,11 +1006,13 @@ engines:
   - name: imgur
     engine: imgur
     shortcut: img
+    disabled: true
 
   - name: ina
     engine: ina
     shortcut: in
     timeout: 6.0
+    disabled: true
 
   - name: invidious
     engine: invidious
@@ -1115,6 +1122,7 @@ engines:
     categories: it
     shortcut: lo
     timeout: 5.0
+    disabled: true
     about:
       website: https://lobste.rs/
       wikidata_id: Q60762874
@@ -1127,6 +1135,7 @@ engines:
     shortcut: lyrics
     engine: xpath
     timeout: 4.0
+    disabled: true
     categories: [music, lyrics]
     paging: true
     search_url: https://search.azlyrics.com/search.php?q={query}&w=lyrics&p={pageno}
@@ -1732,6 +1741,7 @@ engines:
   - name: unsplash
     engine: unsplash
     shortcut: us
+    disabled: true
 
   - name: yandex music
     engine: yandex_music
@@ -1760,6 +1770,7 @@ engines:
     #
     # Or you can use the html non-stable engine, activated by default
     engine: youtube_noapi
+    disabled: true
 
   - name: aparat
     shortcut: apt
@@ -1772,6 +1783,7 @@ engines:
   - name: vimeo
     engine: vimeo
     shortcut: vm
+    disabled: true
 
   - name: wiby
     engine: json_engine
@@ -2079,6 +2091,7 @@ engines:
     base_url: https://rumble.com/
     paging: true
     categories: videos
+    disabled: true
 
   - name: livespace
     engine: livespace
@@ -2127,6 +2140,7 @@ engines:
     shortcut: seimg
     categories: images
     seekr_category: images
+    disabled: true
 
   - name: seekr videos
     engine: seekr
@@ -2162,6 +2176,7 @@ engines:
     engine: wallhaven
     # api_key: abcdefghijklmnopqrstuvwxyz
     shortcut: wh
+    disabled: true
 
     # wikimini: online encyclopedia for children
     # The fulltext and title parameter is necessary for Wikimini because
@@ -2247,6 +2262,7 @@ engines:
     shortcut: brimg
     categories: [images, web]
     brave_category: images
+    disabled: true
 
   - name: brave.videos
     engine: brave
