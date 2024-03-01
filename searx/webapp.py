@@ -840,7 +840,7 @@ def search():
     )
     # loging statistics
     log_statistics(
-        True, grouping=search_query.categories, time_range=search_query.time_range or '',
+        grouping=search_query.categories,
         number= format_decimal(result_container.number_of_results)
         )
     # search_query.lang contains the user choice (all, auto, en, ...)
