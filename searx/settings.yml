@@ -24,7 +24,12 @@ brand:
   wiki_url: https://github.com/searxng/searxng/wiki
   issue_url: https://github.com/moa-engine/moa/issues
   git_url: https://github.com/moa-engine/moa
-
+  # custom:
+  #   maintainer: "Jon Doe"
+  #   # Custom entries in the footer: [title]: [link]
+  #   links:
+  #     Uptime: https://uptime.searxng.org/history/darmarit-org
+  #     About: "https://searxng.org"
 
 search:
   # Filter results. 0: None, 1: Moderate, 2: Strict
@@ -95,7 +100,6 @@ server:
   method: "POST"
   default_http_headers:
     X-Content-Type-Options: nosniff
-    X-XSS-Protection: 1; mode=block
     X-Download-Options: noopen
     X-Robots-Tag: noindex, nofollow
     Referrer-Policy: no-referrer
@@ -343,6 +347,7 @@ engines:
     timeout: 4.0
     shortcut: apkm
     categories: files
+    disabled: true
 
   - name: apple app store
     engine: apple_app_store
@@ -374,6 +379,7 @@ engines:
     engine: archlinux
     shortcut: al
     categories: it
+    disabled: true
 
   - name: archive is
     engine: xpath
@@ -407,6 +413,11 @@ engines:
     categories: science
     timeout: 4.0
 
+  - name: ask
+    engine: ask
+    shortcut: ask
+    disabled: true
+
   # tmp suspended:  dh key too small
   # - name: base
   #   engine: base
@@ -438,6 +449,7 @@ engines:
   - name: bing images
     engine: bing_images
     shortcut: bii
+    disabled: true
 
 
   - name: bing news
@@ -615,6 +627,7 @@ engines:
     engine: deviantart
     shortcut: da
     timeout: 3.0
+    disabled: true
 
   - name: ddg definitions
     engine: duckduckgo_definitions
@@ -688,6 +701,7 @@ engines:
     categories: [images, web]
     ddg_category: images
     shortcut: ddi
+    disabled: true
 
   - name: duckduckgo videos
     engine: duckduckgo_extra
@@ -755,6 +769,7 @@ engines:
     engine: www1x
     shortcut: 1x
     timeout: 3.0
+    disabled: true
 
   - name: fdroid
     engine: fdroid
@@ -856,6 +871,12 @@ engines:
       require_api_key: false
       results: JSON
 
+  - name: goodreads
+    engine: goodreads
+    shortcut: good
+    timeout: 4.0
+    disabled: true
+
   - name: google
     engine: google
     shortcut: go
@@ -866,7 +887,6 @@ engines:
     engine: google_images
     shortcut: goi
     categories: images
-    disabled: true
 
     # additional_tests:
     #   android: *test_android
@@ -986,11 +1006,13 @@ engines:
   - name: imgur
     engine: imgur
     shortcut: img
+    disabled: true
 
   - name: ina
     engine: ina
     shortcut: in
     timeout: 6.0
+    disabled: true
 
   - name: invidious
     engine: invidious
@@ -1053,8 +1075,9 @@ engines:
 
   - name: library genesis
     engine: xpath
-    search_url: https://libgen.fun/search.php?req={query}
-    url_xpath: //a[contains(@href,"get.php?md5")]/@href
+    # search_url: https://libgen.is/search.php?req={query}
+    search_url: https://libgen.rs/search.php?req={query}
+    url_xpath: //a[contains(@href,"book/index.php?md5")]/@href
     title_xpath: //a[contains(@href,"book/")]/text()[1]
     content_xpath: //td/a[1][contains(@href,"=author")]/text()
     categories: files
@@ -1088,6 +1111,7 @@ engines:
     # url: https://lingva.thedaviddelta.com/
     disabled: true
 
+
   - name: lobste.rs
     engine: xpath
     search_url: https://lobste.rs/search?utf8=%E2%9C%93&q={query}&what=stories&order=relevance
@@ -1098,6 +1122,7 @@ engines:
     categories: it
     shortcut: lo
     timeout: 5.0
+    disabled: true
     about:
       website: https://lobste.rs/
       wikidata_id: Q60762874
@@ -1110,6 +1135,7 @@ engines:
     shortcut: lyrics
     engine: xpath
     timeout: 4.0
+    disabled: true
     categories: [music, lyrics]
     paging: true
     search_url: https://search.azlyrics.com/search.php?q={query}&w=lyrics&p={pageno}
@@ -1715,6 +1741,14 @@ engines:
   - name: unsplash
     engine: unsplash
     shortcut: us
+    disabled: true
+
+  - name: yandex music
+    engine: yandex_music
+    shortcut: ydm
+    disabled: true
+    # https://yandex.com/support/music/access.html
+    inactive: true
 
   - name: yahoo
     engine: yahoo
@@ -1736,6 +1770,7 @@ engines:
     #
     # Or you can use the html non-stable engine, activated by default
     engine: youtube_noapi
+    disabled: true
 
   - name: aparat
     shortcut: apt
@@ -1748,6 +1783,7 @@ engines:
   - name: vimeo
     engine: vimeo
     shortcut: vm
+    disabled: true
 
   - name: wiby
     engine: json_engine
@@ -2055,6 +2091,14 @@ engines:
     base_url: https://rumble.com/
     paging: true
     categories: videos
+    disabled: true
+
+  - name: livespace
+    engine: livespace
+    shortcut: ls
+    categories: videos
+    disabled: true
+    timeout: 5.0
 
   - name: wordnik
     engine: wordnik
@@ -2096,6 +2140,7 @@ engines:
     shortcut: seimg
     categories: images
     seekr_category: images
+    disabled: true
 
   - name: seekr videos
     engine: seekr
@@ -2131,6 +2176,7 @@ engines:
     engine: wallhaven
     # api_key: abcdefghijklmnopqrstuvwxyz
     shortcut: wh
+    disabled: true
 
     # wikimini: online encyclopedia for children
     # The fulltext and title parameter is necessary for Wikimini because
@@ -2216,6 +2262,7 @@ engines:
     shortcut: brimg
     categories: [images, web]
     brave_category: images
+    disabled: true
 
   - name: brave.videos
     engine: brave
@@ -2230,6 +2277,16 @@ engines:
     shortcut: brnews
     categories: news
     brave_category: news
+
+  # - name: brave.goggles
+  #   engine: brave
+  #   network: brave
+  #   shortcut: brgog
+  #   time_range_support: true
+  #   paging: true
+  #   categories: [general, web]
+  #   brave_category: goggles
+  #   Goggles: # required! This should be a URL ending in .goggle
 
   - name: lib.rs
     shortcut: lrs

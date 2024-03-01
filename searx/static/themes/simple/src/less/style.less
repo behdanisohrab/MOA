@@ -117,7 +117,8 @@ footer {
 }
 
 input[type="submit"],
-#results button[type="submit"] {
+#results button[type="submit"],
+.button {
   padding: 0.7rem;
   display: inline-block;
   background: var(--color-btn-background);
@@ -379,7 +380,7 @@ article[data-vim-selected].category-social {
 .template_group_images {
   border-bottom: 1px solid var(--color-header-border);
   position: relative;
-  
+
   .results {
     display: flex;
     flex-wrap: wrap;
@@ -405,7 +406,7 @@ article[data-vim-selected].category-social {
     z-index: 2;
     bottom: -.75rem;
     width: 100%;
-    
+
     .btn {
       background: var(--color-base-background);
       box-shadow: 0 -.25rem 1rem var(--color-base-background);
@@ -418,7 +419,7 @@ article[data-vim-selected].category-social {
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      
+
       .text {
         display: none;
       }
@@ -433,7 +434,7 @@ article[data-vim-selected].category-social {
     .results {
       height: 51.5rem;
     }
-  
+
     &::before {
       display: none;
     }
@@ -530,7 +531,7 @@ article[data-vim-selected].category-social {
   flex-wrap: wrap;
   justify-content: flex-end;
   color: var(--color-result-engines-font);
-  
+
   span {
     font-size: smaller;
     margin-top: 0;
@@ -559,12 +560,12 @@ article[data-vim-selected].category-social {
   margin: 0.25rem;
   border: none !important;
   height: @results-image-row-height;
-  
+
   & > a {
     position: relative;
     outline: none;
   }
-  
+
   img {
     margin: 0;
     padding: 0;
@@ -575,12 +576,12 @@ article[data-vim-selected].category-social {
     vertical-align: bottom;
     background: var(--color-result-image-background);
   }
-  
+
   span.title,
   span.source {
     display: block;
     position: absolute;
-    
+
     width: 100%;
     font-size: 0.9rem;
     color: var(--color-result-image-span-font);
@@ -589,7 +590,7 @@ article[data-vim-selected].category-social {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  
+
   span.source {
     padding: 1.8rem 0 0 0;
     font-size: 0.7rem;
@@ -602,13 +603,13 @@ article[data-vim-selected].category-social {
     height: 100px !important;
     width: auto !important;
   }
-  
+
   table {
     font-size: 0.9em;
     width: auto;
     border-collapse: separate;
     border-spacing: 0 0.35rem;
-    
+
     th {
       font-weight: inherit;
       width: 17rem;
@@ -621,13 +622,13 @@ article[data-vim-selected].category-social {
       .ltr-text-align-left();
     }
   }
-  
+
   &:first-child {
-    
+
     small {
       display: none;
     }
-    
+
     img.image {
       height: 150px;
     }
@@ -635,7 +636,7 @@ article[data-vim-selected].category-social {
 }
 
 .result-dictionaries {
-  
+
   .word_box {
     display: flex;
     align-items: center;
@@ -727,13 +728,13 @@ article[data-vim-selected].category-social {
     overflow: hidden;
     text-align: left;
   }
-  
+
   input[type="submit"],
   .infobox .url a {
     color: var(--color-result-link-font);
     text-decoration: none;
     font-size: 0.9rem;
-    
+
     &:hover {
       text-decoration: underline;
     }
@@ -748,12 +749,12 @@ article[data-vim-selected].category-social {
   margin-bottom: 1rem;
   border-bottom: 2px solid;
   border-image: linear-gradient(to right, var(--color-backtotop-font), transparent 60%) 1;
-  
+
   h4,
   input[type="submit"] {
     display: inline-block;
   }
-  
+
   h4 {
     padding: .5rem 0;
     margin: .5rem;
@@ -805,7 +806,7 @@ summary.title {
   h4 {
     display: none;
   }
-  
+
   span {
     overflow-wrap: anywhere;
   }
@@ -835,7 +836,7 @@ summary.title {
   color: var(--color-sidebar-font);
   max-width: 35rem;
   min-width: 30rem;
-  
+
   .infobox {
     margin: 10px 0 10px;
     background-color: var(--color-sidebar-background);
@@ -853,7 +854,7 @@ summary.title {
       margin: 0 0 0.5em 0;
       text-transform: capitalize;
     }
-    
+
     img {
       max-width: 60%;
       max-height: 12em;
@@ -862,11 +863,11 @@ summary.title {
       margin-bottom: 1rem;
       border-radius: .5rem;
     }
-    
+
     p {
       text-align: justify;
     }
-    
+
     dt {
       font-weight: bold;
     }
@@ -881,7 +882,7 @@ summary.title {
         dl {
           margin: 0.5em 0;
         }
-  
+
         dt {
           display: inline;
           margin-top: 0.5em;
@@ -890,22 +891,22 @@ summary.title {
           .ltr-margin-left(0);
           padding: 0;
         }
-  
+
         dd {
           display: inline;
           margin: 0.5em 0;
           padding: 0;
         }
       }
-  
+
       input {
         font-size: 1em;
       }
-      
+
       br {
         clear: both;
       }
-      
+
       .attributes,
       .urls {
         clear: both;
@@ -926,7 +927,7 @@ summary.title {
       flex-direction: column;
       align-items: center;
       transition: background-color 250ms;
-      
+
       .btn {
         background-color: var(--color-categories-item-selected-font);
         border-top-left-radius: 1rem;
@@ -943,10 +944,10 @@ summary.title {
           transition: transform 250ms;
           transform: rotate(180deg);
         }
-        
+
       }
     }
-    
+
     &.collapse-open {
       .infobox-more {
         grid-template-rows: 1fr;
@@ -994,7 +995,7 @@ summary.title {
   justify-content: space-evenly;
   flex-direction: row-reverse;
   align-items: center;
-  
+
   br {
     clear: both;
   }
@@ -1039,7 +1040,7 @@ summary.title {
   opacity: 0;
   pointer-events: none;
   .rounded-corners;
-  
+
   a {
     display: block;
     margin: 0;
@@ -1132,7 +1133,7 @@ tablet layout
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      padding: 0 0 3px 0;
+      padding: 3px 0 0 0;
     }
   }
 
@@ -1234,23 +1235,23 @@ tablet layout
   "sidebar"
   "urls"
   "pagination";
-  
+
   #sidebar {
     display: none;
   }
-  
+
   #urls {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
     padding: 1rem @results-offset;
   }
-  
+
   #urls::after {
     flex-grow: 10;
     content: "";
   }
-  
+
   #pagination {
     .ltr-margin-right(4rem);
   }
@@ -1263,11 +1264,11 @@ phone layout
 @media screen and (max-width: @phone) {
   // based on the tablet layout
   .results-tablet();
-  
+
   html {
     background-color: var(--color-base-background-mobile);
   }
-  
+
   #sidebar {
     min-width: min-content !important;
   }
@@ -1276,16 +1277,16 @@ phone layout
     grid-template-columns: 100%;
     margin: 0 auto;
   }
-  
+
   #main_index #links_on_top {
     top: 1rem;
     .ltr-right(0.5rem);
   }
-  
+
   #urls {
     background-color: var(--color-base-background-mobile) !important;
   }
-  
+
   #results {
     margin: 0;
     padding: 0;
@@ -1306,42 +1307,42 @@ phone layout
     margin: 1rem 10px;
     .rounded-corners;
   }
-  
+
   .result-images {
     margin: 0;
     height: @results-image-row-height-phone;
     background: var(--color-base-background-mobile);
   }
-  
+
   .infobox {
     border: none !important;
     padding: 1rem 1.5rem !important;
-    
+
     img {
       max-height: none !important;
       max-width: 100% !important;
     }
   }
-  
+
   .numbered_pagination {
     display: none;
   }
-  
+
   .result-paper {
     .attributes {
       display: block;
 
       div {
         display: block;
-        
+
         span {
           display: inline;
         }
-        
+
         span:first-child {
           font-weight: bold;
         }
-        
+
         span:nth-child(2) {
           .ltr-margin-left(0.5rem);
         }
@@ -1373,7 +1374,7 @@ small-phone layout
     img.thumbnail {
       float: none !important;
     }
-    
+
     .content {
       overflow: inherit;
     }
