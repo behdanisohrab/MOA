@@ -70,7 +70,7 @@ while IFS= read -r line; do
 done <<< "$(git ls-files './tests/*.yml' './searx/*.yml' './utils/templates/etc/searxng/*.yml')"
 
 RST_FILES=(
-    'README.rst'
+    'README.md'
 )
 
 PYLINT_SEARXNG_DISABLE_OPTION="\
