@@ -54,7 +54,7 @@ setup(
     package_data={
         'searx': [
             'settings.yml',
-            '../README.rst',
+            '../README.md',
             '../requirements.txt',
             '../requirements-dev.txt',
             'data/*',
