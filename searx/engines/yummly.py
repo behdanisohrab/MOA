@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """Yummly
 """
 
@@ -69,7 +68,7 @@ def response(resp):
                 'title': result['display']['displayName'],
                 'content': content,
                 'img_src': img_src,
-                'metadata': f"{gettext('Language')}: {result['locale'].split('-')[0]}",
+                'metadata': gettext('Language') + f": {result['locale'].split('-')[0]}",
             }
         )
 

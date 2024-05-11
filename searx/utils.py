@@ -1,6 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
-# pyright: basic
 """Utility functions for the engines
 
 """
@@ -20,7 +18,7 @@ from urllib.parse import urljoin, urlparse
 from markdown_it import MarkdownIt
 
 from lxml import html
-from lxml.etree import ElementBase, XPath, XPathError, XPathSyntaxError, _ElementStringResult, _ElementUnicodeResult
+from lxml.etree import ElementBase, XPath, XPathError, XPathSyntaxError
 
 from searx import settings
 from searx.data import USER_AGENTS, data_dir
@@ -48,6 +46,7 @@ _STORAGE_UNIT_VALUE: Dict[str, int] = {
     'GB': 1024 * 1024 * 1024,
     'MB': 1024 * 1024,
     'TiB': 1000 * 1000 * 1000 * 1000,
+    'GiB': 1000 * 1000 * 1000,
     'MiB': 1000 * 1000,
     'KiB': 1000,
 }
@@ -55,7 +54,7 @@ _STORAGE_UNIT_VALUE: Dict[str, int] = {
 _XPATH_CACHE: Dict[str, XPath] = {}
 _LANG_TO_LC_CACHE: Dict[str, Dict[str, str]] = {}
 
-_FASTTEXT_MODEL: Optional["fasttext.FastText._FastText"] = None
+_FASTTEXT_MODEL: Optional["fasttext.FastText._FastText"] = None  # type: ignore
 """fasttext model to predict laguage of a search term"""
 
 SEARCH_LANGUAGE_CODES = frozenset([searxng_locale[0].split('-')[0] for searxng_locale in sxng_locales])
@@ -218,7 +217,7 @@ def extract_text(xpath_results, allow_none: bool = False) -> Optional[str]:
         text: str = html.tostring(xpath_results, encoding='unicode', method='text', with_tail=False)
         text = text.strip().replace('\n', ' ')
         return ' '.join(text.split())
-    if isinstance(xpath_results, (_ElementStringResult, _ElementUnicodeResult, str, Number, bool)):
+    if isinstance(xpath_results, (str, Number, bool)):
         return str(xpath_results)
     if xpath_results is None and allow_none:
         return None
@@ -351,6 +350,18 @@ def get_torrent_size(filesize: str, filesize_multiplier: str) -> Optional[int]:
         return int(float(filesize) * multiplier)
     except ValueError:
         return None
+
+
+def humanize_bytes(size, precision=2):
+    """Determine the *human readable* value of bytes on 1024 base (1KB=1024B)."""
+    s = ['B ', 'KB', 'MB', 'GB', 'TB']
+
+    x = len(s)
+    p = 0
+    while size > 1024 and p < x:
+        p += 1
+        size = size / 1024.0
+    return "%.*f %s" % (precision, size, s[p])
 
 
 def convert_str_to_int(number_str: str) -> int:
@@ -582,7 +593,7 @@ def eval_xpath_getindex(elements: ElementBase, xpath_spec: XPathSpecType, index:
     return default
 
 
-def _get_fasttext_model() -> "fasttext.FastText._FastText":
+def _get_fasttext_model() -> "fasttext.FastText._FastText":  # type: ignore
     global _FASTTEXT_MODEL  # pylint: disable=global-statement
     if _FASTTEXT_MODEL is None:
         import fasttext  # pylint: disable=import-outside-toplevel

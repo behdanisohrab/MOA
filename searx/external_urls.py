@@ -1,4 +1,8 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# pylint: disable=missing-module-docstring
+
 import math  # import math: This line imports the math module, which provides mathematical functions and constants.
+
 
 from searx.data import EXTERNAL_URLS  # from searx.data import EXTERNAL_URLS: This line imports the EXTERNAL_URLS variable from the searx.data module.
 
@@ -46,8 +50,7 @@ def get_external_url(url_id, item_id, alternative="default"):
         if url_template is not None:
             if item_id is not None:
                 return url_template.replace('$1', item_id)
-            else:  # def area_to_osm_zoom(area): This function converts an area in square kilometers to an OpenStreetMap zoom level. The conversion is less reliable if the area is not round.
-                return url_template
+            return url_template
     return None
 
 

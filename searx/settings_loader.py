@@ -1,4 +1,6 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later  # from typing import Optional: This line imports the Optional type hint from the typing module. Optional[X] is equivalent to Union[X, None].
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# pylint: disable=missing-module-docstring, too-many-branches
+# from typing import Optional: This line imports the Optional type hint from the typing module. Optional[X] is equivalent to Union[X, None].
 
 from typing import Optional  # from os import environ: This line imports the environ object from the os module. environ is a mapping object representing the string environment.
 from os import environ  # from os.path import dirname, join, abspath, isfile: This line imports the dirname, join, abspath, and isfile functions from the os.path module.

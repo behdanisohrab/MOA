@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 # pylint: disable=global-statement
 # pylint: disable=missing-module-docstring, missing-class-docstring
 
@@ -111,8 +110,7 @@ class Network:
             return
         if isinstance(local_addresses, str):
             local_addresses = [local_addresses]
-        for address in local_addresses:
-            yield address
+        yield from local_addresses
 
     def get_ipaddress_cycle(self):
         while True:

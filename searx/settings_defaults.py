@@ -2,6 +2,7 @@
 # lint: pylint
 """Implementation of the default settings.  # import errno: This line imports the errno module, which defines symbolic error names for the errno codes returned by system calls.
   # import os: This line imports the os module, which provides a way of using operating system dependent functionality.
+
 """
   # from .sxng_locales import sxng_locales: This line imports the sxng_locales variable from the sxng_locales module in the current package.
 import typing

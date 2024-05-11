@@ -1,8 +1,11 @@
+#!/usr/bin/env bash
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 test.help(){
     cat <<EOF
 test.:
   yamllint  : lint YAML files (YAMLLINT_FILES)
-  pylint    : lint PYLINT_FILES, searx/engines, searx & tests
+  pylint    : lint ./searx, ./searxng_extra and ./tests
   pyright   : static type check of python sources
   black     : check black code format
   unit      : run unit tests
@@ -22,23 +25,20 @@ test.yamllint() {
 test.pylint() {
     # shellcheck disable=SC2086
     (   set -e
-        build_msg TEST "[pylint] \$PYLINT_FILES"
         pyenv.activate
-        python ${PYLINT_OPTIONS} ${PYLINT_VERBOSE} \
-            --additional-builtins="${PYLINT_ADDITIONAL_BUILTINS_FOR_ENGINES}" \
-            "${PYLINT_FILES[@]}"
+        PYLINT_OPTIONS="--rcfile .pylintrc"
 
-        build_msg TEST "[pylint] searx/engines"
-        python ${PYLINT_OPTIONS} ${PYLINT_VERBOSE} \
-            --disable="${PYLINT_SEARXNG_DISABLE_OPTION}" \
-            --additional-builtins="${PYLINT_ADDITIONAL_BUILTINS_FOR_ENGINES}" \
+        build_msg TEST "[pylint] ./searx/engines"
+        pylint ${PYLINT_OPTIONS} ${PYLINT_VERBOSE} \
+            --additional-builtins="traits,supported_languages,language_aliases,logger,categories" \
             searx/engines
 
-        build_msg TEST "[pylint] searx tests"
-        python ${PYLINT_OPTIONS} ${PYLINT_VERBOSE} \
-            --disable="${PYLINT_SEARXNG_DISABLE_OPTION}" \
+        build_msg TEST "[pylint] ./searx ./searxng_extra ./tests"
+        pylint ${PYLINT_OPTIONS} ${PYLINT_VERBOSE} \
 	    --ignore=searx/engines \
-	    searx tests
+	    searx searx/searxng.msg \
+            searxng_extra searxng_extra/docs_prebuild \
+            tests
     )
     dump_return $?
 }
@@ -89,10 +89,17 @@ test.robot() {
     dump_return $?
 }
 
+
 test.rst() {
     build_msg TEST "[reST markup] ${RST_FILES[*]}"
+
+    local rst2html=rst2html
+    if [ "3.8" == "$(python -c 'import sys; print(".".join([str(x) for x in sys.version_info[:2]]))')" ]; then
+       rst2html=rst2html.py
+    fi
+
     for rst in "${RST_FILES[@]}"; do
-        pyenv.cmd rst2html.py --halt error "$rst" > /dev/null || die 42 "fix issue in $rst"
+        pyenv.cmd "${rst2html}" --halt error "$rst" > /dev/null || die 42 "fix issue in $rst"
     done
 }
 

@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """Brave supports the categories listed in :py:obj:`brave_category` (General,
 news, videos, images).  The support of :py:obj:`paging` and :py:obj:`time range
 <time_range_support>` is limited (see remarks).
@@ -367,9 +366,10 @@ def _parse_images(json_resp):
             'title': result['title'],
             'content': result['description'],
             'template': 'images.html',
-            'img_format': result['properties']['format'],
+            'resolution': result['properties']['format'],
             'source': result['source'],
             'img_src': result['properties']['url'],
+            'thumbnail_src': result['thumbnail']['src'],
         }
         result_list.append(item)
 

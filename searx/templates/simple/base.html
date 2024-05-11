@@ -27,8 +27,9 @@
   {% block head %}
   <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ opensearch_url }}"/>
   {% endblock %}
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.ico" type="image/svg+xml">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" sizes="any">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}"/>
 </head>
 <body class="{{ endpoint }}_endpoint" >
   <script src="{{ url_for('static', filename='js/searxng.reactivity.min.js') }}"></script>
