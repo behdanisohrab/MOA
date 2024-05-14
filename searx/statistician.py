@@ -1,8 +1,9 @@
 import datetime
 import os
+current_path = os.getcwd()
 def write(TypeWrite, grouping="", number=""):
     # opening a file in write or append mode based on the 'TypeWrite' parameter
-    with open("searx/statistics.log", TypeWrite) as log_file:
+    with open(f"{current_path}/statistics.log", TypeWrite) as log_file:
             # get the current date and time in "YYYY-MM-DD" format
             timestamp = datetime.datetime.now().strftime("%Y-%m-%d")
             # create a string log entry with the timestamp, number of results and grouping
