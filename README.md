@@ -6,6 +6,19 @@
 
 MOA is a free and open source search engine based on the searxng project. This program was created with the aim of simplicity and usability for the general public, providing good and usable results while ensuring privacy, transparency and freedom on the Internet.
 
+
+🌐 servers
+===
+
+| server | Server manager |
+|--------|--------|
+| https://moae.sbs (Official) | [MiladHossein](https://github.com/MiladHossein) |
+| https://moa.mann-e.com | [prp-e](https://github.com/prp-e/) |
+
+**MOA development group has no authority over unofficial servers.**
+
+**Want to add your server to the list? Open a issues!**
+
 🚀 install
 ===
 To install and use MOA, follow these steps:
