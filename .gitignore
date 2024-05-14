@@ -26,3 +26,7 @@ gh-pages/
 searx/version_frozen.py
 
 searx/statistics.log
+
+.dir-locals.el
+
+.python-version

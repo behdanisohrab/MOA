@@ -13,13 +13,15 @@
 # Parsa Ranjbar <parsa@disr.it>, 2023.
 # return42 <markus.heiser@darmarit.de>, 2023, 2024.
 # arashe22 <arashe22@proton.me>, 2023.
+# return42 <return42@users.noreply.translate.codeberg.org>, 2024.
+# tegcope <tegcope@users.noreply.translate.codeberg.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-10 07:07+0000\n"
-"PO-Revision-Date: 2024-02-05 08:56+0000\n"
-"Last-Translator: return42 <markus.heiser@darmarit.de>\n"
+"POT-Creation-Date: 2024-05-09 15:27+0000\n"
+"PO-Revision-Date: 2024-04-06 00:18+0000\n"
+"Last-Translator: tegcope <tegcope@users.noreply.translate.codeberg.org>\n"
 "Language: fa_IR\n"
 "Language-Team: Persian "
 "<https://translate.codeberg.org/projects/searxng/searxng/fa/>\n"
@@ -68,6 +70,16 @@ msgstr "تصاویر"
 #: searx/searxng.msg
 msgid "videos"
 msgstr "ویدیوها"
+
+#. CATEGORY_NAMES['RADIO']
+#: searx/engines/radio_browser.py:103 searx/searxng.msg
+msgid "radio"
+msgstr "رادیو"
+
+#. CATEGORY_NAMES['TV']
+#: searx/searxng.msg
+msgid "tv"
+msgstr "تلوزیون"
 
 #. CATEGORY_NAMES['IT']
 #: searx/searxng.msg
@@ -160,116 +172,256 @@ msgid "Uptime"
 msgstr "زمان کار"
 
 #. BRAND_CUSTOM_LINKS['ABOUT']
-#: searx/searxng.msg searx/templates/simple/base.html:49
+#: searx/searxng.msg searx/templates/simple/base.html:50
 msgid "About"
 msgstr "درباره"
 
-#: searx/webapp.py:332
+#. WEATHER_TERMS['AVERAGE TEMP.']
+#: searx/searxng.msg
+msgid "Average temp."
+msgstr "دمای متوسط"
+
+#. WEATHER_TERMS['CLOUD COVER']
+#: searx/searxng.msg
+msgid "Cloud cover"
+msgstr "پوشش ابر"
+
+#. WEATHER_TERMS['CONDITION']
+#: searx/searxng.msg
+msgid "Condition"
+msgstr "شرایط"
+
+#. WEATHER_TERMS['CURRENT CONDITION']
+#: searx/searxng.msg
+msgid "Current condition"
+msgstr "شرایط فعلی"
+
+#. WEATHER_TERMS['EVENING']
+#: searx/engines/wttr.py:100 searx/searxng.msg
+msgid "Evening"
+msgstr "عصر"
+
+#. WEATHER_TERMS['FEELS LIKE']
+#: searx/searxng.msg
+msgid "Feels like"
+msgstr "احساس می‌شود مانند"
+
+#. WEATHER_TERMS['HUMIDITY']
+#: searx/searxng.msg
+msgid "Humidity"
+msgstr "رطوبت"
+
+#. WEATHER_TERMS['MAX TEMP.']
+#: searx/searxng.msg
+msgid "Max temp."
+msgstr "حداکثر دما"
+
+#. WEATHER_TERMS['MIN TEMP.']
+#: searx/searxng.msg
+msgid "Min temp."
+msgstr "حداقل دما"
+
+#. WEATHER_TERMS['MORNING']
+#: searx/engines/wttr.py:100 searx/searxng.msg
+msgid "Morning"
+msgstr "صبح"
+
+#. WEATHER_TERMS['NIGHT']
+#: searx/engines/wttr.py:100 searx/searxng.msg
+msgid "Night"
+msgstr "شب"
+
+#. WEATHER_TERMS['NOON']
+#: searx/engines/wttr.py:100 searx/searxng.msg
+msgid "Noon"
+msgstr "ظهر"
+
+#. WEATHER_TERMS['PRESSURE']
+#: searx/searxng.msg
+msgid "Pressure"
+msgstr "فشار"
+
+#. WEATHER_TERMS['SUNRISE']
+#: searx/searxng.msg
+msgid "Sunrise"
+msgstr "طلوع آفتاب"
+
+#. WEATHER_TERMS['SUNSET']
+#: searx/searxng.msg
+msgid "Sunset"
+msgstr "غروب آفتاب"
+
+#. WEATHER_TERMS['TEMPERATURE']
+#: searx/searxng.msg
+msgid "Temperature"
+msgstr "دما"
+
+#. WEATHER_TERMS['UV INDEX']
+#: searx/searxng.msg
+msgid "UV index"
+msgstr "شاخص UV"
+
+#. WEATHER_TERMS['VISIBILITY']
+#: searx/searxng.msg
+msgid "Visibility"
+msgstr "دید"
+
+#. WEATHER_TERMS['WIND']
+#: searx/searxng.msg
+msgid "Wind"
+msgstr "باد"
+
+#. SOCIAL_MEDIA_TERMS['SUBSCRIBERS']
+#: searx/searxng.msg
+msgid "subscribers"
+msgstr "مشترکین"
+
+#. SOCIAL_MEDIA_TERMS['POSTS']
+#: searx/searxng.msg
+msgid "posts"
+msgstr "ارسال‌ها"
+
+#. SOCIAL_MEDIA_TERMS['ACTIVE USERS']
+#: searx/searxng.msg
+msgid "active users"
+msgstr "کاربران فعال"
+
+#. SOCIAL_MEDIA_TERMS['COMMENTS']
+#: searx/searxng.msg
+msgid "comments"
+msgstr "نظرات"
+
+#. SOCIAL_MEDIA_TERMS['USER']
+#: searx/searxng.msg
+msgid "user"
+msgstr "کاربر"
+
+#. SOCIAL_MEDIA_TERMS['COMMUNITY']
+#: searx/searxng.msg
+msgid "community"
+msgstr "جامعه"
+
+#. SOCIAL_MEDIA_TERMS['POINTS']
+#: searx/searxng.msg
+msgid "points"
+msgstr "امتیازات"
+
+#. SOCIAL_MEDIA_TERMS['TITLE']
+#: searx/searxng.msg
+msgid "title"
+msgstr "عنوان"
+
+#. SOCIAL_MEDIA_TERMS['AUTHOR']
+#: searx/searxng.msg
+msgid "author"
+msgstr "نویسنده"
+
+#: searx/webapp.py:330
 msgid "No item found"
 msgstr "چیزی پیدا نشد"
 
-#: searx/engines/qwant.py:280
-#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:334
+#: searx/engines/qwant.py:281
+#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:332
 msgid "Source"
 msgstr "منبع"
 
-#: searx/webapp.py:336
+#: searx/webapp.py:334
 msgid "Error loading the next page"
 msgstr "خطا در بارگزاری صفحه جدید"
 
-#: searx/webapp.py:493 searx/webapp.py:889
+#: searx/webapp.py:491 searx/webapp.py:887
 msgid "Invalid settings, please edit your preferences"
 msgstr "تنظیمات نادرست است، لطفا تنظیمات جستجو را تغییر دهید"
 
-#: searx/webapp.py:509
+#: searx/webapp.py:507
 msgid "Invalid settings"
 msgstr "تنظیمات نادرست"
 
-#: searx/webapp.py:586 searx/webapp.py:668
+#: searx/webapp.py:584 searx/webapp.py:666
 msgid "search error"
 msgstr "خطای جست‌وجو"
 
-#: searx/webutils.py:34
+#: searx/webutils.py:36
 msgid "timeout"
 msgstr "مهلت پاسخ‌دهی به پایان رسید"
 
-#: searx/webutils.py:35
+#: searx/webutils.py:37
 msgid "parsing error"
 msgstr "خطای تجزیه"
 
-#: searx/webutils.py:36
+#: searx/webutils.py:38
 msgid "HTTP protocol error"
 msgstr "خطای پروتکل HTTP"
 
-#: searx/webutils.py:37
+#: searx/webutils.py:39
 msgid "network error"
 msgstr "خطای شبکه"
 
-#: searx/webutils.py:38
+#: searx/webutils.py:40
 msgid "SSL error: certificate validation has failed"
 msgstr "خطا SSL:اعتبار سنجی گواهی امنیتی SSL ناموفق بود"
 
-#: searx/webutils.py:40
+#: searx/webutils.py:42
 msgid "unexpected crash"
 msgstr "مشکل غیرمنتظره"
 
-#: searx/webutils.py:47
+#: searx/webutils.py:49
 msgid "HTTP error"
 msgstr "خطای HTTP"
 
-#: searx/webutils.py:48
+#: searx/webutils.py:50
 msgid "HTTP connection error"
 msgstr "خطای اتصال HTTP"
 
-#: searx/webutils.py:54
+#: searx/webutils.py:56
 msgid "proxy error"
 msgstr "خطای پروکسی"
 
-#: searx/webutils.py:55
+#: searx/webutils.py:57
 msgid "CAPTCHA"
 msgstr "کپچا"
 
-#: searx/webutils.py:56
+#: searx/webutils.py:58
 msgid "too many requests"
 msgstr "درخواست‌های زیاد"
 
-#: searx/webutils.py:57
+#: searx/webutils.py:59
 msgid "access denied"
 msgstr "دسترسی مجاز نیست"
 
-#: searx/webutils.py:58
+#: searx/webutils.py:60
 msgid "server API error"
 msgstr "خطای API سرور"
 
-#: searx/webutils.py:77
+#: searx/webutils.py:79
 msgid "Suspended"
 msgstr "تعلیق‌شده"
 
-#: searx/webutils.py:315
+#: searx/webutils.py:314
 msgid "{minutes} minute(s) ago"
 msgstr "{minutes} دقیقه پیش"
 
-#: searx/webutils.py:316
+#: searx/webutils.py:315
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{hours} ساعت و {minutes} دقیقه پیش"
 
-#: searx/answerers/random/answerer.py:73
+#: searx/answerers/random/answerer.py:75
 msgid "Random value generator"
 msgstr "ایجادگر مقدار تصادفی"
 
-#: searx/answerers/random/answerer.py:74
+#: searx/answerers/random/answerer.py:76
 msgid "Generate different random values"
 msgstr "ایجاد مقادیر تصادفی متفاوت"
 
-#: searx/answerers/statistics/answerer.py:47
+#: searx/answerers/statistics/answerer.py:48
 msgid "Statistics functions"
 msgstr "توابع آماری"
 
-#: searx/answerers/statistics/answerer.py:48
+#: searx/answerers/statistics/answerer.py:49
 msgid "Compute {functions} of the arguments"
 msgstr "پردازش {functions} از آرگومان ها"
 
-#: searx/engines/openstreetmap.py:160
+#: searx/engines/openstreetmap.py:159
 msgid "Get directions"
 msgstr "دستورهای دریافت"
 
@@ -281,31 +433,28 @@ msgstr "{title} (منسوخ شده)"
 msgid "This entry has been superseded by"
 msgstr "این ورودی معلق شده است، توسط"
 
-#: searx/engines/qwant.py:282
+#: searx/engines/qwant.py:283
 msgid "Channel"
 msgstr "کانال"
 
-#: searx/engines/radio_browser.py:104
-msgid "radio"
-msgstr "رادیو"
-
-#: searx/engines/radio_browser.py:106
+#: searx/engines/radio_browser.py:105
 msgid "bitrate"
 msgstr "بیت ریت"
 
-#: searx/engines/radio_browser.py:107
+#: searx/engines/radio_browser.py:106
 msgid "votes"
 msgstr "رای‌ها"
 
-#: searx/engines/radio_browser.py:108
+#: searx/engines/radio_browser.py:107
 msgid "clicks"
 msgstr "کلیک ها"
 
-#: searx/engines/seekr.py:194 searx/engines/zlibrary.py:129
+#: searx/engines/seekr.py:193 searx/engines/yummly.py:71
+#: searx/engines/zlibrary.py:128
 msgid "Language"
 msgstr "زبان"
 
-#: searx/engines/semantic_scholar.py:79
+#: searx/engines/semantic_scholar.py:78
 msgid ""
 "{numCitations} citations from the year {firstCitationVelocityYear} to "
 "{lastCitationVelocityYear}"
@@ -313,17 +462,17 @@ msgstr ""
 "{numCitations} نقل قول از سال {firstCitationVelocityYear} تا "
 "{lastCitationVelocityYear}"
 
-#: searx/engines/tineye.py:40
+#: searx/engines/tineye.py:39
 msgid ""
 "Could not read that image url. This may be due to an unsupported file "
 "format. TinEye only supports images that are JPEG, PNG, GIF, BMP, TIFF or"
 " WebP."
 msgstr ""
-"نمی‌توان آدرسِ تصویر را خواند. این ممکن است به دلیل فرمت فایل پشتیبانی "
-"نشده باشد. TinEye فقط تصویر های با فرمت JPEG، PNG، GIF، BMP، TIFF یا WebP"
-" را پشتیبانی می‌کند."
+"نمی‌توان آدرسِ ‎URL‎ تصویر را خواند. این ممکن است به دلیل فرمت فایل "
+"پشتیبانی نشده ای باشد. TinEye فقط تصویر های با فرمت JPEG، PNG، GIF، BMP، "
+"TIFF یا WebP را پشتیبانی می‌کند."
 
-#: searx/engines/tineye.py:46
+#: searx/engines/tineye.py:45
 msgid ""
 "The image is too simple to find matches. TinEye requires a basic level of"
 " visual detail to successfully identify matches."
@@ -331,55 +480,43 @@ msgstr ""
 "تصویر برای یافتن موارد منطبق بسیار ساده است. TinEye برای شناسایی موفق به "
 "سطح اولیه جزئیات بصری نیاز دارد."
 
-#: searx/engines/tineye.py:52
+#: searx/engines/tineye.py:51
 msgid "The image could not be downloaded."
 msgstr "تصویر نمی‌تواند دانلود شود."
 
-#: searx/engines/wttr.py:101
-msgid "Morning"
-msgstr "صبح"
-
-#: searx/engines/wttr.py:101
-msgid "Noon"
-msgstr "ظهر"
-
-#: searx/engines/wttr.py:101
-msgid "Evening"
-msgstr "عصر"
-
-#: searx/engines/wttr.py:101
-msgid "Night"
-msgstr "شب"
-
-#: searx/engines/zlibrary.py:130
+#: searx/engines/zlibrary.py:129
 msgid "Book rating"
 msgstr "رتبه‌بندی کتاب"
 
-#: searx/engines/zlibrary.py:131
+#: searx/engines/zlibrary.py:130
 msgid "File quality"
 msgstr "کیفیت فایل"
 
-#: searx/plugins/hash_plugin.py:24
+#: searx/plugins/calculator.py:12
+msgid "Calculate mathematical expressions via the search bar"
+msgstr "محاسبه عبارت‌های ریاضی از طریق نوار جستجو"
+
+#: searx/plugins/hash_plugin.py:10
 msgid "Converts strings to different hash digests."
 msgstr "رشته‌ها را به چکیده‌های هش تبدیل می‌کند."
 
-#: searx/plugins/hash_plugin.py:52
+#: searx/plugins/hash_plugin.py:38
 msgid "hash digest"
 msgstr "چکیدهٔ هش"
 
-#: searx/plugins/hostname_replace.py:9
+#: searx/plugins/hostname_replace.py:12
 msgid "Hostname replace"
 msgstr "جایگزینی نام میزبان"
 
-#: searx/plugins/hostname_replace.py:10
+#: searx/plugins/hostname_replace.py:13
 msgid "Rewrite result hostnames or remove results based on the hostname"
 msgstr "نام میزبان نتایج را بازنویسی کنید یا نتایج را بر اساس نام میزبان حذف کنید"
 
-#: searx/plugins/oa_doi_rewrite.py:9
+#: searx/plugins/oa_doi_rewrite.py:12
 msgid "Open Access DOI rewrite"
 msgstr "بازنویسی DOI Access را باز کنید"
 
-#: searx/plugins/oa_doi_rewrite.py:10
+#: searx/plugins/oa_doi_rewrite.py:13
 msgid ""
 "Avoid paywalls by redirecting to open-access versions of publications "
 "when available"
@@ -387,11 +524,11 @@ msgstr ""
 "با هدایت مجدد به نسخه‌های دسترسی آزاد انتشارات در صورت وجود، از دیوارهای "
 "پرداخت اجتناب کنید"
 
-#: searx/plugins/self_info.py:10
+#: searx/plugins/self_info.py:9
 msgid "Self Information"
 msgstr "اطلاعات شخصی"
 
-#: searx/plugins/self_info.py:11
+#: searx/plugins/self_info.py:10
 msgid ""
 "Displays your IP if the query is \"ip\" and your user agent if the query "
 "contains \"user agent\"."
@@ -399,11 +536,11 @@ msgstr ""
 "اگر پرس و جو \"ip\" باشد IP شما و اگر پرس و جو حاوی \"عامل کاربر\" باشد، "
 "عامل کاربری شما را نشان می دهد."
 
-#: searx/plugins/tor_check.py:25
+#: searx/plugins/tor_check.py:24
 msgid "Tor check plugin"
 msgstr "افزونه بررسی Tor"
 
-#: searx/plugins/tor_check.py:28
+#: searx/plugins/tor_check.py:27
 msgid ""
 "This plugin checks if the address of the request is a Tor exit-node, and "
 "informs the user if it is; like check.torproject.org, but from SearXNG."
@@ -412,7 +549,7 @@ msgstr ""
 "و در صورت وجود آن به کاربر اطلاع می دهد. مانند check.torproject.org، اما "
 "از موآ."
 
-#: searx/plugins/tor_check.py:62
+#: searx/plugins/tor_check.py:61
 msgid ""
 "Could not download the list of Tor exit-nodes from: "
 "https://check.torproject.org/exit-addresses"
@@ -420,7 +557,7 @@ msgstr ""
 "نمی توان لیست گره های خروج Tor را از: https://check.torproject.org/exit-"
 "addresses دانلود کرد"
 
-#: searx/plugins/tor_check.py:78
+#: searx/plugins/tor_check.py:77
 msgid ""
 "You are using Tor and it looks like you have this external IP address: "
 "{ip_address}"
@@ -428,17 +565,21 @@ msgstr ""
 "شما از Tor استفاده می کنید و به نظر می رسد این آدرس IP خارجی را دارید: "
 "{ip_address}"
 
-#: searx/plugins/tor_check.py:86
+#: searx/plugins/tor_check.py:85
 msgid "You are not using Tor and you have this external IP address: {ip_address}"
 msgstr "شما از Tor استفاده نمی کنید و این آدرس IP خارجی را دارید: {ip_address}"
 
-#: searx/plugins/tracker_url_remover.py:29
+#: searx/plugins/tracker_url_remover.py:16
 msgid "Tracker URL remover"
 msgstr "حذف کننده URL ردیاب"
 
-#: searx/plugins/tracker_url_remover.py:30
+#: searx/plugins/tracker_url_remover.py:17
 msgid "Remove trackers arguments from the returned URL"
 msgstr "آرگومان های ردیاب ها را از URL برگشتی حذف کنید"
+
+#: searx/plugins/unit_converter.py:29
+msgid "Convert between units"
+msgstr "تبدیل بین واحدها"
 
 #: searx/templates/simple/404.html:4
 msgid "Page not found"
@@ -447,52 +588,53 @@ msgstr "صفحه پیدا نشد"
 #: searx/templates/simple/404.html:6
 #, python-format
 msgid "Go to %(search_page)s."
-msgstr "برو به %(search_page)s."
+msgstr "برو به ‎%(search_page)s‎."
 
 #: searx/templates/simple/404.html:6
 msgid "search page"
 msgstr "صفحهٔ جست‌وجو"
 
-#: searx/templates/simple/base.html:53
+#: searx/templates/simple/base.html:54
 msgid "Donate"
 msgstr "حمایت مالی"
 
-#: searx/templates/simple/base.html:57
+#: searx/templates/simple/base.html:58
 #: searx/templates/simple/preferences.html:156
 msgid "Preferences"
-msgstr "پیش‌فرض‌ها"
+msgstr "تنظیمات"
 
-#: searx/templates/simple/base.html:67
+#: searx/templates/simple/base.html:68
 msgid "Powered by"
 msgstr "قدرت گرفته از<br>"
 
-#: searx/templates/simple/base.html:67
+#: searx/templates/simple/base.html:68
 msgid "a privacy-respecting, open metasearch engine"
 msgstr " موآ، فراجستجوگری مبنی بر SearXNG و آزاد که به حریم خصوصی شما احترام می‌گذارد "
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
+#: searx/templates/simple/result_templates/packages.html:59
 msgid "Source code"
 msgstr "کد منبع"
 
-#: searx/templates/simple/base.html:69
+#: searx/templates/simple/base.html:70
 msgid "Issue tracker"
 msgstr "ردیاب مشکل"
 
-#: searx/templates/simple/base.html:70 searx/templates/simple/stats.html:18
+#: searx/templates/simple/base.html:71 searx/templates/simple/stats.html:18
 msgid "Engine stats"
 msgstr "آمار"
 
-#: searx/templates/simple/base.html:72
+#: searx/templates/simple/base.html:73
 msgid "Public instances"
 msgstr "نمونه‌های عمومی"
 
-#: searx/templates/simple/base.html:75
+#: searx/templates/simple/base.html:76
 msgid "Privacy policy"
 msgstr "سیاست حفظ حریم خصوصی"
 
-#: searx/templates/simple/base.html:78
+#: searx/templates/simple/base.html:79
 msgid "Contact instance maintainer"
-msgstr "تماس باما"
+msgstr "تماس با نگهدارنده نمونه"
 
 #: searx/templates/simple/categories.html:26
 msgid "Click on the magnifier to perform search"
@@ -504,7 +646,7 @@ msgstr "طول"
 
 #: searx/templates/simple/macros.html:37
 #: searx/templates/simple/result_templates/files.html:34
-#: searx/templates/simple/result_templates/images.html:18
+#: searx/templates/simple/result_templates/images.html:19
 #: searx/templates/simple/result_templates/paper.html:6
 msgid "Author"
 msgstr "نویسنده"
@@ -616,27 +758,27 @@ msgstr "کلوچک‌ها"
 msgid "Answers"
 msgstr "پاسخ‌ها"
 
-#: searx/templates/simple/results.html:38
+#: searx/templates/simple/results.html:42
 msgid "Number of results"
 msgstr "تعداد نتایج"
 
-#: searx/templates/simple/results.html:44
+#: searx/templates/simple/results.html:48
 msgid "Info"
 msgstr "اطلاعات"
 
-#: searx/templates/simple/results.html:73
+#: searx/templates/simple/results.html:77
 msgid "Try searching for:"
 msgstr "برای این جست‌وجو تلاش کنید:"
 
-#: searx/templates/simple/results.html:105
+#: searx/templates/simple/results.html:109
 msgid "Back to top"
 msgstr "برگشتن به بالا"
 
-#: searx/templates/simple/results.html:123
+#: searx/templates/simple/results.html:127
 msgid "Previous page"
 msgstr "صفحهٔ قبلی"
 
-#: searx/templates/simple/results.html:141
+#: searx/templates/simple/results.html:145
 msgid "Next page"
 msgstr "صفحهٔ بعدی"
 
@@ -663,7 +805,7 @@ msgstr "جست‌وجو"
 msgid "There is currently no data available. "
 msgstr "در حال حاضر هیچ داده‌ای در دسترس نیست."
 
-#: searx/templates/simple/preferences/engines.html:18
+#: searx/templates/simple/preferences/engines.html:24
 #: searx/templates/simple/stats.html:25
 msgid "Engine name"
 msgstr "نام موتور"
@@ -676,12 +818,12 @@ msgstr "نمره‌ها"
 msgid "Result count"
 msgstr "تعداد نتیجه ها"
 
-#: searx/templates/simple/preferences/engines.html:25
+#: searx/templates/simple/preferences/engines.html:31
 #: searx/templates/simple/stats.html:28
 msgid "Response time"
 msgstr "زمان پاسخ‌دهی"
 
-#: searx/templates/simple/preferences/engines.html:29
+#: searx/templates/simple/preferences/engines.html:35
 #: searx/templates/simple/stats.html:29
 msgid "Reliability"
 msgstr "اعتمادپذیری"
@@ -770,7 +912,7 @@ msgstr "URL جست‌وجو"
 #: searx/templates/simple/elements/search_url.html:4
 #: searx/templates/simple/preferences/cookies.html:54
 msgid "Copied"
-msgstr "رونوشت"
+msgstr "کپی شد"
 
 #: searx/templates/simple/elements/search_url.html:4
 #: searx/templates/simple/preferences/cookies.html:54
@@ -800,7 +942,7 @@ msgstr "انتخاب خودکار"
 #: searx/templates/simple/filters/safesearch.html:2
 #: searx/templates/simple/filters/safesearch.html:3
 #: searx/templates/simple/filters/safesearch.html:4
-#: searx/templates/simple/preferences/engines.html:21
+#: searx/templates/simple/preferences/engines.html:27
 #: searx/templates/simple/preferences/safesearch.html:2
 msgid "SafeSearch"
 msgstr "جست‌وجوی امن"
@@ -821,7 +963,7 @@ msgid "None"
 msgstr "هیچ"
 
 #: searx/templates/simple/filters/time_range.html:1
-#: searx/templates/simple/preferences/engines.html:22
+#: searx/templates/simple/preferences/engines.html:28
 msgid "Time range"
 msgstr "بازهٔ زمانی"
 
@@ -863,7 +1005,7 @@ msgstr "نتیجه‌ای یافت نشد. می‌توانید موارد زیر
 
 #: searx/templates/simple/messages/no_results.html:14
 msgid "There are no more results. You can try to:"
-msgstr "دیگر هیچ نتیجه ای وجود ندارد. می توانید سعی کنید:"
+msgstr "نتیجه دیگری یافت نشد. می‌توانید سعی کنید:"
 
 #: searx/templates/simple/messages/no_results.html:19
 msgid "Refresh the page."
@@ -871,7 +1013,7 @@ msgstr "صفحه را تازه کنید."
 
 #: searx/templates/simple/messages/no_results.html:20
 msgid "Search for another query or select another category (above)."
-msgstr "جستجوی دیگری را جستجو کنید یا دسته دیگری را انتخاب کنید (در بالا)."
+msgstr "جست‌وجو برای ورودی دیگر یا انتخاب دسته بندی دیگر(در بالا)."
 
 #: searx/templates/simple/messages/no_results.html:21
 msgid "Change the search engine used in the preferences:"
@@ -879,18 +1021,18 @@ msgstr "موتور جست‌وجو رو در تنظیمات تغییر دهید:
 
 #: searx/templates/simple/messages/no_results.html:22
 msgid "Switch to another instance:"
-msgstr "جابجایی به نمونه دیگری:"
+msgstr "تغییر به نمونه ای دیگر:"
 
 #: searx/templates/simple/messages/no_results.html:24
 msgid "Search for another query or select another category."
-msgstr "جستجوی دیگری را جستجو کنید یا دسته دیگری را انتخاب کنید."
+msgstr "جست‌وجو برای ورودی دیگر یا انتخاب دسته بندی دیگر."
 
 #: searx/templates/simple/messages/no_results.html:25
 msgid "Go back to the previous page using the previous page button."
-msgstr "با استفاده از دکمه صفحه قبلی به صفحه قبل برگردید."
+msgstr "برو به صفحه قبل، با استفاده از کلید رفتن به صفحه قبل."
 
 #: searx/templates/simple/preferences/answerers.html:4
-#: searx/templates/simple/preferences/engines.html:17
+#: searx/templates/simple/preferences/engines.html:23
 msgid "Allow"
 msgstr "اجازه"
 
@@ -899,6 +1041,7 @@ msgid "Keywords"
 msgstr "کلیدواژه‌ها"
 
 #: searx/templates/simple/preferences/answerers.html:6
+#: searx/templates/simple/result_templates/packages.html:7
 msgid "Name"
 msgstr "نام"
 
@@ -954,7 +1097,7 @@ msgstr "مقدار"
 
 #: searx/templates/simple/preferences/cookies.html:23
 msgid "Search URL of the currently saved preferences"
-msgstr "URL جست‌وجوی پیش‌فرض‌های ذخیره‌شدهٔ کنونی"
+msgstr "URL جست‌وجوی تنظیمات ذخیره‌شدهٔ کنونی"
 
 #: searx/templates/simple/preferences/cookies.html:32
 msgid ""
@@ -978,15 +1121,15 @@ msgstr ""
 
 #: searx/templates/simple/preferences/cookies.html:46
 msgid "Copy preferences hash"
-msgstr "هش تنظیمات برگزیده را کپی کنید"
+msgstr "کپی هش تنظیمات"
 
 #: searx/templates/simple/preferences/cookies.html:57
 msgid "Insert copied preferences hash (without URL) to restore"
-msgstr "هش اولویت‌های کپی شده (بدون URL) را برای بازیابی درج کنید"
+msgstr "هش تنظیمات کپی شده را وارد کنید(بدون URL) برای بازیابی"
 
 #: searx/templates/simple/preferences/cookies.html:59
 msgid "Preferences hash"
-msgstr "هش تنظیمات برگزیده"
+msgstr "هش تنظیمات"
 
 #: searx/templates/simple/preferences/doi_resolver.html:2
 msgid "Open Access DOI resolver"
@@ -1004,19 +1147,27 @@ msgstr ""
 "این تب در رابط کاربری وجود ندارد، اما می توانید در این موتورها با !بنگ "
 "های آن جستجو کنید."
 
-#: searx/templates/simple/preferences/engines.html:19
+#: searx/templates/simple/preferences/engines.html:15
+msgid "Enable all"
+msgstr "فعال‌سازی همه"
+
+#: searx/templates/simple/preferences/engines.html:16
+msgid "Disable all"
+msgstr "غیرفعال‌سازی همه"
+
+#: searx/templates/simple/preferences/engines.html:25
 msgid "!bang"
 msgstr "!بنگ"
 
-#: searx/templates/simple/preferences/engines.html:20
+#: searx/templates/simple/preferences/engines.html:26
 msgid "Supports selected language"
 msgstr "پشتیبانی از زبان انتخاب شده"
 
-#: searx/templates/simple/preferences/engines.html:23
+#: searx/templates/simple/preferences/engines.html:29
 msgid "Weight"
 msgstr "وزن"
 
-#: searx/templates/simple/preferences/engines.html:27
+#: searx/templates/simple/preferences/engines.html:33
 msgid "Max time"
 msgstr "زمان بیشینه"
 
@@ -1061,8 +1212,9 @@ msgid ""
 "Navigate search results with hotkeys (JavaScript required). Press \"h\" "
 "key on main or result page to get help."
 msgstr ""
-"نتایج جستجو را با کلیدهای میانبر پیمایش کنید (جاوا اسکریپت لازم است). \"h\" را فشار دهید"
-"برای دریافت راهنمایی روی صفحه اصلی یا نتیجه کلید بزنید."
+"هدایت نتایج جست‌وجو با کلید های میانبر (نیازمند ‎JavaScript‎). برای "
+"راهنمایی، کلید «h» را در صفحه اصلی یا صفحه نتایج فشار دهید."
+
 #: searx/templates/simple/preferences/image_proxy.html:2
 msgid "Image proxy"
 msgstr "پروکسی تصویر"
@@ -1121,15 +1273,16 @@ msgstr "فیلتر کردن محتوا"
 
 #: searx/templates/simple/preferences/search_on_category_select.html:2
 msgid "Search on category select"
-msgstr "جست‌وجو در دستهٔ انتخابی"
+msgstr "جست‌وجو در انتخاب دسته بندی"
 
 #: searx/templates/simple/preferences/search_on_category_select.html:14
 msgid ""
 "Perform search immediately if a category selected. Disable to select "
 "multiple categories"
 msgstr ""
-"در صورت انتخاب یک دسته فورا جستجو را انجام دهید. برای انتخاب غیرفعال کنید"
-"چند دسته"
+"انجام دادن جست‌وجو درجا درصورت انتخاب یک دسته بندی. برای انتخاب بیش از یک"
+" دسته بندی غیر فعال کنید"
+
 #: searx/templates/simple/preferences/theme.html:2
 msgid "Theme"
 msgstr "پوسته"
@@ -1183,6 +1336,7 @@ msgid "This site did not provide any description."
 msgstr "این سایت هیچ توصیفی ندارد."
 
 #: searx/templates/simple/result_templates/files.html:38
+#: searx/templates/simple/result_templates/images.html:22
 #: searx/templates/simple/result_templates/torrent.html:11
 msgid "Filesize"
 msgstr "اندازهٔ پرونده"
@@ -1221,15 +1375,19 @@ msgstr "تاریخ"
 msgid "Type"
 msgstr "نوع"
 
-#: searx/templates/simple/result_templates/images.html:19
+#: searx/templates/simple/result_templates/images.html:20
+msgid "Resolution"
+msgstr "رزولیشن"
+
+#: searx/templates/simple/result_templates/images.html:21
 msgid "Format"
 msgstr "قالب"
 
-#: searx/templates/simple/result_templates/images.html:21
+#: searx/templates/simple/result_templates/images.html:24
 msgid "Engine"
 msgstr "موتور"
 
-#: searx/templates/simple/result_templates/images.html:22
+#: searx/templates/simple/result_templates/images.html:25
 msgid "View source"
 msgstr "نمایش منبع"
 
@@ -1244,6 +1402,39 @@ msgstr "نمایش نقشه"
 #: searx/templates/simple/result_templates/map.html:43
 msgid "hide map"
 msgstr "پنهان‌سازی نقشه"
+
+#: searx/templates/simple/result_templates/packages.html:12
+msgid "Version"
+msgstr "ورژن"
+
+#: searx/templates/simple/result_templates/packages.html:18
+msgid "Maintainer"
+msgstr "مسئول‌نگهداری"
+
+#: searx/templates/simple/result_templates/packages.html:24
+msgid "Updated at"
+msgstr "بارگذاری‌شده در"
+
+#: searx/templates/simple/result_templates/packages.html:30
+#: searx/templates/simple/result_templates/paper.html:25
+msgid "Tags"
+msgstr "تگ ها"
+
+#: searx/templates/simple/result_templates/packages.html:36
+msgid "Popularity"
+msgstr "محبوبیت"
+
+#: searx/templates/simple/result_templates/packages.html:42
+msgid "License"
+msgstr "لایسنس"
+
+#: searx/templates/simple/result_templates/packages.html:52
+msgid "Project"
+msgstr "پروژه"
+
+#: searx/templates/simple/result_templates/packages.html:55
+msgid "Project homepage"
+msgstr "صفحه خانه پروژه"
 
 #: searx/templates/simple/result_templates/paper.html:5
 msgid "Published date"
@@ -1260,10 +1451,6 @@ msgstr "ویرایشگر"
 #: searx/templates/simple/result_templates/paper.html:23
 msgid "Publisher"
 msgstr "ناشر"
-
-#: searx/templates/simple/result_templates/paper.html:25
-msgid "Tags"
-msgstr "تگ ها"
 
 #: searx/templates/simple/result_templates/paper.html:26
 msgid "DOI"

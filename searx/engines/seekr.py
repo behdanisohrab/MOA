@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """seekr.com Seeker Score
 
 Seekr is a privately held search and content evaluation engine that prioritizes
@@ -122,7 +121,7 @@ def _images_response(json):
                 'url': summary['refererurl'],
                 'title': result['title'],
                 'img_src': result['url'],
-                'img_format': f"{summary['width']}x{summary['height']}",
+                'resolution': f"{summary['width']}x{summary['height']}",
                 'thumbnail_src': 'https://media.seekr.com/engine/rp/' + summary['tg'] + '/?src= ' + result['thumbnail'],
             }
         )

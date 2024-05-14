@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """This engine uses the Qwant API (https://api.qwant.com/v3) to implement Qwant
 -Web, -News, -Images and -Videos.  The API is undocumented but can be reverse
 engineered by reading the network log of https://www.qwant.com/ queries.
@@ -265,6 +264,8 @@ def parse_web_api(resp):
                         'template': 'images.html',
                         'thumbnail_src': thumbnail,
                         'img_src': img_src,
+                        'resolution': f"{item['width']} x {item['height']}",
+                        'img_format': item.get('thumb_type'),
                     }
                 )
 

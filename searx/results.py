@@ -1,4 +1,7 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# pylint: disable=missing-module-docstring
 import re  # Importing necessary modules and functions.
+
 from collections import defaultdict
 from operator import itemgetter  # Importing defaultdict from collections module.
 from threading import RLock  # Importing itemgetter from operator module.
@@ -20,8 +23,7 @@ WHITESPACE_REGEX = re.compile('( |\t|\n)+', re.M | re.U)
 def result_content_len(content):
     if isinstance(content, str):
         return len(CONTENT_LEN_IGNORED_CHARS_REGEX.sub('', content))
-    else:
-        return 0  # Defining a function to compare two URLs lazily. It considers “www.example.com” and “example.com” as equals. It also considers “www.example.com/path/” and “www.example.com/path” as equals. It also considers “https://www.example.com/” and “http://www.example.com/” as equals.
+    return 0
 
 
 def compare_urls(url_a, url_b):
@@ -57,7 +59,7 @@ def compare_urls(url_a, url_b):
     return unquote(path_a) == unquote(path_b)
 
 
-def merge_two_infoboxes(infobox1, infobox2):
+def merge_two_infoboxes(infobox1, infobox2):  # pylint: disable=too-many-branches, too-many-statements
     # get engines weights
     if hasattr(engines[infobox1['engine']], 'weight'):
         weight1 = engines[infobox1['engine']].weight
@@ -141,13 +143,13 @@ def result_score(result):
     return sum((occurrences * weight) / position for position in result['positions'])  # Defining a class for the result container. It contains various attributes such as merged results, infoboxes, suggestions, answers, corrections, number of results, closed status, paging status, unresponsive engines, timings, redirect URL, engine data, on result function, lock, and result merge.
 
 
-class Timing(NamedTuple):
+class Timing(NamedTuple):  # pylint: disable=missing-class-docstring
     engine: str
     total: float
     load: float
 
 
-class UnresponsiveEngine(NamedTuple):
+class UnresponsiveEngine(NamedTuple):  # pylint: disable=missing-class-docstring
     engine: str
     error_type: str
     suspended: bool
@@ -192,7 +194,7 @@ class ResultContainer:  # Defining a function to extend the result container. If
         self._lock = RLock()
         self.result_merge = True
 
-    def extend(self, engine_name, results):
+    def extend(self, engine_name, results):  # pylint: disable=too-many-branches
         if self._closed:
             return
 
@@ -320,12 +322,13 @@ class ResultContainer:  # Defining a function to extend the result container. If
             ):  # Add the new position to the duplicate’s positions
                 if result_template != 'images.html':
                     # not an image, same template, same url : it's a duplicate
-                    return merged_result  # Add the result’s engine to the duplicate’s engines
-                else:
-                    # it's an image
-                    # it's a duplicate if the parsed_url, template and img_src are different  # If the duplicate’s URL scheme is not HTTPS and the result’s URL scheme is HTTPS, use the result’s URL
-                    if result.get('img_src', '') == merged_result.get('img_src', ''):
-                        return merged_result
+
+                    return merged_result
+
+                # it's an image
+                # it's a duplicate if the parsed_url, template and img_src are different
+                if result.get('img_src', '') == merged_result.get('img_src', ''):
+                    return merged_result
         return None
   # Define a method to merge results without a URL
     def __merge_duplicated_http_result(self, duplicated, result, position):  # Add the result’s engine to the result’s engines
@@ -379,7 +382,7 @@ class ResultContainer:  # Defining a function to extend the result container. If
         categoryPositions = {}
 
         for res in results:
-            # FIXME : handle more than one category per engine
+            # do we need to handle more than one category per engine?
             engine = engines[res['engine']]
 
             # Limit the number of results of images category
@@ -387,6 +390,7 @@ class ResultContainer:  # Defining a function to extend the result container. If
             res['category'] = engine.categories[0] if len(
                 engine.categories) > 0 else ''
             # FIXME : handle more than one category per engine
+
             category = (
                 res['category']
                 + ':'
@@ -409,7 +413,7 @@ class ResultContainer:  # Defining a function to extend the result container. If
                 # Update every index after the current one (including the current one)
                 # update every index after the current one
                 # (including the current one)
-                for k in categoryPositions:
+                for k in categoryPositions:  # pylint: disable=consider-using-dict-items
                     v = categoryPositions[k]['index']
                     if v >= index:  # Decrease the count of the current category by 1
                         categoryPositions[k]['index'] = v + 1

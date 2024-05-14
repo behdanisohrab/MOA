@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# lint: pylint
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Update :py:obj:`searx.enginelib.traits.EngineTraitsMap` and :origin:`searx/languages.py`
 
@@ -28,7 +27,7 @@ from searx.enginelib.traits import EngineTraitsMap
 # Output files.
 languages_file = Path(searx_dir) / 'sxng_locales.py'
 languages_file_header = """\
-# -*- coding: utf-8 -*-
+# SPDX-License-Identifier: AGPL-3.0-or-later
 '''List of SearXNG's locale codes.
 
 .. hint::
@@ -144,9 +143,9 @@ def write_languages_file(sxng_tag_list):
 
         item = (
             sxng_tag,
-            sxng_locale.get_language_name().title(),
+            sxng_locale.get_language_name().title(),  # type: ignore
             sxng_locale.get_territory_name() or '',
-            sxng_locale.english_name.split(' (')[0],
+            sxng_locale.english_name.split(' (')[0] if sxng_locale.english_name else '',
             UnicodeEscape(flag),
         )
 
@@ -154,7 +153,7 @@ def write_languages_file(sxng_tag_list):
 
     language_codes = tuple(language_codes)
 
-    with open(languages_file, 'w', encoding='utf-8') as new_file:
+    with languages_file.open('w', encoding='utf-8') as new_file:
         file_content = "{header} {language_codes}{footer}".format(
             header=languages_file_header,
             language_codes=pformat(language_codes, width=120, indent=4)[1:-1],

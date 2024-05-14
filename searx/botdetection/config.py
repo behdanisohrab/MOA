@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """Configuration class :py:class:`Config` with deep-update, schema validation
 and deprecated names.
 
@@ -14,7 +13,18 @@ import copy
 import typing
 import logging
 import pathlib
-import pytomlpp as toml
+
+try:
+    import tomllib
+
+    pytomlpp = None
+    USE_TOMLLIB = True
+except ImportError:
+    import pytomlpp
+
+    tomllib = None
+    USE_TOMLLIB = False
+
 
 __all__ = ['Config', 'UNSET', 'SchemaIssue']
 
@@ -62,7 +72,7 @@ class Config:
         # init schema
 
         log.debug("load schema file: %s", schema_file)
-        cfg = cls(cfg_schema=toml.load(schema_file), deprecated=deprecated)
+        cfg = cls(cfg_schema=toml_load(schema_file), deprecated=deprecated)
         if not cfg_file.exists():
             log.warning("missing config file: %s", cfg_file)
             return cfg
@@ -70,12 +80,7 @@ class Config:
         # load configuration
 
         log.debug("load config file: %s", cfg_file)
-        try:
-            upd_cfg = toml.load(cfg_file)
-        except toml.DecodeError as exc:
-            msg = str(exc).replace('\t', '').replace('\n', ' ')
-            log.error("%s: %s", cfg_file, msg)
-            raise
+        upd_cfg = toml_load(cfg_file)
 
         is_valid, issue_list = cfg.validate(upd_cfg)
         for msg in issue_list:
@@ -177,6 +182,25 @@ class Config:
         return getattr(m, name)
 
 
+def toml_load(file_name):
+    if USE_TOMLLIB:
+        # Python >= 3.11
+        try:
+            with open(file_name, "rb") as f:
+                return tomllib.load(f)
+        except tomllib.TOMLDecodeError as exc:
+            msg = str(exc).replace('\t', '').replace('\n', ' ')
+            log.error("%s: %s", file_name, msg)
+            raise
+    # fallback to pytomlpp for Python < 3.11
+    try:
+        return pytomlpp.load(file_name)
+    except pytomlpp.DecodeError as exc:
+        msg = str(exc).replace('\t', '').replace('\n', ' ')
+        log.error("%s: %s", file_name, msg)
+        raise
+
+
 # working with dictionaries
 
 
@@ -211,7 +235,6 @@ def value(name: str, data_dict: dict):
 def validate(
     schema_dict: typing.Dict, data_dict: typing.Dict, deprecated: typing.Dict[str, str]
 ) -> typing.Tuple[bool, list]:
-
     """Deep validation of dictionary in ``data_dict`` against dictionary in
     ``schema_dict``.  Argument deprecated is a dictionary that maps deprecated
     configuration names to a messages::

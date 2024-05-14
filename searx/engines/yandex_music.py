@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """Yandex Music
 
 .. _Countries where Yandex.Music is available: https://yandex.com/support/music/access.html
@@ -30,6 +29,7 @@ paging = True
 # search-url
 url = 'https://music.yandex.ru'
 search_url = url + '/handlers/music-search.jsx'
+
 
 # do search-request
 def request(query, params):

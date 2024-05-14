@@ -1,10 +1,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
-"""Stract is an independent open source search engine. 
-At this state, it's still in beta and hence this implementation will need to be updated once beta ends.
+"""Stract is an independent open source search engine.  At this state, it's
+still in beta and hence this implementation will need to be updated once beta
+ends.
+
 """
 
 from json import dumps
+from searx.utils import searx_useragent
 
 about = {
     "website": "https://stract.com/",
@@ -22,7 +24,11 @@ search_url = "https://stract.com/beta/api/search"
 def request(query, params):
     params['url'] = search_url
     params['method'] = "POST"
-    params['headers'] = {'Accept': 'application/json', 'Content-Type': 'application/json'}
+    params['headers'] = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'User-Agent': searx_useragent(),
+    }
     params['data'] = dumps({'query': query, 'page': params['pageno'] - 1})
 
     return params

@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """Pinterest (images)
 """
 
@@ -48,6 +47,10 @@ def response(resp):
     )
 
     for result in json_resp['resource_response']['data']['results']:
+
+        if result['type'] == 'story':
+            continue
+
         results.append(
             {
                 'template': 'images.html',

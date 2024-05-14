@@ -1,4 +1,6 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later  # This code is licensed under the AGPL-3.0-or-later license.
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# pylint: disable=missing-module-docstring
+# This code is licensed under the AGPL-3.0-or-later license.
 # lint: pylint  # The pylint tool is used for linting the code.
 # pylint: disable=missing-module-docstring  # The missing-module-docstring warning from pylint is disabled.
 

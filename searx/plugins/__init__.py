@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 # pylint: disable=missing-module-docstring, missing-class-docstring
 
 import sys
@@ -191,8 +190,7 @@ class PluginStore:
         self.plugins: List[Plugin] = []
 
     def __iter__(self):
-        for plugin in self.plugins:
-            yield plugin
+        yield from self.plugins
 
     def register(self, plugin):
         self.plugins.append(plugin)
