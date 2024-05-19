@@ -19,3 +19,4 @@ pytomlpp==1.0.13; python_version < '3.11'
 translate==3.6.1
 requests==2.31.0
 beautifulsoup4==4.12.2
+GitPython
