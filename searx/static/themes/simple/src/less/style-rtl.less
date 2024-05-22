@@ -85,11 +85,15 @@
 
 .ltr-flex-dir(@offset) {
   & when (@offset = row) {
-    flex-direction: row-reverse
+    flex-direction: row-reverse;
   }
   & when (@offset = row-reverse) {
-    flex-direction: row
+    flex-direction: row;
   }
+}
+
+.ltr-translate(@offset){
+  translate: calc(-1 * @offset) !important;
 }
 
 @import "style.less";
@@ -174,4 +178,12 @@
 
 #main_results #links_on_top{
   translate: 100%;
+}
+
+@media screen and (max-width: @phone) {
+  #main_index #links_on_top {
+    top: 1rem;
+    left: 2rem;
+    translate: 1rem !important;
+  }
 }
