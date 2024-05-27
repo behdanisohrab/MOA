@@ -61,12 +61,9 @@
             {%- endif -%} {%- if infobox.attributes and infobox.urls -%}
         </div>
     </div>
-    <div class="infobox-more-btn">
+    <div id="infobox-more-btn" class="infobox-more-btn">
         <span class="btn">{{ icon('chevron-up-outline') }}</span>
     </div>
-    <script defer>
-        infoboxMore();
-    </script>
     {%- endif -%} {%- if infobox.relatedTopics -%}
     <div class="relatedTopics">
         {%- for topic in infobox.relatedTopics -%}
