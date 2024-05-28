@@ -39,13 +39,35 @@ function videosPreview() {
   $("#checkbox_videos").checked = true;
 }
 
-function infoboxMore() {
-  $$(".infobox").forEach((infobox) => {
-    const moreBtn = infobox.querySelector(".infobox-more-btn")
-    if (moreBtn) {
-      moreBtn.addEventListener("click", () => {
-        infobox.classList.toggle("collapse-open");
-      })
+// Watch for new #filters-btn & #infobox-more-btn elements and add event listener
+const observer = new MutationObserver((mutationsList) => {
+  for (const mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          if (node.id === 'filters-btn') {
+            node.onclick = function() {
+              toggleBtn(this, 'filters-visible', '.search_filters', 'invisible');
+            };
+          } else if (node.id ==='infobox-more-btn') {
+            const {parentNode} = node;
+            if (parentNode && parentNode.classList && parentNode.classList.contains('infobox')) {
+              node.onclick = function() {
+                parentNode.classList.toggle("collapse-open");
+              };
+            }
+          }
+          const filtersBtnDescendants = node.querySelectorAll && node.querySelectorAll('#filters-btn');
+          if (filtersBtnDescendants && filtersBtnDescendants.forEach) {
+            filtersBtnDescendants.forEach((descendant) => {
+              descendant.onclick = function() {
+                toggleBtn(this, 'filters-visible', '.search_filters', 'invisible');
+              };
+            });
+          }
+        }
+      });
     }
-  })
-}
+  }
+});
+observer.observe(document.body, { childList: true, subtree: true });
