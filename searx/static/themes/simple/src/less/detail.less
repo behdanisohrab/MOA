@@ -20,6 +20,7 @@ article.result-images .detail {
   top: @search-height;
   transition: top 0.064s ease-in 0s;
   bottom: 0;
+  align-items: center;
   background: var(--color-result-detail-background);
   border: 1px solid var(--color-result-detail-background);
   z-index: 10000;
@@ -56,6 +57,7 @@ article.result-images .detail {
   .result-images-labels {
     color: var(--color-result-detail-font);
     height: 19rem;
+    width: 100%;
 
     hr {
       border-top: 1px solid var(--color-result-detail-hr);
@@ -144,7 +146,7 @@ article.result-images .detail {
     display: flex;
     bottom: 1rem;
     position: absolute;
-    width: calc(100% - 6rem);
+    align-items: center;
     justify-content: center;
     
     a.result-detail-previous {
@@ -170,8 +172,8 @@ article.result-images .detail {
   a.result-detail-next,
   a.result-detail-previous {
     display: block;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     filter: opacity(40%);
     z-index: 2000002;
 
