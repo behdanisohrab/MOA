@@ -4,19 +4,29 @@
 import os
 import logging
 import importlib
-from git import Repo, GitCommandError, InvalidGitRepositoryError
-from packaging.version import Version, InvalidVersion
 
 # Fallback values
-VERSION_STRING = "1.0.0"
-VERSION_TAG = "1.0.0"
+VERSION_STRING = "0.4"
+VERSION_TAG = "0.4"
+DOCKER_TAG = "0.4"
 GIT_URL = "unknown"
 GIT_BRANCH = "unknown"
 
 logger = logging.getLogger("MOA")
 
+
+def is_git_installed():
+    try:
+        from git import Repo, GitCommandError, InvalidGitRepositoryError, NoSuchPathError
+        return True
+    except ImportError:
+        logger.error("GitPython is not installed.")
+        return False
+
+
 def get_latest_tag(repo_path='.'):
     try:
+        from git import Repo
         repo = Repo(repo_path)
         latest_tag = repo.git.describe('--tags', '--abbrev=0')
         return latest_tag
@@ -24,8 +34,10 @@ def get_latest_tag(repo_path='.'):
         logger.error("Error while getting the latest tag: %s", str(e))
         return "1.0.0"
 
+
 def get_git_url_and_branch(repo_path='.'):
     try:
+        from git import Repo
         repo = Repo(repo_path)
         git_url = next(repo.remote().urls)
         git_branch = repo.active_branch.name
@@ -41,8 +53,10 @@ def get_git_url_and_branch(repo_path='.'):
         logger.error("Error while getting the git URL & branch: %s", str(e))
         return GIT_URL, GIT_BRANCH
 
+
 def get_git_version(repo_path='.'):
     try:
+        from git import Repo
         repo = Repo(repo_path)
         git_commit = repo.head.commit
         git_commit_date = git_commit.committed_datetime.strftime('%Y.%m.%d')
@@ -54,6 +68,7 @@ def get_git_version(repo_path='.'):
         logger.error("Error while getting the version: %s", str(e))
         return VERSION_STRING, VERSION_TAG, VERSION_STRING
 
+
 try:
     vf = importlib.import_module('searx.version_frozen')
     VERSION_STRING, VERSION_TAG, DOCKER_TAG, GIT_URL, GIT_BRANCH = (
@@ -64,8 +79,12 @@ try:
         vf.GIT_BRANCH,
     )
 except ImportError:
-    VERSION_STRING, VERSION_TAG, DOCKER_TAG = get_git_version()
-    GIT_URL, GIT_BRANCH = get_git_url_and_branch()
+    if is_git_installed():
+        VERSION_STRING, VERSION_TAG, DOCKER_TAG = get_git_version()
+        GIT_URL, GIT_BRANCH = get_git_url_and_branch()
+    else:
+        logger.error(
+            "Git is not installed or the directory is not a git repository, falling back to default values.")
 
 logger.info("version: %s", VERSION_STRING)
 
