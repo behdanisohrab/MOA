@@ -2,17 +2,23 @@ import git
 import os
 import shutil
 import json
+import logging
+logging.basicConfig(level=logging.INFO)
+
+
 def delete_cache_in_folder(folder_path):
-    file_list = os.listdir(folder_path)
-    for file_name in file_list:
-        file_path = os.path.join(folder_path, file_name)
-        if os.path.isfile(file_path):
-            os.remove(file_path)
-        elif os.path.isdir(file_path):
-            delete_cache_in_folder(file_path)
-def delete_folder_cache():
-    cache_folder = 'mpm_cache'
-    delete_cache_in_folder(cache_folder)
+    try:
+        file_list = os.listdir(folder_path)
+        for file_name in file_list:
+            file_path = os.path.join(folder_path, file_name)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+            elif os.path.isdir(file_path):
+                delete_cache_in_folder(file_path)
+    except FileNotFoundError as e:
+        logging.warning(f"Folder not found: {folder_path}")
+    except PermissionError as e:
+        logging.error(f"Permission denied")
 
 
 def check_file_and_extract_type(name):
@@ -23,102 +29,71 @@ def check_file_and_extract_type(name):
         return
 
     with open(file_path, "r") as file:
-        data = json.load(file)
-        file_type = data.get("type")
+        try:
+            with open(file_path, "r") as file:
+                data = json.load(file)
+                file_type = data.get("type")
 
-        if file_type:
-            return file_type
-        else:
-            print("Error: The Information.json file is corrupted")
-
+                if file_type:
+                    return file_type
+                else:
+                    logging.error(
+                        "Error: The Information.json file is corrupted")
+        except json.JSONDecodeError:
+            logging.error(
+                "Error: The Information.json file is not a valid JSON")
 
 
 def extract_repository_name(url):
     url_parts = url.split("/")
-    repository_name = url_parts[-1]
-    repository_name = repository_name.split(".")[0]
+    repository_name = url_parts[-1].split(".")[0]
     return repository_name
 
 
-
 def clone_repository(url):
-    git.Repo.clone_from(url, "mpm_cache")
+    repo_path = "mpm_cache"
+    if os.path.exists(repo_path):
+        shutil.rmtree(repo_path)
+    git.Repo.clone_from(url, repo_path)
+    return extract_repository_name(url)
 
 
+def move_files(source_dir, destination_dir):
+    files = os.listdir(source_dir)
+    for file in files:
+        source_file = os.path.join(source_dir, file)
+        destination_file = os.path.join(destination_dir, file)
+        shutil.move(source_file, destination_file)
 
-def instaler(p_type, name):
 
+def installer(p_type, name):
+    base_dir = f"mpm_cache/{name}"
     if p_type == "engine":
-        destination_file = os.path.join("/searx/engines/", file)
-        files = os.listdir(f"/mpm_cache/{name}")
-
-        for file in files:
-            source_file = os.path.join(f"/mpm_cache/{name}", file)
-            shutil.move(source_file, destination_file)
-
+        move_files(base_dir, "/searx/engines/")
     elif p_type == "answerer":
-        destination_file = os.path.join("/searx/answerers/", file)
-        files = os.listdir("/mpm_cache")
-
-        for file in files:
-            source_file = os.path.join("/mpm_cache", file)
-            shutil.move(source_file, destination_file)
-
+        move_files(base_dir, "/searx/answerers/")
     elif p_type == "plugin":
-        destination_file = os.path.join("/searx/plugins/", file)
-        files = os.listdir("/mpm_cache")
-
-        for file in files:
-            source_file = os.path.join("/mpm_cache", file)
-            shutil.move(source_file, destination_file)
+        move_files(base_dir, "/searx/plugins/")
     elif p_type == "theme":
-        destination_file = os.path.join("/searx/static/", file)
-        files = os.listdir("/mpm_cache/static")
+        move_files(os.path.join(base_dir, "static"), "/searx/static/")
+    else:
+        logging.error(f"Unknown package type: {p_type}")
 
-        destination_file_templates = os.path.join("/searx/static/", file)
-        files_templates = os.listdir("/mpm_cache/static")
-
-        for file in files:
-            source_file = os.path.join("/mpm_cache", file)
-            shutil.move(source_file, destination_file)
-        for file in files_templates:
-            source_file = os.path.join("/mpm_cache", file)
-            shutil.move(source_file, destination_file_templates)
 
 def lister():
     current_directory = os.path.dirname(os.path.abspath(__file__))
+    categories = ["engines", "answerers", "plugins", "static/themes"]
+    ret = ""
 
-    # print engines
-    contents = os.listdir(current_directory + "/searx/engines/")
-    filtered_items = [item for item in contents if item != "__init__.py" and not item.endswith("pycache")]
-    engines = ""
-    for item in contents:
-        if item == "__init__.py" or item.endswith("__pycache__"):
-            continue
+    for category in categories:
+        path = os.path.join(current_directory, f"searx/{category}")
+        if os.path.exists(path):
+            items = [item for item in os.listdir(
+                path) if item != "__init__.py" and not item.endswith("__pycache__")]
+            ret += f"\n{category}:\n" + ", ".join(items) + "\n"
         else:
-            engines += item + "  "
-
-    # print answerers
-    contents = os.listdir(current_directory + "/searx/answerers/")
-    answerers = ""
-    for item in contents:
-        if item == "__init__.py" or item.endswith("__pycache__"):
-            continue
-        answerers += item + ", "
-
-    # print plugins
-    contents = os.listdir(current_directory + "/searx/plugins/")
-    plugins = ""
-    for item in contents:
-        if item == "__init__.py" or item.endswith("__pycache__"):
-            continue
-        plugins += item + ", "
-
-        # print themes
-    contents = os.listdir(current_directory + "/searx/static/themes/")
-    themes = ""
-    for item in contents:
-        themes += item + ", "
+            ret += f"\n{category}:\nNo items found.\n"
+    return ret
 
     ret = f'''
 engines:
@@ -135,7 +110,11 @@ themes:
 
     '''
     return ret
-text = ''' mpm MOA package manager
+
+
+text = '''
+mpm MOA package manager
+
 To install the package:
 install <git url>
 
@@ -146,9 +125,8 @@ For the list of packages:
 list
 '''
 print(text)
-
+delete_cache_in_folder('mpm_cache')
 while True:
-    delete_folder_cache()
     command = input(">>>")
     words = command.split()
     first_word = words[0] if words else ""
@@ -161,13 +139,14 @@ while True:
             if pack_type:
                 installer(pack_type, pack_name)
             else:
+                logging.warning("Package type not found.")
                 continue
         else:
             print("Package name is missing.")
             continue
 
     elif first_word in ("remove", "r"):
-        print("test")
+        print("remove functionality not implemented")
     elif first_word in ("list", "l"):
         print(lister())
     elif first_word == "exit":
