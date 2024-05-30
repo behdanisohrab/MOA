@@ -96,7 +96,8 @@ def parse_safesearch(preferences: Preferences, form: Dict[str, str]) -> int:
 def parse_time_range(form: Dict[str, str]) -> Optional[str]:
     query_time_range = form.get('time_range')
     # check time_range
-    query_time_range = None if query_time_range in ('', 'None') else query_time_range
+    query_time_range = None if query_time_range in (
+        '', 'None') else query_time_range
     if query_time_range not in (None, 'day', 'week', 'month', 'year'):
         raise SearxParameterException('time_range', query_time_range)
     return query_time_range
@@ -117,7 +118,8 @@ def parse_timeout(form: Dict[str, str], raw_text_query: RawTextQuery) -> Optiona
 
 def parse_category_form(query_categories: List[str], name: str, value: str) -> None:
     if name == 'categories':
-        query_categories.extend(categ for categ in map(str.strip, value.split(',')) if categ in categories)
+        query_categories.extend(categ for categ in map(
+            str.strip, value.split(',')) if categ in categories)
     elif name.startswith('category_'):
         category = name[9:]
 
@@ -195,7 +197,8 @@ def parse_generic(preferences: Preferences, form: Dict[str, str], disabled_engin
         # explicit list of engines with the "engines" parameter in the form
         if query_categories:
             # add engines from referenced by the "categories" parameter and the "category_*"" parameters
-            query_engineref_list.extend(get_engineref_from_category_list(query_categories, disabled_engines))
+            query_engineref_list.extend(get_engineref_from_category_list(
+                query_categories, disabled_engines))
     else:
         # no "engines" parameters in the form
         if not query_categories:
@@ -205,7 +208,8 @@ def parse_generic(preferences: Preferences, form: Dict[str, str], disabled_engin
 
         # using all engines for that search, which are
         # declared under the specific categories
-        query_engineref_list.extend(get_engineref_from_category_list(query_categories, disabled_engines))
+        query_engineref_list.extend(get_engineref_from_category_list(
+            query_categories, disabled_engines))
 
     return query_engineref_list
 
@@ -267,7 +271,8 @@ def get_search_query_from_webapp(
     selected_locale = query_lang
 
     if query_lang == 'auto':
-        query_lang = detect_language(query, threshold=0, only_search_languages=True)
+        query_lang = detect_language(
+            query, threshold=0.55, only_search_languages=True)
         query_lang = query_lang or preferences.client.locale_tag or 'all'
 
     if not is_locked('categories') and raw_text_query.specific:
@@ -277,7 +282,8 @@ def get_search_query_from_webapp(
     else:
         # otherwise, using defined categories to
         # calculate which engines should be used
-        query_engineref_list = parse_generic(preferences, form, disabled_engines)
+        query_engineref_list = parse_generic(
+            preferences, form, disabled_engines)
 
     query_engineref_list = deduplicate_engineref_list(query_engineref_list)
     query_engineref_list, query_engineref_list_unknown, query_engineref_list_notoken = validate_engineref_list(
