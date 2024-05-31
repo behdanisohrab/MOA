@@ -50,8 +50,6 @@ MOA is a free and open source [metasearch engine] based on the [SearXNG project]
 
 <div class="moa">
 
-<span>
-
 <h3>MOA<template {{ "class='hide'" if get_setting('instance_customization.markdown', '') == '' else '' }}></template></h3>
 
 - **Enhanced UI/UX:**

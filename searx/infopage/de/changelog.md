@@ -50,8 +50,6 @@ MOA ist eine freie und quelloffene [Metasuchmaschine], die auf dem [SearXNG-Proj
 
 <div class="moa">
 
-<span>
-
 <h3>MOA<template {{ "class='hide'" if get_setting('instance_customization.markdown', '') == '' else '' }}></template></h3>
 
 - **Verbesserte Benutzeroberfläche:**

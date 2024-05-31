@@ -50,8 +50,6 @@ MOA یک [موتور فراجستجو] منبع باز و رایگان بر اس
 
 <div class="moa">
 
-<span>
-
 <h3>MOA<template {{ "class='hide'" if get_setting('instance_customization.markdown', '') == '' else '' }}></template></h3>
 
 - **رابط کاربری پیشرفته:**
