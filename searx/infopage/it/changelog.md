@@ -22,7 +22,7 @@ MOA è un [motore di metasearch] libero e open source basato sul [progetto SearX
   .container > div.local:has(p > template.hide) {
     display: none;
   }
-  .container > div.moa > span > h3:has(template.hide) {
+  .container > div.moa > h3:has(template.hide) {
     display: none;
   }
   @media (max-width: 800px) {
