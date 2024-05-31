@@ -92,6 +92,7 @@ class InfoPage:
 
         ctx = {}
         ctx['GIT_URL'] = GIT_URL
+        ctx['url_for'] = url_for
         ctx['get_setting'] = get_setting
         ctx['link'] = _md_link
         ctx['search'] = _md_search
@@ -132,6 +133,7 @@ class InfoPageSet:  # pylint: disable=too-few-public-methods
         self.toc: typing.List[str] = [
             'search-syntax',
             'about',
+            'changelog',
             'donate',
         ]
         """list of articles in the online documentation"""
