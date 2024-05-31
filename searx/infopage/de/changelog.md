@@ -62,7 +62,7 @@ MOA ist eine freie und quelloffene [Metasuchmaschine], die auf dem [SearXNG-Proj
   - Verbesserte persische Übersetzung
 - **Verbesserte Leistung und Benutzerfreundlichkeit:**
   - Langsame Motoren wurden deaktiviert, um die Geschwindigkeit zu erhöhen
-  - Überarbeitete [Engine Stats] **[WIP]**
+  - Überarbeitete [Engine Stats]
   - Suchvorschläge erscheinen nun früher
 - **Zusätzliche Plugins und Funktionen:**
   - MOA Plugin Manager **[WIP]**

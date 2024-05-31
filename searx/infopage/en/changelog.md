@@ -62,7 +62,7 @@ MOA is a free and open source [metasearch engine] based on the [SearXNG project]
   - Improved Persian translation
 - **Improved Performance & Usability:**
   - Slow engines were disabled to increase speed
-  - Reworked [Engine Stats] **[WIP]**
+  - Reworked [Engine Stats]
   - Search suggestions now appear sooner
 - **Additional Plugins and Features:**
   - MOA Plugin Manager **[WIP]**

@@ -62,7 +62,7 @@ MOA adalah mesin pencari [metasearch] yang gratis dan bersifat open source yang 
   - Terjemahan bahasa Persia yang lebih baik
 - **Peningkatan Kinerja & Kegunaan:**
   - Mesin lambat dinonaktifkan untuk meningkatkan kecepatan
-  - Pengerjaan Ulang [Engine Stats] **[WIP]**
+  - Pengerjaan Ulang [Engine Stats]
   - Saran pencarian sekarang muncul lebih cepat
 - **Plugin dan Fitur Tambahan:**
   - Manajer Plugin MOA **[WIP]**

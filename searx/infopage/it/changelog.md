@@ -62,7 +62,7 @@ MOA è un [motore di metasearch] libero e open source basato sul [progetto SearX
   - Traduzione persiana migliorata
 - **Prestazioni e usabilità migliorate:**
   - I motori lenti sono stati disattivati per aumentare la velocità
-  - Rielaborato [Engine Stats] **[WIP]**
+  - Rielaborato [Engine Stats]
   - I suggerimenti di ricerca vengono ora visualizzati prima
 - **Plugin e funzionalità aggiuntive:**
   - Gestione dei plugin MOA **[WIP]**
