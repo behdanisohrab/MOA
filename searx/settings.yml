@@ -13,6 +13,14 @@ general:
   # record stats
   enable_metrics: true
 
+#instance_customization:
+#  markdown: |
+#    ### Customizations for This Instance
+#
+#    - Example Change
+#    - Another <i>Example</i>
+#    * <strike>Additional</strike>
+#    * **Examples**
 
 brand:
   # Both favicon and logo are relative to SearXNG's root path unless they are absolute paths
