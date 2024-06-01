@@ -14,6 +14,7 @@ MOA is a free and open source search engine based on the searxng project. This p
 |--------|--------|
 | https://moae.sbs (Official) | [MiladHossein](https://github.com/MiladHossein) |
 | https://moa.mann-e.com | [prp-e](https://github.com/prp-e/) |
+| https://moa.mahdium.ir | [mahdium](https://gitlab.com/mahdium) |
 
 **MOA development group has no authority over unofficial servers.**
 
