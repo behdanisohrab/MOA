@@ -4,7 +4,7 @@ import re
 
 name = "MOA Weather Data Plugin"
 description = gettext("Displays weather data for a given location using the Open Meteo API, with improved formatting.")
-default_on = True
+default_on = False
 preference_section = 'general'
 
 query_re = re.compile(r'weather\s+(?:in\s+)?(.+)', re.IGNORECASE)
